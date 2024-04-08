@@ -106,6 +106,35 @@ public class ParseTabbycatXML {
             }
         }
     }
+
+    public void getRounds(Document document) {
+        NodeList roundList = document.getElementsByTagName("round");
+        for (int i = 0; i < roundList.getLength(); i++) {
+            Node round = roundList.item(i);
+            if (round.getNodeType() == Node.ELEMENT_NODE) {
+                NamedNodeMap attributes = round.getAttributes();
+                String roundId = attributes.getNamedItem("abbreviation").getNodeValue();
+                String roundName = attributes.getNamedItem("name").getNodeValue();
+                Boolean isBreakRound = Boolean.valueOf(attributes.getNamedItem("elimination").getNodeValue());
+                System.out.println("Round: " + roundName + ", ID: " + roundId + ", Break Round: " + isBreakRound);
+                getDebates(round);
+            }
+        }
+    }
+
+    private void getDebates(Node round) {
+        NodeList debatesList = round.getChildNodes();
+        for (int i = 0; i < debatesList.getLength(); i++) {
+            Node debate = debatesList.item(i);
+            if (debate.getNodeType() == Node.ELEMENT_NODE) {
+                NamedNodeMap attributes = debate.getAttributes();
+                String debateId = attributes.getNamedItem("id").getNodeValue();
+                String debateVenue = attributes.getNamedItem("venue").getNodeValue();
+                String debateTime = attributes.getNamedItem("motion").getNodeValue();
+                System.out.println("\tDebate: " + debateId + ", Venue: " + debateVenue + ", Time: " + debateTime);
+            }
+        }
+    }
 }
 
 
