@@ -1,0 +1,1 @@
+A Spring Boot web app that parses the XML file exported from Tabbycat and then stores the information in a database. The intention is to make it easier to keep track of debaters throughout time and analyze their performance. Also could be used to track adjudicators as well.
