@@ -1,8 +1,6 @@
 package com.dineth.debateTracker.judge;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,10 +8,15 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity @Table(name="judge") @Getter @Setter @NoArgsConstructor
+@Entity
+@Table(name = "judge")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Judge implements Serializable {
-    @Id
-    private String id;
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "judge_seq")
+    @SequenceGenerator(name = "judge_seq", sequenceName = "judge_seq", allocationSize = 1)
+    private Long id;
     private String fname;
     private String lname;
     private String gender;
@@ -21,28 +24,18 @@ public class Judge implements Serializable {
     private String phone;
     private Date birthdate;
     private Float rating;
+    @Transient
+    private String tempId;
 
-    public Judge(String id, String fname, String lname, String gender, String email, String phone, Date birthdate, Float rating) {
-        this.id = id;
-        this.rating = rating;
+    public Judge(String tempId, Float rating, String fname, String lname) {
+        this.tempId = tempId;
         this.fname = fname;
-        this.lname = lname;
-        this.gender = gender;
-        this.email = email;
-        this.phone = phone;
-        this.birthdate = birthdate;
+        this.lname = lname == null ? "" : lname;
+        this.rating = rating;
     }
 
     @Override
     public String toString() {
-        return "Judge{" +
-                "id='" + id + '\'' +
-                ", name='" + fname + '\'' + " " + lname + '\'' +
-                ", gender='" + gender + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", birthdate=" + birthdate +
-                ", rating=" + rating +
-                '}';
+        return "Judge{" + "id='" + id + '\'' + ", name='" + fname + " " + lname + '\'' + ", gender='" + gender + '\'' + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", birthdate=" + birthdate + ", rating=" + rating + '}';
     }
 }

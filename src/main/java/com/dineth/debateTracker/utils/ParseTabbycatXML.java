@@ -1,13 +1,21 @@
 package com.dineth.debateTracker.utils;
 
+import com.dineth.debateTracker.debater.Debater;
+import com.dineth.debateTracker.institution.Institution;
+import com.dineth.debateTracker.judge.Judge;
+import com.dineth.debateTracker.motion.Motion;
+import com.dineth.debateTracker.team.Team;
+import com.dineth.debateTracker.tournament.Tournament;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import javax.lang.model.element.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParseTabbycatXML {
     String xmlPath;
@@ -34,11 +42,17 @@ public class ParseTabbycatXML {
         }
     }
 
-    public void getTournament(Document document) {
+    public Tournament getTournament(Document document) {
         Node tournament = document.getElementsByTagName("tournament").item(0);
-        System.out.println("Tournament: " + tournament.getAttributes().getNamedItem("name").getNodeValue() + ", Short: " + tournament.getAttributes().getNamedItem("short").getNodeValue());
+        String fullName = tournament.getAttributes().getNamedItem("name").getNodeValue();
+        String shortName = tournament.getAttributes().getNamedItem("short").getNodeValue();
+
+        return new Tournament(fullName, shortName);
     }
-    public void getTeamsAndSpeakers(Document document) {
+
+    public ImmutablePair<List<Debater>, List<Team>> getTeamsAndSpeakers(Document document) {
+        List<Debater> debaters = new ArrayList<>();
+        List<Team> teams = new ArrayList<>();
         NodeList teamList = document.getElementsByTagName("team");
         for (int i = 0; i < teamList.getLength(); i++) {
             Node team = teamList.item(i);
@@ -48,8 +62,11 @@ public class ParseTabbycatXML {
                 String teamName = attributes.getNamedItem("name").getNodeValue();
                 String teamCode = attributes.getNamedItem("code").getNodeValue();
                 String teamId = attributes.getNamedItem("id").getNodeValue();
-                System.out.println("Team: " + teamName + ", Code: " + teamCode + ", ID: " + teamId);
 
+                Team tempTeam = new Team(teamId, teamName, teamCode, null, null);
+
+                List<Debater> teamDebaters = new ArrayList<>();
+                List<String> institutionIdsOfDebatersInTeam = new ArrayList<>();
                 NodeList speakerList = team.getChildNodes();
                 for (int j = 0; j < speakerList.getLength(); j++) {
                     Node speaker = speakerList.item(j);
@@ -58,30 +75,54 @@ public class ParseTabbycatXML {
                         String speakerId = speakerAttributes.getNamedItem("id").getNodeValue();
                         String speakerName = speaker.getTextContent();
                         String speakerInstitutionId = speakerAttributes.getNamedItem("institutions").getNodeValue();
+                        if (!institutionIdsOfDebatersInTeam.contains(speakerInstitutionId)) {
+                            institutionIdsOfDebatersInTeam.add(speakerInstitutionId);
+                        }
+                        ImmutablePair<String, String> names = StringUtil.splitName(speakerName);
 
-                        System.out.println("\tSpeaker: " + speakerName + ", ID: " + speakerId + ", Institution: " + speakerInstitutionId);
+                        Debater tempDebater = new Debater(speakerId, names.getLeft(), names.getRight(), null);
+
+                        teamDebaters.add(tempDebater);
 
                     }
+                    tempTeam.setDebaters(teamDebaters);
                 }
-
+                //TODO set institution and account for swing
+                if (institutionIdsOfDebatersInTeam.size() == 1) {
+                    tempTeam.setInstitutionId(institutionIdsOfDebatersInTeam.get(0));
+                }
+//                else {
+//                    tempTeam.setInstitution(new Institution("swing", "Swing", "swing"));
+//                }
+                teams.add(tempTeam);
+                debaters.addAll(teamDebaters);
             }
         }
+        return new ImmutablePair<>(debaters, teams);
     }
-    public void getAdjudicators(Document document) {
+
+    public List<Judge> getJudges(Document document) {
         NodeList adjudicatorList = document.getElementsByTagName("adjudicator");
+        List<Judge> judges = new ArrayList<>();
         for (int j = 0; j < adjudicatorList.getLength(); j++) {
             Node adjudicator = adjudicatorList.item(j);
             if (adjudicator.getNodeType() == Node.ELEMENT_NODE) {
                 NamedNodeMap attributes = adjudicator.getAttributes();
                 String adjName = attributes.getNamedItem("name").getNodeValue();
+                ImmutablePair<String, String> names = StringUtil.splitName(adjName);
                 Float adjScore = Float.valueOf(attributes.getNamedItem("score").getNodeValue());
                 String adjId = attributes.getNamedItem("id").getNodeValue();
-                System.out.println("Adjudicator: " + adjName + ", adjScore: " + adjScore + ", ID: " + adjId);
+
+                Judge temp = new Judge(adjId, adjScore, names.getLeft(), names.getRight());
+                judges.add(temp);
             }
         }
+        return judges;
     }
-    public void getInstitutions(Document document) {
+
+    public List<Institution> getInstitutions(Document document) {
         NodeList institutionList = document.getElementsByTagName("institution");
+        List<Institution> institutions = new ArrayList<>();
         for (int i = 0; i < institutionList.getLength(); i++) {
             Node institution = institutionList.item(i);
             if (institution.getNodeType() == Node.ELEMENT_NODE) {
@@ -89,11 +130,16 @@ public class ParseTabbycatXML {
                 String institutionCode = attributes.getNamedItem("reference").getNodeValue();
                 String institutionId = attributes.getNamedItem("id").getNodeValue();
                 String institutionName = institution.getTextContent();
-                System.out.println("Institution: " + institutionName + ", Code: " + institutionCode + ", ID: " + institutionId);
+
+                Institution temp = new Institution(institutionId, institutionName, institutionCode);
+                institutions.add(temp);
             }
         }
+        return institutions;
     }
-    public void getMotions(Document document) {
+
+    public List<Motion> getMotions(Document document) {
+        List<Motion> motions = new ArrayList<>();
         NodeList motionList = document.getElementsByTagName("motion");
         for (int i = 0; i < motionList.getLength(); i++) {
             Node motion = motionList.item(i);
@@ -101,10 +147,17 @@ public class ParseTabbycatXML {
                 NamedNodeMap attributes = motion.getAttributes();
                 String motionId = attributes.getNamedItem("id").getNodeValue();
                 String motionCode = attributes.getNamedItem("reference").getNodeValue();
-                String motionText = motion.getTextContent().replace("\n", "").replace("\t", "");
-                System.out.println("Motion: " + motionText + ", ID: " + motionId + ", Code: " + motionCode);
+                String infoslide = "";
+                NodeList mc = motion.getChildNodes();
+                String motionText = mc.item(0).getTextContent();
+                if (mc.getLength() > 1) {
+                    infoslide = mc.item(1).getTextContent();
+                }
+                Motion temp = new Motion(motionText, motionId, infoslide, motionCode);
+                motions.add(temp);
             }
         }
+        return motions;
     }
 
     public void getRounds(Document document) {
@@ -117,12 +170,12 @@ public class ParseTabbycatXML {
                 String roundName = attributes.getNamedItem("name").getNodeValue();
                 Boolean isBreakRound = Boolean.valueOf(attributes.getNamedItem("elimination").getNodeValue());
                 System.out.println("Round: " + roundName + ", ID: " + roundId + ", Break Round: " + isBreakRound);
-                getDebates(round);
+                getRooms(round);
             }
         }
     }
 
-    private void getDebates(Node round) {
+    private void getRooms(Node round) {
         NodeList debatesList = round.getChildNodes();
         for (int i = 0; i < debatesList.getLength(); i++) {
             Node debate = debatesList.item(i);
@@ -130,8 +183,10 @@ public class ParseTabbycatXML {
                 NamedNodeMap attributes = debate.getAttributes();
                 String debateId = attributes.getNamedItem("id").getNodeValue();
                 String debateVenue = attributes.getNamedItem("venue").getNodeValue();
-                String debateTime = attributes.getNamedItem("motion").getNodeValue();
-                System.out.println("\tDebate: " + debateId + ", Venue: " + debateVenue + ", Time: " + debateTime);
+                String debateMotion = attributes.getNamedItem("motion").getNodeValue();
+                System.out.println("\tDebate: " + debateId + ", Venue: " + debateVenue + ", Motion: " + debateMotion);
+
+
             }
         }
     }

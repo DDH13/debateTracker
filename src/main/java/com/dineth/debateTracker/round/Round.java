@@ -12,13 +12,14 @@ import java.util.List;
 @Entity @Table(name="round") @Getter @Setter @NoArgsConstructor
 public class Round implements Serializable {
     @Id
-    private String id;
+    private Long id;
     private String roundName;
     private Integer roundNo;
     private Boolean isBreakRound;
-    @OneToOne
+    @OneToOne @JoinColumn(name = "motion_id")
     private Motion motion;
-    @OneToMany
+    @OneToMany @JoinColumn(name = "round_id")
     private List<Room> rooms;
-
+    @Transient
+    private String tempId;
 }

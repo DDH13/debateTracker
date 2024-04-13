@@ -1,12 +1,17 @@
 package com.dineth.debateTracker.tournament;
 
+import com.dineth.debateTracker.round.Round;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TournamentService {
     private final TournamentRepository tournamentRepository;
 
+    @Autowired
     public TournamentService(TournamentRepository tournamentRepository) {
         this.tournamentRepository = tournamentRepository;
     }
@@ -19,5 +24,21 @@ public class TournamentService {
         return tournamentRepository.save(tournament);
     }
 
+    public Tournament findTournamentById(Long id) {
+        return tournamentRepository.findById(id).orElse(null);
+    }
+
+    public void addRoundToTournament(Long tournamentId, Round round) {
+        Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
+        if (tournament != null) {
+            List<Round> rounds = tournament.getRounds();
+            if (rounds == null) {
+                rounds = new ArrayList<>();
+            }
+            rounds.add(round);
+            tournament.setRounds(rounds);
+            tournamentRepository.save(tournament);
+        }
+    }
 
 }

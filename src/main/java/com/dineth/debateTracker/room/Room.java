@@ -14,18 +14,20 @@ import java.util.List;
 @Entity @Table(name="room") @Getter @Setter @NoArgsConstructor
 public class Room implements Serializable {
     @Id
-    private String id;
-    @OneToOne
-    private Institution proposition;
-    @OneToOne
-    private Institution opposition;
+    private Long id;
+    @ManyToOne
+    private Team proposition;
+    @ManyToOne
+    private Team opposition;
     private String name;
-    @OneToOne
+    @ManyToOne
     private Team winner;
-    @OneToMany
+    @OneToMany @JoinColumn(name = "room_id")
     private List<Ballot> ballots;
+    @Transient
+    private String tempId;
 
-    public Institution getWinner() {
+    public Team getWinner() {
         String winningSide;
         if (ballots.size() == 1) {
             winningSide = ballots.get(0).getWinner();

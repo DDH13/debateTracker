@@ -2813,8 +2813,8 @@
         <adjudicator id="A155" name="Seniya" core="false" independent="false" score="2.5"/>
         <adjudicator id="A156" name="Dineth Hettiarachchi" core="false" independent="false" score="2.5"/>
         <adjudicator id="A157" name="Thisuru Hettiarachchi" core="false" independent="false" score="2.5"/>
-        <adjudicator id="A158" name="Aliza" core="false" independent="false" score="0.0"/>
-        <adjudicator id="A159" name="Nevan" core="false" independent="false" score="0.0"/>
+        <adjudicator id="A158" name="Aliza Hussain" core="false" independent="false" score="0.0"/>
+        <adjudicator id="A159" name="Nevan Serasundara" core="false" independent="false" score="0.0"/>
     </participants>
     <break-category id="BC1">Open</break-category>
     <institution id="I18" reference="AV">Anula Vidyalaya</institution>

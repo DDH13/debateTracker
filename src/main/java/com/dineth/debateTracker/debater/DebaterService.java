@@ -2,6 +2,7 @@ package com.dineth.debateTracker.debater;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +18,7 @@ public class DebaterService {
     private final DebaterRepository debaterRepository;
     private final RestTemplate restTemplate;
 
+    @Autowired
     public DebaterService(DebaterRepository debaterRepository, RestTemplateBuilder restTemplateBuilder) {
         this.debaterRepository = debaterRepository;
         this.restTemplate = restTemplateBuilder.build();
@@ -26,10 +28,13 @@ public class DebaterService {
         return debaterRepository.findAll();
     }
 
-    public Debater addNewDebater(Debater debater) {
+    public Debater addDebater(Debater debater) {
         return debaterRepository.save(debater);
     }
 
+    public Debater findDebaterById(Long id) {
+        return debaterRepository.findById(id).orElse(null);
+    }
 
     public void getDebatersFromAPI() {
         String API_KEY = "3a3362750dc52748956565d9f991b358dbd3d428";
@@ -52,7 +57,7 @@ public class DebaterService {
 
             //save to db
             for (Debater debater : debaters) {
-                this.addNewDebater(debater);
+                this.addDebater(debater);
             }
 
 //            {"id":233,"url":"https://slsdceng.calicotab.com/api/v1/tournaments/slsdc2023/speakers/233","team":"https://slsdceng.calicotab.com/api/v1/tournaments/slsdc2023/teams/61","categories":[],"_links":{"checkin":"https://slsdceng.calicotab.com/api/v1/tournaments/slsdc2023/speakers/233/checkin"},"name":"Yuhani Jayawardana","email":"yuhanijayawardana@gmail.com","phone":"","anonymous":false,"code_name":"67395536","url_key":"ihaolw6m","gender":"","pronoun":""}
