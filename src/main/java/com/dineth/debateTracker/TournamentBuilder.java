@@ -2,6 +2,7 @@ package com.dineth.debateTracker;
 
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.dtos.RoundDTO;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
 import com.dineth.debateTracker.judge.Judge;
@@ -51,7 +52,7 @@ public class TournamentBuilder {
 
     @GetMapping("/build")
     public Object buildTournament() {
-        ParseTabbycatXML parser = new ParseTabbycatXML("src/main/resources/static/Wickys_2024.xml");
+        ParseTabbycatXML parser = new ParseTabbycatXML("src/main/resources/static/SLSDC'23.xml");
         parser.parseXML();
 
         ImmutablePair<List<Debater>, List<Team>> pair = parser.getTeamsAndSpeakers(parser.document);
@@ -61,7 +62,9 @@ public class TournamentBuilder {
         List<Institution> institutions = parser.getInstitutions(parser.document);
         Tournament tournament = parser.getTournament(parser.document);
         List<Motion> motions = parser.getMotions(parser.document);
+        List<RoundDTO> rounds = parser.getRoundsDTO(parser.document);
 
+        System.out.println("RoundsDTO: " + rounds);
 
         //save debaters, judges, institutions
         for (Debater debater : debaters) {

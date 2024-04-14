@@ -1,7 +1,7 @@
 package com.dineth.debateTracker.round;
 
 import com.dineth.debateTracker.motion.Motion;
-import com.dineth.debateTracker.room.Room;
+import com.dineth.debateTracker.debate.Debate;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,5 @@ public class Round implements Serializable {
     @OneToOne @JoinColumn(name = "motion_id")
     private Motion motion;
     @OneToMany @JoinColumn(name = "round_id")
-    private List<Room> rooms;
-    @Transient
-    private String tempId;
+    private List<Debate> debates;
 }

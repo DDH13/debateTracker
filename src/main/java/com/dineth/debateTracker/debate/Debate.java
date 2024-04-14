@@ -1,7 +1,6 @@
-package com.dineth.debateTracker.room;
+package com.dineth.debateTracker.debate;
 
 import com.dineth.debateTracker.ballot.Ballot;
-import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.team.Team;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,8 +10,8 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity @Table(name="room") @Getter @Setter @NoArgsConstructor
-public class Room implements Serializable {
+@Entity @Table(name="debate") @Getter @Setter @NoArgsConstructor
+public class Debate implements Serializable {
     @Id
     private Long id;
     @ManyToOne
@@ -22,7 +21,7 @@ public class Room implements Serializable {
     private String name;
     @ManyToOne
     private Team winner;
-    @OneToMany @JoinColumn(name = "room_id")
+    @OneToMany @JoinColumn(name = "debate_id")
     private List<Ballot> ballots;
     @Transient
     private String tempId;

@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.utils;
 
 import com.dineth.debateTracker.debater.Debater;
+import com.dineth.debateTracker.dtos.*;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.motion.Motion;
@@ -15,6 +16,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParseTabbycatXML {
@@ -160,22 +162,30 @@ public class ParseTabbycatXML {
         return motions;
     }
 
-    public void getRounds(Document document) {
+    public List<RoundDTO> getRoundsDTO(Document document) {
+        List<RoundDTO> roundDTOs = new ArrayList<>();
         NodeList roundList = document.getElementsByTagName("round");
         for (int i = 0; i < roundList.getLength(); i++) {
             Node round = roundList.item(i);
             if (round.getNodeType() == Node.ELEMENT_NODE) {
                 NamedNodeMap attributes = round.getAttributes();
-                String roundId = attributes.getNamedItem("abbreviation").getNodeValue();
+                String roundAbbreviation = attributes.getNamedItem("abbreviation").getNodeValue();
                 String roundName = attributes.getNamedItem("name").getNodeValue();
-                Boolean isBreakRound = Boolean.valueOf(attributes.getNamedItem("elimination").getNodeValue());
-                System.out.println("Round: " + roundName + ", ID: " + roundId + ", Break Round: " + isBreakRound);
-                getRooms(round);
+                boolean isBreakRound = Boolean.parseBoolean(attributes.getNamedItem("elimination").getNodeValue());
+                double feedbackWeight;
+                if (attributes.getNamedItem("feedback_weight") != null) {
+                     feedbackWeight = Double.parseDouble(attributes.getNamedItem("feedback_weight").getNodeValue());
+                } else {
+                     feedbackWeight = 1.0;
+                }
+                roundDTOs.add(new RoundDTO(roundName, roundAbbreviation, isBreakRound, feedbackWeight, getDebatesDTO(round)));
             }
         }
+        return roundDTOs;
     }
 
-    private void getRooms(Node round) {
+    private List<DebateDTO> getDebatesDTO(Node round) {
+        List<DebateDTO> debateDTOS = new ArrayList<>();
         NodeList debatesList = round.getChildNodes();
         for (int i = 0; i < debatesList.getLength(); i++) {
             Node debate = debatesList.item(i);
@@ -183,13 +193,86 @@ public class ParseTabbycatXML {
                 NamedNodeMap attributes = debate.getAttributes();
                 String debateId = attributes.getNamedItem("id").getNodeValue();
                 String debateVenue = attributes.getNamedItem("venue").getNodeValue();
-                String debateMotion = attributes.getNamedItem("motion").getNodeValue();
-                System.out.println("\tDebate: " + debateId + ", Venue: " + debateVenue + ", Motion: " + debateMotion);
+                String adjudicators = attributes.getNamedItem("adjudicators").getNodeValue();
+                String chair = attributes.getNamedItem("chair").getNodeValue();
+                List<SideDTO> sideDTOs = getSidesDTO(debate);
+                debateDTOS.add(new DebateDTO(debateId, adjudicators, chair, debateVenue, null, sideDTOs));
+            }
 
+        }
+        return debateDTOS;
+    }
 
+    private List<SideDTO> getSidesDTO(Node debate) {
+        List<SideDTO> sideDTOs = new ArrayList<>();
+        NodeList sidesList = debate.getChildNodes();
+        for (int i = 0; i < sidesList.getLength(); i++) {
+            Node side = sidesList.item(i);
+            if (side.getNodeType() == Node.ELEMENT_NODE && side.getNodeName().equals("side")) {
+                NamedNodeMap attributes = side.getAttributes();
+                String teamId = attributes.getNamedItem("team").getNodeValue();
+                List<FinalTeamBallotDTO> finalTeamBallotDTOs = getFinalTeamBallotDTOs(side);
+                List<SpeechDTO> speechDTOs = getSpeechDTOs(side);
+                sideDTOs.add(new SideDTO(teamId, finalTeamBallotDTOs, speechDTOs));
             }
         }
+        return sideDTOs;
+    }
+
+    private List<SpeechDTO> getSpeechDTOs(Node side) {
+        List<SpeechDTO> speechDTOs = new ArrayList<>();
+        NodeList speechList = side.getChildNodes();
+        for (int i = 0; i < speechList.getLength(); i++) {
+            Node speech = speechList.item(i);
+            if (speech.getNodeType() == Node.ELEMENT_NODE && speech.getNodeName().equals("speech")) {
+                NamedNodeMap attributes = speech.getAttributes();
+                String debaterId = attributes.getNamedItem("speaker").getNodeValue();
+                boolean reply = Boolean.parseBoolean(attributes.getNamedItem("reply").getNodeValue());
+                List<IndividualSpeechBallotDTO> individualSpeechBallotDTOs = getIndividualSpeechBallotDTOs(speech);
+                speechDTOs.add(new SpeechDTO(debaterId, reply, individualSpeechBallotDTOs));
+            }
+        }
+        return speechDTOs;
+    }
+
+    private List<IndividualSpeechBallotDTO> getIndividualSpeechBallotDTOs(Node speech) {
+        List<IndividualSpeechBallotDTO> individualSpeechBallotDTOs = new ArrayList<>();
+        NodeList ballotList = speech.getChildNodes();
+        for (int i = 0; i < ballotList.getLength(); i++) {
+            Node ballot = ballotList.item(i);
+            if (ballot.getNodeType() == Node.ELEMENT_NODE && ballot.getNodeName().equals("ballot")) {
+                NamedNodeMap attributes = ballot.getAttributes();
+                String adjudicatorId = attributes.getNamedItem("adjudicators").getNodeValue();
+                double score = Double.parseDouble(ballot.getTextContent());
+                individualSpeechBallotDTOs.add(new IndividualSpeechBallotDTO(adjudicatorId, score));
+            }
+        }
+        return individualSpeechBallotDTOs;
+    }
+
+    private List<FinalTeamBallotDTO> getFinalTeamBallotDTOs(Node side) {
+        NodeList finalTeamBallotList = side.getChildNodes();
+        List<FinalTeamBallotDTO> finalTeamBallotDTOs = new ArrayList<>();
+        for (int i = 0; i < finalTeamBallotList.getLength(); i++) {
+            Node finalTeamBallot = finalTeamBallotList.item(i);
+            if (finalTeamBallot.getNodeType() == Node.ELEMENT_NODE && finalTeamBallot.getNodeName().equals("ballot")) {
+                NamedNodeMap attributes = finalTeamBallot.getAttributes();
+                String[] adjudicatorIdsArray = attributes.getNamedItem("adjudicators").getNodeValue().split(" ");
+                List<String> adjudicatorIds = new ArrayList<>(Arrays.asList(adjudicatorIdsArray));
+                boolean ignored = Boolean.parseBoolean(attributes.getNamedItem("ignored").getNodeValue());
+                boolean minority = false;
+                if (attributes.getNamedItem("minority") != null) {
+                    minority = Boolean.parseBoolean(attributes.getNamedItem("minority").getNodeValue());
+                }
+                double score = 0;
+                //check if text content is a double
+                if (finalTeamBallot.getTextContent().matches(".*\\d.*")) {
+                    score = Double.parseDouble(finalTeamBallot.getTextContent());
+                }
+                int rank = Integer.parseInt(attributes.getNamedItem("rank").getNodeValue());
+                finalTeamBallotDTOs.add(new FinalTeamBallotDTO(adjudicatorIds, minority, ignored, rank, score));
+            }
+        }
+        return finalTeamBallotDTOs;
     }
 }
-
-
