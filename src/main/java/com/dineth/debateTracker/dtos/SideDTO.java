@@ -13,6 +13,7 @@ public class SideDTO {
     private String teamId;
     private List<FinalTeamBallotDTO> ballots;
     private List<SpeechDTO> speeches;
+    private Long dbId;
 
     public SideDTO(String teamId, List<FinalTeamBallotDTO> ballots, List<SpeechDTO> speeches) {
         this.teamId = teamId;

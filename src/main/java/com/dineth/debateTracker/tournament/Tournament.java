@@ -1,10 +1,12 @@
 package com.dineth.debateTracker.tournament;
 
+import com.dineth.debateTracker.breakcategory.BreakCategory;
 import com.dineth.debateTracker.round.Round;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,6 +24,8 @@ public class Tournament implements Serializable {
     private String fullName;
     private String shortName;
     private Date date;
+    @OneToMany @JoinColumn(name = "tournament_id")
+    private List<BreakCategory> breakCategories;
 
     @JoinColumn(name = "tournament_id")
     @OneToMany

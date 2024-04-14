@@ -16,6 +16,7 @@ public class DebateDTO {
     private String venueIds;
     private String motionId;
     private List<SideDTO> sides;
+    private Long dbId;
 
     public DebateDTO(String id, String adjudicatorIds, String chairId, String venueIds, String motionId, List<SideDTO> sides) {
         this.id = id;

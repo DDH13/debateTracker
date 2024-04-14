@@ -18,11 +18,7 @@ public class Institution implements Serializable {
     private String abbreviation;
     @OneToMany  @JoinColumn(name = "institution_id")
     List<Team> teams;
-    @Transient
-    private String tempId;
-
-    public Institution(String tempId, String name, String abbreviation) {
-        this.tempId = tempId;
+    public Institution(String name, String abbreviation) {
         this.name = name;
         this.abbreviation = abbreviation;
     }

@@ -13,6 +13,7 @@ public class SpeechDTO {
     private String speakerId;
     private boolean reply;
     private List<IndividualSpeechBallotDTO> ballots;
+    private Long dbId;
 
     public SpeechDTO(String speakerId, boolean reply, List<IndividualSpeechBallotDTO> ballots) {
         this.speakerId = speakerId;

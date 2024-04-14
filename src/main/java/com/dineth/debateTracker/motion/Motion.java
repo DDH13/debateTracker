@@ -15,18 +15,17 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Motion implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "motion_seq")
+    @SequenceGenerator(name = "motion_seq", sequenceName = "motion_seq", allocationSize = 1)
     private Long id;
     private String code;
     private String motion;
     private String infoslide;
     @OneToOne(mappedBy = "motion")
     private Round round;
-    @Transient
-    private String tempId;
 
-    public Motion(String motion, String tempId, String infoslide, String code) {
+    public Motion(String motion, String infoslide, String code) {
         this.code = code != null ? code : "";
-        this.tempId = tempId != null ? tempId : "";
 
         //replace all spaces, newlines, tabs with one space
         this.motion = motion != null ? motion.replaceAll("\\s+", " ").trim() : "";
@@ -40,7 +39,6 @@ public class Motion implements Serializable {
                 ", code='" + code + '\'' +
                 ", motion='" + motion + '\'' +
                 ", infoslide='" + infoslide + '\'' +
-                ", tempId='" + tempId + '\'' +
                 '}';
     }
 

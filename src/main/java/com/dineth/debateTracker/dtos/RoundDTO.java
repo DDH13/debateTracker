@@ -15,6 +15,7 @@ public class RoundDTO {
     private boolean elimination;
     private double feedbackWeight;
     private List<DebateDTO> debates;
+    private Long dbId;
 
     public RoundDTO(String name, String abbreviation, boolean elimination, double feedbackWeight, List<DebateDTO> debates) {
         this.name = name;

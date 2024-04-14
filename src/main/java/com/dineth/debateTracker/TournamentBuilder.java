@@ -2,12 +2,13 @@ package com.dineth.debateTracker;
 
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.dtos.InstitutionDTO;
+import com.dineth.debateTracker.dtos.MotionDTO;
 import com.dineth.debateTracker.dtos.RoundDTO;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeService;
-import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.motion.MotionService;
 import com.dineth.debateTracker.round.Round;
 import com.dineth.debateTracker.team.Team;
@@ -59,9 +60,9 @@ public class TournamentBuilder {
         List<Debater> debaters = pair.getLeft();
         List<Team> teams = pair.getRight();
         List<Judge> judges = parser.getJudges(parser.document);
-        List<Institution> institutions = parser.getInstitutions(parser.document);
+        List<InstitutionDTO> institutionDTOs = parser.getInstitutionDTOs(parser.document);
         Tournament tournament = parser.getTournament(parser.document);
-        List<Motion> motions = parser.getMotions(parser.document);
+        List<MotionDTO> motionDTOs = parser.getMotionDTOs(parser.document);
         List<RoundDTO> rounds = parser.getRoundsDTO(parser.document);
 
         System.out.println("RoundsDTO: " + rounds);
@@ -73,25 +74,26 @@ public class TournamentBuilder {
         for (Judge judge : judges) {
             judgeService.addJudge(judge);
         }
-        for (Institution institution : institutions) {
-            institutionService.addInstitution(institution);
+        for (InstitutionDTO institutionDTO : institutionDTOs) {
+            Institution institution = new Institution(institutionDTO.name, institutionDTO.reference);
+            institution = institutionService.addInstitution(institution);
+            institutionDTO.dbId = institution.getId();
         }
         tournamentService.addRoundToTournament(1L, new Round());
 
         //add teams to institutions
-        Map<String, Institution> institutionMap = institutions.stream()
-                .collect(Collectors.toMap(Institution::getTempId, Function.identity()));
+        Map<String, InstitutionDTO> institutionDTOMap = institutionDTOs.stream().collect(Collectors.toMap(InstitutionDTO::getId, Function.identity()));
 
         for (Team team : teams) {
             String instID = team.getInstitutionId();
             if (instID != null) {
-                Institution institution = institutionMap.get(instID);
-                if (institution != null) {
-                    team.setInstitution(institution);
+                InstitutionDTO institutionDTO = institutionDTOMap.get(instID);
+                if (institutionDTO != null) {
+                    team.setInstitution(institutionService.findInstitutionById(institutionDTO.dbId));
                     team = teamService.addTeam(team);
-                    institutionService.addTeamToInstitution(institution.getId(), team);
+                    institutionService.addTeamToInstitution(institutionDTO.dbId, team);
                 } else {
-                    System.err.println("No matching institution found for Team with ID: " + instID);
+                    System.err.println("No matching institutionDTO found for Team with ID: " + instID);
                 }
             }
         }

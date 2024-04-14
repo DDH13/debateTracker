@@ -4,7 +4,6 @@ import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.dtos.*;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.judge.Judge;
-import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.tournament.Tournament;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -122,9 +121,9 @@ public class ParseTabbycatXML {
         return judges;
     }
 
-    public List<Institution> getInstitutions(Document document) {
+    public List<InstitutionDTO> getInstitutionDTOs(Document document) {
         NodeList institutionList = document.getElementsByTagName("institution");
-        List<Institution> institutions = new ArrayList<>();
+        List<InstitutionDTO> institutionDTOs = new ArrayList<>();
         for (int i = 0; i < institutionList.getLength(); i++) {
             Node institution = institutionList.item(i);
             if (institution.getNodeType() == Node.ELEMENT_NODE) {
@@ -133,15 +132,15 @@ public class ParseTabbycatXML {
                 String institutionId = attributes.getNamedItem("id").getNodeValue();
                 String institutionName = institution.getTextContent();
 
-                Institution temp = new Institution(institutionId, institutionName, institutionCode);
-                institutions.add(temp);
+                InstitutionDTO temp = new InstitutionDTO(institutionId, institutionName, institutionCode);
+                institutionDTOs.add(temp);
             }
         }
-        return institutions;
+        return institutionDTOs;
     }
 
-    public List<Motion> getMotions(Document document) {
-        List<Motion> motions = new ArrayList<>();
+    public List<MotionDTO> getMotionDTOs(Document document) {
+        List<MotionDTO> motionDTOs = new ArrayList<>();
         NodeList motionList = document.getElementsByTagName("motion");
         for (int i = 0; i < motionList.getLength(); i++) {
             Node motion = motionList.item(i);
@@ -155,11 +154,11 @@ public class ParseTabbycatXML {
                 if (mc.getLength() > 1) {
                     infoslide = mc.item(1).getTextContent();
                 }
-                Motion temp = new Motion(motionText, motionId, infoslide, motionCode);
-                motions.add(temp);
+                MotionDTO temp = new MotionDTO(motionId, motionText, infoslide, motionCode);
+                motionDTOs.add(temp);
             }
         }
-        return motions;
+        return motionDTOs;
     }
 
     public List<RoundDTO> getRoundsDTO(Document document) {
@@ -174,9 +173,9 @@ public class ParseTabbycatXML {
                 boolean isBreakRound = Boolean.parseBoolean(attributes.getNamedItem("elimination").getNodeValue());
                 double feedbackWeight;
                 if (attributes.getNamedItem("feedback_weight") != null) {
-                     feedbackWeight = Double.parseDouble(attributes.getNamedItem("feedback_weight").getNodeValue());
+                    feedbackWeight = Double.parseDouble(attributes.getNamedItem("feedback_weight").getNodeValue());
                 } else {
-                     feedbackWeight = 1.0;
+                    feedbackWeight = 1.0;
                 }
                 roundDTOs.add(new RoundDTO(roundName, roundAbbreviation, isBreakRound, feedbackWeight, getDebatesDTO(round)));
             }
