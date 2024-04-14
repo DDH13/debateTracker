@@ -2,7 +2,6 @@ package com.dineth.debateTracker.utils;
 
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.dtos.*;
-import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.tournament.Tournament;
@@ -43,12 +42,12 @@ public class ParseTabbycatXML {
         }
     }
 
-    public Tournament getTournament(Document document) {
+    public TournamentDTO getTournamentDTO(Document document) {
         Node tournament = document.getElementsByTagName("tournament").item(0);
         String fullName = tournament.getAttributes().getNamedItem("name").getNodeValue();
         String shortName = tournament.getAttributes().getNamedItem("short").getNodeValue();
 
-        return new Tournament(fullName, shortName);
+        return new TournamentDTO(fullName, shortName);
     }
 
     public ImmutablePair<List<Debater>, List<Team>> getTeamsAndSpeakers(Document document) {

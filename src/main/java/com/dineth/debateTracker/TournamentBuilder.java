@@ -5,6 +5,7 @@ import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.InstitutionDTO;
 import com.dineth.debateTracker.dtos.MotionDTO;
 import com.dineth.debateTracker.dtos.RoundDTO;
+import com.dineth.debateTracker.dtos.TournamentDTO;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
 import com.dineth.debateTracker.judge.Judge;
@@ -61,13 +62,13 @@ public class TournamentBuilder {
         List<Team> teams = pair.getRight();
         List<Judge> judges = parser.getJudges(parser.document);
         List<InstitutionDTO> institutionDTOs = parser.getInstitutionDTOs(parser.document);
-        Tournament tournament = parser.getTournament(parser.document);
+        TournamentDTO tournamentDTO = parser.getTournamentDTO(parser.document);
         List<MotionDTO> motionDTOs = parser.getMotionDTOs(parser.document);
         List<RoundDTO> rounds = parser.getRoundsDTO(parser.document);
 
         System.out.println("RoundsDTO: " + rounds);
 
-        //save debaters, judges, institutions
+        //save debaters, judges, institutions, tournament
         for (Debater debater : debaters) {
             debaterService.addDebater(debater);
         }
@@ -79,7 +80,9 @@ public class TournamentBuilder {
             institution = institutionService.addInstitution(institution);
             institutionDTO.dbId = institution.getId();
         }
-        tournamentService.addRoundToTournament(1L, new Round());
+
+        Tournament tournament = new Tournament(tournamentDTO.getFullName(), tournamentDTO.getShortName());
+        tournament = tournamentService.addTournament(tournament);
 
         //add teams to institutions
         Map<String, InstitutionDTO> institutionDTOMap = institutionDTOs.stream().collect(Collectors.toMap(InstitutionDTO::getId, Function.identity()));
@@ -98,10 +101,7 @@ public class TournamentBuilder {
             }
         }
 
-
-        return tournamentService.addTournament(tournament);
-
-
+        return tournament;
     }
 
 }
