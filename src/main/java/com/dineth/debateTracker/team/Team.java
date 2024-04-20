@@ -20,15 +20,8 @@ public class Team implements Serializable {
     private Boolean isEligibleForBreaks;
     @ManyToMany
     private List<Debater> debaters;
-    @ManyToOne
-    private Institution institution;
-    @Transient
-    private String tempId;
-    @Transient
-    private String institutionId;
 
-    public Team(String tempId, String teamName, String teamCode, Institution institution, List<Debater> debaters) {
-        this.tempId = tempId;
+    public Team(String teamName, String teamCode, Institution institution, List<Debater> debaters) {
         this.teamName = teamName;
         this.teamCode = teamCode;
         this.debaters = debaters;
@@ -41,7 +34,6 @@ public class Team implements Serializable {
                 ", teamName='" + teamName + '\'' +
                 ", teamCode='" + teamCode + '\'' +
                 ", debaters=" + debaters +
-                "tempId='" + tempId + '\'' +
                 '}';
     }
 

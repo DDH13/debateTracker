@@ -23,8 +23,6 @@ public class Debate implements Serializable {
     private Team winner;
     @OneToMany @JoinColumn(name = "debate_id")
     private List<Ballot> ballots;
-    @Transient
-    private String tempId;
 
     public Team getWinner() {
         String winningSide;

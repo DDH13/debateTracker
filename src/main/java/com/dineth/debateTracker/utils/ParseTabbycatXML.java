@@ -1,11 +1,6 @@
 package com.dineth.debateTracker.utils;
 
-import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.dtos.*;
-import com.dineth.debateTracker.judge.Judge;
-import com.dineth.debateTracker.team.Team;
-import com.dineth.debateTracker.tournament.Tournament;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -49,75 +44,64 @@ public class ParseTabbycatXML {
 
         return new TournamentDTO(fullName, shortName);
     }
-
-    public ImmutablePair<List<Debater>, List<Team>> getTeamsAndSpeakers(Document document) {
-        List<Debater> debaters = new ArrayList<>();
-        List<Team> teams = new ArrayList<>();
+    public List<TeamDTO> getTeamDTOs(Document document) {
         NodeList teamList = document.getElementsByTagName("team");
+        List<TeamDTO> teamDTOs = new ArrayList<>();
         for (int i = 0; i < teamList.getLength(); i++) {
             Node team = teamList.item(i);
-
             if (team.getNodeType() == Node.ELEMENT_NODE) {
                 NamedNodeMap attributes = team.getAttributes();
                 String teamName = attributes.getNamedItem("name").getNodeValue();
                 String teamCode = attributes.getNamedItem("code").getNodeValue();
                 String teamId = attributes.getNamedItem("id").getNodeValue();
-
-                Team tempTeam = new Team(teamId, teamName, teamCode, null, null);
-
-                List<Debater> teamDebaters = new ArrayList<>();
-                List<String> institutionIdsOfDebatersInTeam = new ArrayList<>();
-                NodeList speakerList = team.getChildNodes();
-                for (int j = 0; j < speakerList.getLength(); j++) {
-                    Node speaker = speakerList.item(j);
-                    if (speaker.getNodeType() == Node.ELEMENT_NODE) {
-                        NamedNodeMap speakerAttributes = speaker.getAttributes();
-                        String speakerId = speakerAttributes.getNamedItem("id").getNodeValue();
-                        String speakerName = speaker.getTextContent();
-                        String speakerInstitutionId = speakerAttributes.getNamedItem("institutions").getNodeValue();
-                        if (!institutionIdsOfDebatersInTeam.contains(speakerInstitutionId)) {
-                            institutionIdsOfDebatersInTeam.add(speakerInstitutionId);
-                        }
-                        ImmutablePair<String, String> names = StringUtil.splitName(speakerName);
-
-                        Debater tempDebater = new Debater(speakerId, names.getLeft(), names.getRight(), null);
-
-                        teamDebaters.add(tempDebater);
-
-                    }
-                    tempTeam.setDebaters(teamDebaters);
-                }
-                //TODO set institution and account for swing
-                if (institutionIdsOfDebatersInTeam.size() == 1) {
-                    tempTeam.setInstitutionId(institutionIdsOfDebatersInTeam.get(0));
-                }
-//                else {
-//                    tempTeam.setInstitution(new Institution("swing", "Swing", "swing"));
-//                }
-                teams.add(tempTeam);
-                debaters.addAll(teamDebaters);
+                String breakEligibilities = attributes.getNamedItem("break-eligibilities").getNodeValue();
+                List<DebaterDTO> debaterDTOs = getDebaterDTOs(team);
+                TeamDTO temp = new TeamDTO(teamId, teamName, teamCode, debaterDTOs, breakEligibilities);
+                teamDTOs.add(temp);
             }
         }
-        return new ImmutablePair<>(debaters, teams);
+        return teamDTOs;
     }
 
-    public List<Judge> getJudges(Document document) {
+    public List<DebaterDTO> getDebaterDTOs(Node team) {
+        List<DebaterDTO> debaterDTOs = new ArrayList<>();
+        NodeList speakerList = team.getChildNodes();
+        for (int j = 0; j < speakerList.getLength(); j++) {
+            Node speaker = speakerList.item(j);
+            if (speaker.getNodeType() == Node.ELEMENT_NODE) {
+                DebaterDTO temp = getDebaterDTO(speaker);
+                debaterDTOs.add(temp);
+            }
+        }
+        return debaterDTOs;
+    }
+
+    private static DebaterDTO getDebaterDTO(Node speaker) {
+        NamedNodeMap speakerAttributes = speaker.getAttributes();
+        String speakerId = speakerAttributes.getNamedItem("id").getNodeValue();
+        String speakerName = speaker.getTextContent();
+        String speakerInstitutionId = speakerAttributes.getNamedItem("institutions").getNodeValue();
+        String categories = speakerAttributes.getNamedItem("categories").getNodeValue();
+        return new DebaterDTO(speakerId, speakerName, speakerInstitutionId,categories);
+    }
+
+    public List<JudgeDTO> getJudgeDTOs(Document document) {
         NodeList adjudicatorList = document.getElementsByTagName("adjudicator");
-        List<Judge> judges = new ArrayList<>();
+        List<JudgeDTO> judgeDTOs = new ArrayList<>();
         for (int j = 0; j < adjudicatorList.getLength(); j++) {
             Node adjudicator = adjudicatorList.item(j);
             if (adjudicator.getNodeType() == Node.ELEMENT_NODE) {
                 NamedNodeMap attributes = adjudicator.getAttributes();
                 String adjName = attributes.getNamedItem("name").getNodeValue();
-                ImmutablePair<String, String> names = StringUtil.splitName(adjName);
-                Float adjScore = Float.valueOf(attributes.getNamedItem("score").getNodeValue());
                 String adjId = attributes.getNamedItem("id").getNodeValue();
-
-                Judge temp = new Judge(adjId, adjScore, names.getLeft(), names.getRight());
-                judges.add(temp);
+                Float adjScore = Float.valueOf(attributes.getNamedItem("score").getNodeValue());
+                Boolean core = Boolean.valueOf(attributes.getNamedItem("core").getNodeValue());
+                Boolean independent = Boolean.valueOf(attributes.getNamedItem("independent").getNodeValue());
+                JudgeDTO temp = new JudgeDTO(adjId, adjName, adjScore, core, independent);
+                judgeDTOs.add(temp);
             }
         }
-        return judges;
+        return judgeDTOs;
     }
 
     public List<InstitutionDTO> getInstitutionDTOs(Document document) {
@@ -144,20 +128,24 @@ public class ParseTabbycatXML {
         for (int i = 0; i < motionList.getLength(); i++) {
             Node motion = motionList.item(i);
             if (motion.getNodeType() == Node.ELEMENT_NODE) {
-                NamedNodeMap attributes = motion.getAttributes();
-                String motionId = attributes.getNamedItem("id").getNodeValue();
-                String motionCode = attributes.getNamedItem("reference").getNodeValue();
-                String infoslide = "";
-                NodeList mc = motion.getChildNodes();
-                String motionText = mc.item(0).getTextContent();
-                if (mc.getLength() > 1) {
-                    infoslide = mc.item(1).getTextContent();
-                }
-                MotionDTO temp = new MotionDTO(motionId, motionText, infoslide, motionCode);
+                MotionDTO temp = getMotionDTO(motion);
                 motionDTOs.add(temp);
             }
         }
         return motionDTOs;
+    }
+
+    private static MotionDTO getMotionDTO(Node motion) {
+        NamedNodeMap attributes = motion.getAttributes();
+        String motionId = attributes.getNamedItem("id").getNodeValue();
+        String motionCode = attributes.getNamedItem("reference").getNodeValue();
+        String infoslide = "";
+        NodeList mc = motion.getChildNodes();
+        String motionText = mc.item(0).getTextContent();
+        if (mc.getLength() > 1) {
+            infoslide = mc.item(1).getTextContent();
+        }
+        return new MotionDTO(motionId, motionText, infoslide, motionCode);
     }
 
     public List<RoundDTO> getRoundsDTO(Document document) {

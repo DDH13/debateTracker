@@ -39,8 +39,6 @@ public class Ballot implements Serializable {
     private Float oppReplyScore;
     @ManyToOne
     private Judge judge;
-    @Transient
-    private String tempId;
 
     public String getWinner() {
         float propScore = prop1Score + prop2Score + prop3Score + propReplyScore;

@@ -14,8 +14,6 @@ public class BreakCategory implements Serializable {
     @SequenceGenerator(name = "break_category_seq", sequenceName = "break_category_seq", allocationSize = 1)
     private Long id;
     private String name;
-    @ManyToOne
-    private Tournament tournament;
     public BreakCategory(String name) {
         this.name = name;
     }

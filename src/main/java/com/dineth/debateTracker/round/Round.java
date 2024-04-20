@@ -2,6 +2,7 @@ package com.dineth.debateTracker.round;
 
 import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.debate.Debate;
+import com.dineth.debateTracker.tournament.Tournament;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

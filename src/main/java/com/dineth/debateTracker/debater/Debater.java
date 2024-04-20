@@ -26,16 +26,10 @@ public class Debater implements Serializable {
     private String email;
     private String phone;
     private Date birthdate;
-    @ManyToOne
-    private Institution currentInstitution;
-    @Transient
-    private String tempId;
 
-    public Debater(String tempId, String fname, String lname, Institution currentInstitution) {
-        this.tempId = tempId;
+    public Debater(String fname, String lname) {
         this.fname = fname;
         this.lname = lname;
-        this.currentInstitution = currentInstitution;
     }
 
     @Override
@@ -47,8 +41,6 @@ public class Debater implements Serializable {
 //                ", email='" + email + '\'' +
 //                ", phone='" + phone + '\'' +
 //                ", birthdate=" + birthdate +
-                ", currentInstitution=" + currentInstitution +
-                ", tempId='" + tempId + '\'' +
                 '}';
     }
 }
