@@ -24,5 +24,10 @@ public class JudgeService {
         return judgeRepository.save(judge);
     }
 
+    public Judge checkJudgeExists(Judge judge) {
+        return judgeRepository.findByFnameAndLname(judge.getFname(), judge.getLname());
+    }
+
+
 
 }

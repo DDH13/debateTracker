@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.Serializable;
 import java.util.Date;

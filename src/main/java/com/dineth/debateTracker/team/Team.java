@@ -1,7 +1,6 @@
 package com.dineth.debateTracker.team;
 
 import com.dineth.debateTracker.debater.Debater;
-import com.dineth.debateTracker.institution.Institution;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +20,7 @@ public class Team implements Serializable {
     @ManyToMany
     private List<Debater> debaters;
 
-    public Team(String teamName, String teamCode, Institution institution, List<Debater> debaters) {
+    public Team(String teamName, String teamCode, List<Debater> debaters) {
         this.teamName = teamName;
         this.teamCode = teamCode;
         this.debaters = debaters;

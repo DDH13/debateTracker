@@ -24,11 +24,8 @@ public class Judge implements Serializable {
     private String phone;
     private Date birthdate;
     private Float rating;
-    @Transient
-    private String tempId;
 
-    public Judge(String tempId, Float rating, String fname, String lname) {
-        this.tempId = tempId;
+    public Judge(Float rating, String fname, String lname) {
         this.fname = fname;
         this.lname = lname == null ? "" : lname;
         this.rating = rating;
