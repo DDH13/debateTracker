@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.debate;
 
 import com.dineth.debateTracker.ballot.Ballot;
+import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.team.Team;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -23,6 +24,8 @@ public class Debate implements Serializable {
     private Team winner;
     @OneToMany @JoinColumn(name = "debate_id")
     private List<Ballot> ballots;
+    @ManyToOne @JoinColumn(name = "motion_id")
+    private Motion motion;
 
     public Team getWinner() {
         String winningSide;

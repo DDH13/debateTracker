@@ -1,6 +1,5 @@
 package com.dineth.debateTracker.motion;
 
-import com.dineth.debateTracker.round.Round;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,10 +18,10 @@ public class Motion implements Serializable {
     @SequenceGenerator(name = "motion_seq", sequenceName = "motion_seq", allocationSize = 1)
     private Long id;
     private String code;
+    @Column(columnDefinition = "TEXT")
     private String motion;
+    @Column(columnDefinition = "TEXT")
     private String infoslide;
-    @OneToOne(mappedBy = "motion")
-    private Round round;
 
     public Motion(String motion, String infoslide, String code) {
         this.code = code != null ? code : "";

@@ -44,6 +44,21 @@ public class ParseTabbycatXML {
 
         return new TournamentDTO(fullName, shortName);
     }
+
+    public List<BreakCategoryDTO> getBreakCategoryDTOs(Document document) {
+        NodeList breakCategoryList = document.getElementsByTagName("break-category");
+        List<BreakCategoryDTO> breakCategoryDTOs = new ArrayList<>();
+        for (int i = 0; i < breakCategoryList.getLength(); i++) {
+            Node breakCategory = breakCategoryList.item(i);
+            if (breakCategory.getNodeType() == Node.ELEMENT_NODE) {
+                NamedNodeMap attributes = breakCategory.getAttributes();
+                String id = attributes.getNamedItem("id").getNodeValue();
+                String name = breakCategory.getTextContent();
+                breakCategoryDTOs.add(new BreakCategoryDTO(id, name));
+            }
+        }
+        return breakCategoryDTOs;
+    }
     public List<TeamDTO> getTeamDTOs(Document document) {
         NodeList teamList = document.getElementsByTagName("team");
         List<TeamDTO> teamDTOs = new ArrayList<>();
@@ -261,4 +276,6 @@ public class ParseTabbycatXML {
         }
         return finalTeamBallotDTOs;
     }
+
+
 }

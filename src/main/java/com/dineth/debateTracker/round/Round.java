@@ -1,8 +1,6 @@
 package com.dineth.debateTracker.round;
 
-import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.debate.Debate;
-import com.dineth.debateTracker.tournament.Tournament;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +15,22 @@ public class Round implements Serializable {
     private String roundName;
     private Integer roundNo;
     private Boolean isBreakRound;
-    @OneToOne @JoinColumn(name = "motion_id")
-    private Motion motion;
     @OneToMany @JoinColumn(name = "round_id")
     private List<Debate> debates;
+
+    public Round(String roundName, Integer roundNo, Boolean isBreakRound) {
+        this.roundName = roundName;
+        this.roundNo = roundNo;
+        this.isBreakRound = isBreakRound;
+    }
+
+    @Override
+    public String toString() {
+        return "Round{" +
+                "id=" + id +
+                ", roundName='" + roundName + '\'' +
+                ", roundNo=" + roundNo +
+                ", isBreakRound=" + isBreakRound +
+                '}';
+    }
 }
