@@ -11,43 +11,30 @@ import java.io.Serializable;
 
 @Entity @Table(name="ballot") @Getter @Setter @NoArgsConstructor
 public class Ballot implements Serializable {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ballot_seq")
+    @SequenceGenerator(name = "ballot_seq", sequenceName = "ballot_seq", allocationSize = 1)
     private Long id;
-    @ManyToOne
-    private Debater prop1;
-    private Float prop1Score;
-    @ManyToOne
-    private Debater prop2;
-    private Float prop2Score;
-    @ManyToOne
-    private Debater prop3;
-    private Float prop3Score;
-    @ManyToOne
-    private Debater propReply;
-    private Float propReplyScore;
-    @ManyToOne
-    private Debater opp1;
-    private Float opp1Score;
-    @ManyToOne
-    private Debater opp2;
-    private Float opp2Score;
-    @ManyToOne
-    private Debater opp3;
-    private Float opp3Score;
-    @ManyToOne
-    private Debater oppReply;
-    private Float oppReplyScore;
+
     @ManyToOne
     private Judge judge;
+    @ManyToOne
+    private Debater debater;
+    private Float speakerScore;
 
-    public String getWinner() {
-        float propScore = prop1Score + prop2Score + prop3Score + propReplyScore;
-        float oppScore = opp1Score + opp2Score + opp3Score + oppReplyScore;
-        if (propScore > oppScore) {
-            return "proposition";
-        } else {
-            return "opposition";
-        }
+    public Ballot(Judge judge, Debater debater, Float speakerScore) {
+        this.judge = judge;
+        this.debater = debater;
+        this.speakerScore = speakerScore;
+    }
+
+    @Override
+    public String toString() {
+        return "Ballot{" +
+                "id=" + id +
+                ", judge=" + judge +
+                ", debater=" + debater +
+                ", speakerScore=" + speakerScore +
+                '}';
     }
 
 }
