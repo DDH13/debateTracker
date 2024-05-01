@@ -1,9 +1,11 @@
 package com.dineth.debateTracker;
 
 import com.dineth.debateTracker.ballot.Ballot;
+import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.breakcategory.BreakCategory;
 import com.dineth.debateTracker.breakcategory.BreakCategoryService;
 import com.dineth.debateTracker.debate.Debate;
+import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.*;
@@ -40,23 +42,27 @@ public class TournamentBuilder {
     private final JudgeService judgeService;
     private final TeamService teamService;
     private final DebaterService debaterService;
+    private final DebateService debateService;
     private final InstitutionService institutionService;
     private final MotionService motionService;
     private final TournamentService tournamentService;
     private final BreakCategoryService breakCategoryService;
+    private final BallotService ballotService;
 
     private final RoundService roundService;
 
 
     @Autowired
-    public TournamentBuilder(JudgeService judgeService, TeamService teamService, DebaterService debaterService, InstitutionService institutionService, MotionService motionService, TournamentService tournamentService, BreakCategoryService breakCategoryService, RoundService roundService) {
+    public TournamentBuilder(JudgeService judgeService, TeamService teamService, DebaterService debaterService, DebateService debateService, InstitutionService institutionService, MotionService motionService, TournamentService tournamentService, BreakCategoryService breakCategoryService, BallotService ballotService, RoundService roundService) {
         this.judgeService = judgeService;
         this.teamService = teamService;
         this.debaterService = debaterService;
+        this.debateService = debateService;
         this.institutionService = institutionService;
         this.motionService = motionService;
         this.tournamentService = tournamentService;
         this.breakCategoryService = breakCategoryService;
+        this.ballotService = ballotService;
         this.roundService = roundService;
     }
 
@@ -80,133 +86,179 @@ public class TournamentBuilder {
 
 
         //save debaters, institutions, judges, motions, teams
-        for (InstitutionDTO institutionDTO : institutionDTOs) {
-            Institution institution = new Institution(institutionDTO.name, institutionDTO.reference);
-            institution = institutionService.addInstitution(institution);
-            institutionDTO.dbId = institution.getId();
-        }
 
-        for (JudgeDTO judgeDTO : judgeDTOs) {
-            ImmutablePair<String, String> names = StringUtil.splitName(judgeDTO.getName());
-            Judge judge = new Judge(judgeDTO.getScore(), names.getLeft(), names.getRight());
-            Judge existingJudge = judgeService.checkJudgeExists(judge);
-            if (existingJudge == null) {
-                judge = judgeService.addJudge(judge);
-            } else {
-                judge = existingJudge;
+        try {
+            for (InstitutionDTO institutionDTO : institutionDTOs) {
+                Institution institution = new Institution(institutionDTO.name, institutionDTO.reference);
+                institution = institutionService.addInstitution(institution);
+                institutionDTO.dbId = institution.getId();
             }
-            judgeDTO.setDbId(judge.getId());
-            judgeDTOMap.put(judgeDTO.getId(), judgeDTO);
+        } catch (Exception e) {
+            System.out.println("Error in adding institution");
+            e.printStackTrace();
         }
 
-        for (TeamDTO teamDTO : teamDTOs) {
-            List<DebaterDTO> debaterDTOs = teamDTO.getDebaters();
-            List<Debater> debaters = debaterDTOs.stream().map(debaterDTO -> {
-                ImmutablePair<String, String> names = StringUtil.splitName(debaterDTO.getName());
-                Debater debater = new Debater(names.getLeft(), names.getRight());
-                debater = debaterService.addDebater(debater);
-                debaterDTO.setDbId(debater.getId());
-                debaterDTOMap.put(debaterDTO.getId(), debaterDTO);
-                return debater;
-            }).collect(Collectors.toList());
-            Team team = new Team(teamDTO.getName(), teamDTO.getCode(), debaters);
-            team = teamService.addTeam(team);
-            teamDTO.setDbId(team.getId());
-            teamDTOMap.put(teamDTO.getId(), teamDTO);
+        try {
+            for (JudgeDTO judgeDTO : judgeDTOs) {
+                ImmutablePair<String, String> names = StringUtil.splitName(judgeDTO.getName());
+                Judge judge = new Judge(judgeDTO.getScore(), names.getLeft(), names.getRight());
+                Judge existingJudge = judgeService.checkJudgeExists(judge);
+                if (existingJudge == null) {
+                    judge = judgeService.addJudge(judge);
+                } else {
+                    judge = existingJudge;
+                }
+                judgeDTO.setDbId(judge.getId());
+                judgeDTOMap.put(judgeDTO.getId(), judgeDTO);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in adding judge");
+            e.printStackTrace();
+        }
+
+        try {
+            for (TeamDTO teamDTO : teamDTOs) {
+                List<DebaterDTO> debaterDTOs = teamDTO.getDebaters();
+                List<Debater> debaters = debaterDTOs.stream().map(debaterDTO -> {
+                    ImmutablePair<String, String> names = StringUtil.splitName(debaterDTO.getName());
+                    Debater debater = new Debater(names.getLeft(), names.getRight());
+                    debater = debaterService.addDebater(debater);
+                    debaterDTO.setDbId(debater.getId());
+                    debaterDTOMap.put(debaterDTO.getId(), debaterDTO);
+                    return debater;
+                }).collect(Collectors.toList());
+                Team team = new Team(teamDTO.getName(), teamDTO.getCode(), debaters);
+                team = teamService.addTeam(team);
+                teamDTO.setDbId(team.getId());
+                teamDTOMap.put(teamDTO.getId(), teamDTO);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in adding team");
+            e.printStackTrace();
         }
 
         Tournament tournament = new Tournament(tournamentDTO.getFullName(), tournamentDTO.getShortName());
         tournament = tournamentService.addTournament(tournament);
 
-        for (BreakCategoryDTO breakCategoryDTO : breakCategoryDTOs) {
-            BreakCategory breakCategory = new BreakCategory(breakCategoryDTO.getName());
-            breakCategory = breakCategoryService.addBreakCategory(breakCategory);
-            breakCategoryDTO.setDbId(breakCategory.getId());
-            tournamentService.addBreakCategoryToTournament(tournament.getId(), breakCategory);
-        }
-        for (MotionDTO motionDTO : motionDTOs) {
-            Motion motion = new Motion(motionDTO.getMotion(), motionDTO.getInfoSlide(), motionDTO.getReference());
-            motion = motionService.addMotion(motion);
-            motionDTO.setDbId(motion.getId());
-            tournamentService.addMotionToTournament(tournament.getId(), motion);
-        }
-
-
-        for (RoundDTO roundDTO : roundsDTOs) {
-            //For now, ignore elimination rounds
-            if (roundDTO.isElimination()) {
-                continue;
+        try {
+            for (BreakCategoryDTO breakCategoryDTO : breakCategoryDTOs) {
+                BreakCategory breakCategory = new BreakCategory(breakCategoryDTO.getName());
+                breakCategory = breakCategoryService.addBreakCategory(breakCategory);
+                breakCategoryDTO.setDbId(breakCategory.getId());
+                tournamentService.addBreakCategoryToTournament(tournament.getId(), breakCategory);
             }
-
-            Round round = new Round(roundDTO.getName(), null, roundDTO.isElimination());
-            round = roundService.addRound(round);
-            roundDTO.setDbId(round.getId());
-            tournamentService.addRoundToTournament(tournament.getId(), round);
-
-            for (DebateDTO debateDTO : roundDTO.getDebates()) {
-                //get the judges for the debate
-                List<Judge> judges = new ArrayList<>();
-                List<String> judgeIds = List.of(debateDTO.getAdjudicatorIds().split(" "));
-                for (String judgeId : judgeIds) {
-                    JudgeDTO judgeDTO = judgeDTOMap.get(judgeId);
-                    Judge judge = judgeService.findJudgeById(judgeDTO.getDbId());
-                    if (judge != null) {
-                        judges.add(judge);
-                    }
-                }
-
-                //get the teams for the debate
-                Team prop = teamService.findTeamById(teamDTOMap.get(debateDTO.getSides().get(0).getTeamId()).getDbId());
-                Team opp = teamService.findTeamById(teamDTOMap.get(debateDTO.getSides().get(1).getTeamId()).getDbId());
-
-                //Get the motion for the round
-                String motionId = debateDTO.getMotionId();
-                MotionDTO motionDTO = motionDTOs.stream().filter(m -> m.getId().equals(motionId)).findFirst().orElse(null);
-                Motion motion = null;
-                if (motionDTO != null) {
-                    motion = motionService.findMotionById(motionDTO.getDbId());
-                }
-
-                //check how many ballots are there for each side
-                int propBallots = debateDTO.getSides().get(0).getFinalTeamBallots().size();
-                int oppBallots = debateDTO.getSides().get(1).getFinalTeamBallots().size();
-
-                if (propBallots != oppBallots) {
-                    System.out.println("Ballot count mismatch");
+        } catch (Exception e) {
+            System.out.println("Error in adding break category");
+            e.printStackTrace();
+        }
+        try {
+            for (MotionDTO motionDTO : motionDTOs) {
+                Motion motion = new Motion(motionDTO.getMotion(), motionDTO.getInfoSlide(), motionDTO.getReference());
+                motion = motionService.addMotion(motion);
+                motionDTO.setDbId(motion.getId());
+                tournamentService.addMotionToTournament(tournament.getId(), motion);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in adding motion");
+            e.printStackTrace();
+        }
+        try {
+            for (RoundDTO roundDTO : roundsDTOs) {
+                //For now, ignore elimination rounds
+                if (roundDTO.isElimination()) {
                     continue;
                 }
-                //check if ballots are ignored
-                List <String> ignoredBallotAdjIds = new ArrayList<>();
-                List<FinalTeamBallotDTO> adjBallots = debateDTO.getSides().get(0).getFinalTeamBallots();
-                for (FinalTeamBallotDTO adjBallot : adjBallots) {
-                    if (adjBallot.isIgnored()) {
-                        ignoredBallotAdjIds.addAll(adjBallot.getAdjudicatorIds());
+
+                Round round = new Round(roundDTO.getName(), null, roundDTO.isElimination());
+                round = roundService.addRound(round);
+                roundDTO.setDbId(round.getId());
+                try {
+                    for (DebateDTO debateDTO : roundDTO.getDebates()) {
+                        //get the judges for the debate
+                        List<Judge> judges = new ArrayList<>();
+                        List<String> judgeIds = List.of(debateDTO.getAdjudicatorIds().split(" "));
+                        for (String judgeId : judgeIds) {
+                            JudgeDTO judgeDTO = judgeDTOMap.get(judgeId);
+                            Judge judge = judgeService.findJudgeById(judgeDTO.getDbId());
+                            if (judge != null) {
+                                judges.add(judge);
+                            }
+                        }
+
+                        //get the teams for the debate
+                        Team prop = teamService.findTeamById(teamDTOMap.get(debateDTO.getSides().get(0).getTeamId()).getDbId());
+                        Team opp = teamService.findTeamById(teamDTOMap.get(debateDTO.getSides().get(1).getTeamId()).getDbId());
+
+                        //Get the motion for the round
+                        String motionId = debateDTO.getMotionId();
+                        MotionDTO motionDTO = motionDTOs.stream().filter(m -> m.getId().equals(motionId)).findFirst().orElse(null);
+                        Motion motion = null;
+                        if (motionDTO != null) {
+                            motion = motionService.findMotionById(motionDTO.getDbId());
+                        }
+
+                        //check how many ballots are there for each side
+                        int propBallots = debateDTO.getSides().get(0).getFinalTeamBallots().size();
+                        int oppBallots = debateDTO.getSides().get(1).getFinalTeamBallots().size();
+
+                        if (propBallots != oppBallots) {
+                            System.out.println("Ballot count mismatch");
+                            continue;
+                        }
+                        //check if ballots are ignored
+                        List<String> ignoredBallotAdjIds = new ArrayList<>();
+                        List<FinalTeamBallotDTO> adjBallots = debateDTO.getSides().get(0).getFinalTeamBallots();
+                        for (FinalTeamBallotDTO adjBallot : adjBallots) {
+                            if (adjBallot.isIgnored()) {
+                                ignoredBallotAdjIds.addAll(adjBallot.getAdjudicatorIds());
+                            }
+                        }
+
+
+                        try {
+                            List<Ballot> ballots = new ArrayList<>();
+                            for (SideDTO sideDTO : debateDTO.getSides()) {
+                                for (SpeechDTO speechDTO : sideDTO.getSpeeches()) {
+                                    for (IndividualSpeechBallotDTO individualSpeechBallotDTO : speechDTO.getIndividualSpeechBallots()) {
+                                        String judgeId = individualSpeechBallotDTO.getAdjudicatorId();
+                                        String debaterId = speechDTO.getSpeakerId();
+                                        double score = individualSpeechBallotDTO.getScore();
+
+                                        if (ignoredBallotAdjIds.contains(judgeId)) {
+                                            continue;
+                                        }
+                                        Judge judge = judgeService.findJudgeById(judgeDTOMap.get(judgeId).getDbId());
+                                        Debater debater = debaterService.findDebaterById(debaterDTOMap.get(debaterId).getDbId());
+                                        if (judge != null && debater != null) {
+                                            Ballot ballot = new Ballot(judge, debater, (float) score);
+                                            ballotService.addBallot(ballot);
+                                            ballots.add(ballot);
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            Debate debate = new Debate(prop, opp, null, ballots, motion);
+                            debate = debateService.addDebate(debate);
+                            roundService.addDebateToRound(round.getId(), debate);
+                        } catch (Exception e) {
+                            System.out.println("Error in adding debate to round");
+                            e.printStackTrace();
+                        }
+
+
+
                     }
+                } catch (Exception e) {
+                    System.out.println("Error in adding debates to round");
+                    e.printStackTrace();
                 }
-
-
-//                        <debate id="D72" adjudicators="A314 A242 A311" chair="A314" venue="V22" motion="M1">
-//            <side team="T40">
-//                <ballot adjudicators="A242" minority="false" ignored="false" rank="1">254.5</ballot>
-//                <ballot adjudicators="A311" minority="true" ignored="true" rank="2">261.5</ballot>
-//                <ballot adjudicators="A314" minority="false" ignored="false" rank="1">268.0</ballot>
-
-//                for (SideDTO sideDTO : debateDTO.getSides()) {
-//                    List<Ballot> ballots = new ArrayList<>();
-//                    for (FinalTeamBallotDTO finalTeamBallotDTO : sideDTO.getFinalTeamBallots()) {
-//                        Judge judge = judgeService.findJudgeById(judgeDTOMap.get(finalTeamBallotDTO.getJudgeId()).getDbId());
-//
-//                    }
-//                }
-
-                //Create ballots
-                List<Ballot> ballots = new ArrayList<>();
-
-
-                Debate debate = new Debate(prop, opp, null, ballots, motion);
-                roundService.addDebateToRound(round.getId(), debate);
-
+                tournamentService.addRoundToTournament(tournament.getId(), round);
             }
+        } catch (Exception e) {
+            System.out.println("Error in adding round");
+            e.printStackTrace();
         }
 
         return tournament;

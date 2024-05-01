@@ -4,6 +4,7 @@ import com.dineth.debateTracker.debate.Debate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,7 +33,7 @@ public class RoundService {
         if (round != null) {
             List<Debate> rounds = round.getDebates();
             if (rounds == null) {
-                rounds = List.of();
+                rounds = new ArrayList<>();
             }
             rounds.add(debate);
             round.setDebates(rounds);
