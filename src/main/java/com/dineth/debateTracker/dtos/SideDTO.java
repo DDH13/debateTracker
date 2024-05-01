@@ -11,13 +11,13 @@ import java.util.List;
 @NoArgsConstructor
 public class SideDTO {
     private String teamId;
-    private List<FinalTeamBallotDTO> ballots;
+    private List<FinalTeamBallotDTO> finalTeamBallots;
     private List<SpeechDTO> speeches;
     private Long dbId;
 
-    public SideDTO(String teamId, List<FinalTeamBallotDTO> ballots, List<SpeechDTO> speeches) {
+    public SideDTO(String teamId, List<FinalTeamBallotDTO> finalTeamBallots, List<SpeechDTO> speeches) {
         this.teamId = teamId;
-        this.ballots = ballots;
+        this.finalTeamBallots = finalTeamBallots;
         this.speeches = speeches;
     }
 
@@ -25,7 +25,7 @@ public class SideDTO {
     public String toString() {
         return "SideDTO{" +
                 "teamId='" + teamId + '\'' +
-                ", ballots=" + ballots +
+                ", ballots=" + finalTeamBallots +
                 ", speeches=" + speeches +
                 '}';
     }

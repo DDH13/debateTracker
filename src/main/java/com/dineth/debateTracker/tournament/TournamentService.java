@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.tournament;
 
 import com.dineth.debateTracker.breakcategory.BreakCategory;
+import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.round.Round;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,18 @@ public class TournamentService {
         }
     }
 
+    public void addMotionToTournament(Long tournamentId, Motion motion) {
+        Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
+        if (tournament != null) {
+            List<Motion> motions = tournament.getMotions();
+            if (motions == null) {
+                motions = new ArrayList<>();
+            }
+            motions.add(motion);
+            tournament.setMotions(motions);
+            tournamentRepository.save(tournament);
+        }
+    }
     public void addBreakCategoryToTournament(Long tournamentId, BreakCategory breakCategory) {
         Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
         if (tournament != null) {

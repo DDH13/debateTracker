@@ -12,13 +12,13 @@ import java.util.List;
 public class SpeechDTO {
     private String speakerId;
     private boolean reply;
-    private List<IndividualSpeechBallotDTO> ballots;
+    private List<IndividualSpeechBallotDTO> individualSpeechBallots;
     private Long dbId;
 
-    public SpeechDTO(String speakerId, boolean reply, List<IndividualSpeechBallotDTO> ballots) {
+    public SpeechDTO(String speakerId, boolean reply, List<IndividualSpeechBallotDTO> individualSpeechBallots) {
         this.speakerId = speakerId;
         this.reply = reply;
-        this.ballots = ballots;
+        this.individualSpeechBallots = individualSpeechBallots;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class SpeechDTO {
         return "SpeechDTO{" +
                 "speakerId='" + speakerId + '\'' +
                 ", reply=" + reply +
-                ", ballots=" + ballots +
+                ", ballots=" + individualSpeechBallots +
                 '}';
     }
 

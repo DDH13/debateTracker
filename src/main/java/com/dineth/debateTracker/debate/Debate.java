@@ -13,13 +13,13 @@ import java.util.List;
 
 @Entity @Table(name="debate") @Getter @Setter @NoArgsConstructor
 public class Debate implements Serializable {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "debate_seq")
+    @SequenceGenerator(name = "debate_seq", sequenceName = "debate_seq", allocationSize = 1)
     private Long id;
     @ManyToOne
     private Team proposition;
     @ManyToOne
     private Team opposition;
-    private String name;
     @ManyToOne
     private Team winner;
     @OneToMany @JoinColumn(name = "debate_id")
@@ -27,6 +27,25 @@ public class Debate implements Serializable {
     @ManyToOne @JoinColumn(name = "motion_id")
     private Motion motion;
 
+    public Debate(Team proposition, Team opposition, Team winner, List<Ballot> ballots, Motion motion) {
+        this.proposition = proposition;
+        this.opposition = opposition;
+        this.winner = winner;
+        this.ballots = ballots;
+        this.motion = motion;
+    }
+
+    @Override
+    public String toString() {
+        return "Debate{" +
+                "id=" + id +
+                ", proposition=" + proposition +
+                ", opposition=" + opposition +
+                ", winner=" + winner +
+                ", ballots=" + ballots +
+                ", motion=" + motion +
+                '}';
+    }
     public Team getWinner() {
         String winningSide;
         if (ballots.size() == 1) {

@@ -10,7 +10,8 @@ import java.util.List;
 
 @Entity @Table(name="round") @Getter @Setter @NoArgsConstructor
 public class Round implements Serializable {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "round_seq")
+    @SequenceGenerator(name = "round_seq", sequenceName = "round_seq", allocationSize = 1)
     private Long id;
     private String roundName;
     private Integer roundNo;
