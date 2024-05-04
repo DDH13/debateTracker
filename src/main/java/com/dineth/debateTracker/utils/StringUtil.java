@@ -42,7 +42,6 @@ public class StringUtil {
         } else if (phoneNumber.isEmpty()) {
             throw new IllegalArgumentException("Phone number cannot be empty");
         }
-        String parsedPhoneNumber;
         //replace all except numbers or + sign in the string
         phoneNumber = phoneNumber.replaceAll("[^0-9+]", "");
 
@@ -57,6 +56,17 @@ public class StringUtil {
             return phoneNumber;
         } else {
             throw new IllegalArgumentException("Invalid phone number : " + phoneNumber);
+        }
+    }
+
+    public static String parseGender(String gender) {
+        gender = gender.strip();
+        if (gender.equals("M")) {
+            return "Male";
+        } else if (gender.equals("F")) {
+            return "Female";
+        } else {
+            throw new IllegalArgumentException("Other Gender: "+gender);
         }
     }
 }

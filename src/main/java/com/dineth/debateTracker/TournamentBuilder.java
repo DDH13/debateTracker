@@ -23,13 +23,19 @@ import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
 import com.dineth.debateTracker.utils.ParseTabbycatXML;
 import com.dineth.debateTracker.utils.StringUtil;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -248,7 +254,6 @@ public class TournamentBuilder {
                         }
 
 
-
                     }
                 } catch (Exception e) {
                     System.out.println("Error in adding debates to round");
@@ -264,4 +269,66 @@ public class TournamentBuilder {
         return tournament;
     }
 
+    @GetMapping("/parsecsv")
+    public Object parseCSV() {
+        try {
+            CSVReader reader = new CSVReader(new FileReader("src/main/resources/static/Debater_Information.csv"));
+            String[] line;
+            String phoneNumber;
+            //skip the first line
+            reader.readNext();
+            while ((line = reader.readNext()) != null) {
+                Debater debater = new Debater();
+                try {
+                    phoneNumber = StringUtil.parsePhoneNumber(line[4]);
+                    debater.setPhone(phoneNumber);
+                    System.out.print(", Phone Number: " + phoneNumber);
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
+                try {
+                    debater.setFirstName(line[1]);
+                    System.out.print(", First Name: " + line[1]);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                try {
+                    debater.setLastName(line[2]);
+                    System.out.print(", Last Name: " + line[2]);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                try {
+                    SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = parser.parse(line[3]);
+                    System.out.print(", DOB: " + date);
+                    debater.setBirthdate(date);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                try {
+                    debater.setEmail(line[5]);
+                    System.out.print(", Email: " + line[5]);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                try {
+                    String gender = StringUtil.parseGender(line[8]);
+                    debater.setGender(gender);
+                    System.out.print(", Gender: "+ debater.getGender());
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
+                System.out.println();
+                debaterService.addDebater(debater);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+
+    }
 }
