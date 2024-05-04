@@ -2598,7 +2598,7 @@
     <participants>
         <team name="Anula Vidyalaya A" code="Droplet" id="T1" break-eligibilities="BC1">
             <speaker id="S1" institutions="I18" categories="">Thumansa Dinudi Karunarathna</speaker>
-            <speaker id="S2" institutions="I18" categories="">Muthuthantrige Bodhi Aditya Fernando</speaker>
+            <speaker id="S2" institutions="I18" categories=""> Aditya Fernando</speaker>
             <speaker id="S3" institutions="I18" categories="">Karum Pullige Sanushi Senulya</speaker>
             <speaker id="S4" institutions="I18" categories="">Thisari Vinupama Rodrigo</speaker>
         </team>
@@ -2645,12 +2645,12 @@
         </team>
         <team name="Gateway College Dehiwala A" code="Violin" id="T9" break-eligibilities="BC1">
             <speaker id="S35" institutions="I14" categories="">Shahzadi Sujahudeen</speaker>
-            <speaker id="S32" institutions="I14" categories="">Dylan C. Pangoda</speaker>
+            <speaker id="S32" institutions="I14" categories="">Dylan Pangoda</speaker>
             <speaker id="S33" institutions="I14" categories="">Yasir Nasran</speaker>
             <speaker id="S34" institutions="I14" categories="">Saif Imran</speaker>
         </team>
         <team name="Highlands College Maharagama B" code="Peace Dove" id="T10" break-eligibilities="BC1">
-            <speaker id="S36" institutions="I9" categories="">Yasali Tarithna Punchihewa</speaker>
+            <speaker id="S36" institutions="I9" categories="">Yasali Punchihewa</speaker>
             <speaker id="S37" institutions="I9" categories="">Tharuki Dinethra Hettiarachchi</speaker>
             <speaker id="S38" institutions="I9" categories="">Amiru Mindiv Abeywickrama</speaker>
             <speaker id="S39" institutions="I9" categories="">Undugodage Tenitha Sithil Rodrigo</speaker>
