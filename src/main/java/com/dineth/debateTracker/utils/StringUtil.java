@@ -27,7 +27,7 @@ public class StringUtil {
             //if more than two names
             lastName = parts[parts.length - 1];
         }
-        return new ImmutablePair<>(firstName, lastName);
+        return new ImmutablePair<>(capitalizeName(firstName), capitalizeName(lastName));
     }
 
     /**
@@ -68,5 +68,37 @@ public class StringUtil {
         } else {
             throw new IllegalArgumentException("Other Gender: "+gender);
         }
+    }
+
+    public static boolean isSamePerson(String name1, String name2) {
+        return name1.equalsIgnoreCase(name2);
+    }
+    public static String capitalizeName(String name) {
+        if (name == null || name.isEmpty()) {
+            return name;
+        }
+
+        // Split the name into words
+        String[] words = name.split("\\s+");
+        StringBuilder capitalized = new StringBuilder();
+
+        for (String word : words) {
+            // Check if the word is a prefix that should not be fully capitalized
+            if (isLowercasePrefix(word.toLowerCase())) {
+                capitalized.append(word.substring(0, 1).toLowerCase()).append(word.substring(1).toLowerCase());
+            } else {
+                // Capitalize the first letter and make the rest lowercase
+                capitalized.append(word.substring(0, 1).toUpperCase()).append(word.substring(1).toLowerCase());
+            }
+            capitalized.append(" ");
+        }
+
+        // Remove the last unnecessary space and return the result
+        return capitalized.toString().trim();
+    }
+
+    private static boolean isLowercasePrefix(String word) {
+        // List common prefixes that shouldn't be capitalized or need specific handling
+        return word.equals("la") || word.equals("van") || word.equals("von");
     }
 }

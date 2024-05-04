@@ -32,7 +32,13 @@ public class StringUtilsTest {
         public void testSplitName_WithPrefix() {
             ImmutablePair<String, String> result = StringUtil.splitName("Juan de Marco");
             Assertions.assertEquals("Juan", result.left);
-            Assertions.assertEquals("de Marco", result.right);
+            Assertions.assertEquals("De Marco", result.right);
+        }
+        @Test @Name("Split name with prefixed last name and multiple names")
+        public void testSplitName_WithPrefixAndMultipleNames() {
+            ImmutablePair<String, String> result = StringUtil.splitName("Ginige Oneli de Silva");
+            Assertions.assertEquals("Ginige", result.left);
+            Assertions.assertEquals("De Silva", result.right);
         }
 
         @Test @Name("Split name with multiple names")
@@ -85,32 +91,24 @@ public class StringUtilsTest {
 
         @Test
         public void testParsePhoneNumber_NullPhoneNumber() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                StringUtil.parsePhoneNumber(null);
-            });
+            Assertions.assertThrows(IllegalArgumentException.class, () -> StringUtil.parsePhoneNumber(null));
         }
 
         @Test
         public void testParsePhoneNumber_EmptyString() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                StringUtil.parsePhoneNumber("");
-            });
+            Assertions.assertThrows(IllegalArgumentException.class, () -> StringUtil.parsePhoneNumber(""));
         }
 
         @Test
         public void testParsePhoneNumber_InvalidLength() {
             String phoneNumber = "012345678";
-            Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                StringUtil.parsePhoneNumber(phoneNumber);
-            });
+            Assertions.assertThrows(IllegalArgumentException.class, () -> StringUtil.parsePhoneNumber(phoneNumber));
         }
 
         @Test
         public void testParsePhoneNumber_InvalidCountryCode() {
             String phoneNumber = "+9412345678"; // incorrect number of digits
-            Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                StringUtil.parsePhoneNumber(phoneNumber);
-            });
+            Assertions.assertThrows(IllegalArgumentException.class, () -> StringUtil.parsePhoneNumber(phoneNumber));
         }
 
     }
