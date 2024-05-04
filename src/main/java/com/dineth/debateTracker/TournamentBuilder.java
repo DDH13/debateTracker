@@ -25,6 +25,7 @@ import com.dineth.debateTracker.utils.ParseTabbycatXML;
 import com.dineth.debateTracker.utils.StringUtil;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@RestController
+@RestController @Slf4j
 @RequestMapping("/api/v1/tournament")
 public class TournamentBuilder {
 
@@ -54,7 +55,6 @@ public class TournamentBuilder {
     private final TournamentService tournamentService;
     private final BreakCategoryService breakCategoryService;
     private final BallotService ballotService;
-
     private final RoundService roundService;
 
 
@@ -100,8 +100,7 @@ public class TournamentBuilder {
                 institutionDTO.dbId = institution.getId();
             }
         } catch (Exception e) {
-            System.out.println("Error in adding institution");
-            e.printStackTrace();
+            log.error("Error in adding institution : " + e.getMessage());
         }
 
         try {
@@ -118,8 +117,7 @@ public class TournamentBuilder {
                 judgeDTOMap.put(judgeDTO.getId(), judgeDTO);
             }
         } catch (Exception e) {
-            System.out.println("Error in adding judge");
-            e.printStackTrace();
+            log.error("Error in adding judge : " + e.getMessage());
         }
 
         try {
@@ -127,7 +125,7 @@ public class TournamentBuilder {
                 List<DebaterDTO> debaterDTOs = teamDTO.getDebaters();
                 List<Debater> debaters = debaterDTOs.stream().map(debaterDTO -> {
                     ImmutablePair<String, String> names = StringUtil.splitName(debaterDTO.getName());
-                    Debater debater = new Debater(names.getLeft(), names.getRight());
+                    Debater debater = new Debater(StringUtil.capitalizeName(names.getLeft()), StringUtil.capitalizeName(names.getRight()));
                     debater = debaterService.addDebater(debater);
                     debaterDTO.setDbId(debater.getId());
                     debaterDTOMap.put(debaterDTO.getId(), debaterDTO);
@@ -139,8 +137,7 @@ public class TournamentBuilder {
                 teamDTOMap.put(teamDTO.getId(), teamDTO);
             }
         } catch (Exception e) {
-            System.out.println("Error in adding team");
-            e.printStackTrace();
+            log.error("Error in adding team : " + e.getMessage());
         }
 
         Tournament tournament = new Tournament(tournamentDTO.getFullName(), tournamentDTO.getShortName());
@@ -154,8 +151,7 @@ public class TournamentBuilder {
                 tournamentService.addBreakCategoryToTournament(tournament.getId(), breakCategory);
             }
         } catch (Exception e) {
-            System.out.println("Error in adding break category");
-            e.printStackTrace();
+            log.error("Error in adding break category : " + e.getMessage());
         }
         try {
             for (MotionDTO motionDTO : motionDTOs) {
@@ -165,8 +161,7 @@ public class TournamentBuilder {
                 tournamentService.addMotionToTournament(tournament.getId(), motion);
             }
         } catch (Exception e) {
-            System.out.println("Error in adding motion");
-            e.printStackTrace();
+            log.error("Error in adding motion : " + e.getMessage());
         }
         try {
             for (RoundDTO roundDTO : roundsDTOs) {
@@ -249,21 +244,19 @@ public class TournamentBuilder {
                             debate = debateService.addDebate(debate);
                             roundService.addDebateToRound(round.getId(), debate);
                         } catch (Exception e) {
-                            System.out.println("Error in adding debate to round");
-                            e.printStackTrace();
+                            log.error("Error in adding debate to round : " + e.getMessage());
                         }
 
 
                     }
                 } catch (Exception e) {
-                    System.out.println("Error in adding debates to round");
-                    e.printStackTrace();
+                    log.error("Error in adding debate to round : " + e.getMessage());
                 }
                 tournamentService.addRoundToTournament(tournament.getId(), round);
             }
         } catch (Exception e) {
             System.out.println("Error in adding round");
-            e.printStackTrace();
+            log.error("Error in adding round : " + e.getMessage());
         }
 
         return tournament;
@@ -284,19 +277,21 @@ public class TournamentBuilder {
                     debater.setPhone(phoneNumber);
                     System.out.print(", Phone Number: " + phoneNumber);
                 } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+                    log.error(e.getMessage());
                 }
                 try {
-                    debater.setFirstName(line[1]);
-                    System.out.print(", First Name: " + line[1]);
+                    String firstName = StringUtil.capitalizeName(line[1]);
+                    debater.setFirstName(firstName);
+                    System.out.print(", First Name: " + firstName);
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    log.error(e.getMessage());
                 }
                 try {
-                    debater.setLastName(line[2]);
-                    System.out.print(", Last Name: " + line[2]);
+                    String lastName = StringUtil.capitalizeName(line[2]);
+                    debater.setLastName(lastName);
+                    System.out.print(", Last Name: " + lastName);
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    log.error(e.getMessage());
                 }
                 try {
                     SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
@@ -304,27 +299,38 @@ public class TournamentBuilder {
                     System.out.print(", DOB: " + date);
                     debater.setBirthdate(date);
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    log.error(e.getMessage());
                 }
                 try {
                     debater.setEmail(line[5]);
                     System.out.print(", Email: " + line[5]);
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    log.error(e.getMessage());
                 }
                 try {
                     String gender = StringUtil.parseGender(line[8]);
                     debater.setGender(gender);
-                    System.out.print(", Gender: "+ debater.getGender());
+                    System.out.print(", Gender: " + debater.getGender());
                 } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+                    log.error(e.getMessage());
                 }
                 System.out.println();
-                debaterService.addDebater(debater);
+                //check if the debater already exists
+                try {
+                    Debater existingDebater = debaterService.checkIfDebaterExists(debater);
+                    if (existingDebater != null) {
+                        System.out.println("Debater already exists");
+                    } else {
+                        System.out.println("Adding debater");
+                        debaterService.addDebater(debater);
+                    }
+                } catch (Exception e) {
+                    log.error(e.getMessage());
+                }
             }
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         } catch (CsvValidationException e) {
             throw new RuntimeException(e);
         }

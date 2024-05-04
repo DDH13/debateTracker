@@ -1,5 +1,6 @@
 package com.dineth.debateTracker.debater;
 
+import com.dineth.debateTracker.utils.CustomExceptions;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,32 @@ public class DebaterService {
     }
 
     public Debater addDebater(Debater debater) {
+        Debater temp = checkIfDebaterExists(debater);
+        if (temp != null) {
+            return temp;
+        }
         return debaterRepository.save(debater);
     }
 
     public Debater findDebaterById(Long id) {
         return debaterRepository.findById(id).orElse(null);
+    }
+
+    public Debater checkIfDebaterExists(Debater debater) {
+        List<Debater> debaters;
+        if (debater.getBirthdate()!=null){
+            debaters = debaterRepository.findDebatersByFirstNameEqualsIgnoreCaseAndLastNameEqualsIgnoreCaseAndBirthdate(debater.getFirstName(), debater.getLastName(), debater.getBirthdate());
+        } else {
+            debaters = debaterRepository.findDebatersByFirstNameEqualsIgnoreCaseAndLastNameEqualsIgnoreCase(debater.getFirstName(), debater.getLastName());
+        }
+        //TODO adjust code to accommodate debaters with same first name and last name
+        if (debaters.size() == 1) {
+            return debaters.get(0);
+        } else if (debaters.size() > 1) {
+            throw new CustomExceptions.MultipleDebatersFoundException("Multiple debaters found with the same name. Birthdate is required to identify the debater.");
+        } else {
+            return null;
+        }
     }
 
     public void getDebatersFromAPI() {
