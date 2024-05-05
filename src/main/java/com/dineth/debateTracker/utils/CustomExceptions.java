@@ -6,6 +6,7 @@ public class CustomExceptions {
             super(message);
         }
     }
+
     public static class NameSplitException extends RuntimeException {
         public NameSplitException(String message) {
             super(message);

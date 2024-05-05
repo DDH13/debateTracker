@@ -9,6 +9,7 @@ import java.util.List;
 @RequestMapping(path = "api/v1/debater")
 public class DebaterController {
     private final DebaterService debaterService;
+
     @Autowired
     public DebaterController(DebaterService debaterService) {
         this.debaterService = debaterService;
@@ -19,13 +20,18 @@ public class DebaterController {
         return debaterService.getDebaters();
     }
 
+    @GetMapping(path = "same")
+    public List<Debater> getDebatersWithSameName(@RequestParam(required = false) String birthdate) {
+        if (birthdate != null && birthdate.equalsIgnoreCase("true")) {
+            return debaterService.findDebatersWithDuplicateNamesAndBirthdays();
+        }
+        return debaterService.findDebatersWithDuplicateNames();
+    }
+
     @PostMapping
-    public Debater addDebater(@RequestBody  Debater debater) {
+    public Debater addDebater(@RequestBody Debater debater) {
         return debaterService.addDebater(debater);
     }
-    @GetMapping(path = "external")
-    public void getDebatersFromAPI() {
-        debaterService.getDebatersFromAPI();
-    }
+
 
 }
