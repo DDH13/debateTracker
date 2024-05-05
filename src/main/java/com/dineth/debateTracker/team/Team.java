@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity @Table(name="team") @Getter @Setter @NoArgsConstructor
@@ -19,6 +20,19 @@ public class Team implements Serializable {
     private Boolean isEligibleForBreaks;
     @ManyToMany
     private List<Debater> debaters;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public Team(String teamName, String teamCode, List<Debater> debaters) {
         this.teamName = teamName;

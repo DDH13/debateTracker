@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity @Table(name="round") @Getter @Setter @NoArgsConstructor
@@ -18,6 +19,19 @@ public class Round implements Serializable {
     private Boolean isBreakRound;
     @OneToMany @JoinColumn(name = "round_id")
     private List<Debate> debates;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public Round(String roundName, Integer roundNo, Boolean isBreakRound) {
         this.roundName = roundName;

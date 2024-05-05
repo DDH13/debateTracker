@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity @Table(name="debate") @Getter @Setter @NoArgsConstructor
@@ -26,6 +27,19 @@ public class Debate implements Serializable {
     private List<Ballot> ballots;
     @ManyToOne @JoinColumn(name = "motion_id")
     private Motion motion;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public Debate(Team proposition, Team opposition, Team winner, List<Ballot> ballots, Motion motion) {
         this.proposition = proposition;

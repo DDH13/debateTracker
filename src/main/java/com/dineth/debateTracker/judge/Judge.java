@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -24,6 +25,19 @@ public class Judge implements Serializable {
     private String phone;
     private Date birthdate;
     private Float rating;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public Judge(Float rating, String fname, String lname) {
         this.fname = fname;

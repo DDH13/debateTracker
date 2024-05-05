@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity @Table(name="ballot") @Getter @Setter @NoArgsConstructor
 public class Ballot implements Serializable {
@@ -20,6 +21,19 @@ public class Ballot implements Serializable {
     @ManyToOne
     private Debater debater;
     private Float speakerScore;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 
     public Ballot(Judge judge, Debater debater, Float speakerScore) {
         this.judge = judge;

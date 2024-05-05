@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity @Table(name="institution") @Getter @Setter @NoArgsConstructor
@@ -18,6 +19,19 @@ public class Institution implements Serializable {
     private String abbreviation;
     @OneToMany  @JoinColumn(name = "institution_id")
     List<Team> teams;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
     public Institution(String name, String abbreviation) {
         this.name = name;
         this.abbreviation = abbreviation;
