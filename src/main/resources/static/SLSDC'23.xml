@@ -6084,7 +6084,7 @@
             <speaker id="S22" institutions="I13" categories="">Nadeem Zafar</speaker>
             <speaker id="S19" institutions="I13" categories="">Abdullah Yusoof</speaker>
             <speaker id="S20" institutions="I13" categories="">Lehara Edirisinghe</speaker>
-            <speaker id="S21" institutions="I13" categories="">Ginige Oneli de Silva</speaker>
+            <speaker id="S21" institutions="I13" categories="">Oneli de Silva</speaker>
         </team>
         <team name="Asian International School B" code="Bird" id="T6" break-eligibilities="BC1">
             <speaker id="S26" institutions="I13" categories="">Ra'ed Cader</speaker>
@@ -6099,7 +6099,7 @@
             <speaker id="S30" institutions="I1" categories="">Selina Jayathilake</speaker>
         </team>
         <team name="Bishop's College P" code="Eggplant" id="T7" break-eligibilities="BC1">
-            <speaker id="S333" institutions="I1" categories="">Manal&#160;Rahimdeen</speaker>
+            <speaker id="S333" institutions="I1" categories="">Manal Rahimdeen</speaker>
             <speaker id="S27" institutions="I1" categories="">Chrishelle Perera</speaker>
             <speaker id="S28" institutions="I1" categories="">Safiya Bakeer Makar</speaker>
             <speaker id="S29" institutions="I1" categories="">Ameesha Samarasinghe</speaker>
@@ -6149,7 +6149,7 @@
         <team name="Gateway College Dehiwala A" code="Bullseye" id="T17" break-eligibilities="BC1">
             <speaker id="S68" institutions="I3" categories="">Savin De Alwis</speaker>
             <speaker id="S67" institutions="I3" categories="">Nehan De Zoysa</speaker>
-            <speaker id="S65" institutions="I3" categories="">Yusuf A Barrie</speaker>
+            <speaker id="S65" institutions="I3" categories="">Yusuf Barrie</speaker>
             <speaker id="S66" institutions="I3" categories="">Dhivyajrishan Thriyampakan</speaker>
         </team>
         <team name="Gateway College Dehiwala B" code="Fountain" id="T18" break-eligibilities="BC1">
@@ -6166,8 +6166,8 @@
         </team>
         <team name="Gateway International Colombo A" code="Fries" id="T20" break-eligibilities="BC1">
             <speaker id="S80" institutions="I25" categories="">Shavenya Randilu Jayanetti</speaker>
-            <speaker id="S77" institutions="I25" categories="">Madhuka Ravindu Yasas Sri Wijesinghe</speaker>
-            <speaker id="S78" institutions="I25" categories="">Gardiya Loku Hewage Nimthara Imashi</speaker>
+            <speaker id="S77" institutions="I25" categories="">Madhuka Ravindu Yasas Wijesinghe</speaker>
+            <speaker id="S78" institutions="I25" categories="">Gardiya Nimthara Imashi</speaker>
             <speaker id="S79" institutions="I25" categories="">Shannel Amanda Pinidiya</speaker>
         </team>
         <team name="Good Shepherd Convent Kandy A" code="Rowboat" id="T21" break-eligibilities="BC1">
@@ -6180,13 +6180,13 @@
             <speaker id="S85" institutions="I10" categories="">Malshani Weerakkody</speaker>
             <speaker id="S86" institutions="I10" categories="">Chathil Udukalage</speaker>
             <speaker id="S87" institutions="I10" categories="">Dinini Savindya Thalagahawatta</speaker>
-            <speaker id="S88" institutions="I10" categories="">Kandana Arachchige Kenul Dilvan Perera</speaker>
+            <speaker id="S88" institutions="I10" categories=""> Kenul Dilvan Perera</speaker>
         </team>
         <team name="Highlands College Maharagama B" code="Music Notes" id="T23" break-eligibilities="BC1">
             <speaker id="S91" institutions="I10" categories="">Tharuki Dinethra</speaker>
             <speaker id="S92" institutions="I10" categories="">Nelusha Gimhani Wewalage</speaker>
             <speaker id="S89" institutions="I10" categories="">Dulsandee Yehansa Adikari</speaker>
-            <speaker id="S90" institutions="I10" categories="">Mallawaarachchige Binadee Bimsarani</speaker>
+            <speaker id="S90" institutions="I10" categories=""> Binadee Bimsarani</speaker>
         </team>
         <team name="Hillwood College Kandy A" code="Scales" id="T24" break-eligibilities="BC1">
             <speaker id="S93" institutions="I2" categories="">Anielka Nallathamby</speaker>
@@ -6221,7 +6221,7 @@
         <team name="Jaffna Hindu College B" code="Jeans" id="T31" break-eligibilities="">
             <speaker id="S119" institutions="I28" categories="">Uthayapala Thishaavakan</speaker>
             <speaker id="S120" institutions="I28" categories="">Rajkumar Aathish</speaker>
-            <speaker id="S121" institutions="I28" categories="">C.N.Livion Jerushan</speaker>
+            <speaker id="S121" institutions="I28" categories="">Livion Jerushan</speaker>
             <speaker id="S122" institutions="I28" categories="">Senthilkumar Vithurshan</speaker>
         </team>
         <team name="Ladies' College A" code="Monocle" id="T32" break-eligibilities="BC1">
@@ -6267,7 +6267,7 @@
         <team name="Musaeus College B" code="Tulip" id="T39" break-eligibilities="BC1">
             <speaker id="S152" institutions="I18" categories="">Dunili Amarasinghe</speaker>
             <speaker id="S149" institutions="I18" categories="">Dewni Tennakoon</speaker>
-            <speaker id="S150" institutions="I18" categories="">Methuli Sri Nammuni</speaker>
+            <speaker id="S150" institutions="I18" categories="">Methuli Nammuni</speaker>
             <speaker id="S151" institutions="I18" categories="">Mihindi Pathinayake</speaker>
         </team>
         <team name="Muslim Ladies' College A" code="Hugging" id="T40" break-eligibilities="BC1">
@@ -6286,22 +6286,22 @@
             <speaker id="S161" institutions="I29" categories="">Musammil Mushal Ahamed</speaker>
             <speaker id="S162" institutions="I29" categories="">Mohamed Shafi Mohamed Nafly</speaker>
             <speaker id="S163" institutions="I29" categories="">Pulendran Kemran</speaker>
-            <speaker id="S164" institutions="I29" categories="">Mohamadhu Akram Ahmath</speaker>
+            <speaker id="S164" institutions="I29" categories=""> Akram Ahmath</speaker>
         </team>
         <team name="P/President's Science College Puttalam B" code="Get Set Go" id="T43" break-eligibilities="">
             <speaker id="S165" institutions="I29" categories="">Rasalingam Sulaxy</speaker>
             <speaker id="S166" institutions="I29" categories="">Hussain Siraj Shervin Salaah</speaker>
-            <speaker id="S167" institutions="I29" categories="">Mohamed Shafiudeen Fathima Risma Dheena</speaker>
-            <speaker id="S168" institutions="I29" categories="">Mohamed Sadikeen Salma Hasnath</speaker>
+            <speaker id="S167" institutions="I29" categories=""> Shafiudeen Fathima Risma Dheena</speaker>
+            <speaker id="S168" institutions="I29" categories=""> Sadikeen Salma Hasnath</speaker>
         </team>
         <team name="Royal College A" code="Thumbs Up" id="T44" break-eligibilities="BC1">
             <speaker id="S172" institutions="I5" categories="">Hirupama Bandara</speaker>
             <speaker id="S170" institutions="I5" categories="">Methira Padeniya</speaker>
             <speaker id="S171" institutions="I5" categories="">Talal Sabry</speaker>
-            <speaker id="S169" institutions="I5" categories="">Adam Dhilshan (C)</speaker>
+            <speaker id="S169" institutions="I5" categories="">Adam Dhilshan</speaker>
         </team>
         <team name="Royal College B" code="Ant" id="T45" break-eligibilities="BC1">
-            <speaker id="S173" institutions="I5" categories="">T. Tharaniharan (C)</speaker>
+            <speaker id="S173" institutions="I5" categories="">T. Tharaniharan </speaker>
             <speaker id="S174" institutions="I5" categories="">Jamal Sabry</speaker>
             <speaker id="S175" institutions="I5" categories="">Dinal Wellappili</speaker>
             <speaker id="S176" institutions="I5" categories="">Yusef Hazari</speaker>
@@ -6346,10 +6346,10 @@
             <speaker id="S196" institutions="I22" categories="">Aakesh Dissanayake</speaker>
         </team>
         <team name="St. Joseph's College Colombo 10 A" code="True Neutral" id="T52" break-eligibilities="BC1">
-            <speaker id="S198" institutions="I31" categories="">Senapathige Isira Matheesha Rodrigo</speaker>
-            <speaker id="S199" institutions="I31" categories="">Illekuttige Dasidu Okitha Fernando</speaker>
+            <speaker id="S198" institutions="I31" categories=""> Isira Matheesha Rodrigo</speaker>
+            <speaker id="S199" institutions="I31" categories=""> Dasidu Okitha Fernando</speaker>
             <speaker id="S200" institutions="I31" categories="">Aeron Ranishka Peiris</speaker>
-            <speaker id="S201" institutions="I31" categories="">T.K. Dineth Matthew De Zylva</speaker>
+            <speaker id="S201" institutions="I31" categories="">Dineth Matthew De Zylva</speaker>
         </team>
         <team name="St. Peter's College A" code="Business Hi" id="T53" break-eligibilities="BC1">
             <speaker id="S202" institutions="I23" categories="">Sasindu Suriarachchi</speaker>
@@ -6365,7 +6365,7 @@
         </team>
         <team name="Sujatha Vidyalaya B" code="Sweet Potato" id="T61" break-eligibilities="BC1">
             <speaker id="S233" institutions="I15" categories="">Yuhani Jayawardana</speaker>
-            <speaker id="S234" institutions="I15" categories="">S.M. Hasandi Imalya Dias</speaker>
+            <speaker id="S234" institutions="I15" categories="">Hasandi Imalya Dias</speaker>
             <speaker id="S235" institutions="I15" categories="">Yenuki Maleesha Jayasinghe</speaker>
         </team>
         <team name="Swing A" code="Castle" id="T63" break-eligibilities="BC1">
@@ -6404,9 +6404,9 @@
             <speaker id="S226" institutions="I19" categories="">Akindu Athauda</speaker>
         </team>
         <team name="Wesley College B" code="Fun sponge" id="T60" break-eligibilities="">
-            <speaker id="S231" institutions="I19" categories="">Oshadha Imesh Haputhanne</speaker>
+            <speaker id="S231" institutions="I19" categories="">Oshadha  Haputhanne</speaker>
             <speaker id="S229" institutions="I19" categories="">Afdhel Fayaz</speaker>
-            <speaker id="S232" institutions="I19" categories="">Mohomed Saajid Shazly Oowise</speaker>
+            <speaker id="S232" institutions="I19" categories=""> Saajid  Oowise</speaker>
             <speaker id="S230" institutions="I19" categories="">Shaheem Vazeer</speaker>
         </team>
         <adjudicator id="A291" name="Abdul Azeez" core="false" independent="false" score="3.0" institutions="I23"/>
