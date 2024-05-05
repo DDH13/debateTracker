@@ -33,7 +33,6 @@ public class DebaterController {
     @PostMapping(path = "replace")
     public void replaceDebater(@RequestBody Map<String, String> values) {
         try {
-
             Long oldDebaterId = Long.parseLong(values.get("oldDebaterId"));
             Long newDebaterId = Long.parseLong(values.get("newDebaterId"));
             Debater oldDebater = debaterService.findDebaterById(oldDebaterId);
