@@ -126,7 +126,13 @@ public class TournamentBuilder {
                 List<Debater> debaters = debaterDTOs.stream().map(debaterDTO -> {
                     ImmutablePair<String, String> names = StringUtil.splitName(debaterDTO.getName());
                     Debater debater = new Debater(StringUtil.capitalizeName(names.getLeft()), StringUtil.capitalizeName(names.getRight()));
-                    debater = debaterService.addDebater(debater);
+                    //TODO check for user confirmation
+                    Debater temp = debaterService.checkIfDebaterExists(debater);
+                    if (temp != null) {
+                        debater = temp;
+                    } else {
+                        debater = debaterService.addDebater(debater);
+                    }
                     debaterDTO.setDbId(debater.getId());
                     debaterDTOMap.put(debaterDTO.getId(), debaterDTO);
                     return debater;

@@ -2,6 +2,9 @@ package com.dineth.debateTracker.utils;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class StringUtil {
     /**
      * Splits a name into first name and last name
@@ -10,24 +13,48 @@ public class StringUtil {
      * @return a pair of first name and last name
      */
     public static ImmutablePair<String, String> splitName(String name) {
-        String[] parts = name.split(" ");
-        String firstName = parts[0];
-
+        String firstName;
         String lastName;
+        if (name == null || name.isEmpty()) {
+            throw new CustomExceptions.NameSplitException("Debater name cannot be null or empty");
+        }
+        //split based on spaces or dots
+        String[] parts = name.split("[\\s.]");
+        //remove all empty strings
+        parts = Arrays.stream(parts).filter(s -> !s.isEmpty()).toArray(String[]::new);
         if (parts.length == 1) {
-            //if no last name
-            lastName = "";
-        } else if (parts.length == 3 && parts[1].equalsIgnoreCase("de")) {
-            //if last name has a prefix like "de"
-            lastName = parts[1] + " " + parts[2];
-        } else if (parts.length == 2) {
-            //if only two names
-            lastName = parts[1];
+            throw new CustomExceptions.NameSplitException("Debater name must at least have a first name and a last name");
+        }
+
+        //check for prefixes in the entire name
+        int prefixIndex = -1;
+        for (int i = 0; i < parts.length; i++) {
+            if (isPrefix(parts[i])) {
+                prefixIndex = i;
+            }
+        }
+        firstName = parts[0];
+        if (prefixIndex != -1) {
+            //if there is a prefix, the first name is the first word and the last name is the prefix and the word after the prefix
+            lastName = parts[prefixIndex] + " " + parts[prefixIndex + 1];
         } else {
-            //if more than two names
+            //if there is no prefix, the first name is the first word and the last name is the last word
             lastName = parts[parts.length - 1];
         }
-        return new ImmutablePair<>(capitalizeName(firstName), capitalizeName(lastName));
+        return new ImmutablePair<>(capitalizeName(firstName.trim()), capitalizeName(lastName.trim()));
+
+
+    }
+
+    /**
+     * Checks if a name is a common prefix
+     *
+     * @param name the name to check
+     * @return true if the name is a common prefix, false otherwise
+     */
+    public static boolean isPrefix(String name) {
+        HashSet<String> prefixes = new HashSet<>(Arrays.asList("de", "la", "van", "von"));
+        return prefixes.contains(name.toLowerCase());
     }
 
     /**
@@ -59,20 +86,34 @@ public class StringUtil {
         }
     }
 
+    /**
+     * @param gender M or F or other
+     * @return Male, Female or throws an exception
+     */
     public static String parseGender(String gender) {
+        if (gender == null) {
+            throw new IllegalArgumentException("Gender is null");
+        }
         gender = gender.strip();
         if (gender.equals("M")) {
             return "Male";
         } else if (gender.equals("F")) {
             return "Female";
         } else {
-            throw new IllegalArgumentException("Other Gender: "+gender);
+            throw new IllegalArgumentException("Other Gender: " + gender);
         }
     }
 
     public static boolean isSamePerson(String name1, String name2) {
         return name1.equalsIgnoreCase(name2);
     }
+
+    /**
+     * Capitalizes the first letter of each word in a name barring common prefixes that should not be capitalized
+     *
+     * @param name the name to capitalize
+     * @return the capitalized name
+     */
     public static String capitalizeName(String name) {
         if (name == null || name.isEmpty()) {
             return name;
@@ -97,8 +138,15 @@ public class StringUtil {
         return capitalized.toString().trim();
     }
 
+    /**
+     * Checks if a word is a common prefix that should not be capitalized
+     *
+     * @param word the word to check
+     * @return true if the word is a common prefix that should not be capitalized, false otherwise
+     */
     private static boolean isLowercasePrefix(String word) {
         // List common prefixes that shouldn't be capitalized or need specific handling
-        return word.equals("la") || word.equals("van") || word.equals("von");
+        HashSet<String> prefixes = new HashSet<>(Arrays.asList("la", "van", "von"));
+        return prefixes.contains(word);
     }
 }
