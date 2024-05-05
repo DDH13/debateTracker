@@ -25,7 +25,7 @@
                     <ballot adjudicators="A10">73.5</ballot>
                 </speech>
                 <speech speaker="S205" reply="False">
-                    <ballot adjudicatozrs="A10">72.0</ballot>
+                    <ballot adjudicators="A10">72.0</ballot>
                 </speech>
                 <speech speaker="S203" reply="True">
                     <ballot adjudicators="A10">36.5</ballot>
@@ -2365,7 +2365,6 @@
         <adjudicator id="A67" name="Puthun Waidyaratne" core="false" independent="false" score="2.5"
             institutions="I25" />
         <adjudicator id="A65" name="Shafa Imshiraz" core="false" independent="false" score="2.5" />
-        <adjudicator id="A192" name="Sumaiya" core="false" independent="false" score="2.5" />
         <adjudicator id="A195" name="Chanidu Ratnayake" core="false" independent="false" score="2.5" />
         <adjudicator id="A66" name="Mahum Kidwai" core="false" independent="false" score="2.5"
             institutions="I15" />
