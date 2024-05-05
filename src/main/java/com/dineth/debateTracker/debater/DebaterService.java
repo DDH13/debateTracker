@@ -1,5 +1,7 @@
 package com.dineth.debateTracker.debater;
 
+import com.dineth.debateTracker.ballot.BallotService;
+import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.utils.CustomExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +12,14 @@ import java.util.List;
 @Service
 public class DebaterService {
     private final DebaterRepository debaterRepository;
+    private final BallotService ballotService;
+    private final TeamService teamService;
 
     @Autowired
-    public DebaterService(DebaterRepository debaterRepository) {
+    public DebaterService(DebaterRepository debaterRepository, BallotService ballotService, TeamService teamService) {
         this.debaterRepository = debaterRepository;
+        this.ballotService = ballotService;
+        this.teamService = teamService;
     }
 
     public List<Debater> getDebaters() {
@@ -72,5 +78,11 @@ public class DebaterService {
             duplicateDebaters.addAll(debaters);
         }
         return duplicateDebaters;
+    }
+
+    public void replaceDebaters(Debater oldDebater, Debater newDebater) {
+        ballotService.replaceDebater(oldDebater, newDebater);
+        teamService.replaceDebater(oldDebater, newDebater);
+        debaterRepository.delete(oldDebater);
     }
 }

@@ -28,6 +28,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -73,9 +74,9 @@ public class TournamentBuilder {
     }
 
 
-    @GetMapping("/build")
+    @GetMapping("/build") @Transactional
     public Object buildTournament() {
-        ParseTabbycatXML parser = new ParseTabbycatXML("src/main/resources/static/SLSDC'23.xml");
+        ParseTabbycatXML parser = new ParseTabbycatXML("src/main/resources/static/Impromptus24.xml");
         parser.parseXML();
 
 

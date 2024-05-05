@@ -1,6 +1,9 @@
 package com.dineth.debateTracker.ballot;
+import com.dineth.debateTracker.debater.Debater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -22,6 +25,19 @@ public class BallotService {
 
     public Ballot findBallotById(Long id) {
         return ballotRepository.findById(id).orElse(null);
+    }
+
+    public List<Ballot> findBallotsByDebater(Debater debater) {
+        return ballotRepository.findBallotsByDebater(debater);
+    }
+
+    @Transactional
+    public void replaceDebater(Debater oldDebater, Debater newDebater) {
+        List<Ballot> ballots = findBallotsByDebater(oldDebater);
+        for (Ballot ballot : ballots) {
+            ballot.setDebater(newDebater);
+            ballotRepository.save(ballot);
+        }
     }
 
 }
