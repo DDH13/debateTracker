@@ -93,6 +93,8 @@ public class StringUtil {
     public static String parseGender(String gender) {
         if (gender == null) {
             throw new IllegalArgumentException("Gender is null");
+        } else if (gender.isEmpty()){
+            throw new IllegalArgumentException("Gender is empty");
         }
         gender = gender.strip();
         if (gender.equals("M")) {

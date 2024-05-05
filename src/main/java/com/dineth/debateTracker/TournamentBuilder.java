@@ -92,53 +92,52 @@ public class TournamentBuilder {
                 try {
                     phoneNumber = StringUtil.parsePhoneNumber(line[4]);
                     debater.setPhone(phoneNumber);
-                    System.out.print(", Phone Number: " + phoneNumber);
+                    log.debug(", Phone Number: " + phoneNumber);
                 } catch (IllegalArgumentException e) {
                     log.error(e.getMessage());
                 }
                 try {
                     String firstName = StringUtil.capitalizeName(line[1]);
                     debater.setFirstName(firstName);
-                    System.out.print(", First Name: " + firstName);
+                    log.debug(", First Name: " + firstName);
                 } catch (Exception e) {
                     log.error(e.getMessage());
                 }
                 try {
                     String lastName = StringUtil.capitalizeName(line[2]);
                     debater.setLastName(lastName);
-                    System.out.print(", Last Name: " + lastName);
+                    log.debug(", Last Name: " + lastName);
                 } catch (Exception e) {
                     log.error(e.getMessage());
                 }
                 try {
                     SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = parser.parse(line[3]);
-                    System.out.print(", DOB: " + date);
+                    log.debug(", DOB: " + date);
                     debater.setBirthdate(date);
                 } catch (Exception e) {
                     log.error(e.getMessage());
                 }
                 try {
                     debater.setEmail(line[5]);
-                    System.out.print(", Email: " + line[5]);
+                    log.debug(", Email: " + line[5]);
                 } catch (Exception e) {
                     log.error(e.getMessage());
                 }
                 try {
                     String gender = StringUtil.parseGender(line[8]);
                     debater.setGender(gender);
-                    System.out.print(", Gender: " + debater.getGender());
+                    log.debug(", Gender: " + debater.getGender());
                 } catch (IllegalArgumentException e) {
                     log.error(e.getMessage());
                 }
-                System.out.println();
                 //check if the debater already exists
                 try {
                     Debater existingDebater = debaterService.checkIfDebaterExists(debater);
                     if (existingDebater != null) {
-                        System.out.println("Debater already exists");
+                        log.debug("Debater already exists");
                     } else {
-                        System.out.println("Adding debater");
+                        log.debug("Adding debater");
                         debaterService.addDebater(debater);
                     }
                 } catch (Exception e) {
