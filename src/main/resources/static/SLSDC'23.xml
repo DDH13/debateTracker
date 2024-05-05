@@ -6324,8 +6324,8 @@
             <speaker id="S187" institutions="I9" categories="">Joshua Nathan Abraham</speaker>
         </team>
         <team name="Stafford International School B" code="Straight Line" id="T62" break-eligibilities="BC1">
-            <speaker id="S328" institutions="I9" categories="">Riyana</speaker>
-            <speaker id="S329" institutions="I9" categories="">Ayesh</speaker>
+            <speaker id="S328" institutions="I9" categories="">Riyana Doe</speaker>
+            <speaker id="S329" institutions="I9" categories="">Ayesh Doe</speaker>
             <speaker id="S330" institutions="I9" categories="">Yaeesh Arafath</speaker>
         </team>
         <team name="St Bridget's Convent A" code="Turtle" id="T49" break-eligibilities="BC1">
@@ -6380,7 +6380,7 @@
             <speaker id="S213" institutions="I4" categories="">Chaniru Senhas</speaker>
         </team>
         <team name="Trinity College Kandy B" code="Label" id="T56" break-eligibilities="BC1">
-            <speaker id="S214" institutions="I4" categories="">Abeesha Wickramasinghe (C)</speaker>
+            <speaker id="S214" institutions="I4" categories="">Abeesha Wickramasinghe</speaker>
             <speaker id="S215" institutions="I4" categories="">Muhammad Jameel</speaker>
             <speaker id="S216" institutions="I4" categories="">Nimuthu Parhiraja</speaker>
             <speaker id="S217" institutions="I4" categories="">Hansana Jayasundara</speaker>
@@ -6437,7 +6437,7 @@
         <adjudicator id="A298" name="Dineth Hettiarachchi" core="false" independent="false" score="4.5"
                      institutions="I19"/>
         <adjudicator id="A277" name="Himaya perera" core="false" independent="false" score="2.5" institutions="I20"/>
-        <adjudicator id="A286" name="S.K.Fathima sihla" core="false" independent="false" score="2.5"
+        <adjudicator id="A286" name="Fathima sihla" core="false" independent="false" score="2.5"
                      institutions="I27"/>
         <adjudicator id="A293" name="Sadesh Rajapakse" core="false" independent="false" score="2.5" institutions="I4"/>
         <adjudicator id="A292" name="Dinusha Pathirana" core="false" independent="false" score="4.5"
@@ -6462,10 +6462,10 @@
         <adjudicator id="A302" name="Shenaya Rodrigo" core="false" independent="false" score="3.0"/>
         <adjudicator id="A301" name="Puthun Waidyaratne" core="false" independent="false" score="2.5"/>
         <adjudicator id="A303" name="Muaaza Ifsal" core="false" independent="false" score="2.5"/>
-        <adjudicator id="A308" name="Sandun" core="false" independent="false" score="4.5"/>
+        <adjudicator id="A308" name="Sandun Batagoda" core="false" independent="false" score="4.5"/>
         <adjudicator id="A307" name="Rasara Jayasuriya" core="false" independent="false" score="3.0"/>
         <adjudicator id="A305" name="Lolonyo Rahulan" core="false" independent="false" score="3.5"/>
-        <adjudicator id="A295" name="Shanya" core="false" independent="false" score="4.5" institutions="I4"/>
+        <adjudicator id="A295" name="Shanya Sadanadan" core="false" independent="false" score="4.5" institutions="I4"/>
         <adjudicator id="A239" name="Shalem Sumanthiran" core="false" independent="false" score="4.5"/>
         <adjudicator id="A275" name="Sheriah Peries" core="false" independent="false" score="3.5" institutions="I37"/>
         <adjudicator id="A276" name="Stephan Rodrigo" core="false" independent="false" score="3.0" institutions="I21"/>
@@ -6477,7 +6477,7 @@
         <adjudicator id="A287" name="Treshan Fernando" core="false" independent="false" score="4.5" institutions="I9"/>
         <adjudicator id="A241" name="Umar Safras" core="false" independent="false" score="3.0"/>
         <adjudicator id="A304" name="Yasith Galahitiyawa" core="false" independent="false" score="3.0"/>
-        <adjudicator id="A279" name="Zuleika" core="false" independent="false" score="3.5" institutions="I20"/>
+        <adjudicator id="A279" name="Zuleika Buhar" core="false" independent="false" score="3.5" institutions="I20"/>
         <adjudicator id="A323" name="Anish Fonseka" core="false" independent="false" score="4.5"/>
         <adjudicator id="A331" name="Theshani Weligamage" core="false" independent="false" score="2.5"/>
         <adjudicator id="A306" name="Lakshitha Edirisinghe" core="false" independent="false" score="4.0"/>
@@ -6495,12 +6495,12 @@
         <adjudicator id="A321" name="Akhila Randeniya" core="false" independent="false" score="4.5"/>
         <adjudicator id="A318" name="Vidhaan Chand" core="false" independent="false" score="3.5"/>
         <adjudicator id="A325" name="Naika Gooneratne" core="false" independent="false" score="3.5"/>
-        <adjudicator id="A326" name="Vishma&#160;Arachchi" core="false" independent="false" score="2.5"/>
+        <adjudicator id="A326" name="Vishma Arachchi" core="false" independent="false" score="2.5"/>
         <adjudicator id="A338" name="Mahin De Silva" core="false" independent="false" score="4.0" institutions="I24"/>
         <adjudicator id="A339" name="Ranudi Jayasinghe" core="false" independent="false" score="2.5"/>
-        <adjudicator id="A340" name="Shamalie" core="false" independent="false" score="2.5"/>
-        <adjudicator id="A341" name="Nishantha" core="false" independent="false" score="4.5"/>
-        <adjudicator id="A320" name="Namashya" core="false" independent="false" score="3.0"/>
+        <adjudicator id="A340" name="Shamalie Doe" core="false" independent="false" score="2.5"/>
+        <adjudicator id="A341" name="Nishantha Doe" core="false" independent="false" score="4.5"/>
+        <adjudicator id="A320" name="Namashya Doe" core="false" independent="false" score="3.0"/>
         <adjudicator id="A247" name="Mathuri Kathiravelu" core="false" independent="false" score="3.0"/>
         <adjudicator id="A264" name="Chavika Samaraweera" core="false" independent="false" score="4.0"
                      institutions="I26"/>
