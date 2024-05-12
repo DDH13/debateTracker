@@ -21,21 +21,16 @@ import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
+import com.dineth.debateTracker.utils.ParseCV;
 import com.dineth.debateTracker.utils.ParseTabbycatXML;
 import com.dineth.debateTracker.utils.StringUtil;
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -81,77 +76,22 @@ public class TournamentBuilder {
 
     @GetMapping("/parsecsv")
     public Object parseCSV() {
-        try {
-            CSVReader reader = new CSVReader(new FileReader("src/main/resources/static/Debater_Information.csv"));
-            String[] line;
-            String phoneNumber;
-            //skip the first line
-            reader.readNext();
-            while ((line = reader.readNext()) != null) {
-                Debater debater = new Debater();
-                try {
-                    phoneNumber = StringUtil.parsePhoneNumber(line[4]);
-                    debater.setPhone(phoneNumber);
-                    log.debug(", Phone Number: " + phoneNumber);
-                } catch (IllegalArgumentException e) {
-                    log.error(e.getMessage());
-                }
-                try {
-                    String firstName = StringUtil.capitalizeName(line[1]);
-                    debater.setFirstName(firstName);
-                    log.debug(", First Name: " + firstName);
-                } catch (Exception e) {
-                    log.error(e.getMessage());
-                }
-                try {
-                    String lastName = StringUtil.capitalizeName(line[2]);
-                    debater.setLastName(lastName);
-                    log.debug(", Last Name: " + lastName);
-                } catch (Exception e) {
-                    log.error(e.getMessage());
-                }
-                try {
-                    SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
-                    Date date = parser.parse(line[3]);
-                    log.debug(", DOB: " + date);
-                    debater.setBirthdate(date);
-                } catch (Exception e) {
-                    log.error(e.getMessage());
-                }
-                try {
-                    debater.setEmail(line[5]);
-                    log.debug(", Email: " + line[5]);
-                } catch (Exception e) {
-                    log.error(e.getMessage());
-                }
-                try {
-                    String gender = StringUtil.parseGender(line[8]);
-                    debater.setGender(gender);
-                    log.debug(", Gender: " + debater.getGender());
-                } catch (IllegalArgumentException e) {
-                    log.error(e.getMessage());
-                }
-                //check if the debater already exists
-                try {
-                    Debater existingDebater = debaterService.checkIfDebaterExists(debater);
-                    if (existingDebater != null) {
-                        log.debug("Debater already exists");
-                    } else {
-                        log.debug("Adding debater");
-                        debaterService.addDebater(debater);
-                    }
-                } catch (Exception e) {
-                    log.error(e.getMessage());
-                }
-            }
-            reader.close();
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        } catch (CsvValidationException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
 
+        List<Debater> debaters = new ParseCV("src/main/resources/static/Debater_Information.csv").parseDebaterInfo();
+        for (Debater debater : debaters) {
+            try {
+                Debater existingDebater = debaterService.checkIfDebaterExists(debater);
+                if (existingDebater != null) {
+                    log.debug("Debater already exists");
+                } else {
+                    log.debug("Adding debater");
+                    debaterService.addDebater(debater);
+                }
+            } catch (Exception e) {
+                log.error(e.getMessage());
+            }
+        }
+        return debaters;
     }
 
     private Object buildMyTournament(String filePath) {
