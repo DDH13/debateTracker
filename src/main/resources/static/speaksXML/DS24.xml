@@ -25,7 +25,7 @@
                     <ballot adjudicators="A10">73.5</ballot>
                 </speech>
                 <speech speaker="S205" reply="False">
-                    <ballot adjudicators="A10">72.0</ballot>
+                    <ballot adjudicatozrs="A10">72.0</ballot>
                 </speech>
                 <speech speaker="S203" reply="True">
                     <ballot adjudicators="A10">36.5</ballot>
@@ -2201,7 +2201,7 @@
         <team name="Colombo International School" code="" id="T22" break-eligibilities="BC1">
             <speaker id="S152" institutions="I18" categories="">Anya Vithanage</speaker>
             <speaker id="S153" institutions="I18" categories="">Adam Gulamhussein</speaker>
-            <speaker id="S154" institutions="I18" categories="">Sharushan Dayapathy</speaker>
+            <speaker id="S154" institutions="I18" categories="">Sharu Shan Dayapathy</speaker>
             <speaker id="S155" institutions="I18" categories="">Ismail Maakin</speaker>
         </team>
         <team name="Ecole Internationale Kandy" code="Shopping" id="T3" break-eligibilities="BC1">
@@ -2220,7 +2220,7 @@
             <speaker id="S134" institutions="I13" categories="">Chathil Udukalage</speaker>
             <speaker id="S135" institutions="I13" categories="">Dinini Savindya Thalagahawatta</speaker>
             <speaker id="S136" institutions="I13" categories="">Tharuki Dinethra</speaker>
-            <speaker id="S137" institutions="I13" categories="">Yasali Punchihewa</speaker>
+            <speaker id="S137" institutions="I13" categories="">Yasali Tharithna Punchihewa</speaker>
         </team>
         <team name="Hillwood College Kandy A" code="" id="T31" break-eligibilities="BC1">
             <speaker id="S185" institutions="I4" categories="">Shenaya Senanayake</speaker>
@@ -2292,7 +2292,7 @@
             <speaker id="S107" institutions="I24" categories="">Arkam Bin Hussain</speaker>
             <speaker id="S109" institutions="I24" categories="">Mithila Rozairo</speaker>
             <speaker id="S108" institutions="I24" categories="">Chalith Mawilmada</speaker>
-            <speaker id="S110" institutions="I24" categories="">Roshan Makarim</speaker>
+            <speaker id="S110" institutions="I24" categories="">R.F.M. Makarim</speaker>
         </team>
         <team name="St. Bridget's Convent" code="Question" id="T11" break-eligibilities="BC1">
             <speaker id="S111" institutions="I5" categories="">Tharuka Soyza</speaker>
@@ -2365,6 +2365,7 @@
         <adjudicator id="A67" name="Puthun Waidyaratne" core="false" independent="false" score="2.5"
             institutions="I25" />
         <adjudicator id="A65" name="Shafa Imshiraz" core="false" independent="false" score="2.5" />
+        <adjudicator id="A192" name="Sumaiya" core="false" independent="false" score="2.5" />
         <adjudicator id="A195" name="Chanidu Ratnayake" core="false" independent="false" score="2.5" />
         <adjudicator id="A66" name="Mahum Kidwai" core="false" independent="false" score="2.5"
             institutions="I15" />

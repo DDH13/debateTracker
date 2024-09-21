@@ -1,0 +1,1971 @@
+<tournament name="Mrs. Frances Chapman Memorial Championship 2024" short="Chaos ‘24">
+<round name="Round 1" abbreviation="R1" elimination="false" feedback-weight="0.0">
+<debate id="D11" adjudicators="A105" chair="A105" venue="V11" motion="M1">
+<side team="T14">
+<ballot adjudicators="A105" minority="false" ignored="false" rank="1">265.0</ballot>
+<speech speaker="S50" reply="False">
+<ballot adjudicators="A105">75.0</ballot>
+</speech>
+<speech speaker="S48" reply="False">
+<ballot adjudicators="A105">76.0</ballot>
+</speech>
+<speech speaker="S49" reply="False">
+<ballot adjudicators="A105">76.0</ballot>
+</speech>
+<speech speaker="S48" reply="True">
+<ballot adjudicators="A105">38.0</ballot>
+</speech>
+</side>
+<side team="T20">
+<ballot adjudicators="A105" minority="false" ignored="false" rank="2">263.5</ballot>
+<speech speaker="S72" reply="False">
+<ballot adjudicators="A105">75.0</ballot>
+</speech>
+<speech speaker="S72" reply="False">
+<ballot adjudicators="A105">75.0</ballot>
+</speech>
+<speech speaker="S71" reply="False">
+<ballot adjudicators="A105">75.5</ballot>
+</speech>
+<speech speaker="S72" reply="True">
+<ballot adjudicators="A105">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D7" adjudicators="A96" chair="A96" venue="V5" motion="M1">
+<side team="T4">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="2">261.5</ballot>
+<speech speaker="S14" reply="False">
+<ballot adjudicators="A96">74.5</ballot>
+</speech>
+<speech speaker="S12" reply="False">
+<ballot adjudicators="A96">75.5</ballot>
+</speech>
+<speech speaker="S13" reply="False">
+<ballot adjudicators="A96">74.5</ballot>
+</speech>
+<speech speaker="S12" reply="True">
+<ballot adjudicators="A96">37.0</ballot>
+</speech>
+</side>
+<side team="T27">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="1">265.5</ballot>
+<speech speaker="S137" reply="False">
+<ballot adjudicators="A96">75.5</ballot>
+</speech>
+<speech speaker="S135" reply="False">
+<ballot adjudicators="A96">76.0</ballot>
+</speech>
+<speech speaker="S134" reply="False">
+<ballot adjudicators="A96">76.0</ballot>
+</speech>
+<speech speaker="S135" reply="True">
+<ballot adjudicators="A96">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D9" adjudicators="A95" chair="A95" venue="V4" motion="M1">
+<side team="T9">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="1">262.5</ballot>
+<speech speaker="S32" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S30" reply="False">
+<ballot adjudicators="A95">76.0</ballot>
+</speech>
+<speech speaker="S33" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S30" reply="True">
+<ballot adjudicators="A95">35.5</ballot>
+</speech>
+</side>
+<side team="T15">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="2">262.0</ballot>
+<speech speaker="S53" reply="False">
+<ballot adjudicators="A95">76.0</ballot>
+</speech>
+<speech speaker="S54" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S55" reply="False">
+<ballot adjudicators="A95">75.0</ballot>
+</speech>
+<speech speaker="S53" reply="True">
+<ballot adjudicators="A95">35.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D3" adjudicators="A117" chair="A117" venue="V1" motion="M1">
+<side team="T11">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="1">258.0</ballot>
+<speech speaker="S37" reply="False">
+<ballot adjudicators="A117">73.5</ballot>
+</speech>
+<speech speaker="S40" reply="False">
+<ballot adjudicators="A117">72.0</ballot>
+</speech>
+<speech speaker="S38" reply="False">
+<ballot adjudicators="A117">73.5</ballot>
+</speech>
+<speech speaker="S37" reply="True">
+<ballot adjudicators="A117">39.0</ballot>
+</speech>
+</side>
+<side team="T29">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="2">255.5</ballot>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A117">72.5</ballot>
+</speech>
+<speech speaker="S144" reply="False">
+<ballot adjudicators="A117">72.0</ballot>
+</speech>
+<speech speaker="S143" reply="False">
+<ballot adjudicators="A117">72.5</ballot>
+</speech>
+<speech speaker="S142" reply="True">
+<ballot adjudicators="A117">38.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D1" adjudicators="A90" chair="A90" venue="V8" motion="M1">
+<side team="T28">
+<ballot adjudicators="A90" minority="false" ignored="false" rank="2">257.5</ballot>
+<speech speaker="S138" reply="False">
+<ballot adjudicators="A90">74.0</ballot>
+</speech>
+<speech speaker="S139" reply="False">
+<ballot adjudicators="A90">73.5</ballot>
+</speech>
+<speech speaker="S140" reply="False">
+<ballot adjudicators="A90">73.0</ballot>
+</speech>
+<speech speaker="S138" reply="True">
+<ballot adjudicators="A90">37.0</ballot>
+</speech>
+</side>
+<side team="T7">
+<ballot adjudicators="A90" minority="false" ignored="false" rank="1">264.0</ballot>
+<speech speaker="S26" reply="False">
+<ballot adjudicators="A90">75.5</ballot>
+</speech>
+<speech speaker="S24" reply="False">
+<ballot adjudicators="A90">75.5</ballot>
+</speech>
+<speech speaker="S25" reply="False">
+<ballot adjudicators="A90">75.5</ballot>
+</speech>
+<speech speaker="S24" reply="True">
+<ballot adjudicators="A90">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D4" adjudicators="A119" chair="A119" venue="V9" motion="M1">
+<side team="T18">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="2">260.0</ballot>
+<speech speaker="S64" reply="False">
+<ballot adjudicators="A119">74.5</ballot>
+</speech>
+<speech speaker="S65" reply="False">
+<ballot adjudicators="A119">75.0</ballot>
+</speech>
+<speech speaker="S66" reply="False">
+<ballot adjudicators="A119">74.0</ballot>
+</speech>
+<speech speaker="S64" reply="True">
+<ballot adjudicators="A119">36.5</ballot>
+</speech>
+</side>
+<side team="T22">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="1">262.0</ballot>
+<speech speaker="S81" reply="False">
+<ballot adjudicators="A119">75.0</ballot>
+</speech>
+<speech speaker="S80" reply="False">
+<ballot adjudicators="A119">75.5</ballot>
+</speech>
+<speech speaker="S79" reply="False">
+<ballot adjudicators="A119">75.0</ballot>
+</speech>
+<speech speaker="S81" reply="True">
+<ballot adjudicators="A119">36.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D6" adjudicators="A100" chair="A100" venue="V12" motion="M1">
+<side team="T2">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="2">258.0</ballot>
+<speech speaker="S5" reply="False">
+<ballot adjudicators="A100">75.0</ballot>
+</speech>
+<speech speaker="S6" reply="False">
+<ballot adjudicators="A100">74.0</ballot>
+</speech>
+<speech speaker="S4" reply="False">
+<ballot adjudicators="A100">74.0</ballot>
+</speech>
+<speech speaker="S5" reply="True">
+<ballot adjudicators="A100">35.0</ballot>
+</speech>
+</side>
+<side team="T13">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="1">259.5</ballot>
+<speech speaker="S45" reply="False">
+<ballot adjudicators="A100">74.5</ballot>
+</speech>
+<speech speaker="S46" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S44" reply="False">
+<ballot adjudicators="A100">74.0</ballot>
+</speech>
+<speech speaker="S45" reply="True">
+<ballot adjudicators="A100">35.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D8" adjudicators="A159" chair="A159" venue="V7" motion="M1">
+<side team="T23">
+<ballot adjudicators="A159" minority="false" ignored="false" rank="2">260.5</ballot>
+<speech speaker="S84" reply="False">
+<ballot adjudicators="A159">75.0</ballot>
+</speech>
+<speech speaker="S83" reply="False">
+<ballot adjudicators="A159">75.0</ballot>
+</speech>
+<speech speaker="S86" reply="False">
+<ballot adjudicators="A159">74.5</ballot>
+</speech>
+<speech speaker="S83" reply="True">
+<ballot adjudicators="A159">36.0</ballot>
+</speech>
+</side>
+<side team="T6">
+<ballot adjudicators="A159" minority="false" ignored="false" rank="1">265.0</ballot>
+<speech speaker="S19" reply="False">
+<ballot adjudicators="A159">76.5</ballot>
+</speech>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A159">76.5</ballot>
+</speech>
+<speech speaker="S22" reply="False">
+<ballot adjudicators="A159">76.0</ballot>
+</speech>
+<speech speaker="S20" reply="True">
+<ballot adjudicators="A159">36.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D5" adjudicators="A88" chair="A88" venue="V3" motion="M1">
+<side team="T31">
+<ballot adjudicators="A88" minority="false" ignored="false" rank="2">258.5</ballot>
+<speech speaker="S150" reply="False">
+<ballot adjudicators="A88">74.0</ballot>
+</speech>
+<speech speaker="S152" reply="False">
+<ballot adjudicators="A88">74.5</ballot>
+</speech>
+<speech speaker="S151" reply="False">
+<ballot adjudicators="A88">74.0</ballot>
+</speech>
+<speech speaker="S150" reply="True">
+<ballot adjudicators="A88">36.0</ballot>
+</speech>
+</side>
+<side team="T30">
+<ballot adjudicators="A88" minority="false" ignored="false" rank="1">261.5</ballot>
+<speech speaker="S148" reply="False">
+<ballot adjudicators="A88">75.0</ballot>
+</speech>
+<speech speaker="S149" reply="False">
+<ballot adjudicators="A88">75.5</ballot>
+</speech>
+<speech speaker="S146" reply="False">
+<ballot adjudicators="A88">76.0</ballot>
+</speech>
+<speech speaker="S149" reply="True">
+<ballot adjudicators="A88">35.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D10" adjudicators="A103" chair="A103" venue="V10" motion="M1">
+<side team="T16">
+<ballot adjudicators="A103" minority="false" ignored="false" rank="2">266.0</ballot>
+<speech speaker="S59" reply="False">
+<ballot adjudicators="A103">75.5</ballot>
+</speech>
+<speech speaker="S57" reply="False">
+<ballot adjudicators="A103">76.0</ballot>
+</speech>
+<speech speaker="S58" reply="False">
+<ballot adjudicators="A103">76.5</ballot>
+</speech>
+<speech speaker="S57" reply="True">
+<ballot adjudicators="A103">38.0</ballot>
+</speech>
+</side>
+<side team="T32">
+<ballot adjudicators="A103" minority="false" ignored="false" rank="1">268.0</ballot>
+<speech speaker="S155" reply="False">
+<ballot adjudicators="A103">75.5</ballot>
+</speech>
+<speech speaker="S154" reply="False">
+<ballot adjudicators="A103">78.0</ballot>
+</speech>
+<speech speaker="S156" reply="False">
+<ballot adjudicators="A103">76.5</ballot>
+</speech>
+<speech speaker="S154" reply="True">
+<ballot adjudicators="A103">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D12" adjudicators="A89" chair="A89" venue="V6" motion="M1">
+<side team="T17">
+<ballot adjudicators="A89" minority="false" ignored="false" rank="1">260.0</ballot>
+<speech speaker="S61" reply="False">
+<ballot adjudicators="A89">74.5</ballot>
+</speech>
+<speech speaker="S62" reply="False">
+<ballot adjudicators="A89">74.5</ballot>
+</speech>
+<speech speaker="S63" reply="False">
+<ballot adjudicators="A89">74.5</ballot>
+</speech>
+<speech speaker="S61" reply="True">
+<ballot adjudicators="A89">36.5</ballot>
+</speech>
+</side>
+<side team="T8">
+<ballot adjudicators="A89" minority="false" ignored="false" rank="2">258.5</ballot>
+<speech speaker="S28" reply="False">
+<ballot adjudicators="A89">74.0</ballot>
+</speech>
+<speech speaker="S27" reply="False">
+<ballot adjudicators="A89">74.0</ballot>
+</speech>
+<speech speaker="S29" reply="False">
+<ballot adjudicators="A89">74.0</ballot>
+</speech>
+<speech speaker="S28" reply="True">
+<ballot adjudicators="A89">36.5</ballot>
+</speech>
+</side>
+</debate>
+</round>
+<round name="Round 2" abbreviation="R2" elimination="false" feedback-weight="0.1">
+<debate id="D19" adjudicators="A90" chair="A90" venue="V6" motion="M2">
+<side team="T8">
+<ballot adjudicators="A90" minority="false" ignored="false" rank="2">255.0</ballot>
+<speech speaker="S29" reply="False">
+<ballot adjudicators="A90">72.5</ballot>
+</speech>
+<speech speaker="S27" reply="False">
+<ballot adjudicators="A90">73.0</ballot>
+</speech>
+<speech speaker="S28" reply="False">
+<ballot adjudicators="A90">73.0</ballot>
+</speech>
+<speech speaker="S29" reply="True">
+<ballot adjudicators="A90">36.5</ballot>
+</speech>
+</side>
+<side team="T23">
+<ballot adjudicators="A90" minority="false" ignored="false" rank="1">258.5</ballot>
+<speech speaker="S84" reply="False">
+<ballot adjudicators="A90">74.0</ballot>
+</speech>
+<speech speaker="S83" reply="False">
+<ballot adjudicators="A90">73.5</ballot>
+</speech>
+<speech speaker="S86" reply="False">
+<ballot adjudicators="A90">74.0</ballot>
+</speech>
+<speech speaker="S84" reply="True">
+<ballot adjudicators="A90">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D14" adjudicators="A95" chair="A95" venue="V10" motion="M2">
+<side team="T31">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="2">258.0</ballot>
+<speech speaker="S150" reply="False">
+<ballot adjudicators="A95">74.5</ballot>
+</speech>
+<speech speaker="S152" reply="False">
+<ballot adjudicators="A95">74.0</ballot>
+</speech>
+<speech speaker="S151" reply="False">
+<ballot adjudicators="A95">74.5</ballot>
+</speech>
+<speech speaker="S152" reply="True">
+<ballot adjudicators="A95">35.0</ballot>
+</speech>
+</side>
+<side team="T4">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="1">262.0</ballot>
+<speech speaker="S14" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S13" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S12" reply="False">
+<ballot adjudicators="A95">76.0</ballot>
+</speech>
+<speech speaker="S13" reply="True">
+<ballot adjudicators="A95">35.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D16" adjudicators="A106" chair="A106" venue="V3" motion="M2">
+<side team="T20">
+<ballot adjudicators="A106" minority="false" ignored="false" rank="1">260.0</ballot>
+<speech speaker="S71" reply="False">
+<ballot adjudicators="A106">75.0</ballot>
+</speech>
+<speech speaker="S72" reply="False">
+<ballot adjudicators="A106">74.0</ballot>
+</speech>
+<speech speaker="S71" reply="False">
+<ballot adjudicators="A106">74.0</ballot>
+</speech>
+<speech speaker="S72" reply="True">
+<ballot adjudicators="A106">37.0</ballot>
+</speech>
+</side>
+<side team="T28">
+<ballot adjudicators="A106" minority="false" ignored="false" rank="2">258.0</ballot>
+<speech speaker="S138" reply="False">
+<ballot adjudicators="A106">74.0</ballot>
+</speech>
+<speech speaker="S139" reply="False">
+<ballot adjudicators="A106">73.5</ballot>
+</speech>
+<speech speaker="S140" reply="False">
+<ballot adjudicators="A106">73.5</ballot>
+</speech>
+<speech speaker="S138" reply="True">
+<ballot adjudicators="A106">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D22" adjudicators="A88" chair="A88" venue="V8" motion="M2">
+<side team="T29">
+<ballot adjudicators="A88" minority="false" ignored="false" rank="2">257.5</ballot>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A88">73.5</ballot>
+</speech>
+<speech speaker="S144" reply="False">
+<ballot adjudicators="A88">73.0</ballot>
+</speech>
+<speech speaker="S143" reply="False">
+<ballot adjudicators="A88">73.0</ballot>
+</speech>
+<speech speaker="S142" reply="True">
+<ballot adjudicators="A88">38.0</ballot>
+</speech>
+</side>
+<side team="T16">
+<ballot adjudicators="A88" minority="false" ignored="false" rank="1">265.5</ballot>
+<speech speaker="S59" reply="False">
+<ballot adjudicators="A88">76.5</ballot>
+</speech>
+<speech speaker="S57" reply="False">
+<ballot adjudicators="A88">77.0</ballot>
+</speech>
+<speech speaker="S58" reply="False">
+<ballot adjudicators="A88">77.0</ballot>
+</speech>
+<speech speaker="S59" reply="True">
+<ballot adjudicators="A88">35.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D13" adjudicators="A103" chair="A103" venue="V9" motion="M2">
+<side team="T7">
+<ballot adjudicators="A103" minority="false" ignored="false" rank="1">265.0</ballot>
+<speech speaker="S25" reply="False">
+<ballot adjudicators="A103">75.0</ballot>
+</speech>
+<speech speaker="S24" reply="False">
+<ballot adjudicators="A103">76.5</ballot>
+</speech>
+<speech speaker="S23" reply="False">
+<ballot adjudicators="A103">75.5</ballot>
+</speech>
+<speech speaker="S24" reply="True">
+<ballot adjudicators="A103">38.0</ballot>
+</speech>
+</side>
+<side team="T30">
+<ballot adjudicators="A103" minority="false" ignored="false" rank="2">262.5</ballot>
+<speech speaker="S148" reply="False">
+<ballot adjudicators="A103">74.5</ballot>
+</speech>
+<speech speaker="S149" reply="False">
+<ballot adjudicators="A103">75.5</ballot>
+</speech>
+<speech speaker="S146" reply="False">
+<ballot adjudicators="A103">75.0</ballot>
+</speech>
+<speech speaker="S149" reply="True">
+<ballot adjudicators="A103">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D20" adjudicators="A162" chair="A162" venue="V5" motion="M2">
+<side team="T17">
+<ballot adjudicators="A162" minority="false" ignored="false" rank="2">259.5</ballot>
+<speech speaker="S61" reply="False">
+<ballot adjudicators="A162">73.5</ballot>
+</speech>
+<speech speaker="S62" reply="False">
+<ballot adjudicators="A162">75.0</ballot>
+</speech>
+<speech speaker="S63" reply="False">
+<ballot adjudicators="A162">73.5</ballot>
+</speech>
+<speech speaker="S62" reply="True">
+<ballot adjudicators="A162">37.5</ballot>
+</speech>
+</side>
+<side team="T14">
+<ballot adjudicators="A162" minority="false" ignored="false" rank="1">264.5</ballot>
+<speech speaker="S50" reply="False">
+<ballot adjudicators="A162">74.5</ballot>
+</speech>
+<speech speaker="S49" reply="False">
+<ballot adjudicators="A162">76.5</ballot>
+</speech>
+<speech speaker="S48" reply="False">
+<ballot adjudicators="A162">75.5</ballot>
+</speech>
+<speech speaker="S49" reply="True">
+<ballot adjudicators="A162">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D18" adjudicators="A96" chair="A96" venue="V4" motion="M2">
+<side team="T6">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="1">267.0</ballot>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A96">76.0</ballot>
+</speech>
+<speech speaker="S22" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S22" reply="True">
+<ballot adjudicators="A96">38.0</ballot>
+</speech>
+</side>
+<side team="T13">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="2">259.5</ballot>
+<speech speaker="S45" reply="False">
+<ballot adjudicators="A96">73.5</ballot>
+</speech>
+<speech speaker="S46" reply="False">
+<ballot adjudicators="A96">74.5</ballot>
+</speech>
+<speech speaker="S44" reply="False">
+<ballot adjudicators="A96">74.5</ballot>
+</speech>
+<speech speaker="S45" reply="True">
+<ballot adjudicators="A96">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D23" adjudicators="A100" chair="A100" venue="V11" motion="M2">
+<side team="T32">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="1">266.0</ballot>
+<speech speaker="S155" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S156" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S154" reply="False">
+<ballot adjudicators="A100">76.5</ballot>
+</speech>
+<speech speaker="S156" reply="True">
+<ballot adjudicators="A100">38.5</ballot>
+</speech>
+</side>
+<side team="T18">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="2">254.0</ballot>
+<speech speaker="S64" reply="False">
+<ballot adjudicators="A100">73.0</ballot>
+</speech>
+<speech speaker="S65" reply="False">
+<ballot adjudicators="A100">73.5</ballot>
+</speech>
+<speech speaker="S66" reply="False">
+<ballot adjudicators="A100">73.0</ballot>
+</speech>
+<speech speaker="S64" reply="True">
+<ballot adjudicators="A100">34.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D17" adjudicators="A104" chair="A104" venue="V7" motion="M2">
+<side team="T27">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="2">263.5</ballot>
+<speech speaker="S136" reply="False">
+<ballot adjudicators="A104">74.0</ballot>
+</speech>
+<speech speaker="S134" reply="False">
+<ballot adjudicators="A104">76.0</ballot>
+</speech>
+<speech speaker="S135" reply="False">
+<ballot adjudicators="A104">76.0</ballot>
+</speech>
+<speech speaker="S136" reply="True">
+<ballot adjudicators="A104">37.5</ballot>
+</speech>
+</side>
+<side team="T11">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="1">264.0</ballot>
+<speech speaker="S37" reply="False">
+<ballot adjudicators="A104">75.0</ballot>
+</speech>
+<speech speaker="S38" reply="False">
+<ballot adjudicators="A104">75.0</ballot>
+</speech>
+<speech speaker="S39" reply="False">
+<ballot adjudicators="A104">76.0</ballot>
+</speech>
+<speech speaker="S37" reply="True">
+<ballot adjudicators="A104">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D15" adjudicators="A119" chair="A119" venue="V12" motion="M2">
+<side team="T15">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="2">265.5</ballot>
+<speech speaker="S53" reply="False">
+<ballot adjudicators="A119">76.5</ballot>
+</speech>
+<speech speaker="S54" reply="False">
+<ballot adjudicators="A119">76.0</ballot>
+</speech>
+<speech speaker="S55" reply="False">
+<ballot adjudicators="A119">76.0</ballot>
+</speech>
+<speech speaker="S53" reply="True">
+<ballot adjudicators="A119">37.0</ballot>
+</speech>
+</side>
+<side team="T2">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="1">268.0</ballot>
+<speech speaker="S5" reply="False">
+<ballot adjudicators="A119">77.5</ballot>
+</speech>
+<speech speaker="S7" reply="False">
+<ballot adjudicators="A119">76.5</ballot>
+</speech>
+<speech speaker="S4" reply="False">
+<ballot adjudicators="A119">77.0</ballot>
+</speech>
+<speech speaker="S5" reply="True">
+<ballot adjudicators="A119">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D21" adjudicators="A159" chair="A159" venue="V1" motion="M2">
+<side team="T22">
+<ballot adjudicators="A159" minority="false" ignored="false" rank="2">264.0</ballot>
+<speech speaker="S81" reply="False">
+<ballot adjudicators="A159">76.5</ballot>
+</speech>
+<speech speaker="S80" reply="False">
+<ballot adjudicators="A159">77.0</ballot>
+</speech>
+<speech speaker="S79" reply="False">
+<ballot adjudicators="A159">75.5</ballot>
+</speech>
+<speech speaker="S81" reply="True">
+<ballot adjudicators="A159">35.0</ballot>
+</speech>
+</side>
+<side team="T9">
+<ballot adjudicators="A159" minority="false" ignored="false" rank="1">266.0</ballot>
+<speech speaker="S32" reply="False">
+<ballot adjudicators="A159">76.0</ballot>
+</speech>
+<speech speaker="S31" reply="False">
+<ballot adjudicators="A159">77.0</ballot>
+</speech>
+<speech speaker="S30" reply="False">
+<ballot adjudicators="A159">77.0</ballot>
+</speech>
+<speech speaker="S31" reply="True">
+<ballot adjudicators="A159">36.0</ballot>
+</speech>
+</side>
+</debate>
+</round>
+<round name="Round 3" abbreviation="R3" elimination="false" feedback-weight="0.2">
+<debate id="D43" adjudicators="A158" chair="A158" venue="V1" motion="M3">
+<side team="T30">
+<ballot adjudicators="A158" minority="false" ignored="false" rank="2">262.5</ballot>
+<speech speaker="S148" reply="False">
+<ballot adjudicators="A158">75.0</ballot>
+</speech>
+<speech speaker="S149" reply="False">
+<ballot adjudicators="A158">75.5</ballot>
+</speech>
+<speech speaker="S146" reply="False">
+<ballot adjudicators="A158">74.5</ballot>
+</speech>
+<speech speaker="S149" reply="True">
+<ballot adjudicators="A158">37.5</ballot>
+</speech>
+</side>
+<side team="T20">
+<ballot adjudicators="A158" minority="false" ignored="false" rank="1">263.0</ballot>
+<speech speaker="S71" reply="False">
+<ballot adjudicators="A158">75.5</ballot>
+</speech>
+<speech speaker="S72" reply="False">
+<ballot adjudicators="A158">75.0</ballot>
+</speech>
+<speech speaker="S74" reply="False">
+<ballot adjudicators="A158">75.0</ballot>
+</speech>
+<speech speaker="S72" reply="True">
+<ballot adjudicators="A158">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D38" adjudicators="A106" chair="A106" venue="V3" motion="M3">
+<side team="T22">
+<ballot adjudicators="A106" minority="false" ignored="false" rank="2">265.0</ballot>
+<speech speaker="S81" reply="False">
+<ballot adjudicators="A106">76.5</ballot>
+</speech>
+<speech speaker="S80" reply="False">
+<ballot adjudicators="A106">76.0</ballot>
+</speech>
+<speech speaker="S79" reply="False">
+<ballot adjudicators="A106">75.0</ballot>
+</speech>
+<speech speaker="S81" reply="True">
+<ballot adjudicators="A106">37.5</ballot>
+</speech>
+</side>
+<side team="T4">
+<ballot adjudicators="A106" minority="false" ignored="false" rank="1">265.5</ballot>
+<speech speaker="S14" reply="False">
+<ballot adjudicators="A106">75.0</ballot>
+</speech>
+<speech speaker="S13" reply="False">
+<ballot adjudicators="A106">76.5</ballot>
+</speech>
+<speech speaker="S12" reply="False">
+<ballot adjudicators="A106">76.5</ballot>
+</speech>
+<speech speaker="S13" reply="True">
+<ballot adjudicators="A106">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D36" adjudicators="A117" chair="A117" venue="V8" motion="M3">
+<side team="T2">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="1">260.0</ballot>
+<speech speaker="S5" reply="False">
+<ballot adjudicators="A117">75.0</ballot>
+</speech>
+<speech speaker="S6" reply="False">
+<ballot adjudicators="A117">74.5</ballot>
+</speech>
+<speech speaker="S4" reply="False">
+<ballot adjudicators="A117">74.5</ballot>
+</speech>
+<speech speaker="S5" reply="True">
+<ballot adjudicators="A117">36.0</ballot>
+</speech>
+</side>
+<side team="T17">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="2">258.5</ballot>
+<speech speaker="S61" reply="False">
+<ballot adjudicators="A117">73.5</ballot>
+</speech>
+<speech speaker="S62" reply="False">
+<ballot adjudicators="A117">74.0</ballot>
+</speech>
+<speech speaker="S63" reply="False">
+<ballot adjudicators="A117">74.0</ballot>
+</speech>
+<speech speaker="S62" reply="True">
+<ballot adjudicators="A117">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D41" adjudicators="A169" chair="A169" venue="V4" motion="M3">
+<side team="T14">
+<ballot adjudicators="A169" minority="false" ignored="false" rank="1">264.0</ballot>
+<speech speaker="S50" reply="False">
+<ballot adjudicators="A169">75.0</ballot>
+</speech>
+<speech speaker="S48" reply="False">
+<ballot adjudicators="A169">75.5</ballot>
+</speech>
+<speech speaker="S49" reply="False">
+<ballot adjudicators="A169">76.0</ballot>
+</speech>
+<speech speaker="S48" reply="True">
+<ballot adjudicators="A169">37.5</ballot>
+</speech>
+</side>
+<side team="T7">
+<ballot adjudicators="A169" minority="false" ignored="false" rank="2">263.0</ballot>
+<speech speaker="S26" reply="False">
+<ballot adjudicators="A169">74.5</ballot>
+</speech>
+<speech speaker="S24" reply="False">
+<ballot adjudicators="A169">75.5</ballot>
+</speech>
+<speech speaker="S23" reply="False">
+<ballot adjudicators="A169">75.5</ballot>
+</speech>
+<speech speaker="S24" reply="True">
+<ballot adjudicators="A169">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D34" adjudicators="A96" chair="A96" venue="V12" motion="M3">
+<side team="T6">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="2">266.0</ballot>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S22" reply="False">
+<ballot adjudicators="A96">75.5</ballot>
+</speech>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A96">76.0</ballot>
+</speech>
+<speech speaker="S22" reply="True">
+<ballot adjudicators="A96">38.0</ballot>
+</speech>
+</side>
+<side team="T9">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="1">267.0</ballot>
+<speech speaker="S32" reply="False">
+<ballot adjudicators="A96">75.5</ballot>
+</speech>
+<speech speaker="S31" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S30" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S31" reply="True">
+<ballot adjudicators="A96">38.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D40" adjudicators="A110" chair="A110" venue="V5" motion="M3">
+<side team="T32">
+<ballot adjudicators="A110" minority="false" ignored="false" rank="1">267.5</ballot>
+<speech speaker="S155" reply="False">
+<ballot adjudicators="A110">76.0</ballot>
+</speech>
+<speech speaker="S156" reply="False">
+<ballot adjudicators="A110">76.5</ballot>
+</speech>
+<speech speaker="S154" reply="False">
+<ballot adjudicators="A110">77.5</ballot>
+</speech>
+<speech speaker="S155" reply="True">
+<ballot adjudicators="A110">37.5</ballot>
+</speech>
+</side>
+<side team="T11">
+<ballot adjudicators="A110" minority="false" ignored="false" rank="2">264.0</ballot>
+<speech speaker="S37" reply="False">
+<ballot adjudicators="A110">75.5</ballot>
+</speech>
+<speech speaker="S38" reply="False">
+<ballot adjudicators="A110">76.0</ballot>
+</speech>
+<speech speaker="S40" reply="False">
+<ballot adjudicators="A110">75.0</ballot>
+</speech>
+<speech speaker="S37" reply="True">
+<ballot adjudicators="A110">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D35" adjudicators="A116" chair="A116" venue="V10" motion="M3">
+<side team="T18">
+<ballot adjudicators="A116" minority="false" ignored="false" rank="1">260.5</ballot>
+<speech speaker="S64" reply="False">
+<ballot adjudicators="A116">73.0</ballot>
+</speech>
+<speech speaker="S65" reply="False">
+<ballot adjudicators="A116">75.0</ballot>
+</speech>
+<speech speaker="S66" reply="False">
+<ballot adjudicators="A116">75.0</ballot>
+</speech>
+<speech speaker="S65" reply="True">
+<ballot adjudicators="A116">37.5</ballot>
+</speech>
+</side>
+<side team="T8">
+<ballot adjudicators="A116" minority="false" ignored="false" rank="2">258.0</ballot>
+<speech speaker="S29" reply="False">
+<ballot adjudicators="A116">74.0</ballot>
+</speech>
+<speech speaker="S27" reply="False">
+<ballot adjudicators="A116">73.5</ballot>
+</speech>
+<speech speaker="S28" reply="False">
+<ballot adjudicators="A116">73.5</ballot>
+</speech>
+<speech speaker="S29" reply="True">
+<ballot adjudicators="A116">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D39" adjudicators="A119" chair="A119" venue="V6" motion="M3">
+<side team="T13">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="2">261.0</ballot>
+<speech speaker="S47" reply="False">
+<ballot adjudicators="A119">74.5</ballot>
+</speech>
+<speech speaker="S46" reply="False">
+<ballot adjudicators="A119">74.5</ballot>
+</speech>
+<speech speaker="S44" reply="False">
+<ballot adjudicators="A119">75.0</ballot>
+</speech>
+<speech speaker="S46" reply="True">
+<ballot adjudicators="A119">37.0</ballot>
+</speech>
+</side>
+<side team="T16">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="1">262.5</ballot>
+<speech speaker="S60" reply="False">
+<ballot adjudicators="A119">74.5</ballot>
+</speech>
+<speech speaker="S57" reply="False">
+<ballot adjudicators="A119">75.0</ballot>
+</speech>
+<speech speaker="S58" reply="False">
+<ballot adjudicators="A119">76.0</ballot>
+</speech>
+<speech speaker="S57" reply="True">
+<ballot adjudicators="A119">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D42" adjudicators="A167" chair="A167" venue="V11" motion="M3">
+<side team="T29">
+<ballot adjudicators="A167" minority="false" ignored="false" rank="2">256.0</ballot>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A167">74.0</ballot>
+</speech>
+<speech speaker="S144" reply="False">
+<ballot adjudicators="A167">73.0</ballot>
+</speech>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A167">74.0</ballot>
+</speech>
+<speech speaker="S144" reply="True">
+<ballot adjudicators="A167">35.0</ballot>
+</speech>
+</side>
+<side team="T15">
+<ballot adjudicators="A167" minority="false" ignored="false" rank="1">264.0</ballot>
+<speech speaker="S53" reply="False">
+<ballot adjudicators="A167">76.0</ballot>
+</speech>
+<speech speaker="S54" reply="False">
+<ballot adjudicators="A167">76.0</ballot>
+</speech>
+<speech speaker="S55" reply="False">
+<ballot adjudicators="A167">76.0</ballot>
+</speech>
+<speech speaker="S54" reply="True">
+<ballot adjudicators="A167">36.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D37" adjudicators="A100" chair="A100" venue="V7" motion="M3">
+<side team="T27">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="1">268.0</ballot>
+<speech speaker="S137" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S134" reply="False">
+<ballot adjudicators="A100">76.5</ballot>
+</speech>
+<speech speaker="S135" reply="False">
+<ballot adjudicators="A100">76.5</ballot>
+</speech>
+<speech speaker="S134" reply="True">
+<ballot adjudicators="A100">39.5</ballot>
+</speech>
+</side>
+<side team="T23">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="2">261.0</ballot>
+<speech speaker="S84" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S83" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S86" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S83" reply="True">
+<ballot adjudicators="A100">34.5</ballot>
+</speech>
+</side>
+</debate>
+</round>
+<round name="Round 4" abbreviation="R4" elimination="false" feedback-weight="0.30000000000000004">
+<debate id="D49" adjudicators="A168" chair="A168" venue="V8" motion="M4">
+<side team="T4">
+<ballot adjudicators="A168" minority="false" ignored="false" rank="1">265.5</ballot>
+<speech speaker="S14" reply="False">
+<ballot adjudicators="A168">75.0</ballot>
+</speech>
+<speech speaker="S12" reply="False">
+<ballot adjudicators="A168">76.0</ballot>
+</speech>
+<speech speaker="S13" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S12" reply="True">
+<ballot adjudicators="A168">37.5</ballot>
+</speech>
+</side>
+<side team="T32">
+<ballot adjudicators="A168" minority="false" ignored="false" rank="2">264.5</ballot>
+<speech speaker="S155" reply="False">
+<ballot adjudicators="A168">75.5</ballot>
+</speech>
+<speech speaker="S154" reply="False">
+<ballot adjudicators="A168">76.5</ballot>
+</speech>
+<speech speaker="S156" reply="False">
+<ballot adjudicators="A168">75.0</ballot>
+</speech>
+<speech speaker="S154" reply="True">
+<ballot adjudicators="A168">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D51" adjudicators="A167" chair="A167" venue="V7" motion="M4">
+<side team="T15">
+<ballot adjudicators="A167" minority="false" ignored="false" rank="1">263.0</ballot>
+<speech speaker="S53" reply="False">
+<ballot adjudicators="A167">76.0</ballot>
+</speech>
+<speech speaker="S54" reply="False">
+<ballot adjudicators="A167">77.0</ballot>
+</speech>
+<speech speaker="S55" reply="False">
+<ballot adjudicators="A167">74.0</ballot>
+</speech>
+<speech speaker="S54" reply="True">
+<ballot adjudicators="A167">36.0</ballot>
+</speech>
+</side>
+<side team="T18">
+<ballot adjudicators="A167" minority="false" ignored="false" rank="2">258.0</ballot>
+<speech speaker="S64" reply="False">
+<ballot adjudicators="A167">75.0</ballot>
+</speech>
+<speech speaker="S65" reply="False">
+<ballot adjudicators="A167">73.0</ballot>
+</speech>
+<speech speaker="S66" reply="False">
+<ballot adjudicators="A167">74.0</ballot>
+</speech>
+<speech speaker="S64" reply="True">
+<ballot adjudicators="A167">36.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D52" adjudicators="A117" chair="A117" venue="V1" motion="M4">
+<side team="T8">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="1">255.5</ballot>
+<speech speaker="S29" reply="False">
+<ballot adjudicators="A117">72.5</ballot>
+</speech>
+<speech speaker="S27" reply="False">
+<ballot adjudicators="A117">73.0</ballot>
+</speech>
+<speech speaker="S28" reply="False">
+<ballot adjudicators="A117">72.5</ballot>
+</speech>
+<speech speaker="S29" reply="True">
+<ballot adjudicators="A117">37.5</ballot>
+</speech>
+</side>
+<side team="T29">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="2">255.0</ballot>
+<speech speaker="S144" reply="False">
+<ballot adjudicators="A117">72.5</ballot>
+</speech>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A117">72.5</ballot>
+</speech>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A117">73.0</ballot>
+</speech>
+<speech speaker="S144" reply="True">
+<ballot adjudicators="A117">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D53" adjudicators="A106" chair="A106" venue="V6" motion="M4">
+<side team="T23">
+<ballot adjudicators="A106" minority="false" ignored="false" rank="2">262.5</ballot>
+<speech speaker="S83" reply="False">
+<ballot adjudicators="A106">75.0</ballot>
+</speech>
+<speech speaker="S84" reply="False">
+<ballot adjudicators="A106">75.0</ballot>
+</speech>
+<speech speaker="S86" reply="False">
+<ballot adjudicators="A106">75.0</ballot>
+</speech>
+<speech speaker="S84" reply="True">
+<ballot adjudicators="A106">37.5</ballot>
+</speech>
+</side>
+<side team="T30">
+<ballot adjudicators="A106" minority="false" ignored="false" rank="1">265.0</ballot>
+<speech speaker="S148" reply="False">
+<ballot adjudicators="A106">75.5</ballot>
+</speech>
+<speech speaker="S149" reply="False">
+<ballot adjudicators="A106">76.0</ballot>
+</speech>
+<speech speaker="S146" reply="False">
+<ballot adjudicators="A106">76.0</ballot>
+</speech>
+<speech speaker="S149" reply="True">
+<ballot adjudicators="A106">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D50" adjudicators="A158" chair="A158" venue="V3" motion="M4">
+<side team="T17">
+<ballot adjudicators="A158" minority="false" ignored="false" rank="2">260.5</ballot>
+<speech speaker="S61" reply="False">
+<ballot adjudicators="A158">74.0</ballot>
+</speech>
+<speech speaker="S62" reply="False">
+<ballot adjudicators="A158">74.0</ballot>
+</speech>
+<speech speaker="S63" reply="False">
+<ballot adjudicators="A158">74.5</ballot>
+</speech>
+<speech speaker="S62" reply="True">
+<ballot adjudicators="A158">38.0</ballot>
+</speech>
+</side>
+<side team="T22">
+<ballot adjudicators="A158" minority="false" ignored="false" rank="1">264.5</ballot>
+<speech speaker="S81" reply="False">
+<ballot adjudicators="A158">75.5</ballot>
+</speech>
+<speech speaker="S80" reply="False">
+<ballot adjudicators="A158">76.0</ballot>
+</speech>
+<speech speaker="S79" reply="False">
+<ballot adjudicators="A158">75.5</ballot>
+</speech>
+<speech speaker="S81" reply="True">
+<ballot adjudicators="A158">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D47" adjudicators="A100" chair="A100" venue="V5" motion="M4">
+<side team="T7">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="1">268.5</ballot>
+<speech speaker="S26" reply="False">
+<ballot adjudicators="A100">76.0</ballot>
+</speech>
+<speech speaker="S24" reply="False">
+<ballot adjudicators="A100">76.5</ballot>
+</speech>
+<speech speaker="S23" reply="False">
+<ballot adjudicators="A100">76.5</ballot>
+</speech>
+<speech speaker="S24" reply="True">
+<ballot adjudicators="A100">39.5</ballot>
+</speech>
+</side>
+<side team="T20">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="2">260.5</ballot>
+<speech speaker="S72" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S71" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S74" reply="False">
+<ballot adjudicators="A100">75.0</ballot>
+</speech>
+<speech speaker="S72" reply="True">
+<ballot adjudicators="A100">34.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D46" adjudicators="A120" chair="A120" venue="V11" motion="M4">
+<side team="T16">
+<ballot adjudicators="A120" minority="false" ignored="false" rank="1">267.0</ballot>
+<speech speaker="S60" reply="False">
+<ballot adjudicators="A120">75.5</ballot>
+</speech>
+<speech speaker="S57" reply="False">
+<ballot adjudicators="A120">76.5</ballot>
+</speech>
+<speech speaker="S58" reply="False">
+<ballot adjudicators="A120">76.5</ballot>
+</speech>
+<speech speaker="S57" reply="True">
+<ballot adjudicators="A120">38.5</ballot>
+</speech>
+</side>
+<side team="T2">
+<ballot adjudicators="A120" minority="false" ignored="false" rank="2">263.0</ballot>
+<speech speaker="S5" reply="False">
+<ballot adjudicators="A120">75.5</ballot>
+</speech>
+<speech speaker="S7" reply="False">
+<ballot adjudicators="A120">75.0</ballot>
+</speech>
+<speech speaker="S4" reply="False">
+<ballot adjudicators="A120">75.0</ballot>
+</speech>
+<speech speaker="S5" reply="True">
+<ballot adjudicators="A120">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D44" adjudicators="A110" chair="A110" venue="V12" motion="M4">
+<side team="T13">
+<ballot adjudicators="A110" minority="false" ignored="false" rank="2">261.5</ballot>
+<speech speaker="S47" reply="False">
+<ballot adjudicators="A110">73.0</ballot>
+</speech>
+<speech speaker="S46" reply="False">
+<ballot adjudicators="A110">76.0</ballot>
+</speech>
+<speech speaker="S44" reply="False">
+<ballot adjudicators="A110">75.0</ballot>
+</speech>
+<speech speaker="S46" reply="True">
+<ballot adjudicators="A110">37.5</ballot>
+</speech>
+</side>
+<side team="T27">
+<ballot adjudicators="A110" minority="false" ignored="false" rank="1">265.0</ballot>
+<speech speaker="S137" reply="False">
+<ballot adjudicators="A110">75.5</ballot>
+</speech>
+<speech speaker="S135" reply="False">
+<ballot adjudicators="A110">76.5</ballot>
+</speech>
+<speech speaker="S136" reply="False">
+<ballot adjudicators="A110">75.5</ballot>
+</speech>
+<speech speaker="S135" reply="True">
+<ballot adjudicators="A110">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D48" adjudicators="A164" chair="A164" venue="V10" motion="M4">
+<side team="T11">
+<ballot adjudicators="A164" minority="false" ignored="false" rank="2">263.0</ballot>
+<speech speaker="S37" reply="False">
+<ballot adjudicators="A164">74.0</ballot>
+</speech>
+<speech speaker="S38" reply="False">
+<ballot adjudicators="A164">75.0</ballot>
+</speech>
+<speech speaker="S40" reply="False">
+<ballot adjudicators="A164">74.0</ballot>
+</speech>
+<speech speaker="S37" reply="True">
+<ballot adjudicators="A164">40.0</ballot>
+</speech>
+</side>
+<side team="T6">
+<ballot adjudicators="A164" minority="false" ignored="false" rank="1">266.0</ballot>
+<speech speaker="S19" reply="False">
+<ballot adjudicators="A164">75.0</ballot>
+</speech>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A164">76.0</ballot>
+</speech>
+<speech speaker="S22" reply="False">
+<ballot adjudicators="A164">77.0</ballot>
+</speech>
+<speech speaker="S20" reply="True">
+<ballot adjudicators="A164">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D45" adjudicators="A96" chair="A96" venue="V4" motion="M4">
+<side team="T9">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="1">266.5</ballot>
+<speech speaker="S32" reply="False">
+<ballot adjudicators="A96">75.5</ballot>
+</speech>
+<speech speaker="S31" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S30" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S31" reply="True">
+<ballot adjudicators="A96">38.0</ballot>
+</speech>
+</side>
+<side team="T14">
+<ballot adjudicators="A96" minority="false" ignored="false" rank="2">265.0</ballot>
+<speech speaker="S50" reply="False">
+<ballot adjudicators="A96">75.0</ballot>
+</speech>
+<speech speaker="S49" reply="False">
+<ballot adjudicators="A96">76.5</ballot>
+</speech>
+<speech speaker="S48" reply="False">
+<ballot adjudicators="A96">75.5</ballot>
+</speech>
+<speech speaker="S49" reply="True">
+<ballot adjudicators="A96">38.0</ballot>
+</speech>
+</side>
+</debate>
+</round>
+<round name="Round 5" abbreviation="R5" elimination="false" feedback-weight="0.4">
+<debate id="D54" adjudicators="A169" chair="A169" venue="V4" motion="M5">
+<side team="T9">
+<ballot adjudicators="A169" minority="false" ignored="false" rank="2">264.5</ballot>
+<speech speaker="S30" reply="False">
+<ballot adjudicators="A169">76.0</ballot>
+</speech>
+<speech speaker="S31" reply="False">
+<ballot adjudicators="A169">76.0</ballot>
+</speech>
+<speech speaker="S32" reply="False">
+<ballot adjudicators="A169">75.0</ballot>
+</speech>
+<speech speaker="S30" reply="True">
+<ballot adjudicators="A169">37.5</ballot>
+</speech>
+</side>
+<side team="T16">
+<ballot adjudicators="A169" minority="false" ignored="false" rank="1">266.0</ballot>
+<speech speaker="S59" reply="False">
+<ballot adjudicators="A169">76.0</ballot>
+</speech>
+<speech speaker="S57" reply="False">
+<ballot adjudicators="A169">76.5</ballot>
+</speech>
+<speech speaker="S58" reply="False">
+<ballot adjudicators="A169">76.0</ballot>
+</speech>
+<speech speaker="S57" reply="True">
+<ballot adjudicators="A169">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D58" adjudicators="A120" chair="A120" venue="V3" motion="M5">
+<side team="T4">
+<ballot adjudicators="A120" minority="false" ignored="false" rank="2">265.5</ballot>
+<speech speaker="S14" reply="False">
+<ballot adjudicators="A120">75.5</ballot>
+</speech>
+<speech speaker="S12" reply="False">
+<ballot adjudicators="A120">76.5</ballot>
+</speech>
+<speech speaker="S13" reply="False">
+<ballot adjudicators="A120">76.0</ballot>
+</speech>
+<speech speaker="S12" reply="True">
+<ballot adjudicators="A120">37.5</ballot>
+</speech>
+</side>
+<side team="T6">
+<ballot adjudicators="A120" minority="false" ignored="false" rank="1">266.5</ballot>
+<speech speaker="S19" reply="False">
+<ballot adjudicators="A120">76.0</ballot>
+</speech>
+<speech speaker="S20" reply="False">
+<ballot adjudicators="A120">76.5</ballot>
+</speech>
+<speech speaker="S22" reply="False">
+<ballot adjudicators="A120">76.0</ballot>
+</speech>
+<speech speaker="S20" reply="True">
+<ballot adjudicators="A120">38.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D63" adjudicators="A119" chair="A119" venue="V5" motion="M5">
+<side team="T30">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="1">265.5</ballot>
+<speech speaker="S147" reply="False">
+<ballot adjudicators="A119">76.0</ballot>
+</speech>
+<speech speaker="S149" reply="False">
+<ballot adjudicators="A119">76.5</ballot>
+</speech>
+<speech speaker="S146" reply="False">
+<ballot adjudicators="A119">76.0</ballot>
+</speech>
+<speech speaker="S149" reply="True">
+<ballot adjudicators="A119">37.0</ballot>
+</speech>
+</side>
+<side team="T2">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="2">263.5</ballot>
+<speech speaker="S4" reply="False">
+<ballot adjudicators="A119">75.5</ballot>
+</speech>
+<speech speaker="S6" reply="False">
+<ballot adjudicators="A119">75.0</ballot>
+</speech>
+<speech speaker="S5" reply="False">
+<ballot adjudicators="A119">76.0</ballot>
+</speech>
+<speech speaker="S6" reply="True">
+<ballot adjudicators="A119">37.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D61" adjudicators="A95" chair="A95" venue="V12" motion="M5">
+<side team="T20">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="2">260.5</ballot>
+<speech speaker="S71" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S72" reply="False">
+<ballot adjudicators="A95">75.0</ballot>
+</speech>
+<speech speaker="S73" reply="False">
+<ballot adjudicators="A95">74.5</ballot>
+</speech>
+<speech speaker="S71" reply="True">
+<ballot adjudicators="A95">35.5</ballot>
+</speech>
+</side>
+<side team="T22">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="1">263.0</ballot>
+<speech speaker="S81" reply="False">
+<ballot adjudicators="A95">76.0</ballot>
+</speech>
+<speech speaker="S80" reply="False">
+<ballot adjudicators="A95">76.0</ballot>
+</speech>
+<speech speaker="S79" reply="False">
+<ballot adjudicators="A95">75.5</ballot>
+</speech>
+<speech speaker="S81" reply="True">
+<ballot adjudicators="A95">35.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D62" adjudicators="A168" chair="A168" venue="V11" motion="M5">
+<side team="T27">
+<ballot adjudicators="A168" minority="false" ignored="false" rank="1">269.0</ballot>
+<speech speaker="S136" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S134" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S135" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S134" reply="True">
+<ballot adjudicators="A168">38.0</ballot>
+</speech>
+</side>
+<side team="T7">
+<ballot adjudicators="A168" minority="false" ignored="false" rank="2">268.5</ballot>
+<speech speaker="S25" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S24" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S23" reply="False">
+<ballot adjudicators="A168">77.0</ballot>
+</speech>
+<speech speaker="S24" reply="True">
+<ballot adjudicators="A168">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D55" adjudicators="A161" chair="A161" venue="V1" motion="M5">
+<side team="T18">
+<ballot adjudicators="A161" minority="false" ignored="false" rank="1">259.0</ballot>
+<speech speaker="S64" reply="False">
+<ballot adjudicators="A161">73.5</ballot>
+</speech>
+<speech speaker="S65" reply="False">
+<ballot adjudicators="A161">74.5</ballot>
+</speech>
+<speech speaker="S66" reply="False">
+<ballot adjudicators="A161">74.0</ballot>
+</speech>
+<speech speaker="S65" reply="True">
+<ballot adjudicators="A161">37.0</ballot>
+</speech>
+</side>
+<side team="T17">
+<ballot adjudicators="A161" minority="false" ignored="false" rank="2">254.5</ballot>
+<speech speaker="S160" reply="False">
+<ballot adjudicators="A161">72.5</ballot>
+</speech>
+<speech speaker="S61" reply="False">
+<ballot adjudicators="A161">73.0</ballot>
+</speech>
+<speech speaker="S63" reply="False">
+<ballot adjudicators="A161">72.5</ballot>
+</speech>
+<speech speaker="S61" reply="True">
+<ballot adjudicators="A161">36.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D59" adjudicators="A167" chair="A167" venue="V6" motion="M5">
+<side team="T8">
+<ballot adjudicators="A167" minority="false" ignored="false" rank="2">254.5</ballot>
+<speech speaker="S29" reply="False">
+<ballot adjudicators="A167">74.0</ballot>
+</speech>
+<speech speaker="S27" reply="False">
+<ballot adjudicators="A167">73.0</ballot>
+</speech>
+<speech speaker="S28" reply="False">
+<ballot adjudicators="A167">72.0</ballot>
+</speech>
+<speech speaker="S29" reply="True">
+<ballot adjudicators="A167">35.5</ballot>
+</speech>
+</side>
+<side team="T13">
+<ballot adjudicators="A167" minority="false" ignored="false" rank="1">257.0</ballot>
+<speech speaker="S47" reply="False">
+<ballot adjudicators="A167">73.0</ballot>
+</speech>
+<speech speaker="S46" reply="False">
+<ballot adjudicators="A167">75.0</ballot>
+</speech>
+<speech speaker="S44" reply="False">
+<ballot adjudicators="A167">74.0</ballot>
+</speech>
+<speech speaker="S46" reply="True">
+<ballot adjudicators="A167">35.0</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D56" adjudicators="A100" chair="A100" venue="V8" motion="M5">
+<side team="T23">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="1">265.5</ballot>
+<speech speaker="S84" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S83" reply="False">
+<ballot adjudicators="A100">76.0</ballot>
+</speech>
+<speech speaker="S86" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S84" reply="True">
+<ballot adjudicators="A100">38.5</ballot>
+</speech>
+</side>
+<side team="T29">
+<ballot adjudicators="A100" minority="false" ignored="false" rank="2">259.0</ballot>
+<speech speaker="S144" reply="False">
+<ballot adjudicators="A100">74.0</ballot>
+</speech>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A100">75.5</ballot>
+</speech>
+<speech speaker="S142" reply="False">
+<ballot adjudicators="A100">75.0</ballot>
+</speech>
+<speech speaker="S144" reply="True">
+<ballot adjudicators="A100">34.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D57" adjudicators="A110" chair="A110" venue="V10" motion="M5">
+<side team="T15">
+<ballot adjudicators="A110" minority="false" ignored="false" rank="2">261.5</ballot>
+<speech speaker="S53" reply="False">
+<ballot adjudicators="A110">75.0</ballot>
+</speech>
+<speech speaker="S54" reply="False">
+<ballot adjudicators="A110">74.0</ballot>
+</speech>
+<speech speaker="S55" reply="False">
+<ballot adjudicators="A110">75.0</ballot>
+</speech>
+<speech speaker="S53" reply="True">
+<ballot adjudicators="A110">37.5</ballot>
+</speech>
+</side>
+<side team="T11">
+<ballot adjudicators="A110" minority="false" ignored="false" rank="1">263.0</ballot>
+<speech speaker="S37" reply="False">
+<ballot adjudicators="A110">75.0</ballot>
+</speech>
+<speech speaker="S38" reply="False">
+<ballot adjudicators="A110">75.5</ballot>
+</speech>
+<speech speaker="S39" reply="False">
+<ballot adjudicators="A110">75.0</ballot>
+</speech>
+<speech speaker="S37" reply="True">
+<ballot adjudicators="A110">37.5</ballot>
+</speech>
+</side>
+</debate>
+<debate id="D60" adjudicators="A104" chair="A104" venue="V7" motion="M5">
+<side team="T32">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="2">265.5</ballot>
+<speech speaker="S155" reply="False">
+<ballot adjudicators="A104">75.0</ballot>
+</speech>
+<speech speaker="S156" reply="False">
+<ballot adjudicators="A104">75.5</ballot>
+</speech>
+<speech speaker="S154" reply="False">
+<ballot adjudicators="A104">77.5</ballot>
+</speech>
+<speech speaker="S155" reply="True">
+<ballot adjudicators="A104">37.5</ballot>
+</speech>
+</side>
+<side team="T14">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="1">268.5</ballot>
+<speech speaker="S50" reply="False">
+<ballot adjudicators="A104">76.5</ballot>
+</speech>
+<speech speaker="S49" reply="False">
+<ballot adjudicators="A104">77.5</ballot>
+</speech>
+<speech speaker="S48" reply="False">
+<ballot adjudicators="A104">76.5</ballot>
+</speech>
+<speech speaker="S49" reply="True">
+<ballot adjudicators="A104">38.0</ballot>
+</speech>
+</side>
+</debate>
+</round>
+<round name="Quarterfinals" abbreviation="QF" elimination="true" feedback-weight="0.5" break-category="BC1">
+<debate id="D66" adjudicators="A95 A100" chair="A95" venue="V4" motion="M6">
+<side team="T6">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A100" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+<side team="T7">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A100" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+</debate>
+<debate id="D64" adjudicators="A117" chair="A117" venue="V5" motion="M6">
+<side team="T14">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+<side team="T9">
+<ballot adjudicators="A117" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+</debate>
+<debate id="D67" adjudicators="A169" chair="A169" venue="V3" motion="M6">
+<side team="T32">
+<ballot adjudicators="A169" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+<side team="T16">
+<ballot adjudicators="A169" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+</debate>
+<debate id="D65" adjudicators="A171 A119 A172" chair="A171" venue="V1" motion="M6">
+<side team="T27">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A171" minority="true" ignored="true" rank="1">True</ballot>
+<ballot adjudicators="A172" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+<side team="T4">
+<ballot adjudicators="A119" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A171" minority="true" ignored="true" rank="2">False</ballot>
+<ballot adjudicators="A172" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+</debate>
+</round>
+<round name="Semifinals" abbreviation="SF" elimination="true" feedback-weight="0.5" break-category="BC1">
+<debate id="D69" adjudicators="A104 A173 A118" chair="A104" venue="V3">
+<side team="T9">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A118" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A173" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+<side team="T4">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A118" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A173" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+</debate>
+<debate id="D68" adjudicators="A95 A171 A119" chair="A95" venue="V1">
+<side team="T7">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A119" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A171" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+<side team="T16">
+<ballot adjudicators="A95" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A119" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A171" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+</debate>
+</round>
+<round name="Grand Final" abbreviation="GF" elimination="true" feedback-weight="0.5" break-category="BC1">
+<debate id="D70" adjudicators="A104 A164 A169" chair="A104" venue="V1" motion="M7">
+<side team="T16">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="1">True</ballot>
+<ballot adjudicators="A164" minority="false" ignored="false" rank="1">True</ballot>
+</side>
+<side team="T9">
+<ballot adjudicators="A104" minority="false" ignored="false" rank="2">False</ballot>
+<ballot adjudicators="A164" minority="false" ignored="false" rank="2">False</ballot>
+</side>
+</debate>
+</round>
+<participants>
+<team name="Ananda College A" code="Microphone" id="T2" break-eligibilities="BC1">
+<speaker id="S4" institutions="I1" categories="">Tharusha Mallawaarachchi</speaker>
+<speaker id="S5" institutions="I1" categories="">Lometh Basnayake</speaker>
+<speaker id="S6" institutions="I1" categories="">Mahiru Fernando</speaker>
+<speaker id="S7" institutions="I1" categories="">Gagana Prabhashwara</speaker>
+</team>
+<team name="Asian Grammar School A" code="Compact Disc" id="T28" break-eligibilities="BC1">
+<speaker id="S138" institutions="I22" categories="">Cindy Deanna Fernando</speaker>
+<speaker id="S139" institutions="I22" categories="">Matheesha Keshan</speaker>
+<speaker id="S140" institutions="I22" categories="">Mohamed Shiza</speaker>
+<speaker id="S141" institutions="I22" categories="">Gairika Himanshi</speaker>
+</team>
+<team name="Asian International School A" code="Television" id="T4" break-eligibilities="BC1">
+<speaker id="S12" institutions="I16" categories="">Abdullah Yusoof</speaker>
+<speaker id="S13" institutions="I16" categories="">Lehara Ediringhe</speaker>
+<speaker id="S14" institutions="I16" categories="">Sanjanaa Aravinth</speaker>
+<speaker id="S15" institutions="I16" categories="">Yaqeen Zuresh</speaker>
+</team>
+<team name="Colombo International School A" code="Parachute" id="T6" break-eligibilities="BC1">
+<speaker id="S19" institutions="I11" categories="">Lee Yong</speaker>
+<speaker id="S20" institutions="I11" categories="">Rudhesh Ram</speaker>
+<speaker id="S21" institutions="I11" categories="">Anisha Mahimabalan</speaker>
+<speaker id="S22" institutions="I11" categories="">Akein Bandara</speaker>
+</team>
+<team name="Devi Balika Vidyalaya A" code="Speedboat" id="T29" break-eligibilities="BC1">
+<speaker id="S142" institutions="I25" categories="">Neha Hettiarachchi</speaker>
+<speaker id="S143" institutions="I25" categories="">Anuthmi Hettiarachchi</speaker>
+<speaker id="S144" institutions="I25" categories="">Thehara Laksandi</speaker>
+<speaker id="S145" institutions="I25" categories="">Mudamya Mihini Edirisinghe</speaker>
+</team>
+<team name="D.S. Senanayake College A" code="Grateful Face" id="T7" break-eligibilities="BC1">
+<speaker id="S24" institutions="I3" categories="">Vidath Marasinghe</speaker>
+<speaker id="S23" institutions="I3" categories="">Sadew Muthuhetti</speaker>
+<speaker id="S25" institutions="I3" categories="">Nuhan Gunasekara</speaker>
+<speaker id="S26" institutions="I3" categories="">Didumika Peries</speaker>
+</team>
+<team name="Ecole International Kandy A" code="Top Hat" id="T8" break-eligibilities="BC1">
+<speaker id="S163" institutions="I15" categories="">Yousuf Razeen</speaker>
+<speaker id="S27" institutions="I15" categories="">Vishali Athukorala</speaker>
+<speaker id="S28" institutions="I15" categories="">Yusuf Ismail</speaker>
+<speaker id="S29" institutions="I15" categories="">Zaid Sarfaz</speaker>
+</team>
+<team name="Elizabeth Moir School A" code="Butter" id="T9" break-eligibilities="BC1">
+<speaker id="S30" institutions="I5" categories="">Okitha Karunadhara</speaker>
+<speaker id="S31" institutions="I5" categories="">Savith Wijesundara</speaker>
+<speaker id="S32" institutions="I5" categories="">Harish Sivagananathan</speaker>
+<speaker id="S33" institutions="I5" categories="">Visura Padeniya</speaker>
+</team>
+<team name="Gateway College Dehiwala A" code="Scorpion" id="T30" break-eligibilities="BC1">
+<speaker id="S146" institutions="I13" categories="">Dylan Cristiano Pangoda</speaker>
+<speaker id="S147" institutions="I13" categories="">A.P Ranithu Rishon Silva</speaker>
+<speaker id="S148" institutions="I13" categories="">Fathima Shahzadi Sujahudeen</speaker>
+<speaker id="S149" institutions="I13" categories="">Sajjad Reyaz</speaker>
+</team>
+<team name="Hillwood College Kandy A" code="X-Ray" id="T11" break-eligibilities="BC1">
+<speaker id="S37" institutions="I7" categories="">Apoorva Jinadasa</speaker>
+<speaker id="S38" institutions="I7" categories="">Senithi Wijesooriya</speaker>
+<speaker id="S39" institutions="I7" categories="">Tharuli Silva</speaker>
+<speaker id="S40" institutions="I7" categories="">Arushi Kossalawatta</speaker>
+</team>
+<team name="Lyceum International School Wattala A" code="Handbag" id="T13" break-eligibilities="BC1">
+<speaker id="S44" institutions="I12" categories="">Govindee Balasuriya Jayasekera</speaker>
+<speaker id="S45" institutions="I12" categories="">Onari Lavannya Premachandra</speaker>
+<speaker id="S46" institutions="I12" categories="">Ridwan Aqmal Hamid</speaker>
+<speaker id="S47" institutions="I12" categories="">Nicole Mallawaarachchi</speaker>
+</team>
+<team name="Methodist College A" code="Speech Bubble" id="T14" break-eligibilities="BC1">
+<speaker id="S49" institutions="I20" categories="">Sarah Warnakulasuriya</speaker>
+<speaker id="S50" institutions="I20" categories="">Deshna Marasinghe</speaker>
+<speaker id="S48" institutions="I20" categories="">Amnah Jiffrey</speaker>
+<speaker id="S51" institutions="I20" categories="">Rasheedah Jiffrey</speaker>
+</team>
+<team name="Musaeus College A" code="Red Apple" id="T15" break-eligibilities="BC1">
+<speaker id="S53" institutions="I2" categories="">Thenuki Perera</speaker>
+<speaker id="S54" institutions="I2" categories="">Methuli Sri Nammuni</speaker>
+<speaker id="S55" institutions="I2" categories="">Mihindi Patinayake</speaker>
+<speaker id="S56" institutions="I2" categories="">Thishakya Wijesundara</speaker>
+</team>
+<team name="Royal College A" code="Eagle" id="T16" break-eligibilities="BC1">
+<speaker id="S57" institutions="I8" categories="">Adam Dhilshan</speaker>
+<speaker id="S58" institutions="I8" categories="">Methira Padeniya</speaker>
+<speaker id="S59" institutions="I8" categories="">Raashid Cassim</speaker>
+<speaker id="S60" institutions="I8" categories="">Senuka Seneviratne</speaker>
+</team>
+<team name="Saiva Mangaiyar Vidyalayam A" code="Falafel" id="T17" break-eligibilities="BC1">
+<speaker id="S160" institutions="I21" categories="">Thayaparan Barishnie</speaker>
+<speaker id="S61" institutions="I21" categories="">Jeyapragash Shajini</speaker>
+<speaker id="S62" institutions="I21" categories="">Baskaran Hamsavani</speaker>
+<speaker id="S63" institutions="I21" categories="">Krishnamoorthy Vinya</speaker>
+</team>
+<team name="St. Bridget's Convent A" code="Sailboat" id="T32" break-eligibilities="BC1">
+<speaker id="S154" institutions="I4" categories="">Mauli Kularatne</speaker>
+<speaker id="S155" institutions="I4" categories="">Tharuli Rupasinghe</speaker>
+<speaker id="S156" institutions="I4" categories="">Nethma Madawala</speaker>
+<speaker id="S157" institutions="I4" categories="">Dineli Fernando</speaker>
+</team>
+<team name="St. Joseph's College Colombo A" code="Shushing" id="T20" break-eligibilities="BC1">
+<speaker id="S71" institutions="I9" categories="">Dasidu Fernando</speaker>
+<speaker id="S72" institutions="I9" categories="">Matthew De Zylva</speaker>
+<speaker id="S73" institutions="I9" categories="">Devin Tissera</speaker>
+<speaker id="S74" institutions="I9" categories="">Mahima Fernando</speaker>
+</team>
+<team name="Trinity College Kandy A" code="Tiger" id="T27" break-eligibilities="BC1">
+<speaker id="S134" institutions="I24" categories="">Thesath Keppetiyagama</speaker>
+<speaker id="S135" institutions="I24" categories="">Sanchitha Wickrama</speaker>
+<speaker id="S136" institutions="I24" categories="">Shaluka Herath</speaker>
+<speaker id="S137" institutions="I24" categories="">Nethula Hettihewage</speaker>
+</team>
+<team name="Visakha Vidyalaya A" code="Spy" id="T22" break-eligibilities="BC1">
+<speaker id="S79" institutions="I10" categories="">Sayumi Witharana</speaker>
+<speaker id="S80" institutions="I10" categories="">Adithi Vitharanage</speaker>
+<speaker id="S81" institutions="I10" categories="">Santhushi Serasinghe</speaker>
+<speaker id="S82" institutions="I10" categories="">Thejini Gamage</speaker>
+</team>
+<team name="Wesley College A" code="Hot Air" id="T23" break-eligibilities="BC1">
+<speaker id="S86" institutions="I6" categories="">Goyum Kaluthanthrige</speaker>
+<speaker id="S83" institutions="I6" categories="">Afdhel Fayaz</speaker>
+<speaker id="S84" institutions="I6" categories="">Easa Sheroz</speaker>
+<speaker id="S85" institutions="I6" categories="">Ahamed Saajid</speaker>
+</team>
+<team name="Lyceum International School Gampaha A" code="Film" id="T31" break-eligibilities="BC1">
+<speaker id="S150" categories="">Chandeena Wijenayake</speaker>
+<speaker id="S151" categories="">Anna Pathirage Nevan Amarasingha</speaker>
+<speaker id="S152" categories="">Sayumi Wijesooriya</speaker>
+<speaker id="S153" categories="">Isindu Batagoda</speaker>
+</team>
+<team name="Swing A" code="Supervillain" id="T18" break-eligibilities="BC1">
+<speaker id="S64" categories="">Speaker 1</speaker>
+<speaker id="S65" categories="">Speaker 2</speaker>
+<speaker id="S66" categories="">Speaker 3</speaker>
+</team>
+<adjudicator id="A169" name="Jayageeth Basnayake" core="false" independent="false" score="3.5"/>
+<adjudicator id="A119" name="Afrah Athahurahuman" core="false" independent="false" score="4.5"/>
+<adjudicator id="A120" name="Shakeeb Mohideen" core="false" independent="false" score="4.5"/>
+<adjudicator id="A121" name="Neelaka Dhamawath" core="false" independent="false" score="2.5"/>
+<adjudicator id="A158" name="Rusira Ekanayake" core="false" independent="false" score="2.5" institutions="I3"/>
+<adjudicator id="A159" name="Suchith Tissera" core="false" independent="false" score="2.5" institutions="I24"/>
+<adjudicator id="A170" name="Parinda Ratnayake" core="false" independent="false" score="2.5" institutions="I13"/>
+<adjudicator id="A161" name="Chathuka Induwara" core="false" independent="false" score="2.5" institutions="I11"/>
+<adjudicator id="A171" name="Shenaya" core="false" independent="false" score="2.5"/>
+<adjudicator id="A87" name="Gimhan Sooriyabandara" core="false" independent="false" score="2.5" institutions="I19"/>
+<adjudicator id="A88" name="Rachel Cramer" core="false" independent="false" score="2.5" institutions="I1"/>
+<adjudicator id="A89" name="Umar Safras" core="false" independent="false" score="2.5" institutions="I22"/>
+<adjudicator id="A103" name="Thithira Jayakody" core="false" independent="false" score="4.5"/>
+<adjudicator id="A104" name="Shalem Sumanthiran" core="false" independent="false" score="4.5"/>
+<adjudicator id="A105" name="Aniqah Irshad" core="false" independent="false" score="3.5"/>
+<adjudicator id="A106" name="Janidu Jayasekera" core="false" independent="false" score="3.5"/>
+<adjudicator id="A90" name="Oneli De Silva" core="false" independent="false" score="2.5" institutions="I16"/>
+<adjudicator id="A95" name="Amandhi Marasinghe" core="false" independent="false" score="2.5" institutions="I20"/>
+<adjudicator id="A96" name="Indeevari de Silva" core="false" independent="false" score="2.5" institutions="I2"/>
+<adjudicator id="A100" name="Husnaa Imtiaz" core="false" independent="false" score="2.5" institutions="I10"/>
+<adjudicator id="A110" name="Chavika Samaraweera" core="false" independent="false" score="4.5" institutions="I5"/>
+<adjudicator id="A111" name="Sahas Gunasekara" core="false" independent="false" score="4.5" institutions="I7"/>
+<adjudicator id="A112" name="Diyath Ratnasena" core="false" independent="false" score="2.5"/>
+<adjudicator id="A115" name="Vajra Wijesooriya" core="false" independent="false" score="2.5" institutions="I21"/>
+<adjudicator id="A116" name="Danish Aroos" core="false" independent="false" score="2.5"/>
+<adjudicator id="A117" name="Shruthika Prathapan" core="false" independent="false" score="2.5" institutions="I4"/>
+<adjudicator id="A118" name="Daniel Victor" core="false" independent="false" score="4.5" institutions="I6"/>
+<adjudicator id="A172" name="Lara" core="false" independent="false" score="2.5" institutions="I4"/>
+<adjudicator id="A162" name="Sameesha Dissanayake" core="false" independent="false" score="2.5"/>
+<adjudicator id="A173" name="Janul De Silva" core="false" independent="false" score="2.5" institutions="I8"/>
+<adjudicator id="A164" name="Ranudi Jayasinghe" core="false" independent="false" score="2.5"/>
+<adjudicator id="A165" name="Rumeth" core="false" independent="false" score="2.5"/>
+<adjudicator id="A166" name="Aliza Hussain" core="false" independent="false" score="2.5"/>
+<adjudicator id="A167" name="Dhyani Hapuarachchi" core="false" independent="false" score="2.5" institutions="I21"/>
+<adjudicator id="A168" name="Dineth Hettiarachchi" core="false" independent="false" score="2.5" institutions="I6"/>
+</participants>
+<break-category id="BC1">Open</break-category>
+<institution id="I19" reference="Ananda Balika">Ananda Balika Vidyalaya</institution>
+<institution id="I1" reference="AC">Ananda College</institution>
+<institution id="I22" reference="AGS">Asian Grammar School</institution>
+<institution id="I16" reference="AIS">Asian International School</institution>
+<institution id="I11" reference="CIS">Colombo International School</institution>
+<institution id="I25" reference="DBV">Devi Balika Vidyalaya</institution>
+<institution id="I3" reference="DS">D.S. Senanayake College</institution>
+<institution id="I15" reference="Ecole">Ecole International Kandy</institution>
+<institution id="I5" reference="Moir">Elizabeth Moir School</institution>
+<institution id="I13" reference="GCD">Gateway College Dehiwala</institution>
+<institution id="I7" reference="HCK">Hillwood College Kandy</institution>
+<institution id="I12" reference="LISW">Lyceum International School Wattala</institution>
+<institution id="I20" reference="Metho">Methodist College</institution>
+<institution id="I2" reference="MC">Musaeus College</institution>
+<institution id="I8" reference="RC">Royal College</institution>
+<institution id="I21" reference="Saiva">Saiva Mangaiyar Vidyalayam</institution>
+<institution id="I4" reference="SBC">St. Bridget's Convent</institution>
+<institution id="I9" reference="Joes">St. Joseph's College Colombo</institution>
+<institution id="I24" reference="TCK">Trinity College Kandy</institution>
+<institution id="I10" reference="VV">Visakha Vidyalaya</institution>
+<institution id="I6" reference="WC">Wesley College</institution>
+<motion id="M1" reference="Political parties">This house would ban political parties and require all candidates for national public office to seek election as independents</motion>
+<motion id="M2" reference="Awards">This house supports the removal of gendered categories in entertainment awards shows (Oscars, Emmys, Tonys etc)</motion>
+<motion id="M3" reference="Parasocial relationships">
+This house supports the normalization of parasocial relationships
+<info-slide>A parasocial relationship occurs when an individual forms a strong emotional bond with a celebrity or prominent online figure, similar to a real life relationship such as friendship or a romantic relationship. However, unlike real-life relationships these relationships are one sided, with one party being completely unaware of the other’s existence. Examples of parasocial relationships include ‘friendships’ formed with a Twitch streamer you regularly watch, romantic fixations on boy band member></info-slide>
+</motion>
+<motion id="M4" reference="Lifestyle">This house prefers a world where people do not strive to leave behind a legacy</motion>
+<motion id="M5" reference="IR">This house predicts the coming liberalization of Iran</motion>
+<motion id="M6" reference="Relationship">
+THW save the child over your wife
+<info-slide>You are the husband in a committed marriage with your wife. Both of you have a strong desire to have children - you have discussed this before getting married. You have previously tried to have children - but have failed to conceive. The one brief pregnancy you did have ended in a miscarriage. You have finally managed to conceive a child and are in the final trimester of pregnancy. Due to your wife’s age you also know that this is the final viable pregnancy she will hav. However, due to urgent medical complications your pregnant wife has been hospitalised. You are approached by the doctors and told that you can only save the wife or child. Your wife has said that she wants the child to be saved, but due to her medical condition she has been declared unfit to make decisions and you have been made her medical proxy</info-slide>
+</motion>
+<motion id="M7" reference="Alternative Reality">THP a world where people do not fear death</motion>
+<venue id="V1">101</venue>
+<venue id="V2">102</venue>
+<venue id="V3">103</venue>
+<venue id="V4">104</venue>
+<venue id="V5">105</venue>
+<venue id="V6">106</venue>
+<venue id="V7">107</venue>
+<venue id="V8">108</venue>
+<venue id="V9">109</venue>
+<venue id="V10">110</venue>
+<venue id="V11">201</venue>
+<venue id="V12">202</venue>
+<question id="Q1" name="Agree?" from-teams="true" from-adjudicators="true" type="bs">Did you agree with their decision?</question>
+<question id="Q2" name="Comments" from-teams="true" from-adjudicators="true" type="tl">Comments</question>
+</tournament>
