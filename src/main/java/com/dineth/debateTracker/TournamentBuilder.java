@@ -21,6 +21,7 @@ import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
+import com.dineth.debateTracker.utils.CustomExceptions;
 import com.dineth.debateTracker.utils.ParseCV;
 import com.dineth.debateTracker.utils.ParseTabbycatXML;
 import com.dineth.debateTracker.utils.StringUtil;
@@ -28,7 +29,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,7 +75,29 @@ public class TournamentBuilder {
     @GetMapping("/build")
     @Transactional
     public Object buildTournament(@RequestParam String fileName) {
-        return buildMyTournament("src/main/resources/static/" + fileName);
+        return buildMyTournament("src/main/resources/static/speaksXML/" + fileName);
+    }
+
+    @GetMapping("/buildall")
+    @Transactional
+    public Object buildAllTournaments() {
+        ArrayList<String> fileNames = new ArrayList<>();
+        fileNames.add("APIIT24.xml");
+        fileNames.add("DS24.xml");
+        fileNames.add("NMPs2024.xml");
+        fileNames.add("SLSDC23.xml");
+        fileNames.add("Wickys24.xml");
+        fileNames.add("BC24.xml");
+        fileNames.add("Henley24.xml");
+        fileNames.add("RI2024.xml");
+        fileNames.add("Vijis2024.xml");
+
+        for (String fileName : fileNames) {
+            buildMyTournament("src/main/resources/static/speaksXML/" + fileName);
+        }
+        return "Done";
+
+
     }
 
     @GetMapping("/parsecsv")
@@ -136,6 +162,8 @@ public class TournamentBuilder {
                     judgeDTO.setDbId(judge.getId());
                     judgeDTOMap.put(judgeDTO.getId(), judgeDTO);
                 }
+            } catch (CustomExceptions.NameSplitException e) {
+                log.error("Error in splitting name : " + e.getMessage());
             } catch (Exception e) {
                 log.error("Error in adding judge : " + e.getMessage());
             }

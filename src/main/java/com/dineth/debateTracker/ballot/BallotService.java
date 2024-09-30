@@ -40,4 +40,11 @@ public class BallotService {
         }
     }
 
+    /**
+    Find all ballots by debater that aren't replies
+     **/
+    public List<Ballot> findBallotsByDebaterAndIsSubstantive(Debater debater) {
+        return ballotRepository.findBallotsByDebaterAndSpeakerScoreGreaterThan(debater, 68.0F);
+    }
+
 }

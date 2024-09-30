@@ -42,6 +42,9 @@ public class Debater implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    public Debater (Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
