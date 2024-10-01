@@ -9,6 +9,8 @@ import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.*;
+import com.dineth.debateTracker.feedback.Feedback;
+import com.dineth.debateTracker.feedback.FeedbackService;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
 import com.dineth.debateTracker.judge.Judge;
@@ -55,10 +57,11 @@ public class TournamentBuilder {
     private final BreakCategoryService breakCategoryService;
     private final BallotService ballotService;
     private final RoundService roundService;
+    private final FeedbackService feedbackService;
 
 
     @Autowired
-    public TournamentBuilder(JudgeService judgeService, TeamService teamService, DebaterService debaterService, DebateService debateService, InstitutionService institutionService, MotionService motionService, TournamentService tournamentService, BreakCategoryService breakCategoryService, BallotService ballotService, RoundService roundService) {
+    public TournamentBuilder(JudgeService judgeService, TeamService teamService, DebaterService debaterService, DebateService debateService, InstitutionService institutionService, MotionService motionService, TournamentService tournamentService, BreakCategoryService breakCategoryService, BallotService ballotService, RoundService roundService, FeedbackService feedbackService) {
         this.judgeService = judgeService;
         this.teamService = teamService;
         this.debaterService = debaterService;
@@ -69,6 +72,7 @@ public class TournamentBuilder {
         this.breakCategoryService = breakCategoryService;
         this.ballotService = ballotService;
         this.roundService = roundService;
+        this.feedbackService = feedbackService;
     }
 
 
@@ -91,6 +95,7 @@ public class TournamentBuilder {
         fileNames.add("Henley24.xml");
         fileNames.add("RI2024.xml");
         fileNames.add("Vijis2024.xml");
+        fileNames.add("Nixons24.xml");
 
         for (String fileName : fileNames) {
             buildMyTournament("src/main/resources/static/speaksXML/" + fileName);
@@ -311,6 +316,39 @@ public class TournamentBuilder {
             } catch (Exception e) {
                 System.out.println("Error in adding round");
                 log.error("Error in adding round : " + e.getMessage());
+            }
+            try {
+                for (JudgeDTO judgeDTO : judgeDTOs) {
+                    Judge judge = judgeService.findJudgeById(judgeDTO.getDbId());
+                    List<FeedbackDTO> feedbackDTOs = judgeDTO.getFeedback();
+                    for (FeedbackDTO feedbackDTO : feedbackDTOs) {
+                        try {
+                            Team sourceTeam = null;
+                            Judge sourceJudge = null;
+                            if (feedbackDTO.getSourceJudgeId() == null)
+                                sourceTeam = teamService.findTeamById(teamDTOMap.get(feedbackDTO.getSourceTeamId()).getDbId());
+                            else
+                                sourceJudge = judgeService.findJudgeById(judgeDTOMap.get(feedbackDTO.getSourceJudgeId()).getDbId());
+                            Float clashEvaluation = feedbackDTO.getClashEvaluation();
+                            Float clashOrganization = feedbackDTO.getClashOrganization();
+                            Float trackingArguments = feedbackDTO.getTrackingArguments();
+                            String comments = feedbackDTO.getComments();
+                            Float overallRating = feedbackDTO.getOverallRating();
+                            String agree = feedbackDTO.getAgree();
+                            Feedback feedback = new Feedback(judge, overallRating, clashEvaluation, clashOrganization, trackingArguments, agree, comments);
+                            if (sourceTeam != null) {
+                                feedback.setSourceTeam(sourceTeam);
+                            } else if (sourceJudge != null){
+                                feedback.setSourceJudge(sourceJudge);
+                            }
+                            feedbackService.addFeedback(feedback);
+                        } catch (Exception e) {
+                            log.error("Error in adding feedback to judge : " + e.getMessage());
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                log.error("Error in adding feedback : " + e.getMessage());
             }
 
             return tournament;

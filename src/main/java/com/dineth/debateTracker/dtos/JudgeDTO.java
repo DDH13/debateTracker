@@ -16,6 +16,7 @@ public class JudgeDTO {
     private Boolean core;
     private Boolean independent;
     private Long dbId;
+    private List<FeedbackDTO> feedback;
 
     public JudgeDTO(String id, String name, Float score, Boolean core, Boolean independent) {
         this.id = id;

@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.debate;
 
 import com.dineth.debateTracker.ballot.Ballot;
+import com.dineth.debateTracker.feedback.Feedback;
 import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.team.Team;
 import jakarta.persistence.*;
@@ -27,6 +28,8 @@ public class Debate implements Serializable {
     private List<Ballot> ballots;
     @ManyToOne @JoinColumn(name = "motion_id")
     private Motion motion;
+    @OneToMany
+    private List<Feedback> feedbacks;
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdAt;
     @Temporal(TemporalType.TIMESTAMP)
