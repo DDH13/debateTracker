@@ -30,4 +30,13 @@ public class DebaterTournamentScoreDTO extends PersonTournamentScoreDTO {
         super.setTournamentRoundScores(tournamentRoundScores);
     }
 
+    public Double getAverageSpeakerScore() {
+        if (this.getTournamentRoundScores() == null || this.getTournamentRoundScores().isEmpty()) {
+            return 0.0;
+        }
+        List<RoundScoreDTO> roundScores = this.getTournamentRoundScores().stream()
+                .map(TournamentRoundDTO::getRoundScores).flatMap(List::stream).toList();
+        return roundScores.stream().mapToDouble(RoundScoreDTO::getScore).average().orElse(0.0);
+    }
+
 }
