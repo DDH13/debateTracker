@@ -33,8 +33,14 @@ public class StatisticsService {
             put("stdDeviation", stdDeviation);
         }};
     }
+    /**
+     * Get sentiment of judges
+     *
+     * @param allowedDeviation - the extent to which a judge is allowed to deviate from the average score of a debater before being considered lenient or harsh
+     * @return List of JudgeSentimentDTO
+     */
 
-    public List<JudgeSentimentDTO> getSentiment(){
+    public List<JudgeSentimentDTO> getSentiment(double allowedDeviation){
 //        Querying db for initial data
         List <Ballot> ballots = ballotRepository.findBallotBySpeakerScoreGreaterThan(40.5f);
         List<Judge> judges = judgeRepository.findAll();
@@ -74,8 +80,7 @@ public class StatisticsService {
             List<Double> leniency = new ArrayList<>();
             List<Double> harshness = new ArrayList<>();
             int neutrality = 0;
-//            Decides how much a judge is allowed to deviate from the average before being considered lenient or harsh
-            double allowedDeviation = 1;
+
 
 //            Calculating leniency and harshness
             for (Ballot ballot: judgeBallots){
