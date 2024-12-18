@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface BallotRepository extends JpaRepository<Ballot, Long> {
     List<Ballot> findBallotsByDebater(Debater debater);
+    List<Ballot> findBallotsByJudgeId(Long judgeId);
+    List<Ballot> findBallotBySpeakerScoreGreaterThan(Float speakerScore);
 }

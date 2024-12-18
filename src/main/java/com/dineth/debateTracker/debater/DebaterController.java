@@ -2,7 +2,9 @@ package com.dineth.debateTracker.debater;
 
 import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
+import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
 import com.dineth.debateTracker.dtos.WinLossStatDTO;
+import com.dineth.debateTracker.statistics.StatisticsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +23,10 @@ public class DebaterController {
     private final DebateService debateService;
 
     @Autowired
-    public DebaterController(DebaterService debaterService, DebateService debateService) {
+    public DebaterController(DebaterService debaterService, DebateService debateService, StatisticsService statistic) {
         this.debaterService = debaterService;
         this.debateService = debateService;
+        this.statistic = statistic;
     }
 
     @GetMapping
@@ -109,5 +112,14 @@ public class DebaterController {
         return stats;
     }
 
+    private final StatisticsService statistic;
+    @GetMapping(path = "global-dist")
+    public HashMap<String, Double> getGlobalDistribution() {
+        return statistic.getGlobalDistribution();
+    }
+    @GetMapping(path = "sentiment")
+    public List<JudgeSentimentDTO> getLeniency() {
+        return statistic.getSentiment();
+    }
 
 }
