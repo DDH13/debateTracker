@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class JudgeSentimentDTO {
-    private Judge judge;
+    private String firstName;
+    private String lastName;
+    private Long judgeId;
     private int speechesJudged;
     private int leniencyCount;
     private int harshnessCount;
@@ -19,7 +21,9 @@ public class JudgeSentimentDTO {
     private double overallSentiment;
 
     public JudgeSentimentDTO(Judge judge, int speechesJudged, int leniencyCount, int harshnessCount, int neutralCount, double l, double h, double o) {
-        this.judge = judge;
+        this.firstName = judge.getFname();
+        this.lastName = judge.getLname();
+        this.judgeId = judge.getId();
         this.speechesJudged = speechesJudged;
         this.leniencyCount = leniencyCount;
         this.harshnessCount = harshnessCount;

@@ -75,7 +75,7 @@ public class StatisticsService {
             List<Double> harshness = new ArrayList<>();
             int neutrality = 0;
 //            Decides how much a judge is allowed to deviate from the average before being considered lenient or harsh
-            double allowedDeviation = 0.5;
+            double allowedDeviation = 1;
 
 //            Calculating leniency and harshness
             for (Ballot ballot: judgeBallots){
