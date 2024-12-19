@@ -45,31 +45,24 @@ public class StatisticsService {
         List <Ballot> ballots = ballotRepository.findBallotBySpeakerScoreGreaterThan(40.5f);
         List<Judge> judges = judgeRepository.findAll();
 
-//        Calculating average scores for all debaters
-        HashMap<Long,List<Double>> debaterScores = new HashMap<>();
-        HashMap<Long,Double> debaterAverages = new HashMap<>();
-
-//        Sorting ballots by debater
+//      Storing the average scores of debaters excluding the scores given by a specific judge to inefficient repeated calculations
+        HashMap<Long, HashMap<Long, Double>> debaterAverages = new HashMap<>();
         for (Ballot ballot: ballots){
             Long debaterId = ballot.getDebater().getId();
-            if (debaterScores.containsKey(debaterId)){
-                debaterScores.get(debaterId).add((double) ballot.getSpeakerScore());
-            } else {
-                List<Double> temp = new ArrayList<>();
-                temp.add((double) ballot.getSpeakerScore());
-                debaterScores.put(debaterId,temp);
+            Long judgeId = ballot.getJudge().getId();
+            if (!debaterAverages.containsKey(debaterId)){
+                debaterAverages.put(debaterId, new HashMap<>());
             }
-        }
-//        Calculating average scores for all debaters
-        for (Long debaterId: debaterScores.keySet()){
-            List<Double> scores = debaterScores.get(debaterId);
-            Double avg = scores.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
-            debaterAverages.put(debaterId, avg);
+            if (!debaterAverages.get(debaterId).containsKey(judgeId)){
+                Double avg = calculateSpeakerAverageExcludingJudge(judgeId, debaterId, ballots);
+                debaterAverages.get(debaterId).put(judgeId, avg);
+            }
         }
 
         List<JudgeSentimentDTO> judgeSentiments = new ArrayList<>();
 
         for (Judge judge: judges){
+//            Get all ballots for the given judge
             List<Ballot> judgeBallots = ballots.stream().filter(ballot -> ballot.getJudge().getId().equals(judge.getId())).toList();
 
 //          If a judge has not judged any debates, they are not included in the analysis
@@ -80,11 +73,11 @@ public class StatisticsService {
             List<Double> leniency = new ArrayList<>();
             List<Double> harshness = new ArrayList<>();
             int neutrality = 0;
-
+            int speechesConsidered = 0;
 
 //            Calculating leniency and harshness
             for (Ballot ballot: judgeBallots){
-                Double debaterAvg = debaterAverages.get(ballot.getDebater().getId());
+                Double debaterAvg = debaterAverages.get(ballot.getDebater().getId()).get(judge.getId());
                 if (debaterAvg != null){
                     if ((ballot.getSpeakerScore() - debaterAvg) >= allowedDeviation){
                         leniency.add(ballot.getSpeakerScore() - debaterAvg);
@@ -93,18 +86,39 @@ public class StatisticsService {
                     } else {
                         neutrality++;
                     }
+                    speechesConsidered++;
                 }
             }
 
             double leniencySum = leniency.stream().mapToDouble(Double::doubleValue).sum();
             double harshnessSum = harshness.stream().mapToDouble(Double::doubleValue).sum();
-            double overallSentiment = (leniencySum + harshnessSum)/(judgeBallots.size());
+            double overallSentiment = (leniencySum + harshnessSum)/speechesConsidered;
 
-            JudgeSentimentDTO judgeSentiment = new JudgeSentimentDTO(judge, judgeBallots.size(), leniency.size(), harshness.size(), neutrality, leniencySum, harshnessSum, overallSentiment);
+            JudgeSentimentDTO judgeSentiment = new JudgeSentimentDTO(judge, speechesConsidered, leniency.size(), harshness.size(), neutrality, leniencySum, harshnessSum, overallSentiment);
 
             judgeSentiments.add(judgeSentiment);
         }
         return judgeSentiments;
+    }
+
+    /**
+     * Calculate the average score of a debater excluding the scores given by a specific judge
+     * @param judgeId - the id of the judge whose scores are to be excluded
+     * @param debaterId - the id of the debater whose average score is to be calculated
+     * @param ballots - list of all ballots to be considered
+     */
+    public Double calculateSpeakerAverageExcludingJudge(Long judgeId, Long debaterId, List<Ballot> ballots)
+    {
+//        get all ballots for a debater
+        List<Ballot> debaterBallots = new ArrayList<>(ballots.stream().filter(ballot -> ballot.getDebater().getId().equals(debaterId)).toList());
+//        remove ballots from the judge
+        debaterBallots.removeIf(ballot -> ballot.getJudge().getId().equals(judgeId));
+//        check if the debater has a minimum number of ballots to calculate average
+        int minBallots = 5;
+        if (debaterBallots.size() < minBallots){
+            return null;
+        }
+        return debaterBallots.stream().mapToDouble(Ballot::getSpeakerScore).average().orElse(0.0);
     }
 
 }
