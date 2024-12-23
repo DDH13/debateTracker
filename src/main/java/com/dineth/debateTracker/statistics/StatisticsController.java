@@ -2,6 +2,7 @@ package com.dineth.debateTracker.statistics;
 
 
 import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
+import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +28,8 @@ public class StatisticsController {
      *
      * @return HashMap with mean and standard deviation
      * {
-     *     "mean": value,
-     *     "stdDeviation": value
+     * "mean": value,
+     * "stdDeviation": value
      * }
      */
     @GetMapping(path = "global-dist")
@@ -45,6 +46,16 @@ public class StatisticsController {
     @GetMapping(path = "sentiment")
     public List<JudgeSentimentDTO> getSentiments(@RequestParam(value = "allowed-deviation", required = false, defaultValue = "0.5") double allowedDeviation) {
         return statistic.getSentiment(allowedDeviation);
+    }
+
+    /**
+     * Get the win-loss statistics of debaters
+     *
+     * @return List of WinLossStatDTO
+     */
+    @GetMapping(path = "win-loss")
+    public List<WinLossStatDTO> getWinLossStats() {
+        return statistic.calculateWinLoss();
     }
 
 }

@@ -1,14 +1,12 @@
 package com.dineth.debateTracker.debater;
 
-import com.dineth.debateTracker.debate.DebateService;
+
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
-import com.dineth.debateTracker.dtos.WinLossStatDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,13 +16,10 @@ import java.util.Map;
 @RequestMapping(path = "api/v1/debater")
 public class DebaterController {
     private final DebaterService debaterService;
-    private final DebateService debateService;
-
 
     @Autowired
-    public DebaterController(DebaterService debaterService, DebateService debateService) {
+    public DebaterController(DebaterService debaterService) {
         this.debaterService = debaterService;
-        this.debateService = debateService;
     }
 
     @GetMapping
@@ -76,6 +71,7 @@ public class DebaterController {
 
     /**
      * Returns a list of all tournaments and the scores & speaker position for each prelim for a debater
+     *
      * @param debaterId - the id of the debater
      */
     @GetMapping(path = "speaks/{debaterId}")
@@ -95,19 +91,6 @@ public class DebaterController {
             debaterTournamentScoreDTOS.add(debaterService.getTournamentsAndScoresForSpeaker(debater.getId(), false));
         }
         return debaterTournamentScoreDTOS;
-    }
-
-    @GetMapping(path = "stats")
-    public Map<Debater, WinLossStatDTO> getDebaterStats() {
-        Map<Debater, WinLossStatDTO> temp = debateService.getWinLossStats();
-        Map<Debater, WinLossStatDTO> stats = new HashMap<>();
-        for (Map.Entry<Debater, WinLossStatDTO> entry : temp.entrySet()) {
-            Debater debater = entry.getKey();
-            WinLossStatDTO stat = entry.getValue();
-            stat.setWinPercentage(stat.getWinPercentage());
-            stats.put(debater, stat);
-        }
-        return stats;
     }
 
 }

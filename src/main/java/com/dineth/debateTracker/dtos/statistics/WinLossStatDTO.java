@@ -25,4 +25,13 @@ public class WinLossStatDTO {
         this.breakWins = breakWins;
         this.breakLosses = breakLosses;
     }
+    public WinLossStatDTO(String firstName, String lastName, Long id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+        this.prelimWins = 0;
+        this.prelimLosses = 0;
+        this.breakWins = 0;
+        this.breakLosses = 0;
+    }
 }
