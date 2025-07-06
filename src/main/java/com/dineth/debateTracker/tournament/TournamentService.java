@@ -1,6 +1,8 @@
 package com.dineth.debateTracker.tournament;
 
+import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.breakcategory.BreakCategory;
+import com.dineth.debateTracker.debate.Debate;
 import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.round.Round;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +68,23 @@ public class TournamentService {
             tournament.setBreakCategories(breakCategories);
             tournamentRepository.save(tournament);
         }
+    }
+
+    /**
+     * Get all the preliminary round ballots of a tournament
+     */
+    public List<Ballot> getPrelimBallotsByTournamentId(Long tournamentId) {
+        Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
+        if (tournament != null) {
+            List<Ballot> ballots = new ArrayList<>();
+            for (Round round : tournament.getRounds()) {
+                for (Debate debate : round.getDebates()) {
+                    ballots.addAll(debate.getBallots());
+                }
+            }
+            return ballots;
+        }
+        return null;
     }
 
 }

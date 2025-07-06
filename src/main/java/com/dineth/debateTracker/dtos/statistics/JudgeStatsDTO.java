@@ -1,4 +1,4 @@
-package com.dineth.debateTracker.dtos;
+package com.dineth.debateTracker.dtos.statistics;
 
 import com.dineth.debateTracker.judge.Judge;
 import lombok.Getter;

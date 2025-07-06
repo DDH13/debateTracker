@@ -1,8 +1,11 @@
 package com.dineth.debateTracker.statistics;
 
 
+import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
+import com.dineth.debateTracker.tournament.Tournament;
+import com.dineth.debateTracker.tournament.TournamentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +18,14 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/statistics")
 public class StatisticsController {
-    private final StatisticsService statistic;
+    private final StatisticsService statisticsService;
+    private final TournamentService tournamentService;
 
 
     @Autowired
-    public StatisticsController(StatisticsService statistic) {
-        this.statistic = statistic;
+    public StatisticsController(StatisticsService statisticsService, TournamentService tournamentService) {
+        this.statisticsService = statisticsService;
+        this.tournamentService = tournamentService;
     }
 
     /**
@@ -34,7 +39,7 @@ public class StatisticsController {
      */
     @GetMapping(path = "global-dist")
     public HashMap<String, Double> getGlobalDistribution() {
-        return statistic.getGlobalDistribution();
+        return statisticsService.getGlobalDistribution();
     }
 
     /**
@@ -45,7 +50,7 @@ public class StatisticsController {
      */
     @GetMapping(path = "sentiment")
     public List<JudgeSentimentDTO> getSentiments(@RequestParam(value = "allowed-deviation", required = false, defaultValue = "0.5") double allowedDeviation) {
-        return statistic.getSentiment(allowedDeviation);
+        return statisticsService.getSentiment(allowedDeviation);
     }
 
     /**
@@ -55,7 +60,27 @@ public class StatisticsController {
      */
     @GetMapping(path = "win-loss")
     public List<WinLossStatDTO> getWinLossStats() {
-        return statistic.calculateWinLoss();
+        return statisticsService.calculateWinLoss();
+    }
+
+    @GetMapping(path = "tournament-average")
+    public HashMap<String, HashMap<String, Double>> getTournamentAverage() {
+        HashMap<String, HashMap<String, Double>> tournamentAverages = new HashMap<>();
+        List<Tournament> tournaments = tournamentService.getTournament();
+
+        for (Tournament tournament : tournaments) {
+            //filter out where the speaker score is null or less than 41
+            List<Ballot> ballots = tournamentService.getPrelimBallotsByTournamentId(tournament.getId()).stream().filter(ballot -> ballot.getSpeakerScore() != null && ballot.getSpeakerScore() >= 69).toList();
+            Integer count = ballots.size();
+            Double sum = ballots.stream().mapToDouble(Ballot::getSpeakerScore).sum();
+            Double average = sum / count;
+            tournamentAverages.put(tournament.getShortName(), new HashMap<>() {{
+                put("average", average);
+                put("count", (double) count);
+            }});
+        }
+        return tournamentAverages;
+
     }
 
 }

@@ -1,9 +1,9 @@
 package com.dineth.debateTracker.judge;
 
-import com.dineth.debateTracker.dtos.JudgeStatsDTO;
 import com.dineth.debateTracker.dtos.JudgeTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
+import com.dineth.debateTracker.dtos.statistics.JudgeStatsDTO;
 import com.dineth.debateTracker.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
