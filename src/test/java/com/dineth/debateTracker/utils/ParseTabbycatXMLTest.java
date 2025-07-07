@@ -172,6 +172,85 @@ class ParseTabbycatXMLTest {
     @Test
     void testGetRoundsDTO() {
         List<RoundDTO> rounds = parser.getRoundsDTO(document);
-        assertNotNull(rounds);
+
+        int nRounds = 9; // Expected number of rounds in the tournament
+        assertEquals(nRounds, rounds.size(), "There should be " + nRounds + " rounds in the tournament");
+
+        // Check first round
+        RoundDTO round1 = rounds.get(0);
+        assertEquals("Round 1", round1.getName(), "Round name should match");
+        assertEquals("R1", round1.getAbbreviation(), "Round abbreviation should match");
+        assertFalse(round1.isElimination(), "Round 1 should not be an elimination round");
+        assertEquals(1.0, round1.getFeedbackWeight(), 0.0001, "Feedback weight should be 1.0");
+
+        // Check first debate in Round 1
+        DebateDTO debate1 = round1.getDebates().get(0);
+        assertEquals("D12", debate1.getId(), "Debate ID should match");
+        assertEquals("A148", debate1.getAdjudicatorIds(), "Adjudicator IDs should match");
+        assertEquals("A148", debate1.getChairId(), "Chair ID should match");
+        assertEquals("V15", debate1.getVenueIds(), "Venue IDs should match");
+        assertNull(debate1.getMotionId(), "Motion ID should be null for Round 1");
+
+        // Check first side in the debate
+        SideDTO side1 = debate1.getSides().get(0);
+        assertEquals("T17", side1.getTeamId(), "Team ID should match for side 1");
+        FinalTeamBallotDTO ballot1 = side1.getFinalTeamBallots().get(0);
+        assertEquals(2, ballot1.getRank(), "Team rank should match for side 1");
+        assertEquals(260.5, ballot1.getScore(), 0.0001, "Team score should match for side 1");
+        assertFalse(ballot1.isMinority(), "Minority should be false for side 1");
+        assertFalse(ballot1.isIgnored(), "Ignored should be false for side 1");
+        assertEquals(1, ballot1.getAdjudicatorIds().size(), "There should be 1 adjudicator for side 1");
+        assertEquals("A148", ballot1.getAdjudicatorIds().get(0), "Adjudicator ID should match for side 1");
+
+        // Check first speech in the first side
+        SpeechDTO speech1 = side1.getSpeeches().get(0);
+        assertEquals("S65", speech1.getSpeakerId(), "Speaker ID should match for first speech");
+        assertFalse(speech1.isReply(), "First speech should not be a reply");
+        assertEquals(1, speech1.getSpeakerPosition(), "Speaker position should match for first speech");
+        assertEquals(1, speech1.getIndividualSpeechBallots().size(), "There should be 1 ballot for first speech");
+        IndividualSpeechBallotDTO speechBallot1 = speech1.getIndividualSpeechBallots().get(0);
+        assertEquals("A148", speechBallot1.getAdjudicatorId(), "Adjudicator ID should match for first speech ballot");
+        assertEquals(74.0, speechBallot1.getScore(), 0.0001, "Score should match for first speech ballot");
+
+        // Quarterfinals assertions
+        RoundDTO quarterfinals = rounds.stream()
+            .filter(r -> "Quarterfinals".equals(r.getName()))
+            .findFirst()
+            .orElseThrow(() -> new AssertionError("Quarterfinals round not found"));
+        assertEquals("Quarterfinals", quarterfinals.getName(), "Quarterfinals round name should match");
+        assertEquals("QF", quarterfinals.getAbbreviation(), "Quarterfinals abbreviation should match");
+        assertTrue(quarterfinals.isElimination(), "Quarterfinals should be an elimination round");
+        assertEquals(1.0, quarterfinals.getFeedbackWeight(), 0.0001, "Quarterfinals feedback weight should be 1.0");
+        assertEquals(4, quarterfinals.getDebates().size(), "Quarterfinals should have 4 debates");
+
+        // Check first debate in Quarterfinals
+        DebateDTO qfDebate1 = quarterfinals.getDebates().get(0);
+        assertEquals("D100", qfDebate1.getId(), "Quarterfinals first debate ID should match");
+        assertEquals("A130", qfDebate1.getAdjudicatorIds(), "Quarterfinals first debate adjudicator IDs should match");
+        assertEquals("A130", qfDebate1.getChairId(), "Quarterfinals first debate chair ID should match");
+        assertEquals("V3", qfDebate1.getVenueIds(), "Quarterfinals first debate venue IDs should match");
+        assertNull(qfDebate1.getMotionId(), "Quarterfinals first debate motion ID should be null");
+
+        // Check sides in the first debate
+        SideDTO qfSide1 = qfDebate1.getSides().get(0);
+        assertEquals("T5", qfSide1.getTeamId(), "Quarterfinals first debate, first side team ID should match");
+        FinalTeamBallotDTO qfBallot1 = qfSide1.getFinalTeamBallots().get(0);
+        assertEquals(1, qfBallot1.getRank(), "Quarterfinals first debate, first side team rank should match");
+        assertEquals(0.0, qfBallot1.getScore(), 0.0001, "Quarterfinals first debate, first side team score should match");
+        assertFalse(qfBallot1.isMinority(), "Quarterfinals first debate, first side minority should be false");
+        assertFalse(qfBallot1.isIgnored(), "Quarterfinals first debate, first side ignored should be false");
+        assertEquals(1, qfBallot1.getAdjudicatorIds().size(), "Quarterfinals first debate, first side should have 1 adjudicator");
+        assertEquals("A130", qfBallot1.getAdjudicatorIds().get(0), "Quarterfinals first debate, first side adjudicator ID should match");
+
+        SideDTO qfSide2 = qfDebate1.getSides().get(1);
+        assertEquals("T16", qfSide2.getTeamId(), "Quarterfinals first debate, second side team ID should match");
+        FinalTeamBallotDTO qfBallot2 = qfSide2.getFinalTeamBallots().get(0);
+        assertEquals(2, qfBallot2.getRank(), "Quarterfinals first debate, second side team rank should match");
+        assertEquals(0.0, qfBallot2.getScore(), 0.0001, "Quarterfinals first debate, second side team score should match");
+        assertFalse(qfBallot2.isMinority(), "Quarterfinals first debate, second side minority should be false");
+        assertFalse(qfBallot2.isIgnored(), "Quarterfinals first debate, second side ignored should be false");
+        assertEquals(1, qfBallot2.getAdjudicatorIds().size(), "Quarterfinals first debate, second side should have 1 adjudicator");
+        assertEquals("A130", qfBallot2.getAdjudicatorIds().get(0), "Quarterfinals first debate, second side adjudicator ID should match");
+
     }
 }
