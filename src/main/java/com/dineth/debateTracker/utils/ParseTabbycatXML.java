@@ -32,8 +32,6 @@ public class ParseTabbycatXML {
             // Normalize the XML Structure
             document.getDocumentElement().normalize();
 
-            System.out.println("Parsed XML file: " + this.xmlPath);
-
         } catch (Exception e) {
             log.error("Error parsing XML file: " + e.getMessage());
         }
