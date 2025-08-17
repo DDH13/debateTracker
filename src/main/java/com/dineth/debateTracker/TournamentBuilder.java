@@ -219,6 +219,26 @@ public class TournamentBuilder {
                     team = teamService.addTeam(team);
                     teamDTO.setDbId(team.getId());
                     teamDTOMap.put(teamDTO.getId(), teamDTO);
+//                    Get the institution of one debater in the team and add the team to the institution
+                    if (!debaterDTOs.isEmpty()) {
+                        String institutionId = debaterDTOs.get(0).getInstitutionId();
+                        if (institutionId == null || institutionId.isEmpty()) {
+                            log.debug("No institution ID found for team : " + teamDTO.getName());
+                            continue;
+                        }
+                        Institution institution = institutionDTOs.stream()
+                                .filter(inst -> inst.getId().equals(institutionId))
+                                .findFirst()
+                                .map(inst -> institutionService.findInstitutionById(inst.getDbId()))
+                                .orElse(null);
+                        if (institution != null) {
+                            institutionService.addTeamToInstitution(institution.getId(), team);
+                        } else {
+                            log.debug("Institution not found for team : " + teamDTO.getName());
+                        }
+                    } else {
+                        log.error("No debaters found for team : " + teamDTO.getName());
+                    } 
                 }
             } catch (Exception e) {
                 log.error("Error in adding team : " + e.getMessage());

@@ -16,6 +16,7 @@ public class TeamDTO {
     private String breakEligibilities;
     private List<DebaterDTO> debaters;
     private Long dbId;
+    private String institutionId;
 
     public TeamDTO(String id, String name, String code, List<DebaterDTO> debaters, String breakEligibilities) {
         this.id = id;
