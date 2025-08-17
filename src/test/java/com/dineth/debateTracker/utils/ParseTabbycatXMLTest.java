@@ -213,8 +213,10 @@ class ParseTabbycatXMLTest {
         assertEquals(74.0, speechBallot1.getScore(), 0.0001, "Score should match for first speech ballot");
 
         // Quarterfinals assertions
-        RoundDTO quarterfinals = rounds.stream().filter(r -> "Quarterfinals".equals(r.getName())).findFirst()
-                .orElseThrow(() -> new AssertionError("Quarterfinals round not found"));
+        RoundDTO quarterfinals = rounds.stream()
+            .filter(r -> "Quarterfinals".equals(r.getName()))
+            .findFirst()
+            .orElseThrow(() -> new AssertionError("Quarterfinals round not found"));
         assertEquals("Quarterfinals", quarterfinals.getName(), "Quarterfinals round name should match");
         assertEquals("QF", quarterfinals.getAbbreviation(), "Quarterfinals abbreviation should match");
         assertTrue(quarterfinals.isElimination(), "Quarterfinals should be an elimination round");
@@ -234,27 +236,21 @@ class ParseTabbycatXMLTest {
         assertEquals("T5", qfSide1.getTeamId(), "Quarterfinals first debate, first side team ID should match");
         FinalTeamBallotDTO qfBallot1 = qfSide1.getFinalTeamBallots().get(0);
         assertEquals(1, qfBallot1.getRank(), "Quarterfinals first debate, first side team rank should match");
-        assertEquals(0.0, qfBallot1.getScore(), 0.0001,
-                "Quarterfinals first debate, first side team score should match");
+        assertEquals(0.0, qfBallot1.getScore(), 0.0001, "Quarterfinals first debate, first side team score should match");
         assertFalse(qfBallot1.isMinority(), "Quarterfinals first debate, first side minority should be false");
         assertFalse(qfBallot1.isIgnored(), "Quarterfinals first debate, first side ignored should be false");
-        assertEquals(1, qfBallot1.getAdjudicatorIds().size(),
-                "Quarterfinals first debate, first side should have 1 adjudicator");
-        assertEquals("A130", qfBallot1.getAdjudicatorIds().get(0),
-                "Quarterfinals first debate, first side adjudicator ID should match");
+        assertEquals(1, qfBallot1.getAdjudicatorIds().size(), "Quarterfinals first debate, first side should have 1 adjudicator");
+        assertEquals("A130", qfBallot1.getAdjudicatorIds().get(0), "Quarterfinals first debate, first side adjudicator ID should match");
 
         SideDTO qfSide2 = qfDebate1.getSides().get(1);
         assertEquals("T16", qfSide2.getTeamId(), "Quarterfinals first debate, second side team ID should match");
         FinalTeamBallotDTO qfBallot2 = qfSide2.getFinalTeamBallots().get(0);
         assertEquals(2, qfBallot2.getRank(), "Quarterfinals first debate, second side team rank should match");
-        assertEquals(0.0, qfBallot2.getScore(), 0.0001,
-                "Quarterfinals first debate, second side team score should match");
+        assertEquals(0.0, qfBallot2.getScore(), 0.0001, "Quarterfinals first debate, second side team score should match");
         assertFalse(qfBallot2.isMinority(), "Quarterfinals first debate, second side minority should be false");
         assertFalse(qfBallot2.isIgnored(), "Quarterfinals first debate, second side ignored should be false");
-        assertEquals(1, qfBallot2.getAdjudicatorIds().size(),
-                "Quarterfinals first debate, second side should have 1 adjudicator");
-        assertEquals("A130", qfBallot2.getAdjudicatorIds().get(0),
-                "Quarterfinals first debate, second side adjudicator ID should match");
+        assertEquals(1, qfBallot2.getAdjudicatorIds().size(), "Quarterfinals first debate, second side should have 1 adjudicator");
+        assertEquals("A130", qfBallot2.getAdjudicatorIds().get(0), "Quarterfinals first debate, second side adjudicator ID should match");
 
     }
 }
