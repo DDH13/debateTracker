@@ -8,6 +8,7 @@ import com.dineth.debateTracker.debate.Debate;
 import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.dtos.TournamentDataDTO;
 import com.dineth.debateTracker.dtos.xmlparsing.*;
 import com.dineth.debateTracker.eliminationballot.EliminationBallot;
 import com.dineth.debateTracker.eliminationballot.EliminationBallotService;
@@ -85,14 +86,16 @@ public class TournamentBuilder {
 
     @GetMapping("/build")
     @Transactional
-    public Object buildTournament(@RequestParam String fileName) {
+    public TournamentDataDTO buildTournament(@RequestParam String fileName) {
         return buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
     }
 
     @GetMapping("/buildall")
     @Transactional
-    public Object buildAllTournaments() {
+    public List<TournamentDataDTO> buildAllTournaments() {
         List<String> fileNames = new ArrayList<>();
+        List<TournamentDataDTO> tournamentDataList = new ArrayList<>();
+        
         try {
             Path folderPath = Paths.get("src/main/resources/static/speaksXML/2024/");
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(folderPath, "*.xml")) {
@@ -102,14 +105,21 @@ public class TournamentBuilder {
             }
         } catch (IOException e) {
             log.error("Error in reading files : " + e.getMessage());
-            return "Error";
+            return tournamentDataList; // Return empty list on error
         }
 
         for (String fileName : fileNames) {
-            buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
-            log.info("Built tournament : " + fileName);
+            try {
+                TournamentDataDTO tournamentData = buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
+                if (tournamentData != null) {
+                    tournamentDataList.add(tournamentData);
+                }
+                log.info("Built tournament : " + fileName);
+            } catch (Exception e) {
+                log.error("Error building tournament " + fileName + ": " + e.getMessage());
+            }
         }
-        return "Done";
+        return tournamentDataList;
     }
 
     @GetMapping("/parsecsv")
@@ -132,7 +142,7 @@ public class TournamentBuilder {
         return debaters;
     }
 
-    private Object buildMyTournament(String filePath) {
+    private TournamentDataDTO buildMyTournament(String filePath) {
         try {
             ParseTabbycatXML parser = new ParseTabbycatXML(filePath);
             parser.parseXML();
@@ -443,10 +453,51 @@ public class TournamentBuilder {
                 log.error("Error in adding feedback : " + e.getMessage());
             }
 
-            return tournament;
+            // Create and return comprehensive tournament data DTO
+            TournamentDataDTO tournamentDataDTO = new TournamentDataDTO(
+                tournamentDTO,
+                new ArrayList<>(debaterDTOMap.values()),
+                teamDTOs,
+                judgeDTOs,
+                institutionDTOs,
+                motionDTOs,
+                breakCategoryDTOs,
+                roundsDTOs,
+                debaterDTOMap,
+                teamDTOMap,
+                judgeDTOMap
+            );
+            
+            return tournamentDataDTO;
         } catch (Exception e) {
             log.error("Error in building tournament : " + e.getMessage());
             return null;
         }
+    }
+
+    /**
+     * Get tournament data summary - useful for checking what data was parsed
+     */
+    @GetMapping("/summary")
+    public String getTournamentSummary(@RequestParam String fileName) {
+        TournamentDataDTO tournamentData = buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
+        
+        if (tournamentData == null) {
+            return "Failed to build tournament data";
+        }
+        
+        StringBuilder summary = new StringBuilder();
+        summary.append("Tournament: ").append(tournamentData.getTournament().getFullName()).append("\n");
+        summary.append("Short Name: ").append(tournamentData.getTournament().getShortName()).append("\n");
+        summary.append("Metadata: ").append(tournamentData.getMetadata().toString()).append("\n");
+        
+        summary.append("\nRound Summary:\n");
+        for (RoundDTO round : tournamentData.getRounds()) {
+            summary.append("- ").append(round.getName())
+                   .append(" (").append(round.isElimination() ? "Elimination" : "Preliminary").append(")")
+                   .append(" - ").append(round.getDebates().size()).append(" debates\n");
+        }
+        
+        return summary.toString();
     }
 }
