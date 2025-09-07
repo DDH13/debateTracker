@@ -1,0 +1,3233 @@
+<tournament name="Impromptus 2025" short="Impromptus 2025">
+    <round name="Round 1" abbreviation="R1" elimination="false" feedback-weight="0.0">
+        <debate id="D435538" adjudicators="A914271" chair="A914271" venue="V121691" motion="M59304">
+            <side team="T261687">
+                <ballot adjudicators="A914271" minority="false" ignored="false" rank="2">254.5</ballot>
+                <speech speaker="S914162" reply="False">
+                    <ballot adjudicators="A914271">72.0</ballot>
+                </speech>
+                <speech speaker="S914161" reply="False">
+                    <ballot adjudicators="A914271">73.0</ballot>
+                </speech>
+                <speech speaker="S914160" reply="False">
+                    <ballot adjudicators="A914271">73.5</ballot>
+                </speech>
+                <speech speaker="S914162" reply="True">
+                    <ballot adjudicators="A914271">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261699">
+                <ballot adjudicators="A914271" minority="false" ignored="false" rank="1">261.5</ballot>
+                <speech speaker="S914202" reply="False">
+                    <ballot adjudicators="A914271">75.5</ballot>
+                </speech>
+                <speech speaker="S914203" reply="False">
+                    <ballot adjudicators="A914271">74.5</ballot>
+                </speech>
+                <speech speaker="S914202" reply="False">
+                    <ballot adjudicators="A914271">75.5</ballot>
+                </speech>
+                <speech speaker="S914203" reply="True">
+                    <ballot adjudicators="A914271">36.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435539" adjudicators="A916213" chair="A916213" venue="V121693" motion="M59304">
+            <side team="T261696">
+                <ballot adjudicators="A916213" minority="false" ignored="false" rank="1">263.5</ballot>
+                <speech speaker="S914191" reply="False">
+                    <ballot adjudicators="A916213">75.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="False">
+                    <ballot adjudicators="A916213">76.0</ballot>
+                </speech>
+                <speech speaker="S914190" reply="False">
+                    <ballot adjudicators="A916213">76.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="True">
+                    <ballot adjudicators="A916213">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261682">
+                <ballot adjudicators="A916213" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914151" reply="False">
+                    <ballot adjudicators="A916213">75.5</ballot>
+                </speech>
+                <speech speaker="S914148" reply="False">
+                    <ballot adjudicators="A916213">75.5</ballot>
+                </speech>
+                <speech speaker="S914150" reply="False">
+                    <ballot adjudicators="A916213">75.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="True">
+                    <ballot adjudicators="A916213">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435540" adjudicators="A914283" chair="A914283" venue="V121689" motion="M59304">
+            <side team="T261690">
+                <ballot adjudicators="A914283" minority="false" ignored="false" rank="2">260.5</ballot>
+                <speech speaker="S914177" reply="False">
+                    <ballot adjudicators="A914283">74.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="False">
+                    <ballot adjudicators="A914283">75.0</ballot>
+                </speech>
+                <speech speaker="S914176" reply="False">
+                    <ballot adjudicators="A914283">74.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="True">
+                    <ballot adjudicators="A914283">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261709">
+                <ballot adjudicators="A914283" minority="false" ignored="false" rank="1">264.0</ballot>
+                <speech speaker="S914238" reply="False">
+                    <ballot adjudicators="A914283">75.0</ballot>
+                </speech>
+                <speech speaker="S914235" reply="False">
+                    <ballot adjudicators="A914283">76.0</ballot>
+                </speech>
+                <speech speaker="S914236" reply="False">
+                    <ballot adjudicators="A914283">75.0</ballot>
+                </speech>
+                <speech speaker="S914235" reply="True">
+                    <ballot adjudicators="A914283">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435541" adjudicators="A914280" chair="A914280" venue="V121694" motion="M59304">
+            <side team="T261694">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="2">263.5</ballot>
+                <speech speaker="S914187" reply="False">
+                    <ballot adjudicators="A914280">74.5</ballot>
+                </speech>
+                <speech speaker="S914185" reply="False">
+                    <ballot adjudicators="A914280">76.0</ballot>
+                </speech>
+                <speech speaker="S914188" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914187" reply="True">
+                    <ballot adjudicators="A914280">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261702">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="1">266.0</ballot>
+                <speech speaker="S914214" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914211" reply="False">
+                    <ballot adjudicators="A914280">76.0</ballot>
+                </speech>
+                <speech speaker="S914212" reply="False">
+                    <ballot adjudicators="A914280">76.0</ballot>
+                </speech>
+                <speech speaker="S914214" reply="True">
+                    <ballot adjudicators="A914280">38.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435542" adjudicators="A914277" chair="A914277" venue="V121695" motion="M59304">
+            <side team="T261693">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="2">266.0</ballot>
+                <speech speaker="S914182" reply="False">
+                    <ballot adjudicators="A914277">76.0</ballot>
+                </speech>
+                <speech speaker="S914183" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914184" reply="False">
+                    <ballot adjudicators="A914277">76.5</ballot>
+                </speech>
+                <speech speaker="S914182" reply="True">
+                    <ballot adjudicators="A914277">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261710">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="1">267.5</ballot>
+                <speech speaker="S914249" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914248" reply="False">
+                    <ballot adjudicators="A914277">76.5</ballot>
+                </speech>
+                <speech speaker="S914247" reply="False">
+                    <ballot adjudicators="A914277">76.5</ballot>
+                </speech>
+                <speech speaker="S914248" reply="True">
+                    <ballot adjudicators="A914277">39.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435543" adjudicators="A914281" chair="A914281" venue="V121690" motion="M59304">
+            <side team="T261705">
+                <ballot adjudicators="A914281" minority="false" ignored="false" rank="2">257.5</ballot>
+                <speech speaker="S914230" reply="False">
+                    <ballot adjudicators="A914281">73.0</ballot>
+                </speech>
+                <speech speaker="S914229" reply="False">
+                    <ballot adjudicators="A914281">73.5</ballot>
+                </speech>
+                <speech speaker="S914228" reply="False">
+                    <ballot adjudicators="A914281">74.0</ballot>
+                </speech>
+                <speech speaker="S914229" reply="True">
+                    <ballot adjudicators="A914281">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261692">
+                <ballot adjudicators="A914281" minority="false" ignored="false" rank="1">261.5</ballot>
+                <speech speaker="S914301" reply="False">
+                    <ballot adjudicators="A914281">74.0</ballot>
+                </speech>
+                <speech speaker="S914298" reply="False">
+                    <ballot adjudicators="A914281">75.5</ballot>
+                </speech>
+                <speech speaker="S914299" reply="False">
+                    <ballot adjudicators="A914281">74.5</ballot>
+                </speech>
+                <speech speaker="S914298" reply="True">
+                    <ballot adjudicators="A914281">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435544" adjudicators="A914278" chair="A914278" venue="V121702" motion="M59304">
+            <side team="T261686">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">260.5</ballot>
+                <speech speaker="S914411" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914410" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914412" reply="False">
+                    <ballot adjudicators="A914278">74.5</ballot>
+                </speech>
+                <speech speaker="S914410" reply="True">
+                    <ballot adjudicators="A914278">35.5</ballot>
+                </speech>
+            </side>
+            <side team="T261681">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914144" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914145" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914146" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914145" reply="True">
+                    <ballot adjudicators="A914278">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435545" adjudicators="A914288" chair="A914288" venue="V121699" motion="M59304">
+            <side team="T261712">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="2">255.0</ballot>
+                <speech speaker="S914254" reply="False">
+                    <ballot adjudicators="A914288">73.5</ballot>
+                </speech>
+                <speech speaker="S914255" reply="False">
+                    <ballot adjudicators="A914288">73.5</ballot>
+                </speech>
+                <speech speaker="S914253" reply="False">
+                    <ballot adjudicators="A914288">73.0</ballot>
+                </speech>
+                <speech speaker="S914254" reply="True">
+                    <ballot adjudicators="A914288">35.0</ballot>
+                </speech>
+            </side>
+            <side team="T261691">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="1">262.0</ballot>
+                <speech speaker="S914296" reply="False">
+                    <ballot adjudicators="A914288">75.0</ballot>
+                </speech>
+                <speech speaker="S914295" reply="False">
+                    <ballot adjudicators="A914288">75.0</ballot>
+                </speech>
+                <speech speaker="S914294" reply="False">
+                    <ballot adjudicators="A914288">75.5</ballot>
+                </speech>
+                <speech speaker="S914295" reply="True">
+                    <ballot adjudicators="A914288">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435546" adjudicators="A914413" chair="A914413" venue="V121701" motion="M59304">
+            <side team="T261711">
+                <ballot adjudicators="A914413" minority="false" ignored="false" rank="2">252.5</ballot>
+                <speech speaker="S914250" reply="False">
+                    <ballot adjudicators="A914413">72.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="False">
+                    <ballot adjudicators="A914413">72.0</ballot>
+                </speech>
+                <speech speaker="S914252" reply="False">
+                    <ballot adjudicators="A914413">71.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="True">
+                    <ballot adjudicators="A914413">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261684">
+                <ballot adjudicators="A914413" minority="false" ignored="false" rank="1">264.5</ballot>
+                <speech speaker="S914156" reply="False">
+                    <ballot adjudicators="A914413">75.5</ballot>
+                </speech>
+                <speech speaker="S914158" reply="False">
+                    <ballot adjudicators="A914413">76.0</ballot>
+                </speech>
+                <speech speaker="S914157" reply="False">
+                    <ballot adjudicators="A914413">75.0</ballot>
+                </speech>
+                <speech speaker="S914158" reply="True">
+                    <ballot adjudicators="A914413">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435547" adjudicators="A914275" chair="A914275" venue="V121696" motion="M59304">
+            <side team="T261697">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="2">263.5</ballot>
+                <speech speaker="S914193" reply="False">
+                    <ballot adjudicators="A914275">74.5</ballot>
+                </speech>
+                <speech speaker="S914194" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914195" reply="False">
+                    <ballot adjudicators="A914275">77.0</ballot>
+                </speech>
+                <speech speaker="S914194" reply="True">
+                    <ballot adjudicators="A914275">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261685">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="1">264.5</ballot>
+                <speech speaker="S914409" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914163" reply="False">
+                    <ballot adjudicators="A914275">76.0</ballot>
+                </speech>
+                <speech speaker="S916210" reply="False">
+                    <ballot adjudicators="A914275">76.5</ballot>
+                </speech>
+                <speech speaker="S914163" reply="True">
+                    <ballot adjudicators="A914275">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435548" adjudicators="A914276" chair="A914276" venue="V121692" motion="M59304">
+            <side team="T261698">
+                <ballot adjudicators="A914276" minority="false" ignored="false" rank="1">265.5</ballot>
+                <speech speaker="S914200" reply="False">
+                    <ballot adjudicators="A914276">76.0</ballot>
+                </speech>
+                <speech speaker="S914198" reply="False">
+                    <ballot adjudicators="A914276">76.5</ballot>
+                </speech>
+                <speech speaker="S914199" reply="False">
+                    <ballot adjudicators="A914276">75.5</ballot>
+                </speech>
+                <speech speaker="S914198" reply="True">
+                    <ballot adjudicators="A914276">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261703">
+                <ballot adjudicators="A914276" minority="false" ignored="false" rank="2">264.0</ballot>
+                <speech speaker="S914215" reply="False">
+                    <ballot adjudicators="A914276">75.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="False">
+                    <ballot adjudicators="A914276">76.0</ballot>
+                </speech>
+                <speech speaker="S914217" reply="False">
+                    <ballot adjudicators="A914276">75.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="True">
+                    <ballot adjudicators="A914276">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435549" adjudicators="A914264" chair="A914264" venue="V121697" motion="M59304">
+            <side team="T261688">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="1">262.5</ballot>
+                <speech speaker="S914168" reply="False">
+                    <ballot adjudicators="A914264">74.5</ballot>
+                </speech>
+                <speech speaker="S914167" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914169" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914167" reply="True">
+                    <ballot adjudicators="A914264">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261700">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="2">262.0</ballot>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914206" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914206" reply="True">
+                    <ballot adjudicators="A914264">35.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435550" adjudicators="A914262" chair="A914262" venue="V121703" motion="M59304">
+            <side team="T261701">
+                <ballot adjudicators="A914262" minority="false" ignored="false" rank="1">259.0</ballot>
+                <speech speaker="S914209" reply="False">
+                    <ballot adjudicators="A914262">75.0</ballot>
+                </speech>
+                <speech speaker="S914208" reply="False">
+                    <ballot adjudicators="A914262">74.0</ballot>
+                </speech>
+                <speech speaker="S914210" reply="False">
+                    <ballot adjudicators="A914262">74.0</ballot>
+                </speech>
+                <speech speaker="S914208" reply="True">
+                    <ballot adjudicators="A914262">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261689">
+                <ballot adjudicators="A914262" minority="false" ignored="false" rank="2">257.0</ballot>
+                <speech speaker="S914172" reply="False">
+                    <ballot adjudicators="A914262">72.5</ballot>
+                </speech>
+                <speech speaker="S914171" reply="False">
+                    <ballot adjudicators="A914262">74.0</ballot>
+                </speech>
+                <speech speaker="S914173" reply="False">
+                    <ballot adjudicators="A914262">73.5</ballot>
+                </speech>
+                <speech speaker="S914171" reply="True">
+                    <ballot adjudicators="A914262">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435551" adjudicators="A914270" chair="A914270" venue="V121698" motion="M59304">
+            <side team="T261708">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="1">265.5</ballot>
+                <speech speaker="S914239" reply="False">
+                    <ballot adjudicators="A914270">76.0</ballot>
+                </speech>
+                <speech speaker="S914242" reply="False">
+                    <ballot adjudicators="A914270">76.5</ballot>
+                </speech>
+                <speech speaker="S914240" reply="False">
+                    <ballot adjudicators="A914270">76.5</ballot>
+                </speech>
+                <speech speaker="S914242" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261704">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="2">258.0</ballot>
+                <speech speaker="S914219" reply="False">
+                    <ballot adjudicators="A914270">74.5</ballot>
+                </speech>
+                <speech speaker="S914222" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914220" reply="False">
+                    <ballot adjudicators="A914270">75.0</ballot>
+                </speech>
+                <speech speaker="S914219" reply="True">
+                    <ballot adjudicators="A914270">34.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435552" adjudicators="A914274" chair="A914274" venue="V121700" motion="M59304">
+            <side team="T261695">
+                <ballot adjudicators="A914274" minority="false" ignored="false" rank="2">261.0</ballot>
+                <speech speaker="S914179" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914180" reply="False">
+                    <ballot adjudicators="A914274">74.5</ballot>
+                </speech>
+                <speech speaker="S914181" reply="False">
+                    <ballot adjudicators="A914274">74.0</ballot>
+                </speech>
+                <speech speaker="S914179" reply="True">
+                    <ballot adjudicators="A914274">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261707">
+                <ballot adjudicators="A914274" minority="false" ignored="false" rank="1">262.0</ballot>
+                <speech speaker="S914232" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914234" reply="False">
+                    <ballot adjudicators="A914274">75.5</ballot>
+                </speech>
+                <speech speaker="S914231" reply="False">
+                    <ballot adjudicators="A914274">74.5</ballot>
+                </speech>
+                <speech speaker="S914232" reply="True">
+                    <ballot adjudicators="A914274">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+    </round>
+    <round name="Round 2" abbreviation="R2" elimination="false" feedback-weight="0.1">
+        <debate id="D435624" adjudicators="A916214" chair="A916214" venue="V121695" motion="M59311">
+            <side team="T261681">
+                <ballot adjudicators="A916214" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914144" reply="False">
+                    <ballot adjudicators="A916214">75.0</ballot>
+                </speech>
+                <speech speaker="S914145" reply="False">
+                    <ballot adjudicators="A916214">75.5</ballot>
+                </speech>
+                <speech speaker="S914146" reply="False">
+                    <ballot adjudicators="A916214">75.0</ballot>
+                </speech>
+                <speech speaker="S914145" reply="True">
+                    <ballot adjudicators="A916214">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261696">
+                <ballot adjudicators="A916214" minority="false" ignored="false" rank="1">265.5</ballot>
+                <speech speaker="S914191" reply="False">
+                    <ballot adjudicators="A916214">75.5</ballot>
+                </speech>
+                <speech speaker="S914189" reply="False">
+                    <ballot adjudicators="A916214">76.0</ballot>
+                </speech>
+                <speech speaker="S914190" reply="False">
+                    <ballot adjudicators="A916214">76.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="True">
+                    <ballot adjudicators="A916214">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435625" adjudicators="A914282" chair="A914282" venue="V121689" motion="M59311">
+            <side team="T261699">
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="1">267.5</ballot>
+                <speech speaker="S914203" reply="False">
+                    <ballot adjudicators="A914282">76.0</ballot>
+                </speech>
+                <speech speaker="S914202" reply="False">
+                    <ballot adjudicators="A914282">77.0</ballot>
+                </speech>
+                <speech speaker="S914203" reply="False">
+                    <ballot adjudicators="A914282">76.0</ballot>
+                </speech>
+                <speech speaker="S914202" reply="True">
+                    <ballot adjudicators="A914282">38.5</ballot>
+                </speech>
+            </side>
+            <side team="T261708">
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="2">267.0</ballot>
+                <speech speaker="S914239" reply="False">
+                    <ballot adjudicators="A914282">76.0</ballot>
+                </speech>
+                <speech speaker="S914242" reply="False">
+                    <ballot adjudicators="A914282">76.0</ballot>
+                </speech>
+                <speech speaker="S914240" reply="False">
+                    <ballot adjudicators="A914282">76.5</ballot>
+                </speech>
+                <speech speaker="S914242" reply="True">
+                    <ballot adjudicators="A914282">38.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435626" adjudicators="A914270" chair="A914270" venue="V121697" motion="M59311">
+            <side team="T261684">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="1">266.0</ballot>
+                <speech speaker="S914157" reply="False">
+                    <ballot adjudicators="A914270">76.0</ballot>
+                </speech>
+                <speech speaker="S914158" reply="False">
+                    <ballot adjudicators="A914270">76.5</ballot>
+                </speech>
+                <speech speaker="S914156" reply="False">
+                    <ballot adjudicators="A914270">76.5</ballot>
+                </speech>
+                <speech speaker="S914158" reply="True">
+                    <ballot adjudicators="A914270">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261707">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="2">258.0</ballot>
+                <speech speaker="S914232" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914234" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914233" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914232" reply="True">
+                    <ballot adjudicators="A914270">36.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435627" adjudicators="A914281" chair="A914281" venue="V121699" motion="M59311">
+            <side team="T261709">
+                <ballot adjudicators="A914281" minority="false" ignored="false" rank="1">265.5</ballot>
+                <speech speaker="S914238" reply="False">
+                    <ballot adjudicators="A914281">74.5</ballot>
+                </speech>
+                <speech speaker="S914235" reply="False">
+                    <ballot adjudicators="A914281">76.5</ballot>
+                </speech>
+                <speech speaker="S914236" reply="False">
+                    <ballot adjudicators="A914281">76.5</ballot>
+                </speech>
+                <speech speaker="S914235" reply="True">
+                    <ballot adjudicators="A914281">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261688">
+                <ballot adjudicators="A914281" minority="false" ignored="false" rank="2">262.5</ballot>
+                <speech speaker="S914168" reply="False">
+                    <ballot adjudicators="A914281">74.5</ballot>
+                </speech>
+                <speech speaker="S914167" reply="False">
+                    <ballot adjudicators="A914281">75.5</ballot>
+                </speech>
+                <speech speaker="S914169" reply="False">
+                    <ballot adjudicators="A914281">75.0</ballot>
+                </speech>
+                <speech speaker="S914167" reply="True">
+                    <ballot adjudicators="A914281">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435628" adjudicators="A914277" chair="A914277" venue="V121696" motion="M59311">
+            <side team="T261682">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914151" reply="False">
+                    <ballot adjudicators="A914277">75.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914150" reply="False">
+                    <ballot adjudicators="A914277">75.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="True">
+                    <ballot adjudicators="A914277">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261705">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="1">266.5</ballot>
+                <speech speaker="S914230" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914227" reply="False">
+                    <ballot adjudicators="A914277">76.5</ballot>
+                </speech>
+                <speech speaker="S914228" reply="False">
+                    <ballot adjudicators="A914277">76.0</ballot>
+                </speech>
+                <speech speaker="S914227" reply="True">
+                    <ballot adjudicators="A914277">38.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435629" adjudicators="A914278" chair="A914278" venue="V121700" motion="M59311">
+            <side team="T261702">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">264.5</ballot>
+                <speech speaker="S914214" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914213" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914211" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914214" reply="True">
+                    <ballot adjudicators="A914278">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261701">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">263.5</ballot>
+                <speech speaker="S914209" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914208" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914210" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914208" reply="True">
+                    <ballot adjudicators="A914278">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435630" adjudicators="A916351" chair="A916351" venue="V121691" motion="M59311">
+            <side team="T261697">
+                <ballot adjudicators="A916351" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914195" reply="False">
+                    <ballot adjudicators="A916351">76.0</ballot>
+                </speech>
+                <speech speaker="S914194" reply="False">
+                    <ballot adjudicators="A916351">74.0</ballot>
+                </speech>
+                <speech speaker="S914193" reply="False">
+                    <ballot adjudicators="A916351">75.0</ballot>
+                </speech>
+                <speech speaker="S914194" reply="True">
+                    <ballot adjudicators="A916351">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261712">
+                <ballot adjudicators="A916351" minority="false" ignored="false" rank="2">253.0</ballot>
+                <speech speaker="S914254" reply="False">
+                    <ballot adjudicators="A916351">72.5</ballot>
+                </speech>
+                <speech speaker="S914255" reply="False">
+                    <ballot adjudicators="A916351">73.0</ballot>
+                </speech>
+                <speech speaker="S914253" reply="False">
+                    <ballot adjudicators="A916351">71.5</ballot>
+                </speech>
+                <speech speaker="S914254" reply="True">
+                    <ballot adjudicators="A916351">36.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435631" adjudicators="A916212" chair="A916212" venue="V121690" motion="M59311">
+            <side team="T261689">
+                <ballot adjudicators="A916212" minority="false" ignored="false" rank="2">258.0</ballot>
+                <speech speaker="S914172" reply="False">
+                    <ballot adjudicators="A916212">74.0</ballot>
+                </speech>
+                <speech speaker="S914171" reply="False">
+                    <ballot adjudicators="A916212">74.0</ballot>
+                </speech>
+                <speech speaker="S914173" reply="False">
+                    <ballot adjudicators="A916212">74.0</ballot>
+                </speech>
+                <speech speaker="S914171" reply="True">
+                    <ballot adjudicators="A916212">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261694">
+                <ballot adjudicators="A916212" minority="false" ignored="false" rank="1">259.5</ballot>
+                <speech speaker="S914187" reply="False">
+                    <ballot adjudicators="A916212">75.0</ballot>
+                </speech>
+                <speech speaker="S914185" reply="False">
+                    <ballot adjudicators="A916212">75.0</ballot>
+                </speech>
+                <speech speaker="S914188" reply="False">
+                    <ballot adjudicators="A916212">74.5</ballot>
+                </speech>
+                <speech speaker="S914187" reply="True">
+                    <ballot adjudicators="A916212">35.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435632" adjudicators="A914264" chair="A914264" venue="V121702" motion="M59311">
+            <side team="T261711">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914250" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914252" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="True">
+                    <ballot adjudicators="A914264">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261693">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="1">266.0</ballot>
+                <speech speaker="S914182" reply="False">
+                    <ballot adjudicators="A914264">77.0</ballot>
+                </speech>
+                <speech speaker="S914183" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914184" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914182" reply="True">
+                    <ballot adjudicators="A914264">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435633" adjudicators="A914274" chair="A914274" venue="V121698" motion="M59311">
+            <side team="T261700">
+                <ballot adjudicators="A914274" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914206" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914274">75.5</ballot>
+                </speech>
+                <speech speaker="S914206" reply="True">
+                    <ballot adjudicators="A914274">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261704">
+                <ballot adjudicators="A914274" minority="false" ignored="false" rank="2">262.0</ballot>
+                <speech speaker="S914219" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914220" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914222" reply="False">
+                    <ballot adjudicators="A914274">75.0</ballot>
+                </speech>
+                <speech speaker="S914219" reply="True">
+                    <ballot adjudicators="A914274">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435634" adjudicators="A916211" chair="A916211" venue="V121692" motion="M59311">
+            <side team="T261691">
+                <ballot adjudicators="A916211" minority="false" ignored="false" rank="1">266.5</ballot>
+                <speech speaker="S914296" reply="False">
+                    <ballot adjudicators="A916211">76.0</ballot>
+                </speech>
+                <speech speaker="S914295" reply="False">
+                    <ballot adjudicators="A916211">76.0</ballot>
+                </speech>
+                <speech speaker="S914294" reply="False">
+                    <ballot adjudicators="A916211">77.0</ballot>
+                </speech>
+                <speech speaker="S914295" reply="True">
+                    <ballot adjudicators="A916211">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261685">
+                <ballot adjudicators="A916211" minority="false" ignored="false" rank="2">265.0</ballot>
+                <speech speaker="S914165" reply="False">
+                    <ballot adjudicators="A916211">75.5</ballot>
+                </speech>
+                <speech speaker="S914163" reply="False">
+                    <ballot adjudicators="A916211">76.0</ballot>
+                </speech>
+                <speech speaker="S916210" reply="False">
+                    <ballot adjudicators="A916211">75.5</ballot>
+                </speech>
+                <speech speaker="S914163" reply="True">
+                    <ballot adjudicators="A916211">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435635" adjudicators="A914275" chair="A914275" venue="V121703" motion="M59311">
+            <side team="T261703">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914215" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914216" reply="False">
+                    <ballot adjudicators="A914275">75.5</ballot>
+                </speech>
+                <speech speaker="S914217" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914216" reply="True">
+                    <ballot adjudicators="A914275">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261687">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="2">254.5</ballot>
+                <speech speaker="S914162" reply="False">
+                    <ballot adjudicators="A914275">74.0</ballot>
+                </speech>
+                <speech speaker="S914161" reply="False">
+                    <ballot adjudicators="A914275">73.0</ballot>
+                </speech>
+                <speech speaker="S914160" reply="False">
+                    <ballot adjudicators="A914275">72.5</ballot>
+                </speech>
+                <speech speaker="S914162" reply="True">
+                    <ballot adjudicators="A914275">35.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435636" adjudicators="A914288" chair="A914288" venue="V121694" motion="M59311">
+            <side team="T261690">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="2">257.5</ballot>
+                <speech speaker="S914174" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="False">
+                    <ballot adjudicators="A914288">73.5</ballot>
+                </speech>
+                <speech speaker="S914176" reply="False">
+                    <ballot adjudicators="A914288">73.5</ballot>
+                </speech>
+                <speech speaker="S914175" reply="True">
+                    <ballot adjudicators="A914288">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261695">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="1">258.0</ballot>
+                <speech speaker="S914179" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914178" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914181" reply="False">
+                    <ballot adjudicators="A914288">73.5</ballot>
+                </speech>
+                <speech speaker="S914179" reply="True">
+                    <ballot adjudicators="A914288">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435637" adjudicators="A914280" chair="A914280" venue="V121693" motion="M59311">
+            <side team="T261692">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="2">260.5</ballot>
+                <speech speaker="S914301" reply="False">
+                    <ballot adjudicators="A914280">74.0</ballot>
+                </speech>
+                <speech speaker="S914298" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914299" reply="False">
+                    <ballot adjudicators="A914280">74.5</ballot>
+                </speech>
+                <speech speaker="S914298" reply="True">
+                    <ballot adjudicators="A914280">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261698">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="1">267.0</ballot>
+                <speech speaker="S914200" reply="False">
+                    <ballot adjudicators="A914280">76.5</ballot>
+                </speech>
+                <speech speaker="S914198" reply="False">
+                    <ballot adjudicators="A914280">76.5</ballot>
+                </speech>
+                <speech speaker="S914199" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914198" reply="True">
+                    <ballot adjudicators="A914280">38.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D435638" adjudicators="A914271" chair="A914271" venue="V121701" motion="M59311">
+            <side team="T261710">
+                <ballot adjudicators="A914271" minority="false" ignored="false" rank="1">264.0</ballot>
+                <speech speaker="S914249" reply="False">
+                    <ballot adjudicators="A914271">76.0</ballot>
+                </speech>
+                <speech speaker="S914248" reply="False">
+                    <ballot adjudicators="A914271">77.0</ballot>
+                </speech>
+                <speech speaker="S914247" reply="False">
+                    <ballot adjudicators="A914271">75.0</ballot>
+                </speech>
+                <speech speaker="S914249" reply="True">
+                    <ballot adjudicators="A914271">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261686">
+                <ballot adjudicators="A914271" minority="false" ignored="false" rank="2">261.5</ballot>
+                <speech speaker="S914412" reply="False">
+                    <ballot adjudicators="A914271">75.0</ballot>
+                </speech>
+                <speech speaker="S914410" reply="False">
+                    <ballot adjudicators="A914271">75.0</ballot>
+                </speech>
+                <speech speaker="S915609" reply="False">
+                    <ballot adjudicators="A914271">75.5</ballot>
+                </speech>
+                <speech speaker="S914410" reply="True">
+                    <ballot adjudicators="A914271">36.0</ballot>
+                </speech>
+            </side>
+        </debate>
+    </round>
+    <round name="Round 3" abbreviation="R3" elimination="false" feedback-weight="0.2">
+        <debate id="D440657" adjudicators="A914270" chair="A914270" venue="V121697" motion="M60082">
+            <side team="T261687">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="2">256.0</ballot>
+                <speech speaker="S914162" reply="False">
+                    <ballot adjudicators="A914270">73.0</ballot>
+                </speech>
+                <speech speaker="S914161" reply="False">
+                    <ballot adjudicators="A914270">73.0</ballot>
+                </speech>
+                <speech speaker="S914160" reply="False">
+                    <ballot adjudicators="A914270">73.5</ballot>
+                </speech>
+                <speech speaker="S914162" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261682">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="1">259.5</ballot>
+                <speech speaker="S914151" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="False">
+                    <ballot adjudicators="A914270">74.5</ballot>
+                </speech>
+                <speech speaker="S914150" reply="False">
+                    <ballot adjudicators="A914270">74.5</ballot>
+                </speech>
+                <speech speaker="S914148" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440658" adjudicators="A914279" chair="A914279" venue="V121692" motion="M60082">
+            <side team="T261710">
+                <ballot adjudicators="A914279" minority="false" ignored="false" rank="2">256.0</ballot>
+                <speech speaker="S914249" reply="False">
+                    <ballot adjudicators="A914279">74.0</ballot>
+                </speech>
+                <speech speaker="S914248" reply="False">
+                    <ballot adjudicators="A914279">73.0</ballot>
+                </speech>
+                <speech speaker="S914247" reply="False">
+                    <ballot adjudicators="A914279">74.0</ballot>
+                </speech>
+                <speech speaker="S914248" reply="True">
+                    <ballot adjudicators="A914279">35.0</ballot>
+                </speech>
+            </side>
+            <side team="T261696">
+                <ballot adjudicators="A914279" minority="false" ignored="false" rank="1">263.5</ballot>
+                <speech speaker="S914192" reply="False">
+                    <ballot adjudicators="A914279">74.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="False">
+                    <ballot adjudicators="A914279">75.5</ballot>
+                </speech>
+                <speech speaker="S914190" reply="False">
+                    <ballot adjudicators="A914279">75.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="True">
+                    <ballot adjudicators="A914279">39.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440659" adjudicators="A914286 A915611" chair="A914286" venue="V121700" motion="M60082">
+            <side team="T261702">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914214" reply="False">
+                    <ballot adjudicators="A914286">75.5</ballot>
+                </speech>
+                <speech speaker="S914212" reply="False">
+                    <ballot adjudicators="A914286">74.5</ballot>
+                </speech>
+                <speech speaker="S914211" reply="False">
+                    <ballot adjudicators="A914286">76.0</ballot>
+                </speech>
+                <speech speaker="S914214" reply="True">
+                    <ballot adjudicators="A914286">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261709">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="1">264.0</ballot>
+                <speech speaker="S914238" reply="False">
+                    <ballot adjudicators="A914286">74.0</ballot>
+                </speech>
+                <speech speaker="S914235" reply="False">
+                    <ballot adjudicators="A914286">77.5</ballot>
+                </speech>
+                <speech speaker="S914236" reply="False">
+                    <ballot adjudicators="A914286">74.5</ballot>
+                </speech>
+                <speech speaker="S914235" reply="True">
+                    <ballot adjudicators="A914286">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440660" adjudicators="A914275" chair="A914275" venue="V121694" motion="M60082">
+            <side team="T261700">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="2">261.0</ballot>
+                <speech speaker="S914206" reply="False">
+                    <ballot adjudicators="A914275">74.0</ballot>
+                </speech>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914205" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914207" reply="True">
+                    <ballot adjudicators="A914275">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261705">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="1">261.5</ballot>
+                <speech speaker="S914230" reply="False">
+                    <ballot adjudicators="A914275">74.5</ballot>
+                </speech>
+                <speech speaker="S914227" reply="False">
+                    <ballot adjudicators="A914275">75.5</ballot>
+                </speech>
+                <speech speaker="S914229" reply="False">
+                    <ballot adjudicators="A914275">74.5</ballot>
+                </speech>
+                <speech speaker="S914227" reply="True">
+                    <ballot adjudicators="A914275">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440661" adjudicators="A915610" chair="A915610" venue="V121693" motion="M60082">
+            <side team="T261688">
+                <ballot adjudicators="A915610" minority="false" ignored="false" rank="1">264.0</ballot>
+                <speech speaker="S914166" reply="False">
+                    <ballot adjudicators="A915610">75.5</ballot>
+                </speech>
+                <speech speaker="S914167" reply="False">
+                    <ballot adjudicators="A915610">75.5</ballot>
+                </speech>
+                <speech speaker="S914169" reply="False">
+                    <ballot adjudicators="A915610">76.5</ballot>
+                </speech>
+                <speech speaker="S914166" reply="True">
+                    <ballot adjudicators="A915610">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261681">
+                <ballot adjudicators="A915610" minority="false" ignored="false" rank="2">262.5</ballot>
+                <speech speaker="S914144" reply="False">
+                    <ballot adjudicators="A915610">75.5</ballot>
+                </speech>
+                <speech speaker="S914145" reply="False">
+                    <ballot adjudicators="A915610">75.5</ballot>
+                </speech>
+                <speech speaker="S914146" reply="False">
+                    <ballot adjudicators="A915610">75.0</ballot>
+                </speech>
+                <speech speaker="S914145" reply="True">
+                    <ballot adjudicators="A915610">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440662" adjudicators="A928463 A928464" chair="A928463" venue="V121703" motion="M60082">
+            <side team="T261694">
+                <ballot adjudicators="A928463" minority="false" ignored="false" rank="2">261.5</ballot>
+                <ballot adjudicators="A928464" minority="false" ignored="false" rank="2">261.5</ballot>
+                <speech speaker="S914187" reply="False">
+                    <ballot adjudicators="A928463">75.5</ballot>
+                    <ballot adjudicators="A928464">75.5</ballot>
+                </speech>
+                <speech speaker="S914185" reply="False">
+                    <ballot adjudicators="A928463">75.0</ballot>
+                    <ballot adjudicators="A928464">75.0</ballot>
+                </speech>
+                <speech speaker="S914188" reply="False">
+                    <ballot adjudicators="A928463">75.0</ballot>
+                    <ballot adjudicators="A928464">75.0</ballot>
+                </speech>
+                <speech speaker="S914185" reply="True">
+                    <ballot adjudicators="A928463">36.0</ballot>
+                    <ballot adjudicators="A928464">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261697">
+                <ballot adjudicators="A928463" minority="false" ignored="false" rank="1">262.5</ballot>
+                <ballot adjudicators="A928464" minority="false" ignored="false" rank="1">262.5</ballot>
+                <speech speaker="S914193" reply="False">
+                    <ballot adjudicators="A928463">75.0</ballot>
+                    <ballot adjudicators="A928464">75.0</ballot>
+                </speech>
+                <speech speaker="S914194" reply="False">
+                    <ballot adjudicators="A928463">73.0</ballot>
+                    <ballot adjudicators="A928464">73.0</ballot>
+                </speech>
+                <speech speaker="S914195" reply="False">
+                    <ballot adjudicators="A928463">76.5</ballot>
+                    <ballot adjudicators="A928464">76.5</ballot>
+                </speech>
+                <speech speaker="S914193" reply="True">
+                    <ballot adjudicators="A928463">38.0</ballot>
+                    <ballot adjudicators="A928464">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440663" adjudicators="A914273" chair="A914273" venue="V121701" motion="M60082">
+            <side team="T261701">
+                <ballot adjudicators="A914273" minority="false" ignored="false" rank="2">260.0</ballot>
+                <speech speaker="S914209" reply="False">
+                    <ballot adjudicators="A914273">74.5</ballot>
+                </speech>
+                <speech speaker="S914208" reply="False">
+                    <ballot adjudicators="A914273">74.5</ballot>
+                </speech>
+                <speech speaker="S914210" reply="False">
+                    <ballot adjudicators="A914273">74.0</ballot>
+                </speech>
+                <speech speaker="S914208" reply="True">
+                    <ballot adjudicators="A914273">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261703">
+                <ballot adjudicators="A914273" minority="false" ignored="false" rank="1">265.0</ballot>
+                <speech speaker="S914215" reply="False">
+                    <ballot adjudicators="A914273">75.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="False">
+                    <ballot adjudicators="A914273">76.0</ballot>
+                </speech>
+                <speech speaker="S914217" reply="False">
+                    <ballot adjudicators="A914273">75.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="True">
+                    <ballot adjudicators="A914273">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440664" adjudicators="A914265 A914287" chair="A914265" venue="V121691" motion="M60082">
+            <side team="T261698">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="1">267.0</ballot>
+                <speech speaker="S914200" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                </speech>
+                <speech speaker="S914197" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                </speech>
+                <speech speaker="S914198" reply="False">
+                    <ballot adjudicators="A914265">77.0</ballot>
+                </speech>
+                <speech speaker="S914197" reply="True">
+                    <ballot adjudicators="A914265">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261691">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="2">265.0</ballot>
+                <speech speaker="S914296" reply="False">
+                    <ballot adjudicators="A914265">75.5</ballot>
+                </speech>
+                <speech speaker="S914295" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                </speech>
+                <speech speaker="S914294" reply="False">
+                    <ballot adjudicators="A914265">75.5</ballot>
+                </speech>
+                <speech speaker="S914295" reply="True">
+                    <ballot adjudicators="A914265">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440665" adjudicators="A914278" chair="A914278" venue="V121690" motion="M60082">
+            <side team="T261685">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">263.5</ballot>
+                <speech speaker="S914165" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914409" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914163" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914165" reply="True">
+                    <ballot adjudicators="A914278">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261692">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">262.0</ballot>
+                <speech speaker="S914301" reply="False">
+                    <ballot adjudicators="A914278">74.5</ballot>
+                </speech>
+                <speech speaker="S914298" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914299" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914298" reply="True">
+                    <ballot adjudicators="A914278">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440666" adjudicators="A928454 A928461 A928462" chair="A928454" venue="V121696" motion="M60082">
+            <side team="T261686">
+                <ballot adjudicators="A928454" minority="false" ignored="false" rank="2">260.5</ballot>
+                <ballot adjudicators="A928461" minority="false" ignored="false" rank="2">260.5</ballot>
+                <ballot adjudicators="A928462" minority="false" ignored="false" rank="2">260.5</ballot>
+                <speech speaker="S914411" reply="False">
+                    <ballot adjudicators="A928454">74.5</ballot>
+                    <ballot adjudicators="A928461">74.5</ballot>
+                    <ballot adjudicators="A928462">74.5</ballot>
+                </speech>
+                <speech speaker="S914412" reply="False">
+                    <ballot adjudicators="A928454">75.0</ballot>
+                    <ballot adjudicators="A928461">75.0</ballot>
+                    <ballot adjudicators="A928462">75.0</ballot>
+                </speech>
+                <speech speaker="S914412" reply="False">
+                    <ballot adjudicators="A928454">73.5</ballot>
+                    <ballot adjudicators="A928461">73.5</ballot>
+                    <ballot adjudicators="A928462">73.5</ballot>
+                </speech>
+                <speech speaker="S914411" reply="True">
+                    <ballot adjudicators="A928454">37.5</ballot>
+                    <ballot adjudicators="A928461">37.5</ballot>
+                    <ballot adjudicators="A928462">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261712">
+                <ballot adjudicators="A928454" minority="false" ignored="false" rank="1">261.0</ballot>
+                <ballot adjudicators="A928461" minority="false" ignored="false" rank="1">261.0</ballot>
+                <ballot adjudicators="A928462" minority="false" ignored="false" rank="1">261.0</ballot>
+                <speech speaker="S914254" reply="False">
+                    <ballot adjudicators="A928454">74.0</ballot>
+                    <ballot adjudicators="A928461">74.0</ballot>
+                    <ballot adjudicators="A928462">74.0</ballot>
+                </speech>
+                <speech speaker="S914255" reply="False">
+                    <ballot adjudicators="A928454">74.5</ballot>
+                    <ballot adjudicators="A928461">74.5</ballot>
+                    <ballot adjudicators="A928462">74.5</ballot>
+                </speech>
+                <speech speaker="S914253" reply="False">
+                    <ballot adjudicators="A928454">75.0</ballot>
+                    <ballot adjudicators="A928461">75.0</ballot>
+                    <ballot adjudicators="A928462">75.0</ballot>
+                </speech>
+                <speech speaker="S914255" reply="True">
+                    <ballot adjudicators="A928454">37.5</ballot>
+                    <ballot adjudicators="A928461">37.5</ballot>
+                    <ballot adjudicators="A928462">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440667" adjudicators="A928459" chair="A928459" venue="V121689" motion="M60082">
+            <side team="T261695">
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="2">255.0</ballot>
+                <speech speaker="S914179" reply="False">
+                    <ballot adjudicators="A928459">73.5</ballot>
+                </speech>
+                <speech speaker="S914180" reply="False">
+                    <ballot adjudicators="A928459">73.5</ballot>
+                </speech>
+                <speech speaker="S914181" reply="False">
+                    <ballot adjudicators="A928459">73.0</ballot>
+                </speech>
+                <speech speaker="S914179" reply="True">
+                    <ballot adjudicators="A928459">35.0</ballot>
+                </speech>
+            </side>
+            <side team="T261708">
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="1">266.0</ballot>
+                <speech speaker="S914239" reply="False">
+                    <ballot adjudicators="A928459">75.5</ballot>
+                </speech>
+                <speech speaker="S914242" reply="False">
+                    <ballot adjudicators="A928459">76.0</ballot>
+                </speech>
+                <speech speaker="S914240" reply="False">
+                    <ballot adjudicators="A928459">77.0</ballot>
+                </speech>
+                <speech speaker="S914239" reply="True">
+                    <ballot adjudicators="A928459">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440668" adjudicators="A914268" chair="A914268" venue="V121702" motion="M60082">
+            <side team="T261684">
+                <ballot adjudicators="A914268" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914157" reply="False">
+                    <ballot adjudicators="A914268">75.0</ballot>
+                </speech>
+                <speech speaker="S914158" reply="False">
+                    <ballot adjudicators="A914268">75.0</ballot>
+                </speech>
+                <speech speaker="S914156" reply="False">
+                    <ballot adjudicators="A914268">76.0</ballot>
+                </speech>
+                <speech speaker="S914158" reply="True">
+                    <ballot adjudicators="A914268">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261699">
+                <ballot adjudicators="A914268" minority="false" ignored="false" rank="1">265.0</ballot>
+                <speech speaker="S914202" reply="False">
+                    <ballot adjudicators="A914268">76.0</ballot>
+                </speech>
+                <speech speaker="S914203" reply="False">
+                    <ballot adjudicators="A914268">77.0</ballot>
+                </speech>
+                <speech speaker="S914201" reply="False">
+                    <ballot adjudicators="A914268">75.0</ballot>
+                </speech>
+                <speech speaker="S914202" reply="True">
+                    <ballot adjudicators="A914268">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440669" adjudicators="A914269" chair="A914269" venue="V121695" motion="M60082">
+            <side team="T261707">
+                <ballot adjudicators="A914269" minority="false" ignored="false" rank="2">260.0</ballot>
+                <speech speaker="S914232" reply="False">
+                    <ballot adjudicators="A914269">74.5</ballot>
+                </speech>
+                <speech speaker="S914234" reply="False">
+                    <ballot adjudicators="A914269">74.5</ballot>
+                </speech>
+                <speech speaker="S914231" reply="False">
+                    <ballot adjudicators="A914269">74.0</ballot>
+                </speech>
+                <speech speaker="S914232" reply="True">
+                    <ballot adjudicators="A914269">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261693">
+                <ballot adjudicators="A914269" minority="false" ignored="false" rank="1">265.0</ballot>
+                <speech speaker="S914182" reply="False">
+                    <ballot adjudicators="A914269">76.0</ballot>
+                </speech>
+                <speech speaker="S914183" reply="False">
+                    <ballot adjudicators="A914269">75.5</ballot>
+                </speech>
+                <speech speaker="S914184" reply="False">
+                    <ballot adjudicators="A914269">75.5</ballot>
+                </speech>
+                <speech speaker="S914182" reply="True">
+                    <ballot adjudicators="A914269">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440670" adjudicators="A914288" chair="A914288" venue="V121699" motion="M60082">
+            <side team="T261690">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="2">259.5</ballot>
+                <speech speaker="S914177" reply="False">
+                    <ballot adjudicators="A914288">74.5</ballot>
+                </speech>
+                <speech speaker="S914175" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914176" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="True">
+                    <ballot adjudicators="A914288">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261711">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="1">260.0</ballot>
+                <speech speaker="S914250" reply="False">
+                    <ballot adjudicators="A914288">74.5</ballot>
+                </speech>
+                <speech speaker="S914251" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914252" reply="False">
+                    <ballot adjudicators="A914288">75.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="True">
+                    <ballot adjudicators="A914288">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440671" adjudicators="A914264" chair="A914264" venue="V121698" motion="M60082">
+            <side team="T261704">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="2">262.0</ballot>
+                <speech speaker="S914219" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914220" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914849" reply="False">
+                    <ballot adjudicators="A914264">74.5</ballot>
+                </speech>
+                <speech speaker="S914220" reply="True">
+                    <ballot adjudicators="A914264">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261689">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914172" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914170" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914171" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914170" reply="True">
+                    <ballot adjudicators="A914264">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+    </round>
+    <round name="Round 4" abbreviation="R4" elimination="false" feedback-weight="0.30000000000000004">
+        <debate id="D440762" adjudicators="A914268 A914287" chair="A914268" venue="V121700" motion="M60091">
+            <side team="T261697">
+                <ballot adjudicators="A914268" minority="false" ignored="false" rank="2">259.0</ballot>
+                <speech speaker="S914193" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914194" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914195" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914193" reply="True">
+                    <ballot adjudicators="A914268">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261702">
+                <ballot adjudicators="A914268" minority="false" ignored="false" rank="1">263.5</ballot>
+                <speech speaker="S914214" reply="False">
+                    <ballot adjudicators="A914268">75.0</ballot>
+                </speech>
+                <speech speaker="S914211" reply="False">
+                    <ballot adjudicators="A914268">76.0</ballot>
+                </speech>
+                <speech speaker="S914213" reply="False">
+                    <ballot adjudicators="A914268">75.5</ballot>
+                </speech>
+                <speech speaker="S914214" reply="True">
+                    <ballot adjudicators="A914268">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440763" adjudicators="A914269" chair="A914269" venue="V121699" motion="M60091">
+            <side team="T261703">
+                <ballot adjudicators="A914269" minority="false" ignored="false" rank="2">261.5</ballot>
+                <speech speaker="S914215" reply="False">
+                    <ballot adjudicators="A914269">74.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="False">
+                    <ballot adjudicators="A914269">75.0</ballot>
+                </speech>
+                <speech speaker="S914217" reply="False">
+                    <ballot adjudicators="A914269">74.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="True">
+                    <ballot adjudicators="A914269">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261685">
+                <ballot adjudicators="A914269" minority="false" ignored="false" rank="1">262.0</ballot>
+                <speech speaker="S914165" reply="False">
+                    <ballot adjudicators="A914269">75.0</ballot>
+                </speech>
+                <speech speaker="S914163" reply="False">
+                    <ballot adjudicators="A914269">75.0</ballot>
+                </speech>
+                <speech speaker="S916210" reply="False">
+                    <ballot adjudicators="A914269">75.0</ballot>
+                </speech>
+                <speech speaker="S914163" reply="True">
+                    <ballot adjudicators="A914269">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440764" adjudicators="A914277" chair="A914277" venue="V121697" motion="M60091">
+            <side team="T261693">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="1">264.0</ballot>
+                <speech speaker="S914182" reply="False">
+                    <ballot adjudicators="A914277">76.0</ballot>
+                </speech>
+                <speech speaker="S914183" reply="False">
+                    <ballot adjudicators="A914277">75.0</ballot>
+                </speech>
+                <speech speaker="S914184" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914182" reply="True">
+                    <ballot adjudicators="A914277">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261705">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914230" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914227" reply="False">
+                    <ballot adjudicators="A914277">75.5</ballot>
+                </speech>
+                <speech speaker="S914229" reply="False">
+                    <ballot adjudicators="A914277">74.5</ballot>
+                </speech>
+                <speech speaker="S914227" reply="True">
+                    <ballot adjudicators="A914277">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440765" adjudicators="A914264" chair="A914264" venue="V121702" motion="M60091">
+            <side team="T261692">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="2">261.0</ballot>
+                <speech speaker="S914301" reply="False">
+                    <ballot adjudicators="A914264">73.5</ballot>
+                </speech>
+                <speech speaker="S914298" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914299" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914298" reply="True">
+                    <ballot adjudicators="A914264">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261701">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="1">262.0</ballot>
+                <speech speaker="S914209" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914208" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914210" reply="False">
+                    <ballot adjudicators="A914264">75.0</ballot>
+                </speech>
+                <speech speaker="S914208" reply="True">
+                    <ballot adjudicators="A914264">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440766" adjudicators="A916214" chair="A916214" venue="V121698" motion="M60091">
+            <side team="T261696">
+                <ballot adjudicators="A916214" minority="false" ignored="false" rank="2">264.5</ballot>
+                <speech speaker="S914192" reply="False">
+                    <ballot adjudicators="A916214">75.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="False">
+                    <ballot adjudicators="A916214">76.0</ballot>
+                </speech>
+                <speech speaker="S914190" reply="False">
+                    <ballot adjudicators="A916214">75.5</ballot>
+                </speech>
+                <speech speaker="S914189" reply="True">
+                    <ballot adjudicators="A916214">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261698">
+                <ballot adjudicators="A916214" minority="false" ignored="false" rank="1">269.0</ballot>
+                <speech speaker="S914197" reply="False">
+                    <ballot adjudicators="A916214">77.0</ballot>
+                </speech>
+                <speech speaker="S914198" reply="False">
+                    <ballot adjudicators="A916214">77.0</ballot>
+                </speech>
+                <speech speaker="S914199" reply="False">
+                    <ballot adjudicators="A916214">76.5</ballot>
+                </speech>
+                <speech speaker="S914197" reply="True">
+                    <ballot adjudicators="A916214">38.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440767" adjudicators="A914278" chair="A914278" venue="V121703" motion="M60091">
+            <side team="T261682">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914151" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914150" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914151" reply="True">
+                    <ballot adjudicators="A914278">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261711">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">261.0</ballot>
+                <speech speaker="S914250" reply="False">
+                    <ballot adjudicators="A914278">75.5</ballot>
+                </speech>
+                <speech speaker="S914251" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914252" reply="False">
+                    <ballot adjudicators="A914278">75.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="True">
+                    <ballot adjudicators="A914278">35.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440768" adjudicators="A914279 A914288" chair="A914279" venue="V121691" motion="M60091">
+            <side team="T261691">
+                <ballot adjudicators="A914279" minority="false" ignored="false" rank="2">261.0</ballot>
+                <speech speaker="S914296" reply="False">
+                    <ballot adjudicators="A914279">75.0</ballot>
+                </speech>
+                <speech speaker="S914295" reply="False">
+                    <ballot adjudicators="A914279">75.0</ballot>
+                </speech>
+                <speech speaker="S914294" reply="False">
+                    <ballot adjudicators="A914279">76.0</ballot>
+                </speech>
+                <speech speaker="S914296" reply="True">
+                    <ballot adjudicators="A914279">35.0</ballot>
+                </speech>
+            </side>
+            <side team="T261688">
+                <ballot adjudicators="A914279" minority="false" ignored="false" rank="1">261.5</ballot>
+                <speech speaker="S914166" reply="False">
+                    <ballot adjudicators="A914279">74.5</ballot>
+                </speech>
+                <speech speaker="S914167" reply="False">
+                    <ballot adjudicators="A914279">75.0</ballot>
+                </speech>
+                <speech speaker="S914169" reply="False">
+                    <ballot adjudicators="A914279">75.0</ballot>
+                </speech>
+                <speech speaker="S914167" reply="True">
+                    <ballot adjudicators="A914279">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440769" adjudicators="A914286" chair="A914286" venue="V121694" motion="M60091">
+            <side team="T261707">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="2">256.0</ballot>
+                <speech speaker="S914232" reply="False">
+                    <ballot adjudicators="A914286">72.5</ballot>
+                </speech>
+                <speech speaker="S914231" reply="False">
+                    <ballot adjudicators="A914286">73.0</ballot>
+                </speech>
+                <speech speaker="S914233" reply="False">
+                    <ballot adjudicators="A914286">73.5</ballot>
+                </speech>
+                <speech speaker="S914232" reply="True">
+                    <ballot adjudicators="A914286">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261694">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="1">261.0</ballot>
+                <speech speaker="S914187" reply="False">
+                    <ballot adjudicators="A914286">74.0</ballot>
+                </speech>
+                <speech speaker="S914185" reply="False">
+                    <ballot adjudicators="A914286">74.5</ballot>
+                </speech>
+                <speech speaker="S914188" reply="False">
+                    <ballot adjudicators="A914286">74.5</ballot>
+                </speech>
+                <speech speaker="S914187" reply="True">
+                    <ballot adjudicators="A914286">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440770" adjudicators="A914285" chair="A914285" venue="V121695" motion="M60091">
+            <side team="T261710">
+                <ballot adjudicators="A914285" minority="false" ignored="false" rank="1">264.0</ballot>
+                <speech speaker="S914249" reply="False">
+                    <ballot adjudicators="A914285">75.5</ballot>
+                </speech>
+                <speech speaker="S914248" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914247" reply="False">
+                    <ballot adjudicators="A914285">76.5</ballot>
+                </speech>
+                <speech speaker="S914248" reply="True">
+                    <ballot adjudicators="A914285">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261684">
+                <ballot adjudicators="A914285" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914156" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914158" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914157" reply="False">
+                    <ballot adjudicators="A914285">75.5</ballot>
+                </speech>
+                <speech speaker="S914156" reply="True">
+                    <ballot adjudicators="A914285">35.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440771" adjudicators="A914270" chair="A914270" venue="V121696" motion="M60091">
+            <side team="T261704">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="1">258.0</ballot>
+                <speech speaker="S914219" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914220" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914849" reply="False">
+                    <ballot adjudicators="A914270">73.5</ballot>
+                </speech>
+                <speech speaker="S914219" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261687">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="2">257.5</ballot>
+                <speech speaker="S914162" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914161" reply="False">
+                    <ballot adjudicators="A914270">73.5</ballot>
+                </speech>
+                <speech speaker="S914160" reply="False">
+                    <ballot adjudicators="A914270">73.5</ballot>
+                </speech>
+                <speech speaker="S914162" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440772" adjudicators="A914267" chair="A914267" venue="V121690" motion="M60091">
+            <side team="T261686">
+                <ballot adjudicators="A914267" minority="false" ignored="false" rank="2">258.5</ballot>
+                <speech speaker="S914411" reply="False">
+                    <ballot adjudicators="A914267">74.5</ballot>
+                </speech>
+                <speech speaker="S915609" reply="False">
+                    <ballot adjudicators="A914267">75.0</ballot>
+                </speech>
+                <speech speaker="S914412" reply="False">
+                    <ballot adjudicators="A914267">74.0</ballot>
+                </speech>
+                <speech speaker="S914411" reply="True">
+                    <ballot adjudicators="A914267">35.0</ballot>
+                </speech>
+            </side>
+            <side team="T261690">
+                <ballot adjudicators="A914267" minority="false" ignored="false" rank="1">260.5</ballot>
+                <speech speaker="S914177" reply="False">
+                    <ballot adjudicators="A914267">75.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="False">
+                    <ballot adjudicators="A914267">75.0</ballot>
+                </speech>
+                <speech speaker="S914176" reply="False">
+                    <ballot adjudicators="A914267">75.5</ballot>
+                </speech>
+                <speech speaker="S914175" reply="True">
+                    <ballot adjudicators="A914267">35.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440773" adjudicators="A914275" chair="A914275" venue="V121701" motion="M60091">
+            <side team="T261681">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="1">267.0</ballot>
+                <speech speaker="S914144" reply="False">
+                    <ballot adjudicators="A914275">76.5</ballot>
+                </speech>
+                <speech speaker="S914145" reply="False">
+                    <ballot adjudicators="A914275">76.5</ballot>
+                </speech>
+                <speech speaker="S914146" reply="False">
+                    <ballot adjudicators="A914275">76.5</ballot>
+                </speech>
+                <speech speaker="S914145" reply="True">
+                    <ballot adjudicators="A914275">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261712">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="2">257.5</ballot>
+                <speech speaker="S914253" reply="False">
+                    <ballot adjudicators="A914275">74.0</ballot>
+                </speech>
+                <speech speaker="S914255" reply="False">
+                    <ballot adjudicators="A914275">73.5</ballot>
+                </speech>
+                <speech speaker="S914254" reply="False">
+                    <ballot adjudicators="A914275">73.0</ballot>
+                </speech>
+                <speech speaker="S914255" reply="True">
+                    <ballot adjudicators="A914275">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440774" adjudicators="A914276" chair="A914276" venue="V121692" motion="M60091">
+            <side team="T261695">
+                <ballot adjudicators="A914276" minority="false" ignored="false" rank="2">258.0</ballot>
+                <speech speaker="S914179" reply="False">
+                    <ballot adjudicators="A914276">73.5</ballot>
+                </speech>
+                <speech speaker="S914180" reply="False">
+                    <ballot adjudicators="A914276">74.0</ballot>
+                </speech>
+                <speech speaker="S914181" reply="False">
+                    <ballot adjudicators="A914276">73.5</ballot>
+                </speech>
+                <speech speaker="S914179" reply="True">
+                    <ballot adjudicators="A914276">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261700">
+                <ballot adjudicators="A914276" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914206" reply="False">
+                    <ballot adjudicators="A914276">74.5</ballot>
+                </speech>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914276">76.0</ballot>
+                </speech>
+                <speech speaker="S914205" reply="False">
+                    <ballot adjudicators="A914276">75.0</ballot>
+                </speech>
+                <speech speaker="S914207" reply="True">
+                    <ballot adjudicators="A914276">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440775" adjudicators="A915611 A914265 A914282 A928459" chair="A914265" venue="V121693"
+                motion="M60091">
+            <side team="T261709">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="2">264.0</ballot>
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="2">264.0</ballot>
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="2">264.0</ballot>
+                <speech speaker="S914238" reply="False">
+                    <ballot adjudicators="A914265">75.5</ballot>
+                    <ballot adjudicators="A914282">75.5</ballot>
+                    <ballot adjudicators="A928459">75.5</ballot>
+                </speech>
+                <speech speaker="S914235" reply="False">
+                    <ballot adjudicators="A914265">75.5</ballot>
+                    <ballot adjudicators="A914282">75.5</ballot>
+                    <ballot adjudicators="A928459">75.5</ballot>
+                </speech>
+                <speech speaker="S914236" reply="False">
+                    <ballot adjudicators="A914265">75.0</ballot>
+                    <ballot adjudicators="A914282">75.0</ballot>
+                    <ballot adjudicators="A928459">75.0</ballot>
+                </speech>
+                <speech speaker="S914235" reply="True">
+                    <ballot adjudicators="A914265">38.0</ballot>
+                    <ballot adjudicators="A914282">38.0</ballot>
+                    <ballot adjudicators="A928459">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261699">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="1">267.0</ballot>
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="1">267.0</ballot>
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="1">267.0</ballot>
+                <speech speaker="S914202" reply="False">
+                    <ballot adjudicators="A914265">77.0</ballot>
+                    <ballot adjudicators="A914282">77.0</ballot>
+                    <ballot adjudicators="A928459">77.0</ballot>
+                </speech>
+                <speech speaker="S914203" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                    <ballot adjudicators="A914282">76.0</ballot>
+                    <ballot adjudicators="A928459">76.0</ballot>
+                </speech>
+                <speech speaker="S914201" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                    <ballot adjudicators="A914282">76.0</ballot>
+                    <ballot adjudicators="A928459">76.0</ballot>
+                </speech>
+                <speech speaker="S914202" reply="True">
+                    <ballot adjudicators="A914265">38.0</ballot>
+                    <ballot adjudicators="A914282">38.0</ballot>
+                    <ballot adjudicators="A928459">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D440776" adjudicators="A914273" chair="A914273" venue="V121689" motion="M60091">
+            <side team="T261689">
+                <ballot adjudicators="A914273" minority="false" ignored="false" rank="2">259.5</ballot>
+                <speech speaker="S914172" reply="False">
+                    <ballot adjudicators="A914273">74.0</ballot>
+                </speech>
+                <speech speaker="S914170" reply="False">
+                    <ballot adjudicators="A914273">74.5</ballot>
+                </speech>
+                <speech speaker="S914171" reply="False">
+                    <ballot adjudicators="A914273">74.0</ballot>
+                </speech>
+                <speech speaker="S914170" reply="True">
+                    <ballot adjudicators="A914273">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261708">
+                <ballot adjudicators="A914273" minority="false" ignored="false" rank="1">265.5</ballot>
+                <speech speaker="S914239" reply="False">
+                    <ballot adjudicators="A914273">75.0</ballot>
+                </speech>
+                <speech speaker="S914242" reply="False">
+                    <ballot adjudicators="A914273">76.5</ballot>
+                </speech>
+                <speech speaker="S914240" reply="False">
+                    <ballot adjudicators="A914273">76.0</ballot>
+                </speech>
+                <speech speaker="S914242" reply="True">
+                    <ballot adjudicators="A914273">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+    </round>
+    <round name="Round 5" abbreviation="R5" elimination="false" feedback-weight="0.4">
+        <debate id="D441036" adjudicators="A914277" chair="A914277" venue="V121690" motion="M60106">
+            <side team="T261704">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="2">257.5</ballot>
+                <speech speaker="S914219" reply="False">
+                    <ballot adjudicators="A914277">74.0</ballot>
+                </speech>
+                <speech speaker="S914220" reply="False">
+                    <ballot adjudicators="A914277">74.5</ballot>
+                </speech>
+                <speech speaker="S914849" reply="False">
+                    <ballot adjudicators="A914277">72.0</ballot>
+                </speech>
+                <speech speaker="S914219" reply="True">
+                    <ballot adjudicators="A914277">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261695">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="1">258.5</ballot>
+                <speech speaker="S914179" reply="False">
+                    <ballot adjudicators="A914277">73.5</ballot>
+                </speech>
+                <speech speaker="S914178" reply="False">
+                    <ballot adjudicators="A914277">74.0</ballot>
+                </speech>
+                <speech speaker="S914181" reply="False">
+                    <ballot adjudicators="A914277">74.0</ballot>
+                </speech>
+                <speech speaker="S914179" reply="True">
+                    <ballot adjudicators="A914277">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441037" adjudicators="A914264" chair="A914264" venue="V121692" motion="M60106">
+            <side team="T261681">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="2">264.0</ballot>
+                <speech speaker="S914144" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914145" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914146" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914145" reply="True">
+                    <ballot adjudicators="A914264">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261694">
+                <ballot adjudicators="A914264" minority="false" ignored="false" rank="1">264.5</ballot>
+                <speech speaker="S914187" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914185" reply="False">
+                    <ballot adjudicators="A914264">76.0</ballot>
+                </speech>
+                <speech speaker="S914188" reply="False">
+                    <ballot adjudicators="A914264">75.5</ballot>
+                </speech>
+                <speech speaker="S914185" reply="True">
+                    <ballot adjudicators="A914264">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441038" adjudicators="A914413" chair="A914413" venue="V121694" motion="M60106">
+            <side team="T261687">
+                <ballot adjudicators="A914413" minority="false" ignored="false" rank="2">252.5</ballot>
+                <speech speaker="S914162" reply="False">
+                    <ballot adjudicators="A914413">72.0</ballot>
+                </speech>
+                <speech speaker="S914161" reply="False">
+                    <ballot adjudicators="A914413">71.0</ballot>
+                </speech>
+                <speech speaker="S914160" reply="False">
+                    <ballot adjudicators="A914413">73.0</ballot>
+                </speech>
+                <speech speaker="S914162" reply="True">
+                    <ballot adjudicators="A914413">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261686">
+                <ballot adjudicators="A914413" minority="false" ignored="false" rank="1">256.0</ballot>
+                <speech speaker="S914411" reply="False">
+                    <ballot adjudicators="A914413">73.0</ballot>
+                </speech>
+                <speech speaker="S915609" reply="False">
+                    <ballot adjudicators="A914413">74.0</ballot>
+                </speech>
+                <speech speaker="S914412" reply="False">
+                    <ballot adjudicators="A914413">72.0</ballot>
+                </speech>
+                <speech speaker="S914411" reply="True">
+                    <ballot adjudicators="A914413">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441039" adjudicators="A914280" chair="A914280" venue="V121702" motion="M60106">
+            <side team="T261705">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="1">265.5</ballot>
+                <speech speaker="S914230" reply="False">
+                    <ballot adjudicators="A914280">76.0</ballot>
+                </speech>
+                <speech speaker="S914227" reply="False">
+                    <ballot adjudicators="A914280">76.5</ballot>
+                </speech>
+                <speech speaker="S914229" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914227" reply="True">
+                    <ballot adjudicators="A914280">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261703">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914215" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914217" reply="False">
+                    <ballot adjudicators="A914280">75.5</ballot>
+                </speech>
+                <speech speaker="S914216" reply="True">
+                    <ballot adjudicators="A914280">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441040" adjudicators="A928459" chair="A928459" venue="V121701" motion="M60106">
+            <side team="T261685">
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="2">265.0</ballot>
+                <speech speaker="S914409" reply="False">
+                    <ballot adjudicators="A928459">75.0</ballot>
+                </speech>
+                <speech speaker="S914163" reply="False">
+                    <ballot adjudicators="A928459">76.0</ballot>
+                </speech>
+                <speech speaker="S916210" reply="False">
+                    <ballot adjudicators="A928459">76.0</ballot>
+                </speech>
+                <speech speaker="S914163" reply="True">
+                    <ballot adjudicators="A928459">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261709">
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="1">266.0</ballot>
+                <speech speaker="S914236" reply="False">
+                    <ballot adjudicators="A928459">75.0</ballot>
+                </speech>
+                <speech speaker="S914235" reply="False">
+                    <ballot adjudicators="A928459">76.0</ballot>
+                </speech>
+                <speech speaker="S914235" reply="False">
+                    <ballot adjudicators="A928459">77.0</ballot>
+                </speech>
+                <speech speaker="S914236" reply="True">
+                    <ballot adjudicators="A928459">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441041" adjudicators="A914265" chair="A914265" venue="V121691" motion="M60106">
+            <side team="T261696">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="2">262.0</ballot>
+                <speech speaker="S914191" reply="False">
+                    <ballot adjudicators="A914265">74.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="False">
+                    <ballot adjudicators="A914265">75.5</ballot>
+                </speech>
+                <speech speaker="S914190" reply="False">
+                    <ballot adjudicators="A914265">75.0</ballot>
+                </speech>
+                <speech speaker="S914189" reply="True">
+                    <ballot adjudicators="A914265">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261702">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="1">264.5</ballot>
+                <speech speaker="S914213" reply="False">
+                    <ballot adjudicators="A914265">75.0</ballot>
+                </speech>
+                <speech speaker="S914211" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                </speech>
+                <speech speaker="S914212" reply="False">
+                    <ballot adjudicators="A914265">76.0</ballot>
+                </speech>
+                <speech speaker="S914211" reply="True">
+                    <ballot adjudicators="A914265">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441042" adjudicators="A914288" chair="A914288" venue="V121693" motion="M60106">
+            <side team="T261712">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="2">255.0</ballot>
+                <speech speaker="S914254" reply="False">
+                    <ballot adjudicators="A914288">73.0</ballot>
+                </speech>
+                <speech speaker="S914255" reply="False">
+                    <ballot adjudicators="A914288">73.0</ballot>
+                </speech>
+                <speech speaker="S914253" reply="False">
+                    <ballot adjudicators="A914288">73.0</ballot>
+                </speech>
+                <speech speaker="S914254" reply="True">
+                    <ballot adjudicators="A914288">36.0</ballot>
+                </speech>
+            </side>
+            <side team="T261692">
+                <ballot adjudicators="A914288" minority="false" ignored="false" rank="1">259.0</ballot>
+                <speech speaker="S914301" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914299" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914298" reply="False">
+                    <ballot adjudicators="A914288">74.0</ballot>
+                </speech>
+                <speech speaker="S914299" reply="True">
+                    <ballot adjudicators="A914288">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441043" adjudicators="A914268" chair="A914268" venue="V121700" motion="M60106">
+            <side team="T261707">
+                <ballot adjudicators="A914268" minority="false" ignored="false" rank="2">259.0</ballot>
+                <speech speaker="S914231" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914234" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914233" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914234" reply="True">
+                    <ballot adjudicators="A914268">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261690">
+                <ballot adjudicators="A914268" minority="false" ignored="false" rank="1">261.0</ballot>
+                <speech speaker="S914174" reply="False">
+                    <ballot adjudicators="A914268">74.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="False">
+                    <ballot adjudicators="A914268">75.0</ballot>
+                </speech>
+                <speech speaker="S914176" reply="False">
+                    <ballot adjudicators="A914268">75.0</ballot>
+                </speech>
+                <speech speaker="S914175" reply="True">
+                    <ballot adjudicators="A914268">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441044" adjudicators="A914270 A928874" chair="A914270" venue="V121695" motion="M60106">
+            <side team="T261700">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="1">263.5</ballot>
+                <speech speaker="S914206" reply="False">
+                    <ballot adjudicators="A914270">75.5</ballot>
+                </speech>
+                <speech speaker="S914205" reply="False">
+                    <ballot adjudicators="A914270">75.5</ballot>
+                </speech>
+                <speech speaker="S914207" reply="False">
+                    <ballot adjudicators="A914270">76.0</ballot>
+                </speech>
+                <speech speaker="S914206" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261682">
+                <ballot adjudicators="A914270" minority="false" ignored="false" rank="2">260.5</ballot>
+                <speech speaker="S914151" reply="False">
+                    <ballot adjudicators="A914270">74.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="False">
+                    <ballot adjudicators="A914270">75.0</ballot>
+                </speech>
+                <speech speaker="S914150" reply="False">
+                    <ballot adjudicators="A914270">75.0</ballot>
+                </speech>
+                <speech speaker="S914148" reply="True">
+                    <ballot adjudicators="A914270">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441045" adjudicators="A914285" chair="A914285" venue="V121703" motion="M60106">
+            <side team="T261693">
+                <ballot adjudicators="A914285" minority="false" ignored="false" rank="2">263.0</ballot>
+                <speech speaker="S914182" reply="False">
+                    <ballot adjudicators="A914285">75.5</ballot>
+                </speech>
+                <speech speaker="S914183" reply="False">
+                    <ballot adjudicators="A914285">75.0</ballot>
+                </speech>
+                <speech speaker="S914184" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914182" reply="True">
+                    <ballot adjudicators="A914285">36.5</ballot>
+                </speech>
+            </side>
+            <side team="T261688">
+                <ballot adjudicators="A914285" minority="false" ignored="false" rank="1">265.0</ballot>
+                <speech speaker="S914166" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914167" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914169" reply="False">
+                    <ballot adjudicators="A914285">76.0</ballot>
+                </speech>
+                <speech speaker="S914166" reply="True">
+                    <ballot adjudicators="A914285">37.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441046" adjudicators="A914267" chair="A914267" venue="V121698" motion="M60106">
+            <side team="T261684">
+                <ballot adjudicators="A914267" minority="false" ignored="false" rank="1">263.0</ballot>
+                <speech speaker="S914157" reply="False">
+                    <ballot adjudicators="A914267">75.5</ballot>
+                </speech>
+                <speech speaker="S914158" reply="False">
+                    <ballot adjudicators="A914267">76.0</ballot>
+                </speech>
+                <speech speaker="S914156" reply="False">
+                    <ballot adjudicators="A914267">76.5</ballot>
+                </speech>
+                <speech speaker="S914158" reply="True">
+                    <ballot adjudicators="A914267">35.0</ballot>
+                </speech>
+            </side>
+            <side team="T261701">
+                <ballot adjudicators="A914267" minority="false" ignored="false" rank="2">261.5</ballot>
+                <speech speaker="S914209" reply="False">
+                    <ballot adjudicators="A914267">75.5</ballot>
+                </speech>
+                <speech speaker="S914208" reply="False">
+                    <ballot adjudicators="A914267">76.0</ballot>
+                </speech>
+                <speech speaker="S914210" reply="False">
+                    <ballot adjudicators="A914267">75.0</ballot>
+                </speech>
+                <speech speaker="S914208" reply="True">
+                    <ballot adjudicators="A914267">35.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441047" adjudicators="A914278" chair="A914278" venue="V121689" motion="M60106">
+            <side team="T261708">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">266.0</ballot>
+                <speech speaker="S914239" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914242" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914240" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914242" reply="True">
+                    <ballot adjudicators="A914278">38.0</ballot>
+                </speech>
+            </side>
+            <side team="T261710">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">264.5</ballot>
+                <speech speaker="S914249" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914248" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914247" reply="False">
+                    <ballot adjudicators="A914278">76.0</ballot>
+                </speech>
+                <speech speaker="S914249" reply="True">
+                    <ballot adjudicators="A914278">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441048" adjudicators="A914276" chair="A914276" venue="V121699" motion="M60106">
+            <side team="T261691">
+                <ballot adjudicators="A914276" minority="false" ignored="false" rank="1">264.5</ballot>
+                <speech speaker="S914296" reply="False">
+                    <ballot adjudicators="A914276">75.0</ballot>
+                </speech>
+                <speech speaker="S914295" reply="False">
+                    <ballot adjudicators="A914276">76.5</ballot>
+                </speech>
+                <speech speaker="S914294" reply="False">
+                    <ballot adjudicators="A914276">76.0</ballot>
+                </speech>
+                <speech speaker="S914295" reply="True">
+                    <ballot adjudicators="A914276">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261697">
+                <ballot adjudicators="A914276" minority="false" ignored="false" rank="2">262.0</ballot>
+                <speech speaker="S914195" reply="False">
+                    <ballot adjudicators="A914276">76.0</ballot>
+                </speech>
+                <speech speaker="S914194" reply="False">
+                    <ballot adjudicators="A914276">74.0</ballot>
+                </speech>
+                <speech speaker="S914193" reply="False">
+                    <ballot adjudicators="A914276">74.5</ballot>
+                </speech>
+                <speech speaker="S914195" reply="True">
+                    <ballot adjudicators="A914276">37.5</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441049" adjudicators="A914266 A914287" chair="A914266" venue="V121697" motion="M60106">
+            <side team="T261699">
+                <ballot adjudicators="A914266" minority="false" ignored="false" rank="2">263.5</ballot>
+                <speech speaker="S914203" reply="False">
+                    <ballot adjudicators="A914266">75.0</ballot>
+                </speech>
+                <speech speaker="S914202" reply="False">
+                    <ballot adjudicators="A914266">75.0</ballot>
+                </speech>
+                <speech speaker="S914201" reply="False">
+                    <ballot adjudicators="A914266">76.5</ballot>
+                </speech>
+                <speech speaker="S914202" reply="True">
+                    <ballot adjudicators="A914266">37.0</ballot>
+                </speech>
+            </side>
+            <side team="T261698">
+                <ballot adjudicators="A914266" minority="false" ignored="false" rank="1">266.5</ballot>
+                <speech speaker="S914197" reply="False">
+                    <ballot adjudicators="A914266">76.0</ballot>
+                </speech>
+                <speech speaker="S914198" reply="False">
+                    <ballot adjudicators="A914266">77.0</ballot>
+                </speech>
+                <speech speaker="S914199" reply="False">
+                    <ballot adjudicators="A914266">75.5</ballot>
+                </speech>
+                <speech speaker="S914198" reply="True">
+                    <ballot adjudicators="A914266">38.0</ballot>
+                </speech>
+            </side>
+        </debate>
+        <debate id="D441050" adjudicators="A914275" chair="A914275" venue="V121696" motion="M60106">
+            <side team="T261711">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="2">260.5</ballot>
+                <speech speaker="S914250" reply="False">
+                    <ballot adjudicators="A914275">74.5</ballot>
+                </speech>
+                <speech speaker="S914251" reply="False">
+                    <ballot adjudicators="A914275">74.5</ballot>
+                </speech>
+                <speech speaker="S914252" reply="False">
+                    <ballot adjudicators="A914275">74.0</ballot>
+                </speech>
+                <speech speaker="S914251" reply="True">
+                    <ballot adjudicators="A914275">37.5</ballot>
+                </speech>
+            </side>
+            <side team="T261689">
+                <ballot adjudicators="A914275" minority="false" ignored="false" rank="1">261.5</ballot>
+                <speech speaker="S914172" reply="False">
+                    <ballot adjudicators="A914275">74.5</ballot>
+                </speech>
+                <speech speaker="S914170" reply="False">
+                    <ballot adjudicators="A914275">75.5</ballot>
+                </speech>
+                <speech speaker="S914171" reply="False">
+                    <ballot adjudicators="A914275">75.0</ballot>
+                </speech>
+                <speech speaker="S914170" reply="True">
+                    <ballot adjudicators="A914275">36.5</ballot>
+                </speech>
+            </side>
+        </debate>
+    </round>
+    <round name="Octofinals" abbreviation="OF" elimination="true" feedback-weight="0.5" break-category="BC10437">
+        <debate id="D441679" adjudicators="A914279" chair="A914279" venue="V121691" motion="M60133">
+            <side team="T261688">
+                <ballot adjudicators="A914279" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261696">
+                <ballot adjudicators="A914279" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+        <debate id="D441680" adjudicators="A914277" chair="A914277" venue="V121690" motion="M60133">
+            <side team="T261710">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261702">
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+        <debate id="D441681" adjudicators="A914280" chair="A914280" venue="V121689" motion="M60133">
+            <side team="T261684">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+            <side team="T261685">
+                <ballot adjudicators="A914280" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+        </debate>
+        <debate id="D441682" adjudicators="A914286" chair="A914286" venue="V121692" motion="M60133">
+            <side team="T261693">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+            <side team="T261691">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+        </debate>
+    </round>
+    <round name="Quarterfinals" abbreviation="QF" elimination="true" feedback-weight="0.5" break-category="BC10437">
+        <debate id="D441714" adjudicators="A914265 A914282 A916214" chair="A914265" venue="V121690" motion="M60137">
+            <side team="T261696">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A916214" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261699">
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A916214" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+        <debate id="D441715" adjudicators="A928459 A914278 A914277" chair="A914278" venue="V121691" motion="M60137">
+            <side team="T261702">
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261709">
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914277" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+        <debate id="D441716" adjudicators="A914280 A914284 A914267" chair="A914280" venue="V121692" motion="M60137">
+            <side team="T261684">
+                <ballot adjudicators="A914280" minority="true" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914284" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914267" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261698">
+                <ballot adjudicators="A914280" minority="true" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914284" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914267" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+        <debate id="D441717" adjudicators="A914286 A914274 A914281" chair="A914286" venue="V121689" motion="M60137">
+            <side team="T261693">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914274" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914281" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261708">
+                <ballot adjudicators="A914286" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914274" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914281" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+    </round>
+    <round name="Semifinals" abbreviation="SF" elimination="true" feedback-weight="0.5" break-category="BC10437">
+        <debate id="D441821" adjudicators="A914278 A928459 A914266" chair="A928459" venue="V121689">
+            <side team="T261699">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914266" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261708">
+                <ballot adjudicators="A914278" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A928459" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914266" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+        <debate id="D441822" adjudicators="A914284 A914265 A914259" chair="A914265" venue="V121690">
+            <side team="T261709">
+                <ballot adjudicators="A914284" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914259" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+            <side team="T261698">
+                <ballot adjudicators="A914284" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914265" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914259" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+        </debate>
+    </round>
+    <round name="Grand Final" abbreviation="GF" elimination="true" feedback-weight="0.5" break-category="BC10437">
+        <debate id="D442013" adjudicators="A914259 A914266 A914282" chair="A914259" venue="V121689" motion="M60154">
+            <side team="T261698">
+                <ballot adjudicators="A914259" minority="false" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914266" minority="true" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="1">True</ballot>
+            </side>
+            <side team="T261708">
+                <ballot adjudicators="A914259" minority="false" ignored="false" rank="2">False</ballot>
+                <ballot adjudicators="A914266" minority="true" ignored="false" rank="1">True</ballot>
+                <ballot adjudicators="A914282" minority="false" ignored="false" rank="2">False</ballot>
+            </side>
+        </debate>
+    </round>
+    <participants>
+        <team name="Ananda College A" code="Party Pop" id="T261681" break-eligibilities="BC10437">
+            <speaker id="S914144" institutions="I101906" gender="M" categories="">Tharusha Mallawaarachchi</speaker>
+            <speaker id="S914145" institutions="I101906" gender="M" categories="">Lometh Basnayake</speaker>
+            <speaker id="S914146" institutions="I101906" gender="M" categories="">Mahiru Fernando</speaker>
+            <speaker id="S914147" institutions="I101906" gender="M" categories="">Sanuth Ekanayake</speaker>
+        </team>
+        <team name="Ananda College B" code="Shushing" id="T261682" break-eligibilities="BC10437">
+            <speaker id="S914148" institutions="I101906" gender="M" categories="">Gagana Prabhashwara</speaker>
+            <speaker id="S914149" institutions="I101906" gender="M" categories="">Kavith Perera</speaker>
+            <speaker id="S914150" institutions="I101906" gender="M" categories="">Vihas Rupasinghe</speaker>
+            <speaker id="S914151" institutions="I101906" gender="M" categories="">Sethula Gunesekara</speaker>
+        </team>
+        <team name="Asian International School Green" code="Petri Dish" id="T261684" break-eligibilities="BC10437">
+            <speaker id="S914156" institutions="I101908" gender="M" categories="">Ra'ed Cader</speaker>
+            <speaker id="S914157" institutions="I101908" gender="M" categories="">Akhane Rajakarier</speaker>
+            <speaker id="S914158" institutions="I101908" gender="F" categories="">Sanjanaa Aravinth</speaker>
+            <speaker id="S914159" institutions="I101908" gender="M" categories="">Yaqeen Zuresh</speaker>
+        </team>
+        <team name="Bishops College 150" code="Potato" id="T261687" break-eligibilities="BC10437">
+            <speaker id="S914160" institutions="I101909" gender="F" categories="">Ashritha Samaranayake</speaker>
+            <speaker id="S914161" institutions="I101909" gender="F" categories="">Nelara Hewawickrama</speaker>
+            <speaker id="S914162" institutions="I101909" gender="F" categories="">Ruqayya Thabreez</speaker>
+            <speaker id="S914408" institutions="I101909" categories="">Amber La Brooy</speaker>
+        </team>
+        <team name="Bishops College Gold" code="Get Set Go" id="T261685" break-eligibilities="BC10437">
+            <speaker id="S914163" institutions="I101909" categories="">Safiya Bakeer Markar</speaker>
+            <speaker id="S914165" institutions="I101909" categories="">Nethini Samarakoon</speaker>
+            <speaker id="S914409" institutions="I101909" categories="">Theruni Abeysinghe</speaker>
+            <speaker id="S916210" institutions="I101909" categories="">Chrishelle Perera</speaker>
+        </team>
+        <team name="Bishops College Purple" code="Corn" id="T261686" break-eligibilities="BC10437">
+            <speaker id="S914410" institutions="I101909" categories="">Shemali Abeygunawardane</speaker>
+            <speaker id="S914411" institutions="I101909" categories="">Arunandhika Wickramasinghe</speaker>
+            <speaker id="S914412" institutions="I101909" categories="">Thishakya Silva</speaker>
+            <speaker id="S915609" institutions="I101909" categories="">Sara Hussain</speaker>
+        </team>
+        <team name="Colombo International School A" code="Fax Machine" id="T261688" break-eligibilities="BC10437">
+            <speaker id="S914166" institutions="I101910" gender="F" categories="">Anisha Mahibalan</speaker>
+            <speaker id="S914167" institutions="I101910" gender="F" categories="">Anya Vithanage</speaker>
+            <speaker id="S914168" institutions="I101910" gender="M" categories="">John Dimitri</speaker>
+            <speaker id="S914169" institutions="I101910" gender="F" categories="">Saara Zubair</speaker>
+        </team>
+        <team name="Dharmaraja College Kandy A" code="Diagonal Mouth" id="T261689" break-eligibilities="BC10437">
+            <speaker id="S914170" institutions="I101911" categories="">Sanula Jayasundara</speaker>
+            <speaker id="S914171" institutions="I101911" categories="">Chathuka Bandara</speaker>
+            <speaker id="S914172" institutions="I101911" categories="">Sahiru Ekanayake</speaker>
+            <speaker id="S914173" institutions="I101911" categories="">Binupa Bandara</speaker>
+        </team>
+        <team name="Elizabeth Moir School A" code="Clown" id="T261690" break-eligibilities="BC10437">
+            <speaker id="S914174" institutions="I101912" gender="M" categories="">Dayami Wickramaarachchi</speaker>
+            <speaker id="S914175" institutions="I101912" gender="F" categories="">Nabeeha Nashath</speaker>
+            <speaker id="S914176" institutions="I101912" gender="M" categories="">Ranush Kariyawasam</speaker>
+            <speaker id="S914177" institutions="I101912" gender="F" categories="">Silma Niflar</speaker>
+        </team>
+        <team name="Gateway College Dehiwala A" code="Cosplay" id="T261691" break-eligibilities="BC10437">
+            <speaker id="S914294" institutions="I101913" categories="">Dylan Pangoda</speaker>
+            <speaker id="S914295" institutions="I101913" categories="">Ranithu Rishon</speaker>
+            <speaker id="S914296" institutions="I101913" categories="">Shahzadi Sujahudeen</speaker>
+            <speaker id="S914297" institutions="I101913" categories="">Ranuga Nethaka</speaker>
+        </team>
+        <team name="Gateway College Dehiwala B" code="Bullseye" id="T261692" break-eligibilities="BC10437">
+            <speaker id="S914298" institutions="I101913" categories="">Saif Imran</speaker>
+            <speaker id="S914299" institutions="I101913" categories="">Yasir Nasran</speaker>
+            <speaker id="S914300" institutions="I101913" categories="">Hirah Isthiquar</speaker>
+            <speaker id="S914301" institutions="I101913" categories="">Darun Pubesh</speaker>
+        </team>
+        <team name="Hillwood College Kandy Anielka" code="Musical Score" id="T261695" break-eligibilities="BC10437">
+            <speaker id="S914178" institutions="I101914" gender="F" categories="">Alosha Samaraarachchi</speaker>
+            <speaker id="S914179" institutions="I101914" gender="F" categories="">Mindhi Ponnamperuma</speaker>
+            <speaker id="S914180" institutions="I101914" gender="F" categories="">Sanuli Dilasnee</speaker>
+            <speaker id="S914181" institutions="I101914" gender="F" categories="">Sanuthi Pathiraja</speaker>
+        </team>
+        <team name="Hillwood College Kandy Sahas" code="Heart Eyes" id="T261693" break-eligibilities="BC10437">
+            <speaker id="S914182" institutions="I101914" gender="F" categories="">Apoorva Jinadasa</speaker>
+            <speaker id="S914183" institutions="I101914" gender="F" categories="">Senithi Wijesooriya</speaker>
+            <speaker id="S914184" institutions="I101914" gender="F" categories="">Thehansa Wichramaarachchi</speaker>
+        </team>
+        <team name="Hillwood College Kandy Sanithma" code="Spy" id="T261694" break-eligibilities="BC10437">
+            <speaker id="S914185" institutions="I101914" categories="">Arushi Kossalawatte</speaker>
+            <speaker id="S914186" institutions="I101914" categories="">Lisali Thammangoda</speaker>
+            <speaker id="S914187" institutions="I101914" categories="">Shenaya Senanayake</speaker>
+            <speaker id="S914188" institutions="I101914" categories="">Tharuli Silva</speaker>
+        </team>
+        <team name="Ladies&#8217; College A" code="Mending Heart" id="T261696" break-eligibilities="BC10437">
+            <speaker id="S914189" institutions="I101915" categories="">Senaya Dissanayake</speaker>
+            <speaker id="S914190" institutions="I101915" categories="">Nehara Nanayakkara</speaker>
+            <speaker id="S914191" institutions="I101915" categories="">Khanavee Suthaharan</speaker>
+            <speaker id="S914192" institutions="I101915" categories="">Sonalki Dharmawansa</speaker>
+        </team>
+        <team name="Royal College A" code="Tooth" id="T261698" break-eligibilities="BC10437">
+            <speaker id="S914197" institutions="I101917" categories="">Raashid Cassim</speaker>
+            <speaker id="S914198" institutions="I101917" categories="">T. Tharaniharan</speaker>
+            <speaker id="S914199" institutions="I101917" categories="">Dithira de Silva</speaker>
+            <speaker id="S914200" institutions="I101917" categories="">Druvin Vitharanage</speaker>
+        </team>
+        <team name="Royal College B" code="Chair" id="T261699" break-eligibilities="BC10437">
+            <speaker id="S914201" institutions="I101917" categories="">Senuka Seneviratne</speaker>
+            <speaker id="S914202" institutions="I101917" categories="">Kaveesha de Silva</speaker>
+            <speaker id="S914203" institutions="I101917" categories="">Savithru Liyanapathirana</speaker>
+        </team>
+        <team name="Royal College C" code="Broom" id="T261700" break-eligibilities="BC10437">
+            <speaker id="S914205" institutions="I101917" categories="">Dinal Wellappili</speaker>
+            <speaker id="S914206" institutions="I101917" categories="">Yumeth Jayasinghe</speaker>
+            <speaker id="S914207" institutions="I101917" categories="">Binara Kulasekara</speaker>
+        </team>
+        <team name="Royal College D" code="Cloud" id="T261701" break-eligibilities="BC10437">
+            <speaker id="S914208" institutions="I101917" categories="">Yusef Hazari</speaker>
+            <speaker id="S914209" institutions="I101917" categories="">Chanul Thameesha</speaker>
+            <speaker id="S914210" institutions="I101917" categories="">Sasiru Mahaliyanage</speaker>
+        </team>
+        <team name="St. Bridget's Convent A" code="Soccer" id="T261702" break-eligibilities="BC10437">
+            <speaker id="S914211" institutions="I101919" categories="">Mauli Kularatne</speaker>
+            <speaker id="S914212" institutions="I101919" categories="">Nethma Madawala</speaker>
+            <speaker id="S914213" institutions="I101919" categories="">Tharuka Soyza</speaker>
+            <speaker id="S914214" institutions="I101919" categories="">Tharuli Rupasinghe</speaker>
+        </team>
+        <team name="St. Bridget's Convent B" code="Trident" id="T261703" break-eligibilities="BC10437">
+            <speaker id="S914215" institutions="I101919" categories="">Sheneli Senadhira</speaker>
+            <speaker id="S914216" institutions="I101919" categories="">Salma Lafir</speaker>
+            <speaker id="S914217" institutions="I101919" categories="">Devina Bastiansz</speaker>
+            <speaker id="S914218" institutions="I101919" categories="">Omen Fonseka</speaker>
+        </team>
+        <team name="St. Bridget's Convent C" code="Umbrella" id="T261704" break-eligibilities="BC10437">
+            <speaker id="S914219" institutions="I101919" categories="">Shenuli Abeysinghe</speaker>
+            <speaker id="S914220" institutions="I101919" categories="">Reema Azziyan</speaker>
+            <speaker id="S914222" institutions="I101919" categories="">Sheneli Perera</speaker>
+            <speaker id="S914849" institutions="I101919" categories="">Dinaya Pietersz</speaker>
+        </team>
+        <team name="S.Thomas' College, Mount Lavinia A" code="Pickup Truck" id="T261705" break-eligibilities="BC10437">
+            <speaker id="S914227" institutions="I101918" categories="">Yokith Perera</speaker>
+            <speaker id="S914228" institutions="I101918" categories="">Yohan Wijesuriya</speaker>
+            <speaker id="S914229" institutions="I101918" categories="">Aaron Perera</speaker>
+            <speaker id="S914230" institutions="I101918" categories="">Shaaf Shafraz</speaker>
+        </team>
+        <team name="St. Joseph's College Colombo 10 A" code="Package" id="T261707" break-eligibilities="BC10437">
+            <speaker id="S914231" institutions="I101920" categories="">Chris Aatharshan</speaker>
+            <speaker id="S914232" institutions="I101920" categories="">Danish Shane</speaker>
+            <speaker id="S914233" institutions="I101920" categories="">Jayden George</speaker>
+            <speaker id="S914234" institutions="I101920" categories="">Shawin Indran</speaker>
+        </team>
+        <team name="Trinity College Kandy Blue" code="Satellite" id="T261709" break-eligibilities="BC10437">
+            <speaker id="S914235" institutions="I101921" categories="">Nimuthu Pathiraja</speaker>
+            <speaker id="S914236" institutions="I101921" categories="">Sharukh Fairooz</speaker>
+            <speaker id="S914238" institutions="I101921" categories="">Dilith Halahakoon</speaker>
+        </team>
+        <team name="Trinity College Kandy Red" code="Alarm Clock" id="T261708" break-eligibilities="BC10437">
+            <speaker id="S914239" institutions="I101921" categories="">Nethula Hettihewage</speaker>
+            <speaker id="S914240" institutions="I101921" categories="">Thesath Keppetiyagama</speaker>
+            <speaker id="S914241" institutions="I101921" categories="">Muhammed Jameel</speaker>
+            <speaker id="S914242" institutions="I101921" categories="">Sanchitha Wickrama</speaker>
+        </team>
+        <team name="Visakha Vidyalaya A" code="Beaver" id="T261710" break-eligibilities="BC10437">
+            <speaker id="S914247" institutions="I101922" categories="">Savidya Akini</speaker>
+            <speaker id="S914248" institutions="I101922" categories="">Adithi Vitharanage</speaker>
+            <speaker id="S914249" institutions="I101922" categories="">Thejini Gamage</speaker>
+            <speaker id="S914850" institutions="I101922" categories="">Diduni Kodithuwakku</speaker>
+        </team>
+        <team name="Visakha Vidyalaya B" code="Fireworks" id="T261711" break-eligibilities="BC10437">
+            <speaker id="S914250" institutions="I101922" categories="">Nilasha Wijesinghe</speaker>
+            <speaker id="S914251" institutions="I101922" categories="">Rusandi Dahanayake</speaker>
+            <speaker id="S914252" institutions="I101922" categories="">Paramie Jayasundara</speaker>
+        </team>
+        <team name="Visakha Vidyalaya C" code="Candy" id="T261712" break-eligibilities="BC10437">
+            <speaker id="S914253" institutions="I101922" categories="">Uthuli Sanulya</speaker>
+            <speaker id="S914254" institutions="I101922" categories="">Perashmi Gunaratna</speaker>
+            <speaker id="S914255" institutions="I101922" categories="">Nethanya Mathew</speaker>
+        </team>
+        <team name="Swing" code="Spoon" id="T261697" break-eligibilities="">
+            <speaker id="S914193" categories="">Speaker 1</speaker>
+            <speaker id="S914194" categories="">Speaker 2</speaker>
+            <speaker id="S914195" categories="">Speaker 3</speaker>
+        </team>
+        <adjudicator id="A914286" name="Gavin Senaratne" core="false" independent="false" score="9.0"
+                     institutions="I101922">
+            <feedback score="10.0" source-team="T261709" debate="D440659">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+                <answer question="Q16400">What's there to comment about LOL, The adjes and adj allocations were actually
+                    very good &#128077;
+                </answer>
+            </feedback>
+            <feedback score="9.0" source-team="T261694" debate="D440769">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">8</answer>
+                <answer question="Q16435">9</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914287" name="Isuru Wijesinghe" core="false" independent="false" score="5.0"
+                     institutions="I101922"/>
+        <adjudicator id="A914288" name="Amani Almeida" core="false" independent="true" score="6.0">
+            <feedback score="9.0" source-team="T261695" debate="D435636">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">8</answer>
+                <answer question="Q16435">9</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261691" debate="D435545">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914259" name="Dinuka Wickramasinghe" core="true" independent="false" score="9.0"/>
+        <adjudicator id="A914261" name="Puthun Waidyaratne" core="false" independent="true" score="6.0"/>
+        <adjudicator id="A914262" name="Virul Abeysuriya" core="false" independent="true" score="6.0"/>
+        <adjudicator id="A914263" name="Mineth Galahitiyawa" core="false" independent="true" score="5.0"/>
+        <adjudicator id="A914264" name="Nadin Dharmawardena" core="false" independent="true" score="7.0">
+            <feedback score="6.0" source-team="T261693" debate="D435632">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">2</answer>
+                <answer question="Q16435">2</answer>
+                <answer question="Q16436">2</answer>
+            </feedback>
+            <feedback score="7.0" source-team="T261700" debate="D435549">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">7</answer>
+                <answer question="Q16435">4</answer>
+                <answer question="Q16436">6</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261692" debate="D440765">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+                <answer question="Q16400">Sir, My name is spelled wrong. Please correct as Darun Bhupesh.</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914265" name="Dineth Hettiarachchi" core="true" independent="true" score="9.0">
+            <feedback score="10.0" source-team="T261698" debate="D440664">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261691" debate="D440664">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261699" debate="D440775">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+                <answer question="Q16400">goated as usual very good feedback and analysis of the debate, no words to
+                    describe how good of a judge dineth is, absolute goat
+                </answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914266" name="Aliza Hussain" core="false" independent="true" score="9.0"/>
+        <adjudicator id="A914267" name="Ammar Zaffarullah" core="false" independent="true" score="7.0"/>
+        <adjudicator id="A914268" name="Thisuru Hettiarachchi" core="false" independent="true" score="9.0">
+            <feedback score="9.0" source-team="T261699" debate="D440668">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">9</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">8</answer>
+                <answer question="Q16400">good adj, very very in depth explanation of clashes and feedback explain them
+                    very clearly as well, very good judge, it was kind of a shit debate so fell bad he has to sit
+                    through it
+                </answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914269" name="Shavi Peiris" core="false" independent="true" score="9.0">
+            <feedback score="10.0" source-team="T261693" debate="D440669">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914270" name="Amnah Jiffrey" core="false" independent="true" score="6.0">
+            <feedback score="7.0" source-team="T261682" debate="D440657">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">6</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914271" name="Cheka Mendis" core="false" independent="false" score="7.0"
+                     institutions="I101906">
+            <feedback score="7.0" source-team="T261699" debate="D435538">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">9</answer>
+                <answer question="Q16435">7</answer>
+                <answer question="Q16436">7</answer>
+                <answer question="Q16400">very good analysis of the debate, stepped into the debate very very slightly
+                    but it was justified overall good adj and good feedback
+                </answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914273" name="Sameesha Dissanayake" core="false" independent="false" score="8.0"
+                     institutions="I101907"/>
+        <adjudicator id="A914274" name="Lehara Edirisinghe" core="false" independent="false" score="7.0"
+                     institutions="I101908">
+            <feedback score="6.0" source-team="T261695" debate="D435552">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">7</answer>
+                <answer question="Q16435">5</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+            <feedback score="7.0" source-team="T261700" debate="D435633">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">7</answer>
+                <answer question="Q16435">7</answer>
+                <answer question="Q16436">5</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914275" name="Abdullah Yusoof" core="false" independent="false" score="7.0"
+                     institutions="I101908">
+            <feedback score="6.0" source-team="T261705" debate="D440660">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">6</answer>
+                <answer question="Q16435">6</answer>
+                <answer question="Q16436">6</answer>
+            </feedback>
+            <feedback score="7.0" source-team="T261700" debate="D440660">
+                <answer question="Q16399">False</answer>
+                <answer question="Q16434">7</answer>
+                <answer question="Q16435">5</answer>
+                <answer question="Q16436">7</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914276" name="Okitha Karunadhara" core="false" independent="false" score="8.0"
+                     institutions="I101912">
+            <feedback score="8.0" source-team="T261698" debate="D435548">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">9</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+            <feedback score="8.0" source-team="T261695" debate="D440774">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">7</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261700" debate="D440774">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914277" name="Adam Dhilshan" core="false" independent="false" score="8.0"
+                     institutions="I101913">
+            <feedback score="7.0" source-team="T261682" debate="D435628">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">7</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">9</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261693" debate="D435542">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+            <feedback score="10.0" source-team="T261693" debate="D440764">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+            <feedback score="9.0" source-team="T261705" debate="D435628">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">8</answer>
+                <answer question="Q16435">9</answer>
+                <answer question="Q16436">9</answer>
+            </feedback>
+            <feedback score="9.0" source-team="T261705" debate="D440764">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">9</answer>
+                <answer question="Q16435">9</answer>
+                <answer question="Q16436">9</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914278" name="Sanithma Jayasooriya" core="false" independent="false" score="8.5"
+                     institutions="I101914">
+            <feedback score="9.0" source-team="T261682" debate="D440767">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">9</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914279" name="Sahas Gunasekara" core="false" independent="false" score="9.0"
+                     institutions="I101914">
+            <feedback score="10.0" source-team="T261691" debate="D440768">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914280" name="Thithira Jayakody" core="false" independent="false" score="9.0"
+                     institutions="I101915">
+            <feedback score="8.0" source-team="T261698" debate="D435637">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+            <feedback score="8.0" source-team="T261694" debate="D435541">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">8</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914281" name="Visura Padeniya" core="false" independent="false" score="9.0"
+                     institutions="I101916">
+            <feedback score="10.0" source-team="T261709" debate="D435627">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+                <answer question="Q16400">Legend &#128016; Enjoyable OA asw</answer>
+            </feedback>
+            <feedback score="7.0" source-team="T261705" debate="D435543">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">6</answer>
+                <answer question="Q16435">6</answer>
+                <answer question="Q16436">7</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914282" name="Shakeeb Mohideen" core="true" independent="false" score="9.0"
+                     institutions="I101919">
+            <feedback score="9.5" source-team="T261699" debate="D435625">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">8</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">9</answer>
+                <answer question="Q16400">very deep analysis of the clashes, gave good feedback and also kept track of
+                    all the speeches very well, shakeeb is my goat
+                </answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914283" name="Jamila Latiff" core="false" independent="false" score="6.0"
+                     institutions="I101919">
+            <feedback score="8.0" source-team="T261709" debate="D435540">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">8</answer>
+                <answer question="Q16400">Nice</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A914284" name="Dayadi Seneviratne" core="false" independent="false" score="8.0"
+                     institutions="I101920"/>
+        <adjudicator id="A914285" name="Suchith Tissera" core="false" independent="false" score="9.0"
+                     institutions="I101921"/>
+        <adjudicator id="A914413" name="Lee Yong Wai" core="false" independent="false" score="6.0"
+                     institutions="I101910"/>
+        <adjudicator id="A915610" name="Jayageeth Basnayake" core="false" independent="false" score="8.0"
+                     institutions="I101909"/>
+        <adjudicator id="A915611" name="Sheril Fernando" core="false" independent="false" score="5.5"
+                     institutions="I101911"/>
+        <adjudicator id="A916211" name="Rachel Cramer" core="false" independent="false" score="9.0">
+            <feedback score="10.0" source-team="T261691" debate="D435634">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A916212" name="Nubendra Liyanage" core="false" independent="false" score="7.0">
+            <feedback score="10.0" source-team="T261694" debate="D435631">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">10</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A916213" name="Abidh Jameel" core="false" independent="false" score="7.0">
+            <feedback score="10.0" source-team="T261682" debate="D435539">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">10</answer>
+                <answer question="Q16435">7</answer>
+                <answer question="Q16436">10</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A916214" name="Husnaa Imtiaz" core="false" independent="false" score="8.0"
+                     institutions="I101908">
+            <feedback score="9.0" source-team="T261698" debate="D440766">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">9</answer>
+                <answer question="Q16435">8</answer>
+                <answer question="Q16436">8</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A916351" name="Vidath Marasinghe" core="false" independent="false" score="5.5">
+            <feedback score="5.0" source-team="T261712" debate="D435630">
+                <answer question="Q16399">False</answer>
+                <answer question="Q16434">5</answer>
+                <answer question="Q16435">5</answer>
+                <answer question="Q16436">5</answer>
+                <answer question="Q16400">I feel like this judge payed more attention to the DS Swing side more than our
+                    side. also in my pov I feel like we should have won just cuz the other teams speakers were repeating
+                    the same arguments over and over again.
+                </answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A928454" name="Rudhesh Ram" core="false" independent="false" score="5.5"/>
+        <adjudicator id="A928459" name="Akindu Athauda" core="false" independent="false" score="9.0">
+            <feedback score="6.0" source-team="T261695" debate="D440667">
+                <answer question="Q16399">True</answer>
+                <answer question="Q16434">5</answer>
+                <answer question="Q16435">5</answer>
+                <answer question="Q16436">5</answer>
+            </feedback>
+        </adjudicator>
+        <adjudicator id="A928461" name="Nimansa Jayasundera" core="false" independent="false" score="5.5"/>
+        <adjudicator id="A928462" name="Savith Wijesundera" core="false" independent="false" score="5.5"/>
+        <adjudicator id="A928463" name="Didumika Peiris" core="false" independent="false" score="5.5"/>
+        <adjudicator id="A928464" name="Nuhan Gunasekara" core="false" independent="false" score="5.5"/>
+        <adjudicator id="A928874" name="Sadew Muthuhetti" core="false" independent="false" score="5.5"/>
+    </participants>
+    <break-category id="BC10437">Open</break-category>
+    <institution id="I101906" reference="AC">Ananda College</institution>
+    <institution id="I101907" reference="AVN">Anula Vidyalaya Nugegoda</institution>
+    <institution id="I101908" reference="AIS">Asian International School</institution>
+    <institution id="I101909" reference="BC">Bishops College</institution>
+    <institution id="I101910" reference="CIS">Colombo International School</institution>
+    <institution id="I101911" reference="DRCK">Dharmaraja College Kandy</institution>
+    <institution id="I101912" reference="Moir">Elizabeth Moir School</institution>
+    <institution id="I101913" reference="GCD">Gateway College Dehiwala</institution>
+    <institution id="I101914" reference="HCK">Hillwood College Kandy</institution>
+    <institution id="I101915" reference="LC">Ladies&#8217; College</institution>
+    <institution id="I101916" reference="LISW">Lyceum International School Wattala</institution>
+    <institution id="I101917" reference="RC">Royal College</institution>
+    <institution id="I101919" reference="SBC">St. Bridget's Convent</institution>
+    <institution id="I101918" reference="STC">S.Thomas' College, Mount Lavinia</institution>
+    <institution id="I101920" reference="SJC">St. Joseph's College Colombo 10</institution>
+    <institution id="I101921" reference="Trinity">Trinity College Kandy</institution>
+    <institution id="I101922" reference="VV">Visakha Vidyalaya</institution>
+    <motion id="M59304" reference="Environment">This house, as the environmental movement, would adopt ecocentrism over
+        anthropocentrism.
+        <info-slide>&lt;p&gt;&lt;span id="docs-internal-guid-ad7edc13-7fff-0b29-53fa-368ce24addec"&gt;&lt;span
+            style="font-size: 10pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent;
+            font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal;
+            font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse:
+            preserve;"&gt;Ecocentrism refers to the narrative that the earth must be taken care of regardless of its
+            perceived value. Anthropocentrism refers to the narrative that the earth must be taken care of for future
+            generations to come.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+        </info-slide>
+    </motion>
+    <motion id="M59311" reference="sports">This house regrets the trend of successful sportspeople prolonging their
+        competitive careers beyond the usual age of retirement (e.g. Lebron James, Tom Brady, Cristiano Ronaldo)
+    </motion>
+    <motion id="M60082" reference="Economics">THW actively prioritize Universal Basic Income over Universal Basic
+        Services
+        <info-slide>&lt;p&gt;&lt;span id="docs-internal-guid-79e767b9-7fff-f904-570c-bba83588b84f"&gt;&lt;span
+            style="font-size: 10pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent;
+            font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal;
+            font-variant-position: normal; font-variant-emoji: normal; vertical-align: baseline; white-space-collapse:
+            preserve;"&gt;Universal Basic Services (UBS) is a system that guarantees free or affordable access to
+            essential public services, such as healthcare, education, housing, and transportation, aiming to meet basic
+            human needs and promote social equity whereas a Universal Basic Income (UBI) is an unconditional cash
+            payment given monthly to all citizens or residents, regardless of their employment status, to ensure a basic
+            standard of living and reduce poverty. For the purposes of this debate, the amount given to a citizen
+            monthly under a UBI program is proportional to the amount the government would have spent to subsidise the
+            citizen across the various UBS programs.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+        </info-slide>
+    </motion>
+    <motion id="M60091" reference="Law">TH as a socially conscious, up and coming lawyer would choose to follow a career
+        as a prosecutor rather than a defense lawyer.
+        <info-slide>&lt;p&gt;&lt;span id="docs-internal-guid-308ecdb0-7fff-6825-2959-09d0301b3c9a"&gt;&lt;/span&gt;&lt;/p&gt;&lt;p
+            dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"&gt;&lt;span
+            style="font-size:10pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;"&gt;Prosecutors
+            represent the government in criminal cases. Their primary responsibility is to present evidence and legal
+            arguments in an effort to prove that the accused individual is guilty of the charges brought against them.
+            Defense attorneys, on the other hand, represent individuals who have been accused of crimes. Their role is
+            to protect the legal rights of their clients by challenging the prosecution's case and presenting evidence
+            or arguments to demonstrate their client's innocence or to seek a fair and just outcome.&lt;/span&gt;&lt;/p&gt;
+        </info-slide>
+    </motion>
+    <motion id="M60106" reference="Hypotheticals">This House Prefers a world with an Asclepius program
+        <info-slide>&lt;p style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-style: normal;
+            font-variant-caps: normal; font-width: normal; font-size: 13.3px; line-height: normal; font-family: Arial;
+            font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal;
+            font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal;
+            font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto;
+            font-variation-settings: normal; -webkit-text-stroke-width: 0px; -webkit-text-stroke-color: rgb(33, 37,
+            41);"&gt;&lt;span style="font-size: 13.33px; font-kerning: none;"&gt;Asclepius is a fictional medical
+            technology that allows for the complete transfer of illnesses from one person (a giver) to another (a
+            receiver) provided both parties consent. The transfer cures the giver completely.&lt;/span&gt;&lt;/p&gt;&lt;div&gt;&lt;span
+            style="font-size: 13.33px; font-kerning: none;"&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;
+        </info-slide>
+    </motion>
+    <motion id="M60133" reference="Economics">This house believes that it is in the interest of the NPP Government to
+        create a DOGE for the Sri Lankan State
+        <info-slide>&lt;p&gt;&lt;span id="docs-internal-guid-c5929d77-7fff-e7b7-98f4-f4084f67effe"&gt;&lt;span
+            style="font-size: 10pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); font-variant-numeric: normal;
+            font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal;
+            font-variant-emoji: normal; vertical-align: baseline; white-space-collapse: preserve;"&gt;A Department of
+            Government Efficiency is a government body tasked with streamlining public sector operations to reduce
+            costs, eliminate redundancies, and improve service delivery. This often includes undertaking structural
+            reforms such as downsizing the public workforce, consolidating departments, and automating administrative
+            functions.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+        </info-slide>
+    </motion>
+    <motion id="M60137" reference="Romance">This house regrets the market dominancce of queer romance fiction created
+        for and by non-queer audiences.
+    </motion>
+    <motion id="M60154" reference="Theology">THP a world in which Lucifer did not bring knowledge to humans at the cost
+        of exiting the Garden of Eden.
+        <info-slide>&lt;p&gt;In Christian tradition, Lucifer is a fallen angel who rebelled against God and later is
+            associated with the serpent in Eden who tempted Adam and Eve to eat from the Tree of Knowledge. This act
+            gave humanity knowledge but led to their expulsion from the Garden.&lt;/p&gt;
+        </info-slide>
+    </motion>
+    <venue id="V121689">Room 1</venue>
+    <venue id="V121698">Room 10</venue>
+    <venue id="V121699">Room 11</venue>
+    <venue id="V121700">Room 12</venue>
+    <venue id="V121701">Room 13</venue>
+    <venue id="V121702">Room 14</venue>
+    <venue id="V121703">Room 15</venue>
+    <venue id="V121690">Room 2</venue>
+    <venue id="V121691">Room 3</venue>
+    <venue id="V121692">Room 4</venue>
+    <venue id="V121693">Room 5</venue>
+    <venue id="V121694">Room 6</venue>
+    <venue id="V121695">Room 7</venue>
+    <venue id="V121696">Room 8</venue>
+    <venue id="V121697">Room 9</venue>
+    <question id="Q16399" name="Agree?" from-teams="true" from-adjudicators="true" type="bs">Did you agree with their
+        decision?
+    </question>
+    <question id="Q16434" name="Tracking" from-teams="true" from-adjudicators="true" type="i">How carefully did the
+        judge track content brought out by speakers in the debate? (0-10)
+    </question>
+    <question id="Q16435" name="Clashes" from-teams="true" from-adjudicators="true" type="i">How well did the judge
+        organize the content in the debate into clashes during their OA? (0-10)
+    </question>
+    <question id="Q16436" name="Weighing Clashes" from-teams="true" from-adjudicators="true" type="i">How well did the
+        judge evaluate and weigh the clashes (0-10)
+    </question>
+    <question id="Q16400" name="Comments" from-teams="true" from-adjudicators="true" type="tl">Comments</question>
+</tournament>
