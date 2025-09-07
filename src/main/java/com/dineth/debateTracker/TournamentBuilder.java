@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @RestController
 @Slf4j
 @CrossOrigin(origins = "*")
@@ -66,9 +65,12 @@ public class TournamentBuilder {
     private final FeedbackService feedbackService;
     private final EliminationBallotService eliminationBallotService;
 
-
     @Autowired
-    public TournamentBuilder(JudgeService judgeService, TeamService teamService, DebaterService debaterService, DebateService debateService, InstitutionService institutionService, MotionService motionService, TournamentService tournamentService, BreakCategoryService breakCategoryService, BallotService ballotService, RoundService roundService, FeedbackService feedbackService, EliminationBallotService eliminationBallotService) {
+    public TournamentBuilder(JudgeService judgeService, TeamService teamService, DebaterService debaterService,
+            DebateService debateService, InstitutionService institutionService, MotionService motionService,
+            TournamentService tournamentService, BreakCategoryService breakCategoryService, BallotService ballotService,
+            RoundService roundService, FeedbackService feedbackService,
+            EliminationBallotService eliminationBallotService) {
         this.judgeService = judgeService;
         this.teamService = teamService;
         this.debaterService = debaterService;
@@ -83,11 +85,10 @@ public class TournamentBuilder {
         this.eliminationBallotService = eliminationBallotService;
     }
 
-
     @GetMapping("/build")
     @Transactional
     public TournamentDataDTO buildTournament(@RequestParam String fileName) {
-        return buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
+        return buildMyTournament("src/main/resources/static/speaksXML/2025/" + fileName);
     }
 
     @GetMapping("/buildall")
@@ -95,9 +96,9 @@ public class TournamentBuilder {
     public List<TournamentDataDTO> buildAllTournaments() {
         List<String> fileNames = new ArrayList<>();
         List<TournamentDataDTO> tournamentDataList = new ArrayList<>();
-        
+
         try {
-            Path folderPath = Paths.get("src/main/resources/static/speaksXML/2024/");
+            Path folderPath = Paths.get("src/main/resources/static/speaksXML/2025/");
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(folderPath, "*.xml")) {
                 for (Path entry : stream) {
                     fileNames.add(entry.getFileName().toString());
@@ -110,13 +111,14 @@ public class TournamentBuilder {
 
         for (String fileName : fileNames) {
             try {
-                TournamentDataDTO tournamentData = buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
+                TournamentDataDTO tournamentData = buildMyTournament(
+                        "src/main/resources/static/speaksXML/2025/" + fileName);
                 if (tournamentData != null) {
                     tournamentDataList.add(tournamentData);
                 }
                 log.info("Built tournament : " + fileName);
             } catch (Exception e) {
-                log.error("Error building tournament " + fileName + ": " + e.getMessage());
+                log.error("Error building tournament " + fileName + ": " + e.getMessage(), e);
             }
         }
         return tournamentDataList;
@@ -136,7 +138,7 @@ public class TournamentBuilder {
                     debaterService.addDebater(debater);
                 }
             } catch (Exception e) {
-                log.error(e.getMessage());
+                log.error(e.getMessage(), e);
             }
         }
         return debaters;
@@ -158,7 +160,6 @@ public class TournamentBuilder {
             HashMap<String, TeamDTO> teamDTOMap = new HashMap<>();
             HashMap<String, JudgeDTO> judgeDTOMap = new HashMap<>();
 
-
             //save debaters, institutions, judges, motions, teams
 
             try {
@@ -167,7 +168,8 @@ public class TournamentBuilder {
                     Institution tempInstitution = institutionService.findInstitutionByName(institutionDTO.name.strip());
                     if (tempInstitution == null) {
                         log.debug("Adding institution : " + institutionDTO.name);
-                        Institution institution = new Institution(institutionDTO.name.strip(), institutionDTO.reference);
+                        Institution institution = new Institution(institutionDTO.name.strip(),
+                                institutionDTO.reference);
                         institution = institutionService.addInstitution(institution);
                         institutionDTO.dbId = institution.getId();
                     } else {
@@ -176,7 +178,7 @@ public class TournamentBuilder {
                     }
                 }
             } catch (Exception e) {
-                log.error("Error in adding institution : " + e.getMessage());
+                log.error("Error in adding institution : " + e.getMessage(), e);
             }
 
             try {
@@ -195,7 +197,7 @@ public class TournamentBuilder {
             } catch (CustomExceptions.NameSplitException e) {
                 log.error("Error in splitting name : " + e.getMessage());
             } catch (Exception e) {
-                log.error("Error in adding judge : " + e.getMessage());
+                log.error("Error in adding judge : " + e.getMessage(), e);
             }
 
             try {
@@ -203,7 +205,8 @@ public class TournamentBuilder {
                     List<DebaterDTO> debaterDTOs = teamDTO.getDebaters();
                     List<Debater> debaters = debaterDTOs.stream().map(debaterDTO -> {
                         ImmutablePair<String, String> names = StringUtil.splitName(debaterDTO.getName());
-                        Debater debater = new Debater(StringUtil.capitalizeName(names.getLeft()), StringUtil.capitalizeName(names.getRight()));
+                        Debater debater = new Debater(StringUtil.capitalizeName(names.getLeft()),
+                                StringUtil.capitalizeName(names.getRight()));
                         //TODO check for user confirmation
                         Debater temp = debaterService.checkIfDebaterExists(debater);
                         if (temp != null) {
@@ -219,7 +222,7 @@ public class TournamentBuilder {
                     team = teamService.addTeam(team);
                     teamDTO.setDbId(team.getId());
                     teamDTOMap.put(teamDTO.getId(), teamDTO);
-//                    Get the institution of one debater in the team and add the team to the institution
+                    //                    Get the institution of one debater in the team and add the team to the institution
                     if (!debaterDTOs.isEmpty()) {
                         String institutionId = debaterDTOs.get(0).getInstitutionId();
                         if (institutionId == null || institutionId.isEmpty()) {
@@ -227,10 +230,8 @@ public class TournamentBuilder {
                             continue;
                         }
                         Institution institution = institutionDTOs.stream()
-                                .filter(inst -> inst.getId().equals(institutionId))
-                                .findFirst()
-                                .map(inst -> institutionService.findInstitutionById(inst.getDbId()))
-                                .orElse(null);
+                                .filter(inst -> inst.getId().equals(institutionId)).findFirst()
+                                .map(inst -> institutionService.findInstitutionById(inst.getDbId())).orElse(null);
                         if (institution != null) {
                             institutionService.addTeamToInstitution(institution.getId(), team);
                         } else {
@@ -238,10 +239,10 @@ public class TournamentBuilder {
                         }
                     } else {
                         log.error("No debaters found for team : " + teamDTO.getName());
-                    } 
+                    }
                 }
             } catch (Exception e) {
-                log.error("Error in adding team : " + e.getMessage());
+                log.error("Error in adding team : " + e.getMessage(), e);
             }
 
             Tournament tournament = new Tournament(tournamentDTO.getFullName(), tournamentDTO.getShortName());
@@ -255,17 +256,18 @@ public class TournamentBuilder {
                     tournamentService.addBreakCategoryToTournament(tournament.getId(), breakCategory);
                 }
             } catch (Exception e) {
-                log.error("Error in adding break category : " + e.getMessage());
+                log.error("Error in adding break category : " + e.getMessage(), e);
             }
             try {
                 for (MotionDTO motionDTO : motionDTOs) {
-                    Motion motion = new Motion(motionDTO.getMotion(), motionDTO.getInfoSlide(), motionDTO.getReference());
+                    Motion motion = new Motion(motionDTO.getMotion(), motionDTO.getInfoSlide(),
+                            motionDTO.getReference());
                     motion = motionService.addMotion(motion);
                     motionDTO.setDbId(motion.getId());
                     tournamentService.addMotionToTournament(tournament.getId(), motion);
                 }
             } catch (Exception e) {
-                log.error("Error in adding motion : " + e.getMessage());
+                log.error("Error in adding motion : " + e.getMessage(), e);
             }
             try {
                 for (RoundDTO roundDTO : roundsDTOs) {
@@ -291,7 +293,8 @@ public class TournamentBuilder {
 
                             //Get the motion for the round
                             String motionId = debateDTO.getMotionId();
-                            MotionDTO motionDTO = motionDTOs.stream().filter(m -> m.getId().equals(motionId)).findFirst().orElse(null);
+                            MotionDTO motionDTO = motionDTOs.stream().filter(m -> m.getId().equals(motionId))
+                                    .findFirst().orElse(null);
                             Motion motion = null;
                             if (motionDTO != null) {
                                 motion = motionService.findMotionById(motionDTO.getDbId());
@@ -309,17 +312,25 @@ public class TournamentBuilder {
                             List<EliminationBallot> eliminationBallots = new ArrayList<>();
                             if (roundDTO.isElimination()) {
                                 try {
-                                    Team tempTeam1 = teamService.findTeamById(teamDTOMap.get(debateDTO.getSides().get(0).getTeamId()).getDbId());
-                                    Team tempTeam2 = teamService.findTeamById(teamDTOMap.get(debateDTO.getSides().get(1).getTeamId()).getDbId());
+                                    Team tempTeam1 = teamService.findTeamById(
+                                            teamDTOMap.get(debateDTO.getSides().get(0).getTeamId()).getDbId());
+                                    Team tempTeam2 = teamService.findTeamById(
+                                            teamDTOMap.get(debateDTO.getSides().get(1).getTeamId()).getDbId());
                                     for (SideDTO sideDTO : debateDTO.getSides()) {
-                                        Team currentTeam = teamService.findTeamById(teamDTOMap.get(sideDTO.getTeamId()).getDbId());
+                                        Team currentTeam = teamService.findTeamById(
+                                                teamDTOMap.get(sideDTO.getTeamId()).getDbId());
                                         for (FinalTeamBallotDTO finalTeamBallotDTO : sideDTO.getFinalTeamBallots()) {
                                             String judgeId = finalTeamBallotDTO.getAdjudicatorIds().get(0);
-                                            Judge judge = judgeService.findJudgeById(judgeDTOMap.get(judgeId).getDbId());
-                                            if (finalTeamBallotDTO.getRank() == 1 && currentTeam.getId().equals(tempTeam1.getId())) {
-                                                eliminationBallots.add(new EliminationBallot(judge, tempTeam1, tempTeam2));
-                                            } else if (finalTeamBallotDTO.getRank() == 1 && currentTeam.getId().equals(tempTeam2.getId())) {
-                                                eliminationBallots.add(new EliminationBallot(judge, tempTeam2, tempTeam1));
+                                            Judge judge = judgeService.findJudgeById(
+                                                    judgeDTOMap.get(judgeId).getDbId());
+                                            if (finalTeamBallotDTO.getRank() == 1 && currentTeam.getId()
+                                                    .equals(tempTeam1.getId())) {
+                                                eliminationBallots.add(
+                                                        new EliminationBallot(judge, tempTeam1, tempTeam2));
+                                            } else if (finalTeamBallotDTO.getRank() == 1 && currentTeam.getId()
+                                                    .equals(tempTeam2.getId())) {
+                                                eliminationBallots.add(
+                                                        new EliminationBallot(judge, tempTeam2, tempTeam1));
                                             }
                                         }
                                     }
@@ -327,7 +338,7 @@ public class TournamentBuilder {
                                         eliminationBallotService.addEliminationBallot(eliminationBallot);
                                     }
                                 } catch (Exception e) {
-                                    log.error("Error in adding elimination ballot : " + e.getMessage());
+                                    log.error("Error in adding elimination ballot : " + e.getMessage(), e);
                                 }
 
                             }
@@ -339,7 +350,6 @@ public class TournamentBuilder {
                                     ignoredBallotAdjIds.addAll(adjBallot.getAdjudicatorIds());
                                 }
                             }
-
 
                             try {
                                 List<Ballot> ballots = new ArrayList<>();
@@ -354,6 +364,8 @@ public class TournamentBuilder {
                                                 if (ignoredBallotAdjIds.contains(judgeId)) {
                                                     continue;
                                                 }
+                                                //judgeId may contain multiple adjudicators, take the first one (chair)
+                                                judgeId = judgeId.split(" ")[0];
                                                 Judge judge = judgeService.findJudgeById(judgeDTOMap.get(judgeId).getDbId());
                                                 Debater debater = debaterService.findDebaterById(debaterDTOMap.get(debaterId).getDbId());
                                                 if (judge != null && debater != null) {
@@ -369,11 +381,11 @@ public class TournamentBuilder {
                                 if (roundDTO.isElimination()) {
                                     debate = new Debate(prop, opp, null, null, motion);
                                     debate.setEliminationBallots(eliminationBallots);
-//                                    Check winner
-                                    if (eliminationBallots.size() ==1 ) {
+                                    //                                    Check winner
+                                    if (eliminationBallots.size() == 1) {
                                         Team winner = eliminationBallots.get(0).getWinner();
                                         debate.setWinner(winner);
-                                    } else{
+                                    } else {
                                         List<Team> propVotes = new ArrayList<>();
                                         List<Team> oppVotes = new ArrayList<>();
                                         for (EliminationBallot eliminationBallot : eliminationBallots) {
@@ -398,14 +410,16 @@ public class TournamentBuilder {
                                     Team side1Team = teamService.findTeamById(teamDTOMap.get(side1TeamId).getDbId());
                                     List<Integer> side0Votes = new ArrayList<>();
                                     List<Integer> side1Votes = new ArrayList<>();
-                                    for (FinalTeamBallotDTO finalTeamBallotDTO : debateDTO.getSides().get(0).getFinalTeamBallots()) {
+                                    for (FinalTeamBallotDTO finalTeamBallotDTO : debateDTO.getSides().get(0)
+                                            .getFinalTeamBallots()) {
                                         if (finalTeamBallotDTO.getRank() == 1) {
                                             side0Votes.add(1);
                                         } else {
                                             side0Votes.add(0);
                                         }
                                     }
-                                    for (FinalTeamBallotDTO finalTeamBallotDTO : debateDTO.getSides().get(1).getFinalTeamBallots()) {
+                                    for (FinalTeamBallotDTO finalTeamBallotDTO : debateDTO.getSides().get(1)
+                                            .getFinalTeamBallots()) {
                                         if (finalTeamBallotDTO.getRank() == 1) {
                                             side1Votes.add(1);
                                         } else {
@@ -423,21 +437,19 @@ public class TournamentBuilder {
                                 }
                                 debate = debateService.addDebate(debate);
                                 roundService.addDebateToRound(round.getId(), debate);
-
+                                //TODO check here
                             } catch (Exception e) {
-                                log.error("Error in adding debate to round : " + e.getMessage());
+                                log.error("Error in adding debate to round : " + e.getMessage(), e);
                             }
-
 
                         }
                     } catch (Exception e) {
-                        log.error("Error in adding debate to round : " + e.getMessage());
+                        log.error("Error in adding debate to round : " + e.getMessage(), e);
                     }
                     tournamentService.addRoundToTournament(tournament.getId(), round);
                 }
             } catch (Exception e) {
-                System.out.println("Error in adding round");
-                log.error("Error in adding round : " + e.getMessage());
+                log.error("Error in adding round : " + e.getMessage(), e);
             }
             try {
                 for (JudgeDTO judgeDTO : judgeDTOs) {
@@ -448,49 +460,42 @@ public class TournamentBuilder {
                             Team sourceTeam = null;
                             Judge sourceJudge = null;
                             if (feedbackDTO.getSourceJudgeId() == null)
-                                sourceTeam = teamService.findTeamById(teamDTOMap.get(feedbackDTO.getSourceTeamId()).getDbId());
+                                sourceTeam = teamService.findTeamById(
+                                        teamDTOMap.get(feedbackDTO.getSourceTeamId()).getDbId());
                             else
-                                sourceJudge = judgeService.findJudgeById(judgeDTOMap.get(feedbackDTO.getSourceJudgeId()).getDbId());
+                                sourceJudge = judgeService.findJudgeById(
+                                        judgeDTOMap.get(feedbackDTO.getSourceJudgeId()).getDbId());
                             Float clashEvaluation = feedbackDTO.getClashEvaluation();
                             Float clashOrganization = feedbackDTO.getClashOrganization();
                             Float trackingArguments = feedbackDTO.getTrackingArguments();
                             String comments = feedbackDTO.getComments();
                             Float overallRating = feedbackDTO.getOverallRating();
                             String agree = feedbackDTO.getAgree();
-                            Feedback feedback = new Feedback(judge, overallRating, clashEvaluation, clashOrganization, trackingArguments, agree, comments);
+                            Feedback feedback = new Feedback(judge, overallRating, clashEvaluation, clashOrganization,
+                                    trackingArguments, agree, comments);
                             if (sourceTeam != null) {
                                 feedback.setSourceTeam(sourceTeam);
                             } else if (sourceJudge != null) {
                                 feedback.setSourceJudge(sourceJudge);
                             }
-//                            feedbackService.addFeedback(feedback);
+                            //                            feedbackService.addFeedback(feedback);
                         } catch (Exception e) {
-                            log.error("Error in adding feedback to judge : " + e.getMessage());
+                            log.error("Error in adding feedback to judge : " + e.getMessage(), e);
                         }
                     }
                 }
             } catch (Exception e) {
-                log.error("Error in adding feedback : " + e.getMessage());
+                log.error("Error in adding feedback : " + e.getMessage(), e);
             }
 
             // Create and return comprehensive tournament data DTO
-            TournamentDataDTO tournamentDataDTO = new TournamentDataDTO(
-                tournamentDTO,
-                new ArrayList<>(debaterDTOMap.values()),
-                teamDTOs,
-                judgeDTOs,
-                institutionDTOs,
-                motionDTOs,
-                breakCategoryDTOs,
-                roundsDTOs,
-                debaterDTOMap,
-                teamDTOMap,
-                judgeDTOMap
-            );
-            
+            TournamentDataDTO tournamentDataDTO = new TournamentDataDTO(tournamentDTO,
+                    new ArrayList<>(debaterDTOMap.values()), teamDTOs, judgeDTOs, institutionDTOs, motionDTOs,
+                    breakCategoryDTOs, roundsDTOs, debaterDTOMap, teamDTOMap, judgeDTOMap);
+
             return tournamentDataDTO;
         } catch (Exception e) {
-            log.error("Error in building tournament : " + e.getMessage());
+            log.error("Error in building tournament : " + e.getMessage(), e);
             return null;
         }
     }
@@ -501,23 +506,23 @@ public class TournamentBuilder {
     @GetMapping("/summary")
     public String getTournamentSummary(@RequestParam String fileName) {
         TournamentDataDTO tournamentData = buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
-        
+
         if (tournamentData == null) {
             return "Failed to build tournament data";
         }
-        
+
         StringBuilder summary = new StringBuilder();
         summary.append("Tournament: ").append(tournamentData.getTournament().getFullName()).append("\n");
         summary.append("Short Name: ").append(tournamentData.getTournament().getShortName()).append("\n");
         summary.append("Metadata: ").append(tournamentData.getMetadata().toString()).append("\n");
-        
+
         summary.append("\nRound Summary:\n");
         for (RoundDTO round : tournamentData.getRounds()) {
-            summary.append("- ").append(round.getName())
-                   .append(" (").append(round.isElimination() ? "Elimination" : "Preliminary").append(")")
-                   .append(" - ").append(round.getDebates().size()).append(" debates\n");
+            summary.append("- ").append(round.getName()).append(" (")
+                    .append(round.isElimination() ? "Elimination" : "Preliminary").append(")").append(" - ")
+                    .append(round.getDebates().size()).append(" debates\n");
         }
-        
+
         return summary.toString();
     }
 }
