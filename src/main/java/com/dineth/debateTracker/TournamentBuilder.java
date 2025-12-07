@@ -27,7 +27,7 @@ import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
 import com.dineth.debateTracker.utils.CustomExceptions;
-import com.dineth.debateTracker.utils.ParseCV;
+import com.dineth.debateTracker.utils.ParseCSV;
 import com.dineth.debateTracker.utils.ParseTabbycatXML;
 import com.dineth.debateTracker.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -127,7 +127,7 @@ public class TournamentBuilder {
     @GetMapping("/parsecsv")
     public Object parseCSV() {
 
-        List<Debater> debaters = new ParseCV("src/main/resources/static/Debater_Information.csv").parseDebaterInfo();
+        List<Debater> debaters = new ParseCSV("src/main/resources/static/Debater_Information.csv").parseDebaterInfo();
         for (Debater debater : debaters) {
             try {
                 Debater existingDebater = debaterService.checkIfDebaterExists(debater);

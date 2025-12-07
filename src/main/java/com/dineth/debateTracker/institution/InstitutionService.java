@@ -3,12 +3,14 @@ package com.dineth.debateTracker.institution;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterRepository;
 import com.dineth.debateTracker.team.Team;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class InstitutionService {
     private final InstitutionRepository institutionRepository;
@@ -81,6 +83,7 @@ public class InstitutionService {
                 debaterRepository.save(debater);
             }
         }
+        log.debug("Merged Institutions: " + institutionIds.toString() + " into Institution ID: " + mergedInstitution.getId());
         return institutionRepository.save(mergedInstitution);
     }
 

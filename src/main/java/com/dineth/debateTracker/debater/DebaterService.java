@@ -4,9 +4,11 @@ import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
+import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.TournamentRepository;
 import com.dineth.debateTracker.utils.CustomExceptions;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Slf4j
 @Service
 public class DebaterService {
     private final DebaterRepository debaterRepository;
@@ -39,6 +42,10 @@ public class DebaterService {
             return temp;
         }
         return debaterRepository.save(debater);
+    }
+    
+    public void updateDebater(Debater debater) {
+        debaterRepository.save(debater);
     }
 
     public Debater findDebaterById(Long id) {
@@ -87,10 +94,17 @@ public class DebaterService {
         return duplicateDebaters;
     }
 
+    /**
+     * Replace all references of oldDebater with newDebater in the database
+     * @param oldDebater
+     * @param newDebater
+     */
     public void replaceDebaters(Debater oldDebater, Debater newDebater) {
         ballotService.replaceDebater(oldDebater, newDebater);
         teamService.replaceDebater(oldDebater, newDebater);
         debaterRepository.delete(oldDebater);
+        log.info("Replaced debater " + oldDebater.getId() + " " + oldDebater.getFirstName() + " " + oldDebater.getLastName() + 
+                " with " + + newDebater.getId() + " " + newDebater.getFirstName() + " " + newDebater.getLastName());
     }
 
     /**

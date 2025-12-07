@@ -21,6 +21,7 @@ public class Debater implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
+    private String fullName;
     private String gender;
     private String email;
     private String phone;
@@ -61,6 +62,7 @@ public class Debater implements Serializable {
                 ", birthdate=" + birthdate +
                 ", institution='" + institution + '\'' +
                 ", district='" + district + '\'' +
+                ", fullName='" + fullName + '\'' +
                 '}';
     }
 }

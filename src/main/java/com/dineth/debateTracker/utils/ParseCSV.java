@@ -13,10 +13,10 @@ import java.util.Date;
 import java.util.List;
 
 @Slf4j
-public class ParseCV {
+public class ParseCSV {
     public String path;
 
-    public ParseCV(String path) {
+    public ParseCSV(String path) {
         this.path = path;
     }
 
@@ -76,6 +76,17 @@ public class ParseCV {
                     debater.setGender(gender);
                     log.debug(", Gender: " + debater.getGender());
                 } catch (IllegalArgumentException e) {
+                    log.error(e.getMessage());
+                }
+                try{
+                    if (line.length > 9 && line[9] != null && !line[9].trim().isEmpty()) {
+                        String fullName = line[9].trim();
+                        debater.setFullName(fullName);
+                        log.debug(", Full Name: " + debater.getFullName());
+                    } else {
+                        log.debug(", Full Name missing");
+                    }
+                } catch (Exception e) {
                     log.error(e.getMessage());
                 }
                 debaters.add(debater);
