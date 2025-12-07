@@ -1,5 +1,7 @@
 package com.dineth.debateTracker.institution;
 
+import com.dineth.debateTracker.debater.Debater;
+import com.dineth.debateTracker.debater.DebaterRepository;
 import com.dineth.debateTracker.team.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +12,12 @@ import java.util.List;
 @Service
 public class InstitutionService {
     private final InstitutionRepository institutionRepository;
+    private final DebaterRepository debaterRepository;
 
     @Autowired
-    public InstitutionService(InstitutionRepository institutionRepository) {
+    public InstitutionService(InstitutionRepository institutionRepository, DebaterRepository debaterRepository) {
         this.institutionRepository = institutionRepository;
+        this.debaterRepository = debaterRepository;
     }
 
     public List<Institution> getInstitutions() {
@@ -56,7 +60,7 @@ public class InstitutionService {
     //Merge multiple institutions
     public Institution mergeMultipleInstitutions(List<Long> institutionIds) throws Exception {
     //pick the first institution as the merged institution
-        Institution mergedInstitution = institutionRepository.findById(institutionIds.get(0)).orElse(null);
+        Institution mergedInstitution = institutionRepository.findById(institutionIds.getFirst()).orElse(null);
         if (mergedInstitution == null) {
             throw new Exception("First Institution not found");
         }
@@ -69,6 +73,14 @@ public class InstitutionService {
             }
         }
         mergedInstitution.setTeams(teams);
+        
+        for (Long id : institutionIds) {
+            List<Debater> debaters = debaterRepository.findByInstitutionId(id);
+            for (Debater debater : debaters) {
+                debater.setInstitution(mergedInstitution);
+                debaterRepository.save(debater);
+            }
+        }
         return institutionRepository.save(mergedInstitution);
     }
 

@@ -30,5 +30,7 @@ public interface DebaterRepository extends JpaRepository<Debater, Long> {
             "WHERE b.debater.id = :debaterID " +
             "ORDER BY t.shortName, r.roundName")
     List<Object> findTournamentsAndScoresForSpeaker(@Param("debaterID") Long debaterID);
+    
+    List<Debater> findByInstitutionId(Long institutionId);
 
 }
