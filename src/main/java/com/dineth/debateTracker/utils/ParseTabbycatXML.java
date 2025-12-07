@@ -301,7 +301,8 @@ public class ParseTabbycatXML {
                 if (debate.getNodeType() == Node.ELEMENT_NODE) {
                     NamedNodeMap attributes = debate.getAttributes();
                     String debateId = attributes.getNamedItem("id").getNodeValue();
-                    String debateVenue = attributes.getNamedItem("venue").getNodeValue();
+                    Node venueNode = attributes.getNamedItem("venue");
+                    String debateVenue = venueNode != null ? venueNode.getNodeValue() : "";
                     String adjudicators = attributes.getNamedItem("adjudicators").getNodeValue();
                     String chair = attributes.getNamedItem("chair").getNodeValue();
                     List<SideDTO> sideDTOs = getSidesDTO(debate);
