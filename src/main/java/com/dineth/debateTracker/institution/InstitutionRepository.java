@@ -9,9 +9,13 @@ import java.util.List;
 
 @Repository
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
-    @Query("SELECT i.id, i.name FROM Institution i " +
-            "WHERE similarity(i.name, :name) > 0.4 " +
-            "ORDER BY similarity(i.name, :name) DESC")
+    @Query(value = """
+        SELECT CONCAT(i.id, ',', i.name)
+        FROM institution i
+        WHERE similarity(i.name, :name) > 0.4
+        ORDER BY similarity(i.name, :name) DESC
+        """,
+            nativeQuery = true)
     List<String> findSimilarInstitutions(@Param("name") String name);
 
     // find institutions containing the name
