@@ -4,7 +4,7 @@ import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
-import com.dineth.debateTracker.institution.Institution;
+
 import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.TournamentRepository;
 import com.dineth.debateTracker.utils.CustomExceptions;
@@ -12,9 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -143,5 +141,30 @@ public class DebaterService {
         }
         x.setTournamentRoundScores(new ArrayList<>(tournamentMap.values()));
         return x;
+    }
+
+    public Integer getIronPersonCount(Long debaterId) {
+        DebaterTournamentScoreDTO scores = getTournamentsAndScoresForSpeaker(debaterId, false);
+        int totalIronSpeeches = 0;
+
+        for (TournamentRoundDTO tr : scores.getTournamentRoundScores()) {
+            int tournamentIronSpeeches = 0;
+            Map<Long, Set<Integer>> speechCount = new HashMap<>();
+            for (RoundScoreDTO rs : tr.getRoundScores()) {
+                Set<Integer> count = speechCount.getOrDefault(rs.getRoundId(), new HashSet<>() {
+                });
+                count.add(rs.getSpeakerPosition());
+                speechCount.put(rs.getRoundId(), count);
+            }
+            for (Map.Entry<Long, Set<Integer>> entry : speechCount.entrySet()) {
+                Set<Integer> positions = entry.getValue();
+                if (positions.size() > 1) {
+                    tournamentIronSpeeches += 1;
+                }
+            }
+
+            totalIronSpeeches += tournamentIronSpeeches;
+        }
+        return totalIronSpeeches;
     }
 }
