@@ -20,8 +20,12 @@ public class TournamentService {
         this.tournamentRepository = tournamentRepository;
     }
 
-    public List<Tournament> getTournament() {
+    public List<Tournament> getTournaments() {
         return tournamentRepository.findAll();
+    }
+    
+    public Tournament getTournamentById(Long id) {
+        return tournamentRepository.findById(id).orElse(null);
     }
 
     public Tournament addTournament(Tournament tournament) {
