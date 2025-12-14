@@ -33,6 +33,9 @@ public class DebaterService {
     public List<Debater> getDebaters() {
         return debaterRepository.findAll();
     }
+    public Debater getDebaterById(Long debaterId) {
+        return debaterRepository.findById(debaterId).orElse(null);
+    }
 
     public Debater addDebater(Debater debater) {
         Debater temp = checkIfDebaterExists(debater);

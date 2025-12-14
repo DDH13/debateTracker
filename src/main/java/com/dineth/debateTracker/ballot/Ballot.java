@@ -42,6 +42,10 @@ public class Ballot implements Serializable {
         this.speakerScore = speakerScore;
         this.speakerPosition = speakerPosition;
     }
+    
+    public Boolean isReply() {
+        return this.speakerPosition != null && this.speakerPosition != 4;
+    }
 
     @Override
     public String toString() {

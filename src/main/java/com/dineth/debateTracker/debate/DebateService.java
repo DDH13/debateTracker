@@ -3,11 +3,13 @@ package com.dineth.debateTracker.debate;
 import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.team.Team;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Slf4j
 @Service
 public class DebateService {
     private final DebateRepository debateRepository;
@@ -94,6 +96,7 @@ public class DebateService {
         for (Debate debate : debates) {
             Team winner = debate.getWinner();
             if (winner == null) {
+                log.warn("Debate ID {} has no winner set.", debate.getId());
                 continue; // Skip debates without a winner
 //                TODO: Check why there are debates without a winner
             }
