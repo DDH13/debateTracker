@@ -2,15 +2,22 @@ package com.dineth.debateTracker.statistics;
 
 import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.ballot.BallotRepository;
+import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debate.Debate;
 import com.dineth.debateTracker.debate.DebateRepository;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterRepository;
+import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
+import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
+import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabDTO;
+import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
 import com.dineth.debateTracker.team.Team;
+import com.dineth.debateTracker.tournament.Tournament;
+import com.dineth.debateTracker.tournament.TournamentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +32,19 @@ public class StatisticsService {
     private final JudgeRepository judgeRepository;
     private final DebateRepository debateRepository;
     private final DebaterRepository debaterRepository;
+    private final BallotService ballotService;
+    private final DebaterService debaterService;
+    private final TournamentService tournamentService;
 
-    StatisticsService(BallotRepository ballotRepository, JudgeRepository judgeRepository, DebateRepository debateRepository, DebaterRepository debaterRepository) {
+    StatisticsService(BallotRepository ballotRepository, JudgeRepository judgeRepository, DebateRepository debateRepository, DebaterRepository debaterRepository,
+            BallotService ballotService, DebaterService debaterService, TournamentService tournamentService) {
         this.ballotRepository = ballotRepository;
         this.judgeRepository = judgeRepository;
         this.debateRepository = debateRepository;
         this.debaterRepository = debaterRepository;
+        this.ballotService = ballotService;
+        this.debaterService = debaterService;
+        this.tournamentService = tournamentService;
     }
 
     public HashMap<String, Double> getGlobalDistribution() {
@@ -235,6 +249,43 @@ public class StatisticsService {
             return winner.equals(debate.getOpposition());
         }
         return null;
+    }
+
+    /**
+     * Calculates the speaker tab for a tournament 
+     * @param tournamentId - the id of the tournament
+     */
+    
+    public SpeakerTabDTO calculateSpeakerTabForTournament(Long tournamentId) {
+        List<Debater> debaters = debaterService.getDebaters();
+        Tournament tournament = tournamentService.findTournamentById(tournamentId);
+        SpeakerTabDTO speakerTab = new SpeakerTabDTO(tournamentId, tournament.getShortName(),3);
+        for (Debater debater : debaters) {
+            List<SpeakerTabBallot> ballots = ballotService.findBallotsByTournamentAndDebater(tournamentId, debater.getId());
+            SpeakerTabRowDTO speakerTabRow = new SpeakerTabRowDTO(debater.getId(),ballots);
+            speakerTab.addSpeakerTabRow(speakerTabRow);
+        }
+        speakerTab.setRanks();
+        printSpeakerTab(speakerTab);
+        return speakerTab;
+    }
+
+    public void printSpeakerTab(SpeakerTabDTO speakerTab) {
+        System.out.println(
+                "Speaker Tab for Tournament: " + speakerTab.getTournamentShortName() + " (ID: " + speakerTab.getTournamentId() + ")");
+        System.out.println("Minimum Speeches Required: " + speakerTab.getMinimumSpeeches());
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.printf("%-10s %-20s %-20s %-20s %-20s%n", "Rank","Debater", "Avg Speaker Score", "Speeches Count",
+                "Std Deviation");
+        System.out.println("--------------------------------------------------------------------------");
+        for (SpeakerTabRowDTO row : speakerTab.getSpeakerTabRows()) {
+            Debater debater = debaterService.getDebaterById(row.getDebaterId());
+            System.out.printf("%-10d %-20s %-20.2f %-20d %-20.2f%n", row.getRank(), debater.getFirstName(),
+                    row.getAverageSpeakerScore(),
+                    row.getSpeechesCount(), row.getStandardDeviation() != null ? row.getStandardDeviation() : 0.0);
+        }
+        System.out.println("--------------------------------------------------");
+
     }
 
 

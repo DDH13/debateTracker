@@ -66,7 +66,7 @@ public class StatisticsController {
     @GetMapping(path = "tournament-average")
     public HashMap<String, HashMap<String, Double>> getTournamentAverage() {
         HashMap<String, HashMap<String, Double>> tournamentAverages = new HashMap<>();
-        List<Tournament> tournaments = tournamentService.getTournament();
+        List<Tournament> tournaments = tournamentService.getTournaments();
 
         for (Tournament tournament : tournaments) {
             //filter out where the speaker score is null or less than 41
