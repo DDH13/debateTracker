@@ -18,9 +18,27 @@ public class DebaterProfile {
     private String firstName;
     private String lastName;
     private String email;
+    
     private Integer prelimsDebated;
     private Integer breaksDebated;
+    private Float activityPercentile;
+    
+    private Integer tournamentsDebated;
+    private Integer championsCount;
+    private Integer finalistCount;
+    private Integer semisCount;
+    private Integer quartersCount;
+    private Integer octosCount;
+    
+    
     private Float winPercentagePrelims;
+    private Float winPercentagePrelimsPercentile;
     private Float winPercentageBreaks;
+    private Float winPercentageBreaksPercentile;
+
+    
+    private Float averageSpeakerScore;
+    private Float speakerScorePercentile;
+    
     
 }
