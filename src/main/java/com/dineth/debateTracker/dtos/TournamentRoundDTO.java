@@ -33,6 +33,13 @@ public class TournamentRoundDTO {
     public Integer getNumberOfRounds() {
         return (int) roundScores.stream().map(RoundScoreDTO::getRoundId).distinct().count();
     }
+    
+    public Double getAverageScore() {
+        if (roundScores == null || roundScores.isEmpty()) {
+            return 0.0;
+        }
+        return roundScores.stream().mapToDouble(RoundScoreDTO::getScore).average().orElse(0.0);
+    }
 
 
 }
