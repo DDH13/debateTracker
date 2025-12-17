@@ -16,4 +16,10 @@ public class DebaterProfileController {
         this.debaterProfileService = debaterProfileService;
     }
     
+    @GetMapping("/refresh")
+    public void updateDebaterProfiles() {
+        debaterProfileService.initializeAllDebaterProfiles();
+        debaterProfileService.updateAllDebaterProfiles();
+    }
+    
 }

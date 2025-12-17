@@ -1,25 +1,39 @@
 package com.dineth.debateTracker.debaterprofile;
 
+import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
+import com.dineth.debateTracker.dtos.RoundScoreDTO;
+import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
+import com.dineth.debateTracker.dtos.TournamentRoundDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.statistics.StatisticsService;
+import com.dineth.debateTracker.tournament.Tournament;
+import com.dineth.debateTracker.tournament.TournamentService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class DebaterProfileService {
+    private static final double SPEAKER_SCORE_DELTA = 0.01;
+    private static final double WIN_RATE_DELTA = 1;
     private final BallotService ballotService;
     private final DebaterService debaterService;
+    private final TournamentService tournamentService;
     private final StatisticsService statisticsService;
     private final DebaterProfileRepository debaterProfileRepository;
 
     public DebaterProfileService(BallotService ballotService, DebaterService debaterService,
-            StatisticsService statisticsService, DebaterProfileRepository debaterProfileRepository) {
+            TournamentService tournamentService, StatisticsService statisticsService,
+            DebaterProfileRepository debaterProfileRepository) {
         this.ballotService = ballotService;
         this.debaterService = debaterService;
+        this.tournamentService = tournamentService;
         this.statisticsService = statisticsService;
         this.debaterProfileRepository = debaterProfileRepository;
     }
@@ -43,6 +57,10 @@ public class DebaterProfileService {
     public void deleteDebaterProfile(Long id) {
         debaterProfileRepository.deleteById(id);
     }
+    
+    public void deleteAllDebaterProfiles() {
+        debaterProfileRepository.deleteAll();
+    }
 
     /**
      * Updates the win percentages for prelims and breaks along with the number of speeches for a given debater profile
@@ -62,7 +80,7 @@ public class DebaterProfileService {
             updateDebaterProfile(debaterProfile);
         }
     }
-    
+
     public void updateEmail(Long debaterId, String email) {
         DebaterProfile debaterProfile = getDebaterProfileByDebaterId(debaterId);
         if (debaterProfile != null) {
@@ -70,5 +88,156 @@ public class DebaterProfileService {
             updateDebaterProfile(debaterProfile);
         }
     }
+
+    /**
+     * Updates the following for a given debater profile - Number of tournaments debated - Average speaker score (over
+     * all tournaments)
+     */
+    public void updateScoreStats(Long debaterId) {
+        DebaterProfile debaterProfile = getDebaterProfileByDebaterId(debaterId);
+        DebaterTournamentScoreDTO speakerPerformance = null;
+        if (debaterProfile == null) {
+            return;
+        }
+        speakerPerformance = statisticsService.getSpeakerTabScoresForDebater(debaterId);
+        debaterProfile.setTournamentsDebated((int) speakerPerformance.getTournamentsDebated());
+        debaterProfile.setAverageSpeakerScore(speakerPerformance.getAverageSpeakerScore().floatValue());
+        updateDebaterProfile(debaterProfile);
+    }
+
+    /**
+     * Deletes all existing debater profiles Initializes debater profiles for all debaters in the system with basic
+     * biodata
+     */
+    public void initializeAllDebaterProfiles() {
+        deleteAllDebaterProfiles();
+        List<Debater> debaters = debaterService.getDebaters();
+        for (Debater debater : debaters) {
+            DebaterProfile debaterProfile = new DebaterProfile(debater.getId(), debater.getFirstName(),
+                    debater.getLastName(), debater.getEmail());
+            addDebaterProfile(debaterProfile);
+        }
+    }
+
+    /**
+     * Updates the individual data for all debater profiles in the system
+     */
+    public void updateAllDebaterProfiles() {
+
+        // Update win/loss stats
+        List<WinLossStatDTO> winLosses = statisticsService.calculateWinLoss();
+        for (WinLossStatDTO winLossStatDTO : winLosses) {
+            updateWinLoss(winLossStatDTO);
+            updateScoreStats(winLossStatDTO.getId());
+        }
+
+        //Updates the ASS and no. of tournaments
+        List<Debater> debaters = debaterService.getDebaters();
+        for (Debater debater : debaters) {
+            updateScoreStats(debater.getId());
+        }
+        
+        //Update percentile fields
+        updateAllPercentiles();
+    }
+    
+
+    /**
+     * Calculates a percentile
+     */
+    public static double percentileRank(double val, List<Double> values, double delta) {
+        if (values == null || values.isEmpty()) {
+            return Double.NaN;
+        }
+
+        int less = 0;
+        int equal = 0;
+
+        for (double v : values) {
+            double diff = v - val;
+
+            if (diff < -delta) {
+                less++;
+            } else if (Math.abs(diff) <= delta) {
+                equal++;
+            }
+            // else: greater, ignore
+        }
+
+        int n = values.size();
+
+        if (equal == 0) {
+            return (less * 100.0) / n;
+        }
+
+        // midrank for ties
+        return ((less + equal / 2.0) * 100.0) / n;
+    }
+
+    /**
+     * Updates the percentiles for all debater profiles in the system
+     */
+    public void updateAllPercentiles() {
+        List<DebaterProfile> profiles = debaterProfileRepository.findAll();
+
+        List<Double> prelimWinRates = new ArrayList<>();
+        List<Double> breakWinRates = new ArrayList<>();
+        List<Double> speakerScores = new ArrayList<>();
+
+        // Build populations (ignore nulls)
+        for (DebaterProfile profile : profiles) {
+            if (profile.getWinPercentagePrelims() != null) {
+                prelimWinRates.add(profile.getWinPercentagePrelims().doubleValue());
+            }
+            if (profile.getWinPercentageBreaks() != null) {
+                breakWinRates.add(profile.getWinPercentageBreaks().doubleValue());
+            }
+            if (profile.getAverageSpeakerScore() != null) {
+                speakerScores.add(profile.getAverageSpeakerScore().doubleValue());
+            }
+        }
+
+        // Compute percentiles
+        for (DebaterProfile profile : profiles) {
+
+            if (profile.getWinPercentagePrelims() != null && !prelimWinRates.isEmpty()) {
+                double p = percentileRank(
+                        profile.getWinPercentagePrelims().doubleValue(),
+                        prelimWinRates,
+                        WIN_RATE_DELTA
+                );
+                profile.setWinPercentagePrelimsPercentile((float) p);
+            } else {
+                profile.setWinPercentagePrelimsPercentile(null);
+            }
+
+            if (profile.getWinPercentageBreaks() != null && !breakWinRates.isEmpty()) {
+                double p = percentileRank(
+                        profile.getWinPercentageBreaks().doubleValue(),
+                        breakWinRates,
+                        WIN_RATE_DELTA
+                );
+                profile.setWinPercentageBreaksPercentile((float) p);
+            } else {
+                profile.setWinPercentageBreaksPercentile(null);
+            }
+
+            if (profile.getAverageSpeakerScore() != null && !speakerScores.isEmpty()) {
+                double p = percentileRank(
+                        profile.getAverageSpeakerScore().doubleValue(),
+                        speakerScores,
+                        SPEAKER_SCORE_DELTA
+                );
+                profile.setSpeakerScorePercentile((float) p);
+            } else {
+                profile.setSpeakerScorePercentile(null);
+            }
+        }
+
+        // Save in batch (important)
+        debaterProfileRepository.saveAll(profiles);
+    }
+
+
 
 }

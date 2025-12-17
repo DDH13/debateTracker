@@ -39,5 +39,12 @@ public class DebaterProfile {
     private Float averageSpeakerScore;
     private Float speakerScorePercentile;
     
+    public DebaterProfile(Long debaterId, String firstName, String lastName, String email) {
+        this.debaterId = debaterId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+    
     
 }

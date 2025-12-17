@@ -310,7 +310,6 @@ public class StatisticsService {
      * This method gets the scores of all debaters in all tournaments as per reflected in the speaker tab
      */
     public Map<Long, DebaterTournamentScoreDTO> getAllSpeakerTabScores() {
-        // Implementation goes here
         List<Debater> debaters = debaterService.getDebaters();
         List<Tournament> tournaments = tournamentService.getTournaments();
         HashMap<Long, DebaterTournamentScoreDTO> debaterTournamentScoreMap = new HashMap<>();
@@ -339,6 +338,32 @@ public class StatisticsService {
             debaterTournamentScoreMap.put(debater.getId(), debaterScoresOfTournaments);
         }
         return debaterTournamentScoreMap;
+    }
+    
+    public DebaterTournamentScoreDTO getSpeakerTabScoresForDebater(Long debaterId) {
+        Debater debater = debaterService.getDebaterById(debaterId);
+        List<Tournament> tournaments = tournamentService.getTournaments();
+        DebaterTournamentScoreDTO debaterScoresOfTournaments = new DebaterTournamentScoreDTO(debater.getFirstName(),
+                debater.getLastName(), debater.getId(), null);
+
+        for (Tournament tournament : tournaments) {
+            List<SpeakerTabBallot> ballots = ballotService.findBallotsByTournamentAndDebater(tournament.getId(),
+                    debater.getId());
+            if (ballots.isEmpty())
+                continue;
+
+            TournamentRoundDTO tournamentDTO = new TournamentRoundDTO(tournament.getShortName(), tournament.getId(),
+                    null);
+
+            //Collect all scores of the debater in the tournament by iterating over the ballot received for each round
+            for (SpeakerTabBallot ballot : ballots) {
+                tournamentDTO.addRoundScore(
+                        new RoundScoreDTO(null, ballot.getRoundId(), ballot.getSpeakerScore().doubleValue(),
+                                ballot.getSpeakerPosition()));
+            }
+            debaterScoresOfTournaments.addTournamentRoundScore(tournamentDTO);
+        }
+        return debaterScoresOfTournaments;
     }
 
 }

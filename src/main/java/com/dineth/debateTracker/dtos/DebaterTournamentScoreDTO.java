@@ -39,4 +39,11 @@ public class DebaterTournamentScoreDTO extends PersonTournamentScoreDTO {
         return roundScores.stream().mapToDouble(RoundScoreDTO::getScore).average().orElse(0.0);
     }
 
+    public long getTournamentsDebated() {
+        if (this.getTournamentRoundScores() == null || this.getTournamentRoundScores().isEmpty()) {
+            return 0;
+        }
+        return this.getTournamentRoundScores().stream().filter(r -> r.getNumberOfRounds() > 0).count();
+    }
+
 }
