@@ -15,6 +15,7 @@ public class DebaterProfile {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "debater_profile_seq")
     @SequenceGenerator(name = "debater_profile_seq", sequenceName = "debater_profile_seq", allocationSize = 1)
     private Long id;
+    private Long debaterId;
     private String firstName;
     private String lastName;
     private String email;
@@ -30,12 +31,10 @@ public class DebaterProfile {
     private Integer quartersCount;
     private Integer octosCount;
     
-    
     private Float winPercentagePrelims;
     private Float winPercentagePrelimsPercentile;
     private Float winPercentageBreaks;
     private Float winPercentageBreaksPercentile;
-
     
     private Float averageSpeakerScore;
     private Float speakerScorePercentile;

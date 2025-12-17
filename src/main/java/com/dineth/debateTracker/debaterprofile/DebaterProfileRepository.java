@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DebaterProfileRepository extends JpaRepository<DebaterProfile, Long> {
-    
+    DebaterProfile getDebaterProfileByDebaterId(Long debaterId);
 }
