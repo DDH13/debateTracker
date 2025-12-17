@@ -2,6 +2,7 @@ package com.dineth.debateTracker.statistics;
 
 
 import com.dineth.debateTracker.ballot.Ballot;
+import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.tournament.Tournament;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -28,6 +30,15 @@ public class StatisticsController {
         this.tournamentService = tournamentService;
     }
 
+    /**
+     * Get the performance of all debaters over all tournaments
+     * (Merges multi panel ballots and considers the highest score for iron-personed debates)
+     * @return Map of Debater ID to DebaterTournamentScoreDTO
+     */
+    @GetMapping(path = "speaker-scores")
+    public Map<Long, DebaterTournamentScoreDTO> getAllSpeakerScores() {
+        return statisticsService.getAllSpeakerTabScores();
+    }
     /**
      * Get global distribution of speaker scores
      *

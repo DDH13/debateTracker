@@ -42,8 +42,8 @@ public class BallotService {
     /**
      * This method finds the ballots for 
      * substantive speeches given by a debater in a specific tournament
-     * This excludes reply speeches and iron-person
-     * @return List of Ballots
+     * This excludes reply speeches, panel judging and iron-personing (substitutes with highest score)
+     * @return List of Ballots that would appear in the speaker tab
      */
     public List<SpeakerTabBallot> findBallotsByTournamentAndDebater(Long tournamentId, Long debaterId) {
         

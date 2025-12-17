@@ -8,10 +8,13 @@ import com.dineth.debateTracker.debate.DebateRepository;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterRepository;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
+import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabDTO;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
+import com.dineth.debateTracker.dtos.TournamentRoundDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
@@ -25,6 +28,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -300,6 +304,41 @@ public class StatisticsService {
         }
         System.out.println("--------------------------------------------------");
 
+    }
+
+    /**
+     * This method gets the scores of all debaters in all tournaments as per reflected in the speaker tab
+     */
+    public Map<Long, DebaterTournamentScoreDTO> getAllSpeakerTabScores() {
+        // Implementation goes here
+        List<Debater> debaters = debaterService.getDebaters();
+        List<Tournament> tournaments = tournamentService.getTournaments();
+        HashMap<Long, DebaterTournamentScoreDTO> debaterTournamentScoreMap = new HashMap<>();
+
+        for (Debater debater : debaters) {
+            DebaterTournamentScoreDTO debaterScoresOfTournaments = new DebaterTournamentScoreDTO(debater.getFirstName(),
+                    debater.getLastName(), debater.getId(), null);
+            for (Tournament tournament : tournaments) {
+                List<SpeakerTabBallot> ballots = ballotService.findBallotsByTournamentAndDebater(tournament.getId(),
+                        debater.getId());
+                if (ballots.isEmpty())
+                    continue;
+
+                TournamentRoundDTO tournamentDTO = new TournamentRoundDTO(tournament.getShortName(), tournament.getId(),
+                        null);
+
+                //Collect all scores of the debater in the tournament by iterating over the ballot received for each round
+                for (SpeakerTabBallot ballot : ballots) {
+                    tournamentDTO.addRoundScore(
+                            new RoundScoreDTO(null, ballot.getRoundId(), ballot.getSpeakerScore().doubleValue(),
+                                    ballot.getSpeakerPosition()));
+                }
+                debaterScoresOfTournaments.addTournamentRoundScore(tournamentDTO);
+
+            }
+            debaterTournamentScoreMap.put(debater.getId(), debaterScoresOfTournaments);
+        }
+        return debaterTournamentScoreMap;
     }
 
 }

@@ -108,8 +108,11 @@ public class DebaterService {
                 " with " + + newDebater.getId() + " " + newDebater.getFirstName() + " " + newDebater.getLastName());
     }
 
+    //TODO this method should be in the statistics service
     /**
-     * get all speaks for a debater from each tournament
+     * Get all speaks for a debater from each tournament
+     * This will include multiple ballots given by different judges in the same round
+     * This will include iron-personed speeches
      */
     public DebaterTournamentScoreDTO getTournamentsAndScoresForSpeaker(Long debaterID, Boolean reply) {
 //        Get the result set from the db
