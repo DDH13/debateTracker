@@ -15,6 +15,7 @@ import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
+import com.dineth.debateTracker.round.Round;
 import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
@@ -36,8 +37,9 @@ public class StatisticsService {
     private final DebaterService debaterService;
     private final TournamentService tournamentService;
 
-    StatisticsService(BallotRepository ballotRepository, JudgeRepository judgeRepository, DebateRepository debateRepository, DebaterRepository debaterRepository,
-            BallotService ballotService, DebaterService debaterService, TournamentService tournamentService) {
+    StatisticsService(BallotRepository ballotRepository, JudgeRepository judgeRepository,
+            DebateRepository debateRepository, DebaterRepository debaterRepository, BallotService ballotService,
+            DebaterService debaterService, TournamentService tournamentService) {
         this.ballotRepository = ballotRepository;
         this.judgeRepository = judgeRepository;
         this.debateRepository = debateRepository;
@@ -52,7 +54,9 @@ public class StatisticsService {
         int totalBallots = ballots.size();
         double scores = ballots.stream().mapToDouble(Ballot::getSpeakerScore).sum();
         Double globalMean = scores / totalBallots;
-        Double stdDeviation = Math.sqrt(ballots.stream().mapToDouble(ballot -> Math.pow(ballot.getSpeakerScore() - globalMean, 2)).average().orElse(0.0));
+        Double stdDeviation = Math.sqrt(
+                ballots.stream().mapToDouble(ballot -> Math.pow(ballot.getSpeakerScore() - globalMean, 2)).average()
+                        .orElse(0.0));
         return new HashMap<>() {{
             put("mean", globalMean);
             put("stdDeviation", stdDeviation);
@@ -62,16 +66,17 @@ public class StatisticsService {
     /**
      * Get sentiment of judges
      *
-     * @param allowedDeviation - the extent to which a judge is allowed to deviate from the average score of a debater before being considered lenient or harsh
+     * @param allowedDeviation - the extent to which a judge is allowed to deviate from the average score of a debater
+     *                         before being considered lenient or harsh
      * @return List of JudgeSentimentDTO
      */
 
     public List<JudgeSentimentDTO> getSentiment(double allowedDeviation) {
-//        Querying db for initial data
+        //        Querying db for initial data
         List<Ballot> ballots = ballotRepository.findBallotBySpeakerScoreGreaterThan(40.5f);
         List<Judge> judges = judgeRepository.findAll();
 
-//      Storing the average scores of debaters excluding the scores given by a specific judge to inefficient repeated calculations
+        //      Storing the average scores of debaters excluding the scores given by a specific judge to inefficient repeated calculations
         HashMap<Long, HashMap<Long, Double>> debaterAverages = new HashMap<>();
         for (Ballot ballot : ballots) {
             Long debaterId = ballot.getDebater().getId();
@@ -88,10 +93,11 @@ public class StatisticsService {
         List<JudgeSentimentDTO> judgeSentiments = new ArrayList<>();
 
         for (Judge judge : judges) {
-//            Get all ballots for the given judge
-            List<Ballot> judgeBallots = ballots.stream().filter(ballot -> ballot.getJudge().getId().equals(judge.getId())).toList();
+            //            Get all ballots for the given judge
+            List<Ballot> judgeBallots = ballots.stream()
+                    .filter(ballot -> ballot.getJudge().getId().equals(judge.getId())).toList();
 
-//          If a judge has not judged any debates, they are not included in the analysis
+            //          If a judge has not judged any debates, they are not included in the analysis
             if (judgeBallots.isEmpty()) {
                 continue;
             }
@@ -101,7 +107,7 @@ public class StatisticsService {
             int neutrality = 0;
             int speechesConsidered = 0;
 
-//            Calculating leniency and harshness
+            //            Calculating leniency and harshness
             for (Ballot ballot : judgeBallots) {
                 Double debaterAvg = debaterAverages.get(ballot.getDebater().getId()).get(judge.getId());
                 if (debaterAvg != null) {
@@ -120,7 +126,8 @@ public class StatisticsService {
             double harshnessSum = harshness.stream().mapToDouble(Double::doubleValue).sum();
             double overallSentiment = (leniencySum + harshnessSum) / speechesConsidered;
 
-            JudgeSentimentDTO judgeSentiment = new JudgeSentimentDTO(judge, speechesConsidered, leniency.size(), harshness.size(), neutrality, leniencySum, harshnessSum, overallSentiment);
+            JudgeSentimentDTO judgeSentiment = new JudgeSentimentDTO(judge, speechesConsidered, leniency.size(),
+                    harshness.size(), neutrality, leniencySum, harshnessSum, overallSentiment);
 
             judgeSentiments.add(judgeSentiment);
         }
@@ -135,11 +142,12 @@ public class StatisticsService {
      * @param ballots   - list of all ballots to be considered
      */
     public Double calculateSpeakerAverageExcludingJudge(Long judgeId, Long debaterId, List<Ballot> ballots) {
-//        get all ballots for a debater
-        List<Ballot> debaterBallots = new ArrayList<>(ballots.stream().filter(ballot -> ballot.getDebater().getId().equals(debaterId)).toList());
-//        remove ballots from the judge
+        //        get all ballots for a debater
+        List<Ballot> debaterBallots = new ArrayList<>(
+                ballots.stream().filter(ballot -> ballot.getDebater().getId().equals(debaterId)).toList());
+        //        remove ballots from the judge
         debaterBallots.removeIf(ballot -> ballot.getJudge().getId().equals(judgeId));
-//        check if the debater has a minimum number of ballots to calculate average
+        //        check if the debater has a minimum number of ballots to calculate average
         int minBallots = 5;
         if (debaterBallots.size() < minBallots) {
             return null;
@@ -159,7 +167,8 @@ public class StatisticsService {
             if (relevantDebates.isEmpty()) {
                 continue;
             }
-            WinLossStatDTO debaterStat = new WinLossStatDTO(debater.getFirstName(), debater.getLastName(), debater.getId());
+            WinLossStatDTO debaterStat = new WinLossStatDTO(debater.getFirstName(), debater.getLastName(),
+                    debater.getId());
 
             for (Debate debate : relevantDebates) {
                 Boolean didWin = didDebaterWinDebate(debate, debater);
@@ -189,7 +198,8 @@ public class StatisticsService {
             if (relevantDebates.isEmpty()) {
                 continue;
             }
-            WinLossStatDTO debaterStat = new WinLossStatDTO(debater.getFirstName(), debater.getLastName(), debater.getId());
+            WinLossStatDTO debaterStat = new WinLossStatDTO(debater.getFirstName(), debater.getLastName(),
+                    debater.getId());
 
             for (Debate debate : relevantDebates) {
                 Boolean didWin = didDebaterWinDebate(debate, debater);
@@ -252,17 +262,21 @@ public class StatisticsService {
     }
 
     /**
-     * Calculates the speaker tab for a tournament 
+     * Calculates the speaker tab for a tournament
+     *
      * @param tournamentId - the id of the tournament
      */
-    
+
     public SpeakerTabDTO calculateSpeakerTabForTournament(Long tournamentId) {
         List<Debater> debaters = debaterService.getDebaters();
         Tournament tournament = tournamentService.findTournamentById(tournamentId);
-        SpeakerTabDTO speakerTab = new SpeakerTabDTO(tournamentId, tournament.getShortName(),3);
+        long prelims = tournament.getRounds().stream().filter(round -> !round.getIsBreakRound()).count();
+        int minimumSpeeches = (int) Math.ceil(prelims / 2.0);
+        SpeakerTabDTO speakerTab = new SpeakerTabDTO(tournamentId, tournament.getShortName(), minimumSpeeches);
         for (Debater debater : debaters) {
-            List<SpeakerTabBallot> ballots = ballotService.findBallotsByTournamentAndDebater(tournamentId, debater.getId());
-            SpeakerTabRowDTO speakerTabRow = new SpeakerTabRowDTO(debater.getId(),ballots);
+            List<SpeakerTabBallot> ballots = ballotService.findBallotsByTournamentAndDebater(tournamentId,
+                    debater.getId());
+            SpeakerTabRowDTO speakerTabRow = new SpeakerTabRowDTO(debater.getId(), ballots);
             speakerTab.addSpeakerTabRow(speakerTabRow);
         }
         speakerTab.setRanks();
@@ -275,18 +289,17 @@ public class StatisticsService {
                 "Speaker Tab for Tournament: " + speakerTab.getTournamentShortName() + " (ID: " + speakerTab.getTournamentId() + ")");
         System.out.println("Minimum Speeches Required: " + speakerTab.getMinimumSpeeches());
         System.out.println("--------------------------------------------------------------------------");
-        System.out.printf("%-10s %-20s %-20s %-20s %-20s%n", "Rank","Debater", "Avg Speaker Score", "Speeches Count",
+        System.out.printf("%-10s %-20s %-20s %-20s %-20s%n", "Rank", "Debater", "Avg Speaker Score", "Speeches Count",
                 "Std Deviation");
         System.out.println("--------------------------------------------------------------------------");
         for (SpeakerTabRowDTO row : speakerTab.getSpeakerTabRows()) {
             Debater debater = debaterService.getDebaterById(row.getDebaterId());
             System.out.printf("%-10d %-20s %-20.2f %-20d %-20.2f%n", row.getRank(), debater.getFirstName(),
-                    row.getAverageSpeakerScore(),
-                    row.getSpeechesCount(), row.getStandardDeviation() != null ? row.getStandardDeviation() : 0.0);
+                    row.getAverageSpeakerScore(), row.getSpeechesCount(),
+                    row.getStandardDeviation() != null ? row.getStandardDeviation() : 0.0);
         }
         System.out.println("--------------------------------------------------");
 
     }
-
 
 }
