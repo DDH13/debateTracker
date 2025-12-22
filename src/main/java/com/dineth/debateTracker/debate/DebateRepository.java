@@ -17,4 +17,8 @@ public interface DebateRepository extends JpaRepository<Debate, Long> {
     JOIN eb.loser l JOIN w.debaters wd JOIN l.debaters ld WHERE (wd.id = :debaterId OR ld.id = :debaterId)
 """)
     List<Debate> findBreaksByDebaterId(@Param("debaterId") Long debaterId);
+
+    @Query("SELECT d FROM Debate d WHERE d.round.id = :roundId")
+    List<Debate> findDebatesByRoundId(@Param("roundId") Long roundId);
+
 }
