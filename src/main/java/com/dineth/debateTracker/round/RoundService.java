@@ -41,4 +41,12 @@ public class RoundService {
         }
     }
 
+    /**
+     * Get all the round names for a given tournament
+     * @return List of Strings representing the round names
+     */
+    public List<String> getRoundNamesByTournamentId(Long tournamentId) {
+        return roundRepository.findRoundNameByTournamentId(tournamentId);
+    }
+
 }

@@ -42,6 +42,13 @@ public class DebateService {
     }
 
     /**
+     * Find all debates in a given round
+     */
+    public List<Debate> findDebatesByRoundId(Long roundId) {
+        return debateRepository.findDebatesByRoundId(roundId);
+    }
+
+    /**
      * Find all the debaters in a debate and returns them in two teams
      * Excludes the debaters who didn't speak in the debate if it's a preliminary round
      **/
