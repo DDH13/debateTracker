@@ -12,6 +12,11 @@ public class StringUtil {
         if (raw == null) {
             return null;
         }
+        
+        // remove HTML tags
+        raw = raw.replaceAll("<[^>]+>", " ");
+        // decode HTML entities
+        raw = org.apache.commons.text.StringEscapeUtils.unescapeHtml4(raw);
 
         return Normalizer.normalize(raw, Normalizer.Form.NFKC)
                 // HTML / XML whitespace oddities

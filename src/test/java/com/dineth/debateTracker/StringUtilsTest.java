@@ -202,6 +202,17 @@ public class StringUtilsTest {
                 String result = StringUtil.normalizeName("");
                 Assertions.assertEquals("", result);
             }
+            
+            @Test
+            @Name("Motion with html tags")
+            void testNormalizeName_HtmlTags() {
+                String input = "<p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You are Tharani. Before you are born you are given a choice. You can either choose to be memorable in a highly popular sport (Moeen Ali in cricket,&nbsp; Angel di Maria in football) or you can choose to be considered as the undisputed Greatest Of All Time in a less popular sport (Magnus Carlsen in chess, Lin Dan in badminton, Shalem Sumanthiran in SL debating).&nbsp;</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You will not be aware that you made this choice after you are born.</span></p>";
+                String result = StringUtil.normalizeName(input);
+
+                Assertions.assertEquals(
+                        "You are Tharani. Before you are born you are given a choice. You can either choose to be memorable in a highly popular sport (Moeen Ali in cricket, Angel di Maria in football) or you can choose to be considered as the undisputed Greatest Of All Time in a less popular sport (Magnus Carlsen in chess, Lin Dan in badminton, Shalem Sumanthiran in SL debating). You will not be aware that you made this choice after you are born.",
+                        result);
+            }
         }
 
 

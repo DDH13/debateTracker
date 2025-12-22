@@ -46,6 +46,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.dineth.debateTracker.utils.StringUtil.normalizeName;
+
 @RestController
 @Slf4j
 @CrossOrigin(origins = "*")
@@ -260,8 +262,8 @@ public class TournamentBuilder {
             }
             try {
                 for (MotionDTO motionDTO : motionDTOs) {
-                    Motion motion = new Motion(motionDTO.getMotion(), motionDTO.getInfoSlide(),
-                            motionDTO.getReference());
+                    Motion motion = new Motion(normalizeName(motionDTO.getMotion()),
+                            normalizeName(motionDTO.getInfoSlide()), motionDTO.getReference());
                     motion = motionService.addMotion(motion);
                     motionDTO.setDbId(motion.getId());
                     tournamentService.addMotionToTournament(tournament.getId(), motion);
