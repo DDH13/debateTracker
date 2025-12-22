@@ -37,7 +37,7 @@ public class Debate implements Serializable {
     private Motion motion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "round_id", nullable = false)
+    @JoinColumn(name = "round_id", nullable = true)
     private Round round;
     
     @OneToMany

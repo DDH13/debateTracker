@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity @Table(name="round") @Getter @Setter @NoArgsConstructor
@@ -19,12 +20,12 @@ public class Round implements Serializable {
     private Integer roundNo;
     private Boolean isBreakRound;
 
-    @OneToMany(mappedBy = "round")
-    private List<Debate> debates;
+    @OneToMany(mappedBy = "round", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Debate> debates = new ArrayList<>();
     
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tournament_id", nullable = false)
+    @JoinColumn(name = "tournament_id", nullable = true)
     private Tournament tournament;
     
     @Temporal(TemporalType.TIMESTAMP)

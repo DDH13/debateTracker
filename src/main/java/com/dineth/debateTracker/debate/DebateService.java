@@ -22,6 +22,10 @@ public class DebateService {
     public List<Debate> getDebate() {
         return debateRepository.findAll();
     }
+    
+    public void updateDebate(Debate debate) {
+        debateRepository.save(debate);
+    }
 
     public Debate addDebate(Debate debate) {
         return debateRepository.save(debate);

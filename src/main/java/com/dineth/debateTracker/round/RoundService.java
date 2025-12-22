@@ -3,6 +3,7 @@ package com.dineth.debateTracker.round;
 import com.dineth.debateTracker.debate.Debate;
 import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.debater.Debater;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,21 +29,21 @@ public class RoundService {
         return roundRepository.findById(id).orElse(null);
     }
 
+    public void updateRound(Round round) {
+        roundRepository.save(round);
+    }
+
     public Round addRound(Round round) {
         return roundRepository.save(round);
     }
 
+    @Transactional
     public void addDebateToRound(Long roundId, Debate debate) {
-        Round round = roundRepository.findById(roundId).orElse(null);
-        if (round != null) {
-            List<Debate> rounds = round.getDebates();
-            if (rounds == null) {
-                rounds = new ArrayList<>();
-            }
-            rounds.add(debate);
-            round.setDebates(rounds);
-            roundRepository.save(round);
-        }
+        Round round = roundRepository.findById(roundId).orElseThrow(
+                () -> new IllegalArgumentException("Round with id " + roundId + " not found for adding debate."));
+        debate.setRound(round);
+        round.getDebates().add(debate);
+        debateService.updateDebate(debate);
     }
 
     /**
