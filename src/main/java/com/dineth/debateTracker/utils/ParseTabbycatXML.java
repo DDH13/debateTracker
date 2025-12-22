@@ -305,8 +305,10 @@ public class ParseTabbycatXML {
                     String debateVenue = venueNode != null ? venueNode.getNodeValue() : "";
                     String adjudicators = attributes.getNamedItem("adjudicators").getNodeValue();
                     String chair = attributes.getNamedItem("chair").getNodeValue();
+                    Node motionNode = attributes.getNamedItem("motion");
+                    String motion = motionNode != null ? motionNode.getNodeValue() : null;
                     List<SideDTO> sideDTOs = getSidesDTO(debate);
-                    debateDTOS.add(new DebateDTO(debateId, adjudicators, chair, debateVenue, null, sideDTOs));
+                    debateDTOS.add(new DebateDTO(debateId, adjudicators, chair, debateVenue, motion, sideDTOs));
                 }
             }
             return debateDTOS;
