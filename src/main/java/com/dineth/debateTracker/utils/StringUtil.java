@@ -3,10 +3,35 @@ package com.dineth.debateTracker.utils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.HashSet;
 @Slf4j
 public class StringUtil {
+    public static String normalizeName(String raw) {
+        if (raw == null) {
+            return null;
+        }
+
+        return Normalizer.normalize(raw, Normalizer.Form.NFKC)
+                // HTML / XML whitespace oddities
+                .replace('\u00A0', ' ')   // non-breaking space
+                .replace('\u2007', ' ')   // figure space
+                .replace('\u202F', ' ')   // narrow no-break space
+                
+                // Normalize quotes and dashes (optional but sane)
+                .replace('’', '\'')
+                .replace('‘', '\'')
+                .replace('“', '"')
+                .replace('”', '"')
+                .replace('–', '-')
+                .replace('—', '-')
+
+                // Collapse all whitespace
+                .replaceAll("\\s+", " ")
+                .trim();
+    }
+    
     /**
      * Splits a name into first name and last name
      *
@@ -19,12 +44,13 @@ public class StringUtil {
         if (name == null || name.isEmpty()) {
             throw new CustomExceptions.NameSplitException("Debater name cannot be null or empty");
         }
+        name = normalizeName(name);
         //split based on spaces or dots
         String[] parts = name.split("[\\s.]");
         //remove all empty strings
         parts = Arrays.stream(parts).filter(s -> !s.isEmpty()).toArray(String[]::new);
         if (parts.length == 1) {
-            log.warn("People names must at least have a first name and a last name");
+            log.warn("Name '{}' does not have a last name, setting last name as empty", name);
             return new ImmutablePair<>(capitalizeName(parts[0]), "");
         }
 

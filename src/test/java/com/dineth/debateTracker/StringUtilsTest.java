@@ -142,6 +142,69 @@ public class StringUtilsTest {
             Assertions.assertEquals(expected3, StringUtil.capitalizeName(name3));
         }
 
+        @Nested
+        class NormalizeNameTest {
+
+            @Test
+            @Name("Normalize non-breaking space from XML")
+            void testNormalizeName_NonBreakingSpace() {
+                String input = "Prabagar\u00A0Deesitan";
+                String result = StringUtil.normalizeName(input);
+
+                Assertions.assertEquals("Prabagar Deesitan", result);
+            }
+
+            @Test
+            @Name("Normalize multiple whitespace types")
+            void testNormalizeName_MixedWhitespace() {
+                String input = "  John\u00A0\u202F  Doe  ";
+                String result = StringUtil.normalizeName(input);
+
+                Assertions.assertEquals("John Doe", result);
+            }
+            
+            @Test
+            @Name("Normalize smart quotes and dashes")
+            void testNormalizeName_SmartQuotesAndDashes() {
+                String input = "O’Connor–Smith";
+                String result = StringUtil.normalizeName(input);
+
+                Assertions.assertEquals("O'Connor-Smith", result);
+            }
+
+            @Test
+            @Name("Collapse excessive whitespace")
+            void testNormalizeName_CollapseWhitespace() {
+                String input = "John     Doe";
+                String result = StringUtil.normalizeName(input);
+
+                Assertions.assertEquals("John Doe", result);
+            }
+
+            @Test
+            @Name("Trim leading and trailing whitespace")
+            void testNormalizeName_Trim() {
+                String input = "   John Doe   ";
+                String result = StringUtil.normalizeName(input);
+
+                Assertions.assertEquals("John Doe", result);
+            }
+
+            @Test
+            @Name("Null input returns null")
+            void testNormalizeName_NullInput() {
+                Assertions.assertNull(StringUtil.normalizeName(null));
+            }
+
+            @Test
+            @Name("Empty string remains empty")
+            void testNormalizeName_EmptyString() {
+                String result = StringUtil.normalizeName("");
+                Assertions.assertEquals("", result);
+            }
+        }
+
+
 
     }
 }
