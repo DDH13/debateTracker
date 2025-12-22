@@ -5,6 +5,7 @@ import com.dineth.debateTracker.ballot.BallotRepository;
 import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debate.Debate;
 import com.dineth.debateTracker.debate.DebateRepository;
+import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterRepository;
 import com.dineth.debateTracker.debater.DebaterService;
@@ -19,6 +20,7 @@ import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
 import com.dineth.debateTracker.round.Round;
+import com.dineth.debateTracker.round.RoundService;
 import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
@@ -35,22 +37,26 @@ import java.util.Map;
 public class StatisticsService {
     private final BallotRepository ballotRepository;
     private final JudgeRepository judgeRepository;
+    private final DebateService debateService;
     private final DebateRepository debateRepository;
     private final DebaterRepository debaterRepository;
     private final BallotService ballotService;
     private final DebaterService debaterService;
     private final TournamentService tournamentService;
+    private final RoundService roundService;
 
-    StatisticsService(BallotRepository ballotRepository, JudgeRepository judgeRepository,
+    StatisticsService(BallotRepository ballotRepository, JudgeRepository judgeRepository, DebateService debateService,
             DebateRepository debateRepository, DebaterRepository debaterRepository, BallotService ballotService,
-            DebaterService debaterService, TournamentService tournamentService) {
+            DebaterService debaterService, TournamentService tournamentService, RoundService roundService) {
         this.ballotRepository = ballotRepository;
         this.judgeRepository = judgeRepository;
+        this.debateService = debateService;
         this.debateRepository = debateRepository;
         this.debaterRepository = debaterRepository;
         this.ballotService = ballotService;
         this.debaterService = debaterService;
         this.tournamentService = tournamentService;
+        this.roundService = roundService;
     }
 
     public HashMap<String, Double> getGlobalDistribution() {
@@ -175,7 +181,7 @@ public class StatisticsService {
                     debater.getId());
 
             for (Debate debate : relevantDebates) {
-                Boolean didWin = didDebaterWinDebate(debate, debater);
+                Boolean didWin = debateService.didDebaterWinDebate(debate, debater);
                 if (didWin == null) {
                     continue;
                 }
@@ -206,7 +212,7 @@ public class StatisticsService {
                     debater.getId());
 
             for (Debate debate : relevantDebates) {
-                Boolean didWin = didDebaterWinDebate(debate, debater);
+                Boolean didWin = debateService.didDebaterWinDebate(debate, debater);
                 if (didWin == null) {
                     continue;
                 }
@@ -243,28 +249,7 @@ public class StatisticsService {
         }
         return new ArrayList<>(debaterStats.values());
     }
-
-    /**
-     * Check if a debater won a debate
-     *
-     * @param debate  - the debate to be checked
-     * @param debater - the debater to be checked
-     * @return true if the debater won, false if the debater lost, null if the debate is undecided
-     */
-    public Boolean didDebaterWinDebate(Debate debate, Debater debater) {
-        Team winner = debate.getWinner();
-        if (winner == null) {
-            return null;
-        }
-        if (debate.getProposition().getDebaters().contains(debater)) {
-            return winner.equals(debate.getProposition());
-        }
-        if (debate.getOpposition().getDebaters().contains(debater)) {
-            return winner.equals(debate.getOpposition());
-        }
-        return null;
-    }
-
+    
     /**
      * Calculates the speaker tab for a tournament
      *

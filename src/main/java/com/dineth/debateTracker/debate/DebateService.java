@@ -127,4 +127,40 @@ public class DebateService {
         return headToHead;
     }
 
+    /**
+     * Check whether a debater participated in a debate
+     * @return true if the debater participated, false otherwise
+     */
+    
+    public boolean didDebaterParticipateInDebate(Debate debate, Debater debater) {
+        List<Team> teams = findDebatersSpeakingInDebate(debate);
+        for (Team team : teams) {
+            if (team.getDebaters().contains(debater)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Check if a debater won a debate
+     *
+     * @param debate  - the debate to be checked
+     * @param debater - the debater to be checked
+     * @return true if the debater won, false if the debater lost, null if the debate is undecided
+     */
+    public Boolean didDebaterWinDebate(Debate debate, Debater debater) {
+        Team winner = debate.getWinner();
+        if (winner == null) {
+            log.error("Debate ID {} has no winner set.", debate.getId());
+            return null;
+        }
+        if (debate.getProposition().getDebaters().contains(debater)) {
+            return winner.equals(debate.getProposition());
+        }
+        if (debate.getOpposition().getDebaters().contains(debater)) {
+            return winner.equals(debate.getOpposition());
+        }
+        return null;
+    }
+
 }
