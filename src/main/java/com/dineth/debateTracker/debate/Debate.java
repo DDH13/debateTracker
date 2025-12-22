@@ -4,6 +4,7 @@ import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.eliminationballot.EliminationBallot;
 import com.dineth.debateTracker.feedback.Feedback;
 import com.dineth.debateTracker.motion.Motion;
+import com.dineth.debateTracker.round.Round;
 import com.dineth.debateTracker.team.Team;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,14 +26,23 @@ public class Debate implements Serializable {
     private Team opposition;
     @ManyToOne
     private Team winner;
+    
     @OneToMany @JoinColumn(name = "debate_id")
     private List<Ballot> ballots;
+    
     @OneToMany @JoinColumn(name = "debate_id")
     private List<EliminationBallot> eliminationBallots;
+    
     @ManyToOne @JoinColumn(name = "motion_id")
     private Motion motion;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "round_id", nullable = false)
+    private Round round;
+    
     @OneToMany
     private List<Feedback> feedbacks;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdAt;
     @Temporal(TemporalType.TIMESTAMP)

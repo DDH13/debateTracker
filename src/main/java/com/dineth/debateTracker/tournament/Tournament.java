@@ -25,13 +25,16 @@ public class Tournament implements Serializable {
     private String fullName;
     private String shortName;
     private Date date;
+    
     @OneToMany @JoinColumn(name = "tournament_id")
     private List<BreakCategory> breakCategories;
-    @JoinColumn(name = "tournament_id")
-    @OneToMany
+    
+    @OneToMany(mappedBy = "tournament")
     private List<Round> rounds;
+    
     @OneToMany @JoinColumn(name = "tournament_id")
     private List<Motion> motions;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdAt;
     @Temporal(TemporalType.TIMESTAMP)
