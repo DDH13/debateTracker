@@ -5,8 +5,10 @@ import com.dineth.debateTracker.breakcategory.BreakCategory;
 import com.dineth.debateTracker.debate.Debate;
 import com.dineth.debateTracker.motion.Motion;
 import com.dineth.debateTracker.round.Round;
+import com.dineth.debateTracker.round.RoundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +16,18 @@ import java.util.List;
 @Service
 public class TournamentService {
     private final TournamentRepository tournamentRepository;
+    private final RoundService roundService;
 
     @Autowired
-    public TournamentService(TournamentRepository tournamentRepository) {
+    public TournamentService(TournamentRepository tournamentRepository, RoundService roundService) {
         this.tournamentRepository = tournamentRepository;
+        this.roundService = roundService;
     }
 
     public List<Tournament> getTournaments() {
         return tournamentRepository.findAll();
     }
-    
+
     public Tournament getTournamentById(Long id) {
         return tournamentRepository.findById(id).orElse(null);
     }
@@ -36,17 +40,14 @@ public class TournamentService {
         return tournamentRepository.findById(id).orElse(null);
     }
 
-    public void addRoundToTournament(Long tournamentId, Round round) {
-        Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
-        if (tournament != null) {
-            List<Round> rounds = tournament.getRounds();
-            if (rounds == null) {
-                rounds = new ArrayList<>();
-            }
-            rounds.add(round);
-            tournament.setRounds(rounds);
-            tournamentRepository.save(tournament);
-        }
+    @Transactional
+    public void addRoundToTournament(Long tournamentId, Round round) throws Exception {
+        Tournament tournament = tournamentRepository.findById(tournamentId).orElseThrow(
+                () -> new Exception("Tournament with id " + tournamentId + " not found for adding round."));
+        round.setTournament(tournament);
+        tournament.getRounds().add(round);
+
+        roundService.updateRound(round);
     }
 
     public void addMotionToTournament(Long tournamentId, Motion motion) {
@@ -61,6 +62,7 @@ public class TournamentService {
             tournamentRepository.save(tournament);
         }
     }
+
     public void addBreakCategoryToTournament(Long tournamentId, BreakCategory breakCategory) {
         Tournament tournament = tournamentRepository.findById(tournamentId).orElse(null);
         if (tournament != null) {

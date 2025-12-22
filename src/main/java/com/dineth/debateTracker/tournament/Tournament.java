@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,9 +29,9 @@ public class Tournament implements Serializable {
     
     @OneToMany @JoinColumn(name = "tournament_id")
     private List<BreakCategory> breakCategories;
-    
-    @OneToMany(mappedBy = "tournament")
-    private List<Round> rounds;
+
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Round> rounds = new ArrayList<>();
     
     @OneToMany @JoinColumn(name = "tournament_id")
     private List<Motion> motions;
