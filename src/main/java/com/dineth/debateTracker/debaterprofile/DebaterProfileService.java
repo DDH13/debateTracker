@@ -10,6 +10,7 @@ import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.statistics.StatisticsService;
 import com.dineth.debateTracker.tournament.TournamentService;
 import com.dineth.debateTracker.utils.ProfileUtil;
+import org.apache.commons.math3.stat.Frequency;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -111,16 +112,18 @@ public class DebaterProfileService {
         debaterProfile.setAverageSpeakerScore(speakerPerformance.getAverageSpeakerScore().floatValue());
         updateDebaterProfile(debaterProfile);
     }
-    
-    public void updateSpeakerPerformances(Map<Long,List<SpeakerPerformanceDTO>> debaterPerformances) {
-       for (Long debaterId : debaterPerformances.keySet()) {
-           DebaterProfile debaterProfile = getDebaterProfileByDebaterId(debaterId);
-           if (debaterProfile != null) {
-               List<SpeakerPerformanceDTO> performances = debaterPerformances.get(debaterId);
-               debaterProfile.setSpeakerPerformances(performances);
-               updateDebaterProfile(debaterProfile);
-           }
-       }
+
+    public void updateSpeakerPerformances(Map<Long, List<SpeakerPerformanceDTO>> debaterPerformances) {
+        List<DebaterProfile> profiles = new ArrayList<>();
+        for (Long debaterId : debaterPerformances.keySet()) {
+            DebaterProfile debaterProfile = getDebaterProfileByDebaterId(debaterId);
+            if (debaterProfile != null) {
+                List<SpeakerPerformanceDTO> performances = debaterPerformances.get(debaterId);
+                debaterProfile.setSpeakerPerformances(performances);
+                profiles.add(debaterProfile);
+            }
+        }
+        debaterProfileRepository.saveAll(profiles);
     }
 
     /**
@@ -160,83 +163,83 @@ public class DebaterProfileService {
 
         //Update percentile fields
         updateAllPercentiles();
-        
+
         //Update speaker performances
         updateSpeakerPerformances(statisticsService.findSpeakerPerformanceOfDebaters());
     }
-    
+
     /**
      * Updates the percentiles for all debater profiles in the system
      */
     public void updateAllPercentiles() {
         List<DebaterProfile> profiles = debaterProfileRepository.findAll();
+        if (profiles.isEmpty())
+            return;
 
-        List<Double> prelimWinRates = new ArrayList<>();
-        List<Double> breakWinRates = new ArrayList<>();
-        List<Double> speakerScores = new ArrayList<>();
-        List<Long> roundsDebated = new ArrayList<>();
+        // 1. Initialize Frequency objects
+        Frequency prelimFreq = new Frequency();
+        Frequency breakFreq = new Frequency();
+        Frequency speakerFreq = new Frequency();
+        Frequency activityFreq = new Frequency();
 
-        // Build populations (ignore nulls)
+        // 2. Build populations in a single pass (O(N))
         for (DebaterProfile profile : profiles) {
             if (profile.getWinPercentagePrelims() != null) {
-                prelimWinRates.add(profile.getWinPercentagePrelims().doubleValue());
+                prelimFreq.addValue(profile.getWinPercentagePrelims().doubleValue());
             }
             if (profile.getWinPercentageBreaks() != null) {
-                breakWinRates.add(profile.getWinPercentageBreaks().doubleValue());
+                breakFreq.addValue(profile.getWinPercentageBreaks().doubleValue());
             }
             if (profile.getAverageSpeakerScore() != null) {
-                speakerScores.add(profile.getAverageSpeakerScore().doubleValue());
+                speakerFreq.addValue(profile.getAverageSpeakerScore().doubleValue());
             }
-            long rounds = Stream.of(profile.getPrelimsDebated(), profile.getBreaksDebated()).filter(Objects::nonNull)
-                    .mapToLong(Integer::longValue).sum();
-            roundsDebated.add(rounds);
-        }
-        //remove 0 values from rounds debated to avoid skewing activity percentiles
-        roundsDebated.removeIf(r -> r == 0);
 
-        // Compute percentiles
+            int totalRounds = (profile.getPrelimsDebated() != null ?
+                    profile.getPrelimsDebated() :
+                    0) + (profile.getBreaksDebated() != null ? profile.getBreaksDebated() : 0);
+            if (totalRounds > 0) {
+                activityFreq.addValue(totalRounds);
+            }
+        }
+
+        // 3. Compute and set percentiles (O(N log K) where K is unique values)
         for (DebaterProfile profile : profiles) {
-
-//          Calculate overall speaker ranking 
-            profile.setSpeakerRank(ProfileUtil.competitionRank(
-                    profile.getAverageSpeakerScore() != null ? profile.getAverageSpeakerScore().doubleValue() : 0.0,
-                    speakerScores));
-
-            if (profile.getWinPercentagePrelims() != null && !prelimWinRates.isEmpty()) {
-                double p = percentileRank(profile.getWinPercentagePrelims().doubleValue(), prelimWinRates,
-                        WIN_RATE_DELTA);
-                profile.setWinPercentagePrelimsPercentile((float) p);
-            } else {
-                profile.setWinPercentagePrelimsPercentile(null);
+            // Prelim Win % Percentile
+            if (profile.getWinPercentagePrelims() != null) {
+                double pct = prelimFreq.getCumPct(profile.getWinPercentagePrelims().doubleValue()) * 100;
+                profile.setWinPercentagePrelimsPercentile((float) pct);
             }
 
-            if (profile.getWinPercentageBreaks() != null && !breakWinRates.isEmpty()) {
-                double p = percentileRank(profile.getWinPercentageBreaks().doubleValue(), breakWinRates,
-                        WIN_RATE_DELTA);
-                profile.setWinPercentageBreaksPercentile((float) p);
-            } else {
-                profile.setWinPercentageBreaksPercentile(null);
+            // Break Win % Percentile
+            if (profile.getWinPercentageBreaks() != null) {
+                double pct = breakFreq.getCumPct(profile.getWinPercentageBreaks().doubleValue()) * 100;
+                profile.setWinPercentageBreaksPercentile((float) pct);
             }
 
-            if (profile.getAverageSpeakerScore() != null && !speakerScores.isEmpty()) {
-                double p = percentileRank(profile.getAverageSpeakerScore().doubleValue(), speakerScores,
-                        SPEAKER_SCORE_DELTA);
-                profile.setSpeakerScorePercentile((float) p);
-            } else {
-                profile.setSpeakerScorePercentile(null);
+            // Speaker Score Percentile
+            if (profile.getAverageSpeakerScore() != null) {
+                double score = profile.getAverageSpeakerScore().doubleValue();
+                double pct = speakerFreq.getCumPct(score) * 100;
+                profile.setSpeakerScorePercentile((float) pct);
+
+                // Speaker Rank: Total count - number of values less than or equal to (score - epsilon)
+                // Using a simple count approach for rank is often clearer
+                long totalCount = speakerFreq.getSumFreq();
+                long rank = totalCount - speakerFreq.getCumFreq(score) + 1;
+                profile.setSpeakerRank((int) rank);
             }
 
-            long rounds = Stream.of(profile.getPrelimsDebated(), profile.getBreaksDebated()).filter(Objects::nonNull)
-                    .mapToLong(Integer::longValue).sum();
-            if (!roundsDebated.isEmpty() && rounds > 0) {
-                double p = percentileRank((double) rounds,
-                        roundsDebated.stream().mapToDouble(Long::doubleValue).boxed().toList(), 0);
-                profile.setActivityPercentile((float) p);
+            // Activity Percentile
+            int totalRounds = (profile.getPrelimsDebated() != null ?
+                    profile.getPrelimsDebated() :
+                    0) + (profile.getBreaksDebated() != null ? profile.getBreaksDebated() : 0);
+            if (totalRounds > 0) {
+                double pct = activityFreq.getCumPct(totalRounds) * 100;
+                profile.setActivityPercentile((float) pct);
             }
         }
 
-        // Save in batch (important)
+        // 4. Save in batch
         debaterProfileRepository.saveAll(profiles);
     }
-
 }
