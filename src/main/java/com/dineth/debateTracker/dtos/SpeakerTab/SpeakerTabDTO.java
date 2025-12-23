@@ -48,5 +48,11 @@ public class SpeakerTabDTO {
             row.setRank(prevRank);
         }
     }
-    
+
+    public SpeakerTabRowDTO getDebaterScores(Long debaterId) {
+        if (this.speakerTabRows == null)
+            return null;
+        return speakerTabRows.stream().filter(r -> r.getDebaterId().equals(debaterId)).findFirst().orElse(null);
+    }
+
 }

@@ -14,6 +14,7 @@ import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabDTO;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
 import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
+import com.dineth.debateTracker.dtos.debaterprofiles.SpeakerPerformanceDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
@@ -247,9 +248,6 @@ public class StatisticsService {
 
     /**
      * Find the furthest rounds reached by a debater in each tournament
-     *
-     * @param debaterId - the id of the debater
-     * @return Map of tournament short name to the furthest round name
      */
     public List<FurthestRoundDTO> findFurthestRoundsReachedByDebater(Long debaterId) {
         List<Debate> debates = debateService.findBreaksByDebaterId(debaterId);
@@ -279,7 +277,40 @@ public class StatisticsService {
         }
         return new ArrayList<>(furthestRoundNamesByTournament.values());
     }
-    
+
+    /**
+     * Gets the speaker ranking details for all debaters across all tournaments
+     */
+    public Map<Long,List<SpeakerPerformanceDTO>> findSpeakerPerformanceOfDebater() {
+        List<Tournament> tournaments = tournamentService.getTournaments();
+        Map<Long, List<SpeakerPerformanceDTO>> debaterSpeakerPerformanceMap = new HashMap<>();
+        List<SpeakerTabDTO> speakerTabs = new ArrayList<>();
+        for (Tournament tournament : tournaments) {
+            SpeakerTabDTO speakerTab = calculateSpeakerTabForTournament(tournament.getId());
+            speakerTabs.add(speakerTab);
+        }
+        
+        List<Debater> debaters = debaterService.getDebaters();
+        for (Debater debater : debaters) {
+            List<SpeakerPerformanceDTO> speakerPerformances = new ArrayList<>();
+            for (SpeakerTabDTO speakerTab : speakerTabs) {
+                SpeakerTabRowDTO row = speakerTab.getDebaterScores(debater.getId());
+                if (row != null) {
+                    SpeakerPerformanceDTO performanceDTO = new SpeakerPerformanceDTO(
+                            speakerTab.getTournamentShortName(),
+                            row.getSpeechesCount(),
+                            row.getRank(),
+                            row.getAverageSpeakerScore(),
+                            row.getStandardDeviation().floatValue(),
+                            null
+                    );
+                    speakerPerformances.add(performanceDTO);
+                }
+            }
+            debaterSpeakerPerformanceMap.put(debater.getId(), speakerPerformances);
+        }
+        return debaterSpeakerPerformanceMap;
+    }
 
     /**
      * Calculates the speaker tab for a tournament
@@ -300,7 +331,6 @@ public class StatisticsService {
             speakerTab.addSpeakerTabRow(speakerTabRow);
         }
         speakerTab.setRanks();
-        printSpeakerTab(speakerTab);
         return speakerTab;
     }
 
