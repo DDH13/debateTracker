@@ -9,12 +9,10 @@ import com.dineth.debateTracker.dtos.debaterprofiles.SpeakerPerformanceDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.statistics.StatisticsService;
 import com.dineth.debateTracker.tournament.TournamentService;
+import com.dineth.debateTracker.utils.ProfileUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Stream;
 
 @Service
@@ -228,6 +226,11 @@ public class DebaterProfileService {
 
         // Compute percentiles
         for (DebaterProfile profile : profiles) {
+
+//          Calculate overall speaker ranking 
+            profile.setSpeakerRank(ProfileUtil.competitionRank(
+                    profile.getAverageSpeakerScore() != null ? profile.getAverageSpeakerScore().doubleValue() : 0.0,
+                    speakerScores));
 
             if (profile.getWinPercentagePrelims() != null && !prelimWinRates.isEmpty()) {
                 double p = percentileRank(profile.getWinPercentagePrelims().doubleValue(), prelimWinRates,

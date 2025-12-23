@@ -258,7 +258,8 @@ public class StatisticsService {
             String tournamentName = debate.getRound().getTournament().getShortName();
             Boolean won = debateService.didDebaterWinDebate(debate, debaterService.getDebaterById(debaterId));
             String roundName = debate.getRound().getRoundName();
-            FurthestRoundDTO temp = new FurthestRoundDTO(tournamentName, roundName, won);
+            FurthestRoundDTO temp = new FurthestRoundDTO(tournamentName, roundName, won,
+                    debate.getRound().getTournament().getDate());
             
             // Check if we have already recorded the furthest round for this tournament
             FurthestRoundDTO existing = furthestRoundNamesByTournament.get(tournamentName);
@@ -283,6 +284,10 @@ public class StatisticsService {
      */
     public Map<Long,List<SpeakerPerformanceDTO>> findSpeakerPerformanceOfDebaters() {
         List<Tournament> tournaments = tournamentService.getTournaments();
+        Map<String,Date> tournamentDates = new HashMap<>();
+        for (Tournament tournament : tournaments) {
+            tournamentDates.put(tournament.getShortName(), tournament.getDate());
+        }
         Map<Long, List<SpeakerPerformanceDTO>> debaterSpeakerPerformanceMap = new HashMap<>();
         List<SpeakerTabDTO> speakerTabs = new ArrayList<>();
         for (Tournament tournament : tournaments) {
@@ -302,7 +307,7 @@ public class StatisticsService {
                             row.getRank(),
                             row.getAverageSpeakerScore(),
                             row.getStandardDeviation().floatValue(),
-                            null
+                            tournamentDates.get(speakerTab.getTournamentShortName())
                     );
                     speakerPerformances.add(performanceDTO);
                 }
