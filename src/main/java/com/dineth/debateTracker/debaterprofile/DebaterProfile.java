@@ -1,6 +1,6 @@
 package com.dineth.debateTracker.debaterprofile;
 
-import com.dineth.debateTracker.dtos.FurthestRoundDTO;
+import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

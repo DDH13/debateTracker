@@ -1,4 +1,4 @@
-package com.dineth.debateTracker.dtos;
+package com.dineth.debateTracker.dtos.debaterprofiles;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

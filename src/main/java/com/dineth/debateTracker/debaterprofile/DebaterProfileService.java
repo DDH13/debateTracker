@@ -1,22 +1,16 @@
 package com.dineth.debateTracker.debaterprofile;
 
-import com.dineth.debateTracker.ballot.Ballot;
 import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
-import com.dineth.debateTracker.dtos.FurthestRoundDTO;
-import com.dineth.debateTracker.dtos.RoundScoreDTO;
-import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
-import com.dineth.debateTracker.dtos.TournamentRoundDTO;
+import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.statistics.StatisticsService;
-import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
