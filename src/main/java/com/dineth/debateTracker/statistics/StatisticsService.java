@@ -281,7 +281,7 @@ public class StatisticsService {
     /**
      * Gets the speaker ranking details for all debaters across all tournaments
      */
-    public Map<Long,List<SpeakerPerformanceDTO>> findSpeakerPerformanceOfDebater() {
+    public Map<Long,List<SpeakerPerformanceDTO>> findSpeakerPerformanceOfDebaters() {
         List<Tournament> tournaments = tournamentService.getTournaments();
         Map<Long, List<SpeakerPerformanceDTO>> debaterSpeakerPerformanceMap = new HashMap<>();
         List<SpeakerTabDTO> speakerTabs = new ArrayList<>();

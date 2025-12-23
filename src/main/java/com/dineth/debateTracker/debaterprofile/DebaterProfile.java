@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.debaterprofile;
 
 import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
+import com.dineth.debateTracker.dtos.debaterprofiles.SpeakerPerformanceDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,9 +31,14 @@ public class DebaterProfile {
     private Float activityPercentile;
     
     private Integer tournamentsDebated;
+    
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     private List<FurthestRoundDTO> furthestRounds;
+    
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "jsonb")
+    private List<SpeakerPerformanceDTO> speakerPerformances;
     
     private Float winPercentagePrelims;
     private Float winPercentagePrelimsPercentile;

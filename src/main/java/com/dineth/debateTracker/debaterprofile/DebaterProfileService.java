@@ -5,6 +5,7 @@ import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
+import com.dineth.debateTracker.dtos.debaterprofiles.SpeakerPerformanceDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.statistics.StatisticsService;
 import com.dineth.debateTracker.tournament.TournamentService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -109,6 +111,17 @@ public class DebaterProfileService {
         debaterProfile.setAverageSpeakerScore(speakerPerformance.getAverageSpeakerScore().floatValue());
         updateDebaterProfile(debaterProfile);
     }
+    
+    public void updateSpeakerPerformances(Map<Long,List<SpeakerPerformanceDTO>> debaterPerformances) {
+       for (Long debaterId : debaterPerformances.keySet()) {
+           DebaterProfile debaterProfile = getDebaterProfileByDebaterId(debaterId);
+           if (debaterProfile != null) {
+               List<SpeakerPerformanceDTO> performances = debaterPerformances.get(debaterId);
+               debaterProfile.setSpeakerPerformances(performances);
+               updateDebaterProfile(debaterProfile);
+           }
+       }
+    }
 
     /**
      * Deletes all existing debater profiles Initializes debater profiles for all debaters in the system with basic
@@ -147,6 +160,9 @@ public class DebaterProfileService {
 
         //Update percentile fields
         updateAllPercentiles();
+        
+        //Update speaker performances
+        updateSpeakerPerformances(statisticsService.findSpeakerPerformanceOfDebaters());
     }
 
     /**
