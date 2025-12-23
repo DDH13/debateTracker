@@ -279,11 +279,7 @@ public class StatisticsService {
         }
         return new ArrayList<>(furthestRoundNamesByTournament.values());
     }
-
-    /**
-     * Get titles count for a debater based on the furthest rounds reached in each tournament
-     */
-
+    
 
     /**
      * Calculates the speaker tab for a tournament
