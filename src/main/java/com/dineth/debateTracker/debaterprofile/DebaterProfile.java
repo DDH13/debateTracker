@@ -1,9 +1,14 @@
 package com.dineth.debateTracker.debaterprofile;
 
+import com.dineth.debateTracker.dtos.FurthestRoundDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
+import java.util.List;
 
 @Entity
 @Table(name = "debater_profile")
@@ -25,11 +30,9 @@ public class DebaterProfile {
     private Float activityPercentile;
     
     private Integer tournamentsDebated;
-    private Integer championsCount;
-    private Integer finalistCount;
-    private Integer semisCount;
-    private Integer quartersCount;
-    private Integer octosCount;
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "jsonb")
+    private List<FurthestRoundDTO> furthestRounds;
     
     private Float winPercentagePrelims;
     private Float winPercentagePrelimsPercentile;

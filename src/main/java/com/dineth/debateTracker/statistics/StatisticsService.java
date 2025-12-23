@@ -9,28 +9,23 @@ import com.dineth.debateTracker.debate.DebateService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterRepository;
 import com.dineth.debateTracker.debater.DebaterService;
-import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
-import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
-import com.dineth.debateTracker.dtos.RoundScoreDTO;
+import com.dineth.debateTracker.dtos.*;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabDTO;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
-import com.dineth.debateTracker.dtos.TournamentRoundDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
 import com.dineth.debateTracker.round.Round;
 import com.dineth.debateTracker.round.RoundService;
-import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static com.dineth.debateTracker.utils.RoundUtil.compareRoundAndGetHigherPriorityRound;
 
 @Service
 @Slf4j
@@ -249,7 +244,47 @@ public class StatisticsService {
         }
         return new ArrayList<>(debaterStats.values());
     }
-    
+
+    /**
+     * Find the furthest rounds reached by a debater in each tournament
+     *
+     * @param debaterId - the id of the debater
+     * @return Map of tournament short name to the furthest round name
+     */
+    public List<FurthestRoundDTO> findFurthestRoundsReachedByDebater(Long debaterId) {
+        List<Debate> debates = debateService.findBreaksByDebaterId(debaterId);
+
+        Map<String, FurthestRoundDTO> furthestRoundNamesByTournament = new HashMap<>();
+
+        for (Debate debate : debates) {
+            String tournamentName = debate.getRound().getTournament().getShortName();
+            Boolean won = debateService.didDebaterWinDebate(debate, debaterService.getDebaterById(debaterId));
+            String roundName = debate.getRound().getRoundName();
+            FurthestRoundDTO temp = new FurthestRoundDTO(tournamentName, roundName, won);
+            
+            // Check if we have already recorded the furthest round for this tournament
+            FurthestRoundDTO existing = furthestRoundNamesByTournament.get(tournamentName);
+            if (existing == null) {
+                furthestRoundNamesByTournament.put(tournamentName, temp);
+            } else {
+                String higher = compareRoundAndGetHigherPriorityRound(
+                        existing.getRoundName(),
+                        temp.getRoundName()
+                );
+                if (!higher.equals(existing.getRoundName())) {
+                    furthestRoundNamesByTournament.put(tournamentName, temp);
+                }
+            }
+
+        }
+        return new ArrayList<>(furthestRoundNamesByTournament.values());
+    }
+
+    /**
+     * Get titles count for a debater based on the furthest rounds reached in each tournament
+     */
+
+
     /**
      * Calculates the speaker tab for a tournament
      *
@@ -324,7 +359,7 @@ public class StatisticsService {
         }
         return debaterTournamentScoreMap;
     }
-    
+
     public DebaterTournamentScoreDTO getSpeakerTabScoresForDebater(Long debaterId) {
         Debater debater = debaterService.getDebaterById(debaterId);
         List<Tournament> tournaments = tournamentService.getTournaments();

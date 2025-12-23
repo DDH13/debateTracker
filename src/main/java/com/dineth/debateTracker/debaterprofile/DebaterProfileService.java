@@ -5,6 +5,7 @@ import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
+import com.dineth.debateTracker.dtos.FurthestRoundDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
@@ -91,6 +92,14 @@ public class DebaterProfileService {
         }
     }
 
+    public void updateFurthestRounds(Long debaterId, List<FurthestRoundDTO> furthestRounds) {
+        DebaterProfile debaterProfile = getDebaterProfileByDebaterId(debaterId);
+        if (debaterProfile != null) {
+            debaterProfile.setFurthestRounds(furthestRounds);
+            updateDebaterProfile(debaterProfile);
+        }
+    }
+
     /**
      * Updates the following for a given debater profile - Number of tournaments debated - Average speaker score (over
      * all tournaments)
@@ -134,9 +143,12 @@ public class DebaterProfileService {
         }
 
         //Updates the ASS and no. of tournaments
+        // And the tournament outround performances
         List<Debater> debaters = debaterService.getDebaters();
         for (Debater debater : debaters) {
             updateScoreStats(debater.getId());
+            updateFurthestRounds(debater.getId(),
+                    statisticsService.findFurthestRoundsReachedByDebater(debater.getId()));
         }
 
         //Update percentile fields
@@ -230,12 +242,12 @@ public class DebaterProfileService {
             } else {
                 profile.setSpeakerScorePercentile(null);
             }
-            
+
             long rounds = Stream.of(profile.getPrelimsDebated(), profile.getBreaksDebated()).filter(Objects::nonNull)
                     .mapToLong(Integer::longValue).sum();
             if (!roundsDebated.isEmpty() && rounds > 0) {
-                double p = percentileRank((double) rounds, roundsDebated.stream().mapToDouble(Long::doubleValue).boxed().toList(),
-                        0);
+                double p = percentileRank((double) rounds,
+                        roundsDebated.stream().mapToDouble(Long::doubleValue).boxed().toList(), 0);
                 profile.setActivityPercentile((float) p);
             }
         }
