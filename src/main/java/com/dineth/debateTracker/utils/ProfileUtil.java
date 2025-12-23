@@ -38,4 +38,36 @@ public class ProfileUtil {
         return -1; // score not found
     }
 
+    /**
+     * Calculates a percentile
+     */
+    public static double percentileRank(double val, List<Double> values, double delta) {
+        if (values == null || values.isEmpty()) {
+            return Double.NaN;
+        }
+
+        int less = 0;
+        int equal = 0;
+
+        for (double v : values) {
+            double diff = v - val;
+
+            if (diff < -delta) {
+                less++;
+            } else if (Math.abs(diff) <= delta) {
+                equal++;
+            }
+            // else: greater, ignore
+        }
+
+        int n = values.size();
+
+        if (equal == 0) {
+            return (less * 100.0) / n;
+        }
+
+        // midrank for ties
+        return ((less + equal / 2.0) * 100.0) / n;
+    }
+
 }

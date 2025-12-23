@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Stream;
 
+import static com.dineth.debateTracker.utils.ProfileUtil.percentileRank;
+
 @Service
 public class DebaterProfileService {
     private static final double SPEAKER_SCORE_DELTA = 0.01;
@@ -162,39 +164,7 @@ public class DebaterProfileService {
         //Update speaker performances
         updateSpeakerPerformances(statisticsService.findSpeakerPerformanceOfDebaters());
     }
-
-    /**
-     * Calculates a percentile
-     */
-    public static double percentileRank(double val, List<Double> values, double delta) {
-        if (values == null || values.isEmpty()) {
-            return Double.NaN;
-        }
-
-        int less = 0;
-        int equal = 0;
-
-        for (double v : values) {
-            double diff = v - val;
-
-            if (diff < -delta) {
-                less++;
-            } else if (Math.abs(diff) <= delta) {
-                equal++;
-            }
-            // else: greater, ignore
-        }
-
-        int n = values.size();
-
-        if (equal == 0) {
-            return (less * 100.0) / n;
-        }
-
-        // midrank for ties
-        return ((less + equal / 2.0) * 100.0) / n;
-    }
-
+    
     /**
      * Updates the percentiles for all debater profiles in the system
      */
