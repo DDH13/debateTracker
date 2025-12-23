@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController @Slf4j
 @CrossOrigin(origins = "*")
@@ -31,6 +32,21 @@ public class JudgeController {
         return judgeService.addJudge(judge);
     }
 
+    /**
+     * Replace one debater with another in all references in the database
+     *
+     * @param values - oldDebaterId, newDebaterId
+     */
+    @PostMapping(path = "replace")
+    public void replaceJudge(@RequestBody Map<String, String> values) {
+        try {
+            Long oldJudgeId = Long.parseLong(values.get("oldJudgeId"));
+            Long newJudgeId = Long.parseLong(values.get("newJudgeId"));
+            judgeService.replaceJudge(oldJudgeId, newJudgeId);
+        } catch (Exception e) {
+            log.error("Error replacing judge: {}", e.getMessage());
+        }
+    }
     /**
      * For a judge get the tournaments they've judged at
      */

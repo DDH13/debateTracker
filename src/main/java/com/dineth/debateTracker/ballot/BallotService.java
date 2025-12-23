@@ -2,6 +2,7 @@ package com.dineth.debateTracker.ballot;
 
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabBallot;
+import com.dineth.debateTracker.judge.Judge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,18 @@ public class BallotService {
             ballot.setDebater(newDebater);
             ballotRepository.save(ballot);
         }
+    }
+
+    /**
+     * Replace an old judge by a new judge in all ballots
+     */
+    @Transactional
+    public void replaceJudge(Judge oldJudge, Judge newJudge) {
+        List<Ballot> ballots = ballotRepository.findBallotsByJudgeId(oldJudge.getId());
+        for (Ballot ballot : ballots) {
+            ballot.setJudge(newJudge);
+        }
+        ballotRepository.saveAll(ballots);
     }
     
 //    ----------------------------SPEAKER TAB METHODS-------------------------------------

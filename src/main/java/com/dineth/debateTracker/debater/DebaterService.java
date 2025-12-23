@@ -123,6 +123,7 @@ public class DebaterService {
             newDebater.setBirthdate(oldDebater.getBirthdate());
         }
         
+        debaterRepository.save(newDebater);
         debaterRepository.delete(oldDebater);
         log.info("Replaced debater {} {} {} with {} {} {}", oldDebater.getId(), oldDebater.getFirstName(),
                 oldDebater.getLastName(), +newDebater.getId(), newDebater.getFirstName(), newDebater.getLastName());
