@@ -103,9 +103,29 @@ public class DebaterService {
     public void replaceDebaters(Debater oldDebater, Debater newDebater) {
         ballotService.replaceDebater(oldDebater, newDebater);
         teamService.replaceDebater(oldDebater, newDebater);
+        
+        if (newDebater.getFullName() == null && oldDebater.getFullName() != null) {
+            newDebater.setFullName(oldDebater.getFullName());
+        }
+        if (newDebater.getGender() == null && oldDebater.getGender() != null) {
+            newDebater.setGender(oldDebater.getGender());
+        }
+        if (newDebater.getEmail() == null && oldDebater.getEmail() != null) {
+            newDebater.setEmail(oldDebater.getEmail());
+        }
+        if (newDebater.getPhone() == null && oldDebater.getPhone() != null) {
+            newDebater.setPhone(oldDebater.getPhone());
+        }
+        if (newDebater.getDistrict() == null && oldDebater.getDistrict() != null) {
+            newDebater.setDistrict(oldDebater.getDistrict());
+        }
+        if (newDebater.getBirthdate() == null && oldDebater.getBirthdate() != null) {
+            newDebater.setBirthdate(oldDebater.getBirthdate());
+        }
+        
         debaterRepository.delete(oldDebater);
-        log.info("Replaced debater " + oldDebater.getId() + " " + oldDebater.getFirstName() + " " + oldDebater.getLastName() + 
-                " with " + + newDebater.getId() + " " + newDebater.getFirstName() + " " + newDebater.getLastName());
+        log.info("Replaced debater {} {} {} with {} {} {}", oldDebater.getId(), oldDebater.getFirstName(),
+                oldDebater.getLastName(), +newDebater.getId(), newDebater.getFirstName(), newDebater.getLastName());
     }
 
     //TODO this method should be in the statistics service
