@@ -15,8 +15,6 @@ public class DebaterMergeInfoDTO {
     String lastName;
     String fullName;
     String phone;
-    List<Float> scores;
-    Float averageScore;
     Integer roundsDebated;
     List<String> teams;
 }

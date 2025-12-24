@@ -46,6 +46,10 @@ public class DebaterService {
         return debaterRepository.save(debater);
     }
     
+    public void deleteDebater(Long id) {
+        debaterRepository.deleteById(id);
+    }
+    
     public void updateDebater(Debater debater) {
         debaterRepository.save(debater);
     }
@@ -95,40 +99,6 @@ public class DebaterService {
         }
         return duplicateDebaters;
     }
-
-    /**
-     * Replace all references of oldDebater with newDebater in the database
-     * @param oldDebater
-     * @param newDebater
-     */
-    public void replaceDebaters(Debater oldDebater, Debater newDebater) {
-        ballotService.replaceDebater(oldDebater, newDebater);
-        teamService.replaceDebater(oldDebater, newDebater);
-        
-        if (newDebater.getFullName() == null && oldDebater.getFullName() != null) {
-            newDebater.setFullName(oldDebater.getFullName());
-        }
-        if (newDebater.getGender() == null && oldDebater.getGender() != null) {
-            newDebater.setGender(oldDebater.getGender());
-        }
-        if (newDebater.getEmail() == null && oldDebater.getEmail() != null) {
-            newDebater.setEmail(oldDebater.getEmail());
-        }
-        if (newDebater.getPhone() == null && oldDebater.getPhone() != null) {
-            newDebater.setPhone(oldDebater.getPhone());
-        }
-        if (newDebater.getDistrict() == null && oldDebater.getDistrict() != null) {
-            newDebater.setDistrict(oldDebater.getDistrict());
-        }
-        if (newDebater.getBirthdate() == null && oldDebater.getBirthdate() != null) {
-            newDebater.setBirthdate(oldDebater.getBirthdate());
-        }
-        
-        debaterRepository.save(newDebater);
-        debaterRepository.delete(oldDebater);
-        log.info("Replaced debater {} {} {} with {} {} {}", oldDebater.getId(), oldDebater.getFirstName(),
-                oldDebater.getLastName(), +newDebater.getId(), newDebater.getFirstName(), newDebater.getLastName());
-    }
     
     /**
      * Get debaters with their teams, speaks and rounds debated
@@ -144,11 +114,8 @@ public class DebaterService {
             dto.setLastName((String) obj[2]);
             dto.setFullName((String) obj[3]);
             dto.setPhone((String) obj[4]);
-            Float[] arr = (Float[]) obj[5];
-            dto.setScores(arr != null ? Arrays.asList(arr) : List.of());
-            dto.setAverageScore(obj[6] != null ? ((Number) obj[6]).floatValue() : null);
-            dto.setRoundsDebated(obj[7] != null ? ((Number) obj[7]).intValue() : null);
-            String[] teamsArr = (String[]) obj[8];
+            dto.setRoundsDebated(obj[5] != null ? ((Number) obj[5]).intValue() : null);
+            String[] teamsArr = (String[]) obj[6];
             dto.setTeams(teamsArr != null ? Arrays.asList(teamsArr) : List.of());
             result.add(dto);
         }

@@ -35,8 +35,8 @@ public class BallotService {
         List<Ballot> ballots = findBallotsByDebater(oldDebater);
         for (Ballot ballot : ballots) {
             ballot.setDebater(newDebater);
-            ballotRepository.save(ballot);
         }
+        ballotRepository.saveAll(ballots);
     }
 
     /**
