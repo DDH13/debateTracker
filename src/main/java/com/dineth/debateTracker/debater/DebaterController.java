@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.debater;
 
 
+import com.dineth.debateTracker.dtos.DebaterMergeInfoDTO;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +92,12 @@ public class DebaterController {
             debaterTournamentScoreDTOS.add(debaterService.getTournamentsAndScoresForSpeaker(debater.getId(), false));
         }
         return debaterTournamentScoreDTOS;
+    }
+    
+    @GetMapping(path = "teams-speaks-rounds")
+    public List<DebaterMergeInfoDTO> getDebatersWithTeamsSpeaksRounds() {
+        List<DebaterMergeInfoDTO> temp =  debaterService.getDebatersTeamsSpeaksRounds();
+        return temp;
     }
 
 }

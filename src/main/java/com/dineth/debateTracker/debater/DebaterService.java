@@ -1,6 +1,7 @@
 package com.dineth.debateTracker.debater;
 
 import com.dineth.debateTracker.ballot.BallotService;
+import com.dineth.debateTracker.dtos.DebaterMergeInfoDTO;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
@@ -127,6 +128,31 @@ public class DebaterService {
         debaterRepository.delete(oldDebater);
         log.info("Replaced debater {} {} {} with {} {} {}", oldDebater.getId(), oldDebater.getFirstName(),
                 oldDebater.getLastName(), +newDebater.getId(), newDebater.getFirstName(), newDebater.getLastName());
+    }
+    
+    /**
+     * Get debaters with their teams, speaks and rounds debated
+     */
+    public List<DebaterMergeInfoDTO> getDebatersTeamsSpeaksRounds() {
+        List<Object> temp = debaterRepository.findDebatersWithTeamsSpeaksRounds();
+        List<DebaterMergeInfoDTO> result = new ArrayList<>();
+        for (Object o : temp) {
+            Object[] obj = (Object[]) o;
+            DebaterMergeInfoDTO dto = new DebaterMergeInfoDTO();
+            dto.setId(((Number) obj[0]).longValue());
+            dto.setFirstName((String) obj[1]);
+            dto.setLastName((String) obj[2]);
+            dto.setFullName((String) obj[3]);
+            dto.setPhone((String) obj[4]);
+            Float[] arr = (Float[]) obj[5];
+            dto.setScores(arr != null ? Arrays.asList(arr) : List.of());
+            dto.setAverageScore(obj[6] != null ? ((Number) obj[6]).floatValue() : null);
+            dto.setRoundsDebated(obj[7] != null ? ((Number) obj[7]).intValue() : null);
+            String[] teamsArr = (String[]) obj[8];
+            dto.setTeams(teamsArr != null ? Arrays.asList(teamsArr) : List.of());
+            result.add(dto);
+        }
+        return result;
     }
 
     //TODO this method should be in the statistics service
