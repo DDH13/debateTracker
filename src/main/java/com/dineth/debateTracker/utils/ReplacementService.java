@@ -3,8 +3,11 @@ package com.dineth.debateTracker.utils;
 import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.eliminationballot.EliminationBallotService;
 import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
+import com.dineth.debateTracker.judge.Judge;
+import com.dineth.debateTracker.judge.JudgeService;
 import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.team.TeamService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,13 +23,18 @@ public class ReplacementService {
     private final DebaterService debaterService;
     private final InstitutionService institutionService;
     private final BallotService ballotService;
+    private final EliminationBallotService eliminationBallotService;
+    private final JudgeService judgeService;
 
     public ReplacementService(TeamService teamService, DebaterService debaterService,
-            InstitutionService institutionService, BallotService ballotService) {
+            InstitutionService institutionService, BallotService ballotService,
+            EliminationBallotService eliminationBallotService, JudgeService judgeService) {
         this.teamService = teamService;
         this.debaterService = debaterService;
         this.institutionService = institutionService;
         this.ballotService = ballotService;
+        this.eliminationBallotService = eliminationBallotService;
+        this.judgeService = judgeService;
     }
 
     /**
@@ -103,5 +111,42 @@ public class ReplacementService {
                 mergedInstitution.getId());
         institutionService.updateInstitution(mergedInstitution);
         return mergedInstitution;
+    }
+
+    /**
+     * Replace an old judge by a new judge along with all references
+     * @param oldJudgeId the id of the judge to be replaced
+     * @param newJudgeId the id of the judge to replace with
+     */
+    public Judge replaceJudge(Long oldJudgeId, Long newJudgeId) {
+        Judge oldJudge = judgeService.findJudgeById(oldJudgeId);
+        Judge newJudge = judgeService.findJudgeById(newJudgeId);
+        if (newJudge.getFname() == null) {
+            newJudge.setFname(oldJudge.getFname());
+        }
+        if (newJudge.getLname() == null) {
+            newJudge.setLname(oldJudge.getLname());
+        }
+        if (newJudge.getGender() == null) {
+            newJudge.setGender(oldJudge.getGender());
+        }
+        if (newJudge.getEmail() == null) {
+            newJudge.setEmail(oldJudge.getEmail());
+        }
+        if (newJudge.getPhone() == null) {
+            newJudge.setPhone(oldJudge.getPhone());
+        }
+        if (newJudge.getBirthdate() == null) {
+            newJudge.setBirthdate(oldJudge.getBirthdate());
+        }
+        ballotService.replaceJudge(oldJudge, newJudge);
+        eliminationBallotService.replaceJudge(oldJudge, newJudge);
+        //TODO replace in feedback once it's implemented
+
+        log.info("Replaced judge {} {} with judge {} {}", oldJudge.getFname(), oldJudge.getLname(),
+                newJudge.getFname(), newJudge.getLname());
+        judgeService.updateJudge(newJudge);
+        judgeService.deleteJudge(oldJudgeId);
+        return newJudge;
     }
 }

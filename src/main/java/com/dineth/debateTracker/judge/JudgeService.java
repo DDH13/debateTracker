@@ -1,11 +1,9 @@
 package com.dineth.debateTracker.judge;
 
-import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.dtos.JudgeTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
 import com.dineth.debateTracker.dtos.statistics.JudgeStatsDTO;
-import com.dineth.debateTracker.eliminationballot.EliminationBallotService;
 import com.dineth.debateTracker.tournament.TournamentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +19,11 @@ import java.util.List;
 public class JudgeService {
     private final JudgeRepository judgeRepository;
     private final TournamentRepository tournamentRepository;
-    private final BallotService ballotService;
-    private final EliminationBallotService eliminationBallotService;
 
     @Autowired
-    public JudgeService(JudgeRepository judgeRepository, TournamentRepository tournamentRepository,
-            BallotService ballotService, EliminationBallotService eliminationBallotService) {
+    public JudgeService(JudgeRepository judgeRepository, TournamentRepository tournamentRepository) {
         this.judgeRepository = judgeRepository;
         this.tournamentRepository = tournamentRepository;
-        this.ballotService = ballotService;
-        this.eliminationBallotService = eliminationBallotService;
     }
 
     public List<Judge> getJudges() {
@@ -40,6 +33,17 @@ public class JudgeService {
     public Judge findJudgeById(Long id) {
         return judgeRepository.findById(id).orElse(null);
     }
+    
+    public void updateJudge(Judge judge) {
+        judgeRepository.save(judge);
+    }
+    
+    /**
+     * Delete a judge by their ID
+     */
+    public void deleteJudge(Long judgeId) {
+        judgeRepository.deleteById(judgeId);
+    }
 
     public Judge addJudge(Judge judge) {
         return judgeRepository.save(judge);
@@ -48,40 +52,7 @@ public class JudgeService {
     public Judge checkJudgeExists(Judge judge) {
         return judgeRepository.findByFnameAndLname(judge.getFname(), judge.getLname());
     }
-
-    /**
-     * Replace an old judge by a new judge along with all references
-     */
-    public void replaceJudge(Long oldJudgeId, Long newJudgeId) {
-        Judge oldJudge = findJudgeById(oldJudgeId);
-        Judge newJudge = findJudgeById(newJudgeId);
-        if (newJudge.getFname() == null) {
-            newJudge.setFname(oldJudge.getFname());
-        }
-        if (newJudge.getLname() == null) {
-            newJudge.setLname(oldJudge.getLname());
-        }
-        if (newJudge.getGender() == null) {
-            newJudge.setGender(oldJudge.getGender());
-        }
-        if (newJudge.getEmail() == null) {
-            newJudge.setEmail(oldJudge.getEmail());
-        }
-        if (newJudge.getPhone() == null) {
-            newJudge.setPhone(oldJudge.getPhone());
-        }
-        if (newJudge.getBirthdate() == null) {
-            newJudge.setBirthdate(oldJudge.getBirthdate());
-        }
-        ballotService.replaceJudge(oldJudge, newJudge);
-        eliminationBallotService.replaceJudge(oldJudge, newJudge);
-        //TODO replace in feedback once it's implemented
-        
-        log.info("Replaced judge {} {} with judge {} {}", oldJudge.getFname(), oldJudge.getLname(),
-                newJudge.getFname(), newJudge.getLname());
-        judgeRepository.save(newJudge);
-        judgeRepository.delete(oldJudge);
-    }
+    
 
     /**
      * get all the tournaments judged by a given judge

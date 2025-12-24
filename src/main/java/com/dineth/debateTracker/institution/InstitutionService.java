@@ -1,7 +1,5 @@
 package com.dineth.debateTracker.institution;
 
-import com.dineth.debateTracker.debater.Debater;
-import com.dineth.debateTracker.debater.DebaterRepository;
 import com.dineth.debateTracker.team.Team;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +12,10 @@ import java.util.List;
 @Service
 public class InstitutionService {
     private final InstitutionRepository institutionRepository;
-    private final DebaterRepository debaterRepository;
 
     @Autowired
-    public InstitutionService(InstitutionRepository institutionRepository, DebaterRepository debaterRepository) {
+    public InstitutionService(InstitutionRepository institutionRepository) {
         this.institutionRepository = institutionRepository;
-        this.debaterRepository = debaterRepository;
     }
 
     public List<Institution> getInstitutions() {

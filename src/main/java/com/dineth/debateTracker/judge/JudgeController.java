@@ -2,6 +2,7 @@ package com.dineth.debateTracker.judge;
 
 import com.dineth.debateTracker.dtos.JudgeTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.statistics.JudgeStatsDTO;
+import com.dineth.debateTracker.utils.ReplacementService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +17,12 @@ import java.util.Map;
 @RequestMapping(path = "api/v1/judge")
 public class JudgeController {
     private final JudgeService judgeService;
+    private final ReplacementService replacementService;
 
     @Autowired
-    public JudgeController(JudgeService judgeService) {
+    public JudgeController(JudgeService judgeService, ReplacementService replacementService) {
         this.judgeService = judgeService;
+        this.replacementService = replacementService;
     }
 
     @GetMapping
@@ -38,14 +41,15 @@ public class JudgeController {
      * @param values - oldDebaterId, newDebaterId
      */
     @PostMapping(path = "replace")
-    public void replaceJudge(@RequestBody Map<String, String> values) {
+    public Judge replaceJudge(@RequestBody Map<String, String> values) {
         try {
             Long oldJudgeId = Long.parseLong(values.get("oldJudgeId"));
             Long newJudgeId = Long.parseLong(values.get("newJudgeId"));
-            judgeService.replaceJudge(oldJudgeId, newJudgeId);
+            return replacementService.replaceJudge(oldJudgeId, newJudgeId);
         } catch (Exception e) {
             log.error("Error replacing judge: {}", e.getMessage());
         }
+        return null;
     }
     /**
      * For a judge get the tournaments they've judged at
