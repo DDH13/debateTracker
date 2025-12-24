@@ -57,6 +57,10 @@ public class DebaterService {
     public Debater findDebaterById(Long id) {
         return debaterRepository.findById(id).orElse(null);
     }
+    
+    public List<Debater> findDebatersByInstitutionId(Long institutionId) {
+        return debaterRepository.findDebatersByInstitutionId(institutionId);
+    }
 
     public Debater checkIfDebaterExists(Debater debater) {
         List<Debater> debaters;

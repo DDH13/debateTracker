@@ -46,5 +46,7 @@ public interface DebaterRepository extends JpaRepository<Debater, Long> {
             "ORDER BY d.first_name, d.last_name DESC;",
             nativeQuery = true)
     List<Object> findDebatersWithTeamsSpeaksRounds();
+    
+    List<Debater> findDebatersByInstitutionId(Long institutionId);
 
 }

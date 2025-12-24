@@ -3,10 +3,15 @@ package com.dineth.debateTracker.utils;
 import com.dineth.debateTracker.ballot.BallotService;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
+import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.team.TeamService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -63,5 +68,40 @@ public class ReplacementService {
         log.info("Replaced debater {} {} {} with {} {} {}", oldDebater.getId(), oldDebater.getFirstName(),
                 oldDebater.getLastName(), +newDebater.getId(), newDebater.getFirstName(), newDebater.getLastName());
         return newDebater;
+    }
+
+    /**
+     * Merge multiple institutions into one institution
+     * @param institutionIds List of institution IDs to be merged
+     * @return the merged Institution
+     */
+    public Institution mergeMultipleInstitutions(List<Long> institutionIds) {
+        //pick the first institution as the institution to persist
+        Institution mergedInstitution = institutionService.findInstitutionById(institutionIds.getFirst());
+        if (mergedInstitution == null) {
+            log.error("Institution ID: {} not found for merging institutions", institutionIds.getFirst());
+            return null;
+        }
+        List<Team> teams = new ArrayList<>(mergedInstitution.getTeams());
+        for (Long id : institutionIds) {
+            Institution institution = institutionService.findInstitutionById(id);
+            if (institution != null) {
+                teams.addAll(institution.getTeams());
+                institutionService.deleteInstitution(id);
+            }
+        }
+        mergedInstitution.setTeams(teams);
+
+        for (Long id : institutionIds) {
+            List<Debater> debaters = debaterService.findDebatersByInstitutionId(id);
+            for (Debater debater : debaters) {
+                debater.setInstitution(mergedInstitution);
+                debaterService.updateDebater(debater);
+            }
+        }
+        log.info("Merged Institutions: {} into Institution ID: {}", institutionIds,
+                mergedInstitution.getId());
+        institutionService.updateInstitution(mergedInstitution);
+        return mergedInstitution;
     }
 }

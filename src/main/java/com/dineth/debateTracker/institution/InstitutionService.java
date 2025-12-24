@@ -38,6 +38,10 @@ public class InstitutionService {
         }
         return null;
     }
+    
+    public void deleteInstitution(Long id) {
+        institutionRepository.deleteById(id);
+    }
 
     public Institution findInstitutionById(Long id) {
         return institutionRepository.findById(id).orElse(null);
@@ -45,6 +49,9 @@ public class InstitutionService {
 
     public Institution addInstitution(Institution institution) {
         return institutionRepository.save(institution);
+    }
+    public void updateInstitution(Institution institution) {
+        institutionRepository.save(institution);
     }
 
     public void addTeamToInstitution(Long institutionId, Team team) {
@@ -58,33 +65,6 @@ public class InstitutionService {
             institution.setTeams(teams);
             institutionRepository.save(institution);
         }
-    }
-    //Merge multiple institutions
-    public Institution mergeMultipleInstitutions(List<Long> institutionIds) throws Exception {
-    //pick the first institution as the merged institution
-        Institution mergedInstitution = institutionRepository.findById(institutionIds.getFirst()).orElse(null);
-        if (mergedInstitution == null) {
-            throw new Exception("First Institution not found");
-        }
-        List<Team> teams = new ArrayList<>();
-        for (Long id : institutionIds) {
-            Institution institution = institutionRepository.findById(id).orElse(null);
-            if (institution != null) {
-                teams.addAll(institution.getTeams());
-                institutionRepository.delete(institution);
-            }
-        }
-        mergedInstitution.setTeams(teams);
-        
-        for (Long id : institutionIds) {
-            List<Debater> debaters = debaterRepository.findByInstitutionId(id);
-            for (Debater debater : debaters) {
-                debater.setInstitution(mergedInstitution);
-                debaterRepository.save(debater);
-            }
-        }
-        log.debug("Merged Institutions: " + institutionIds.toString() + " into Institution ID: " + mergedInstitution.getId());
-        return institutionRepository.save(mergedInstitution);
     }
 
     public List<String> getInstitutionsWithSimilarNames(String name) {
