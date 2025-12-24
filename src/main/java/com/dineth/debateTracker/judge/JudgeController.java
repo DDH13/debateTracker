@@ -1,8 +1,10 @@
 package com.dineth.debateTracker.judge;
 
+import com.dineth.debateTracker.dtos.JudgeMergeInfoDTO;
 import com.dineth.debateTracker.dtos.JudgeTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.statistics.JudgeStatsDTO;
 import com.dineth.debateTracker.utils.ReplacementService;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -154,6 +156,11 @@ public class JudgeController {
             judgeStats.add(judgeService.getJudgeStats(judge.getId()));
         }
         return judgeStats;
+    }
+    
+    @GetMapping(path = "prelims-breaks-tournaments")
+    public List<JudgeMergeInfoDTO> getJudgePrelimsBreaksTournaments() {
+        return judgeService.getJudgesPrelimsBreaksTournaments();
     }
 
 

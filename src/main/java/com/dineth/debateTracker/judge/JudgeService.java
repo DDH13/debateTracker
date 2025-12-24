@@ -1,5 +1,6 @@
 package com.dineth.debateTracker.judge;
 
+import com.dineth.debateTracker.dtos.JudgeMergeInfoDTO;
 import com.dineth.debateTracker.dtos.JudgeTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
@@ -189,5 +190,23 @@ public class JudgeService {
                 stDeviation, new ArrayList<>(tournamentsJudged), substantiveScoresGiven, replyScoresGiven);
 
 
+    }
+    
+    public List<JudgeMergeInfoDTO> getJudgesPrelimsBreaksTournaments() {
+        List<Object> temp = judgeRepository.findJudgePrelimsBreaksTournaments();
+        List<JudgeMergeInfoDTO> result = new ArrayList<>();
+        for (Object o : temp) {
+            Object[] obj = (Object[]) o;
+            Long id = ((Number) obj[0]).longValue();
+            String firstName = (String) obj[1];
+            String lastName = (String) obj[2];
+            Integer breaks = ((Number) obj[3]).intValue();
+            Integer prelims = ((Number) obj[4]).intValue();
+            String[] tournamentsArray = (String[]) obj[5];
+            List<String> tournaments = List.of(tournamentsArray);
+            JudgeMergeInfoDTO dto = new JudgeMergeInfoDTO(id, firstName, lastName, breaks, prelims, tournaments);
+            result.add(dto);
+        }
+        return result;
     }
 }

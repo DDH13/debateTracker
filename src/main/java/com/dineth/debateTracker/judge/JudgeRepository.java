@@ -1,5 +1,6 @@
 package com.dineth.debateTracker.judge;
 
+import com.dineth.debateTracker.dtos.JudgeMergeInfoDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -38,5 +39,25 @@ public interface JudgeRepository extends JpaRepository<Judge, Long> {
             "WHERE eb.judge.id = :judgeId " +
             "ORDER BY t.shortName, r.roundName")
     List<Object> findTournamentsAndBreaksJudged(@Param("judgeId") Long judgeId);
+
+    @SuppressWarnings("SqlDialectInspection")
+    @Query(value = "SELECT " +
+            "    j.id, " +
+            "    j.fname AS firstName, " +
+            "    j.lname AS lastName, " +
+            "    COUNT(DISTINCT eb.id) AS breaks, " +
+            "    (COUNT(DISTINCT b.id) / 8.0) AS prelims, " + // Division by 8 included
+            "    COALESCE(ARRAY_AGG(DISTINCT t.short_name) FILTER (WHERE t.short_name IS NOT NULL), '{}') AS tournaments " +
+            "FROM judge j " +
+            "LEFT JOIN ballot b ON j.id = b.judge_id " +
+            "LEFT JOIN debate d1 ON b.debate_id = d1.id " +
+            "LEFT JOIN elimination_ballot eb ON j.id = eb.judge_id " +
+            "LEFT JOIN debate d2 ON eb.debate_id = d2.id " +
+            "LEFT JOIN round r ON r.id = COALESCE(d1.round_id, d2.round_id) " +
+            "LEFT JOIN tournament t ON r.tournament_id = t.id " +
+            "GROUP BY j.id, j.fname, j.lname " +
+            "ORDER BY j.lname ASC, j.fname ASC",
+            nativeQuery = true)
+    List<Object> findJudgePrelimsBreaksTournaments();
 
 }
