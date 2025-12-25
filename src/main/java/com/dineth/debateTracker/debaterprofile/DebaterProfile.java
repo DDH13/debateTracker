@@ -29,6 +29,9 @@ public class DebaterProfile {
     private Integer prelimsDebated;
     private Integer breaksDebated;
     private Float activityPercentile;
+    private Integer overallActivityRank;
+    private Integer breaksActivityRank;
+    private Integer prelimsActivityRank;
     
     private Integer tournamentsDebated;
     

@@ -28,6 +28,9 @@ public class JudgeProfile {
     private Integer breaksJudged;
     private Float activityPercentile;
     private Integer tournamentsJudged;
+    private Integer overallActivityRank;
+    private Integer breaksActivityRank;
+    private Integer prelimsActivityRank;
     
     private Double averageFirst;
     private Double averageSecond;
