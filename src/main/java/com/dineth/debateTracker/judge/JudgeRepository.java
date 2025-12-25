@@ -56,7 +56,7 @@ public interface JudgeRepository extends JpaRepository<Judge, Long> {
             "LEFT JOIN round r ON r.id = COALESCE(d1.round_id, d2.round_id) " +
             "LEFT JOIN tournament t ON r.tournament_id = t.id " +
             "GROUP BY j.id, j.fname, j.lname " +
-            "ORDER BY j.lname ASC, j.fname ASC",
+            "ORDER BY j.fname ASC, j.lname ASC",
             nativeQuery = true)
     List<Object> findJudgePrelimsBreaksTournaments();
 

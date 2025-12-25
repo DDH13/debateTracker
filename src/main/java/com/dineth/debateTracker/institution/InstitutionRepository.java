@@ -33,7 +33,8 @@ public interface InstitutionRepository extends JpaRepository<Institution, Long> 
             "    COALESCE(ARRAY_AGG(DISTINCT t.team_name) FILTER (WHERE t.team_name IS NOT NULL), '{}') AS team_names " +
             "FROM institution i " +
             "LEFT JOIN team t ON t.institution_id = i.id " +
-            "GROUP BY i.id, i.name, i.abbreviation",
+            "GROUP BY i.id, i.name, i.abbreviation" +
+            " ORDER BY i.name ASC;",
             nativeQuery = true)
     List<Object> findInstitutionsWithTeamsCounts();
 }

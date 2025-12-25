@@ -43,7 +43,7 @@ public interface DebaterRepository extends JpaRepository<Debater, Long> {
             "JOIN team tm ON td.team_id = tm.id " +
             "WHERE b.speaker_score > 40.5 " +
             "GROUP BY d.id, d.first_name, d.last_name, d.full_name, d.phone " +
-            "ORDER BY d.first_name, d.last_name DESC;",
+            "ORDER BY d.first_name ASC, d.last_name ASC;",
             nativeQuery = true)
     List<Object> findDebatersWithTeamsSpeaksRounds();
     
