@@ -1,5 +1,6 @@
 package com.dineth.debateTracker.institution;
 
+import com.dineth.debateTracker.dtos.InstitutionMergeInfoDTO;
 import com.dineth.debateTracker.team.Team;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,5 +74,21 @@ public class InstitutionService {
             }
         }
         return l1;
+    }
+    
+    public List<InstitutionMergeInfoDTO> getInstitutionsWithTeamsCounts() {
+        List<Object> temp = institutionRepository.findInstitutionsWithTeamsCounts();
+        List<InstitutionMergeInfoDTO> result = new ArrayList<>();
+        for (Object obj : temp) {
+            Object[] arr = (Object[]) obj;
+            Long id = ((Number) arr[0]).longValue();
+            String name = (String) arr[1];
+            String abbreviation = (String) arr[2];
+            String teamCount = String.valueOf(((Number) arr[3]).longValue());
+            String[] teamsArray = (String[]) arr[4];
+            InstitutionMergeInfoDTO dto = new InstitutionMergeInfoDTO(id, name, abbreviation, teamCount, List.of(teamsArray));
+            result.add(dto);
+        }
+        return result;
     }
 }

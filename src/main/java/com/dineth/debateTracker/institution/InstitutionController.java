@@ -1,5 +1,6 @@
 package com.dineth.debateTracker.institution;
 
+import com.dineth.debateTracker.dtos.InstitutionMergeInfoDTO;
 import com.dineth.debateTracker.utils.ReplacementService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class InstitutionController {
      * Takes in an array of institution ids and merges them into one institution (the first id in the list)
      * @param values - Map of institution ids
      */
-    @PostMapping(path = "merge")
+    @PostMapping(path = "replace")
     public Institution mergeInstitution(@RequestBody Map<String, List<Long>> values) {
         try {
             List<Long> institutionIds = values.get("institutionIds");
@@ -53,6 +54,11 @@ public class InstitutionController {
     @PostMapping
     public Institution addInstitution(@RequestBody Institution debater) {
         return institutionService.addInstitution(debater);
+    }
+    
+    @GetMapping(path = "teams-list")
+    public List<InstitutionMergeInfoDTO> getInstitutionsWithTeams() {
+        return institutionService.getInstitutionsWithTeamsCounts();
     }
 
 

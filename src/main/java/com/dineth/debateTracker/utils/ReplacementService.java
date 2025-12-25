@@ -90,6 +90,7 @@ public class ReplacementService {
             log.error("Institution ID: {} not found for merging institutions", institutionIds.getFirst());
             return null;
         }
+        institutionIds.removeFirst();
         List<Team> teams = new ArrayList<>(mergedInstitution.getTeams());
         for (Long id : institutionIds) {
             Institution institution = institutionService.findInstitutionById(id);
