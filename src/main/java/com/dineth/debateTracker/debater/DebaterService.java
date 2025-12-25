@@ -161,28 +161,5 @@ public class DebaterService {
         return x;
     }
 
-    public Integer getIronPersonCount(Long debaterId) {
-        DebaterTournamentScoreDTO scores = getTournamentsAndScoresForSpeaker(debaterId, false);
-        int totalIronSpeeches = 0;
 
-        for (TournamentRoundDTO tr : scores.getTournamentRoundScores()) {
-            int tournamentIronSpeeches = 0;
-            Map<Long, Set<Integer>> speechCount = new HashMap<>();
-            for (RoundScoreDTO rs : tr.getRoundScores()) {
-                Set<Integer> count = speechCount.getOrDefault(rs.getRoundId(), new HashSet<>() {
-                });
-                count.add(rs.getSpeakerPosition());
-                speechCount.put(rs.getRoundId(), count);
-            }
-            for (Map.Entry<Long, Set<Integer>> entry : speechCount.entrySet()) {
-                Set<Integer> positions = entry.getValue();
-                if (positions.size() > 1) {
-                    tournamentIronSpeeches += 1;
-                }
-            }
-
-            totalIronSpeeches += tournamentIronSpeeches;
-        }
-        return totalIronSpeeches;
-    }
 }

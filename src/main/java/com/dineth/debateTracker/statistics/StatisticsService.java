@@ -15,6 +15,7 @@ import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabDTO;
 import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
 import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
 import com.dineth.debateTracker.dtos.debaterprofiles.SpeakerPerformanceDTO;
+import com.dineth.debateTracker.dtos.statistics.IronStatsDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
@@ -417,4 +418,38 @@ public class StatisticsService {
         return debaterScoresOfTournaments;
     }
 
+    public IronStatsDTO getIronPersonCount(Long debaterId) {
+        DebaterTournamentScoreDTO scores = debaterService.getTournamentsAndScoresForSpeaker(debaterId, false);
+        int totalIronSpeeches = 0;
+        IronStatsDTO ironStatsDTO = new IronStatsDTO(scores.getId(), scores.getFirstName(), scores.getLastName());
+        
+        for (TournamentRoundDTO tr : scores.getTournamentRoundScores()) {
+            int tournamentIronSpeeches = 0;
+            Map<Long, Set<Integer>> speechCount = new HashMap<>();
+            for (RoundScoreDTO rs : tr.getRoundScores()) {
+                ironStatsDTO.setTotalDebates(ironStatsDTO.getTotalDebates() + 1);
+                Set<Integer> count = speechCount.getOrDefault(rs.getRoundId(), new HashSet<>() {
+                });
+                count.add(rs.getSpeakerPosition());
+                speechCount.put(rs.getRoundId(), count);
+            }
+            for (Map.Entry<Long, Set<Integer>> entry : speechCount.entrySet()) {
+                Set<Integer> positions = entry.getValue();
+                if (positions.size() > 1) {
+                    tournamentIronSpeeches += 1;
+                }
+            }
+            if (tournamentIronSpeeches > 0) {
+                Map<String, Integer> ironPersonCount =  ironStatsDTO.getIronPersonCount();
+                if (ironPersonCount == null) {
+                    ironPersonCount = new HashMap<>();
+                }
+                ironPersonCount.put(tr.getTournamentShortName(), tournamentIronSpeeches);
+                ironStatsDTO.setIronPersonCount(ironPersonCount);
+            }
+            totalIronSpeeches += tournamentIronSpeeches;
+        }
+        ironStatsDTO.setTotalIronPersonCount(totalIronSpeeches);
+        return ironStatsDTO;
+    }
 }
