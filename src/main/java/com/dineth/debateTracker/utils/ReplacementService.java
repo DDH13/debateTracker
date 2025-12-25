@@ -85,16 +85,19 @@ public class ReplacementService {
      */
     public Institution mergeMultipleInstitutions(List<Long> institutionIds) {
         //pick the first institution as the institution to persist
+        List<String> institutionNames = new ArrayList<>();
         Institution mergedInstitution = institutionService.findInstitutionById(institutionIds.getFirst());
         if (mergedInstitution == null) {
             log.error("Institution ID: {} not found for merging institutions", institutionIds.getFirst());
             return null;
         }
+        institutionNames.add(mergedInstitution.getName());
         institutionIds.removeFirst();
         List<Team> teams = new ArrayList<>(mergedInstitution.getTeams());
         for (Long id : institutionIds) {
             Institution institution = institutionService.findInstitutionById(id);
             if (institution != null) {
+                institutionNames.add(institution.getName());
                 teams.addAll(institution.getTeams());
                 institutionService.deleteInstitution(id);
             }
@@ -108,8 +111,8 @@ public class ReplacementService {
                 debaterService.updateDebater(debater);
             }
         }
-        log.info("Merged Institutions: {} into Institution ID: {}", institutionIds,
-                mergedInstitution.getId());
+        log.info("Merged Institutions: {} into Institution: {}", String.join(", ", institutionNames),
+                mergedInstitution.getName());
         institutionService.updateInstitution(mergedInstitution);
         return mergedInstitution;
     }
