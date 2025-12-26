@@ -189,7 +189,7 @@ class ParseTabbycatXMLTest {
         assertEquals("A148", debate1.getAdjudicatorIds(), "Adjudicator IDs should match");
         assertEquals("A148", debate1.getChairId(), "Chair ID should match");
         assertEquals("V15", debate1.getVenueIds(), "Venue IDs should match");
-        assertNull(debate1.getMotionId(), "Motion ID should be null for Round 1");
+        assertEquals("M2", debate1.getMotionId(), "Motion ID should match for Round 1");
 
         // Check first side in the debate
         SideDTO side1 = debate1.getSides().get(0);
@@ -200,7 +200,7 @@ class ParseTabbycatXMLTest {
         assertFalse(ballot1.isMinority(), "Minority should be false for side 1");
         assertFalse(ballot1.isIgnored(), "Ignored should be false for side 1");
         assertEquals(1, ballot1.getAdjudicatorIds().size(), "There should be 1 adjudicator for side 1");
-        assertEquals("A148", ballot1.getAdjudicatorIds().get(0), "Adjudicator ID should match for side 1");
+        assertEquals("A148", ballot1.getAdjudicatorIds().getFirst(), "Adjudicator ID should match for side 1");
 
         // Check first speech in the first side
         SpeechDTO speech1 = side1.getSpeeches().get(0);
@@ -229,7 +229,7 @@ class ParseTabbycatXMLTest {
         assertEquals("A130", qfDebate1.getAdjudicatorIds(), "Quarterfinals first debate adjudicator IDs should match");
         assertEquals("A130", qfDebate1.getChairId(), "Quarterfinals first debate chair ID should match");
         assertEquals("V3", qfDebate1.getVenueIds(), "Quarterfinals first debate venue IDs should match");
-        assertNull(qfDebate1.getMotionId(), "Quarterfinals first debate motion ID should be null");
+        assertEquals("M8", qfDebate1.getMotionId(), "Quarterfinals first debate motion ID should match");
 
         // Check sides in the first debate
         SideDTO qfSide1 = qfDebate1.getSides().get(0);
