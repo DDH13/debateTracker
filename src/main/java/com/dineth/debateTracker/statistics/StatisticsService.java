@@ -16,6 +16,7 @@ import com.dineth.debateTracker.dtos.SpeakerTab.SpeakerTabRowDTO;
 import com.dineth.debateTracker.dtos.debaterprofiles.FurthestRoundDTO;
 import com.dineth.debateTracker.dtos.debaterprofiles.SpeakerPerformanceDTO;
 import com.dineth.debateTracker.dtos.statistics.IronStatsDTO;
+import com.dineth.debateTracker.dtos.statistics.SpeakerScorePerformanceDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.judge.Judge;
 import com.dineth.debateTracker.judge.JudgeRepository;
@@ -451,5 +452,26 @@ public class StatisticsService {
         }
         ironStatsDTO.setTotalIronPersonCount(totalIronSpeeches);
         return ironStatsDTO;
+    }
+
+    public List<SpeakerScorePerformanceDTO> getTopSpeakerScorePerformances(Integer tournamentRankDepth) {
+        List<Tournament> tournaments = tournamentService.getTournaments();
+        List<SpeakerScorePerformanceDTO> topPerformances = new ArrayList<>();
+        for (Tournament tournament : tournaments) {
+            SpeakerTabDTO speakerTab = calculateSpeakerTabForTournament(tournament.getId());
+            List<SpeakerTabRowDTO> rankedRows = speakerTab.getSpeakerTabRows();
+            for (int i = 0; i < Math.min(tournamentRankDepth, rankedRows.size()); i++) {
+                SpeakerTabRowDTO row = rankedRows.get(i);
+                Debater debater = debaterService.getDebaterById(row.getDebaterId());
+                SpeakerScorePerformanceDTO performanceDTO = new SpeakerScorePerformanceDTO(debater.getId(),
+                        debater.getFirstName(), debater.getLastName(), tournament.getId(), tournament.getShortName(),
+                        row.getAverageSpeakerScore().doubleValue(), row.getSpeechesCount(), row.getRank());
+                topPerformances.add(performanceDTO);
+            }
+        }
+        
+        //sort by average speaker score descending
+        topPerformances.sort((a, b) -> Double.compare(b.getAverageSpeakerScore(), a.getAverageSpeakerScore()));
+        return topPerformances;
     }
 }

@@ -2,8 +2,12 @@ package com.dineth.debateTracker.statistics;
 
 
 import com.dineth.debateTracker.ballot.Ballot;
+import com.dineth.debateTracker.debater.Debater;
+import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.DebaterTournamentScoreDTO;
 import com.dineth.debateTracker.dtos.JudgeSentimentDTO;
+import com.dineth.debateTracker.dtos.statistics.IronStatsDTO;
+import com.dineth.debateTracker.dtos.statistics.SpeakerScorePerformanceDTO;
 import com.dineth.debateTracker.dtos.statistics.WinLossStatDTO;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
@@ -11,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,12 +27,15 @@ import java.util.Map;
 public class StatisticsController {
     private final StatisticsService statisticsService;
     private final TournamentService tournamentService;
+    private final DebaterService debaterService;
 
 
     @Autowired
-    public StatisticsController(StatisticsService statisticsService, TournamentService tournamentService) {
+    public StatisticsController(StatisticsService statisticsService, TournamentService tournamentService,
+            DebaterService debaterService, DebaterService debaterService1) {
         this.statisticsService = statisticsService;
         this.tournamentService = tournamentService;
+        this.debaterService = debaterService1;
     }
 
     /**
@@ -92,6 +100,12 @@ public class StatisticsController {
         }
         return tournamentAverages;
 
+    }
+    
+    @GetMapping(path = "best-speaker-performances")
+    public List<SpeakerScorePerformanceDTO> getTopSpeakerScorePerformances(@RequestParam(value = "top-n", required = false, defaultValue = 
+            "10") int topN) {
+        return statisticsService.getTopSpeakerScorePerformances(topN);
     }
 
 }
