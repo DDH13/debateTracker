@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
+import java.util.Map;
 import java.util.UUID;
 
 @Entity
@@ -31,6 +34,10 @@ public class JudgeProfile {
     private Integer overallActivityRank;
     private Integer breaksActivityRank;
     private Integer prelimsActivityRank;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "jsonb")
+    private Map<String,Integer> roundPreferences;
     
     private Double averageFirst;
     private Double averageSecond;

@@ -32,10 +32,10 @@ public class StatisticsController {
 
     @Autowired
     public StatisticsController(StatisticsService statisticsService, TournamentService tournamentService,
-            DebaterService debaterService, DebaterService debaterService1) {
+            DebaterService debaterService) {
         this.statisticsService = statisticsService;
         this.tournamentService = tournamentService;
-        this.debaterService = debaterService1;
+        this.debaterService = debaterService;
     }
 
     /**

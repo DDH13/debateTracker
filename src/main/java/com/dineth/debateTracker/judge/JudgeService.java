@@ -6,14 +6,12 @@ import com.dineth.debateTracker.dtos.RoundScoreDTO;
 import com.dineth.debateTracker.dtos.TournamentRoundDTO;
 import com.dineth.debateTracker.dtos.statistics.JudgeStatsDTO;
 import com.dineth.debateTracker.tournament.TournamentRepository;
+import com.dineth.debateTracker.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -162,6 +160,26 @@ public class JudgeService {
         JudgeTournamentScoreDTO breaks = this.getTournamentsAndBreaksJudged(judgeID);
         JudgeTournamentScoreDTO prelims = this.getTournamentsAndScoresForJudge(judgeID, false);
         Judge judge = findJudgeById(judgeID);
+        
+        Map<String, Integer> roundPreferences = new HashMap<>();
+        Constants.BREAK_ROUNDS.forEach(r -> roundPreferences.put(r, 0));
+        Constants.PRELIM_ROUNDS.forEach(r -> roundPreferences.put(r, 0));
+        
+        //Count how many times the judge has judged each round type
+        for (TournamentRoundDTO tr : breaks.getTournamentRoundScores()) {
+            for (RoundScoreDTO rs : tr.getRoundScores()) {
+                String roundType = rs.getRoundName();
+                roundPreferences.put(roundType, roundPreferences.getOrDefault(roundType, 0) + 1);
+            }
+        }
+        //Count how many times the judge has judged each round type
+        for (TournamentRoundDTO tr : prelims.getTournamentRoundScores()) {
+            for (RoundScoreDTO rs : tr.getRoundScores()) {
+                String roundType = rs.getRoundName();
+                roundPreferences.put(roundType, roundPreferences.getOrDefault(roundType, 0) + 1);
+            }
+        }
+        
         List<Double> replyScoresGiven = new ArrayList<>();
         List<Double> substantiveScoresGiven = prelims.getTournamentRoundScores().stream().map(TournamentRoundDTO::getRoundScores).flatMap(List::stream).filter(a -> a.getSpeakerPosition() != 4).map(RoundScoreDTO::getScore).toList();
         List<RoundScoreDTO> allScores = prelims.getTournamentRoundScores().stream().map(TournamentRoundDTO::getRoundScores).flatMap(List::stream).toList();
@@ -187,9 +205,8 @@ public class JudgeService {
 
         return new JudgeStatsDTO(judge, breaksJudged + prelimsJudged, breaksJudged,
                 prelimsJudged, averageFirst, averageSecond, averageThird, averageReply, averageSubstantive,
-                stDeviation, new ArrayList<>(tournamentsJudged), substantiveScoresGiven, replyScoresGiven);
-
-
+                stDeviation, new ArrayList<>(tournamentsJudged), substantiveScoresGiven, replyScoresGiven, roundPreferences);
+        
     }
     
     public List<JudgeMergeInfoDTO> getJudgesPrelimsBreaksTournaments() {

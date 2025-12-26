@@ -1,5 +1,6 @@
 package com.dineth.debateTracker.utils;
 
+import java.util.List;
 import java.util.Map;
 
 public class Constants {
@@ -26,6 +27,24 @@ public class Constants {
     public static final String NOVICE_CHAMPIONS = "Novice Champions";
     public static final String NOVICE_RUNNERS_UP = "Novice Runners-Up";
     public static final String NOVICE_SEMI_FINALISTS = "Novice Semi-Finalists";
+    
+    public static final List<String> PRELIM_ROUNDS = List.of(
+            ROUND1,
+            ROUND2,
+            ROUND3,
+            ROUND4,
+            ROUND5,
+            ROUND6
+    );
+    public static final List<String> BREAK_ROUNDS = List.of(
+            PARTIAL_OCTOS,
+            OCTOS,
+            QUARTERS,
+            SEMIS,
+            FINALS,
+            NOVICE_SEMIS,
+            NOVICE_FINALS
+    );
     
     public static final Map<String,Integer> OUTROUND_PRIORITY = Map.of(
             FINALS, 1,

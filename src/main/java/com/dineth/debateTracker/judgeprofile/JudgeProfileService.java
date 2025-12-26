@@ -95,6 +95,7 @@ public class JudgeProfileService {
                 profile.setAverageSecond(stats.getAverageSecond());
                 profile.setAverageThird(stats.getAverageThird());
                 profile.setAverageSubstantive(stats.getAverageSubstantive());
+                profile.setRoundPreferences(stats.getRoundPreferences());
             }
 
             // Add to frequency distribution for percentile calculation
