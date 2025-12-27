@@ -50,13 +50,13 @@ public class JudgeProfile {
     private Double leniency;
     private Double harshness;
     private Double overallSentiment;
+    private Integer speechCountForMetrics;
     
     public JudgeProfile(Long judgeId, String firstName, String lastName, String email) {
         this.judgeId = judgeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.code = UUID.randomUUID().toString();  
     }
 
 }

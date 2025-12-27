@@ -84,6 +84,7 @@ public class JudgeProfileService {
             profile.setLeniency(sentiment.getLeniency());
             profile.setHarshness(sentiment.getHarshness());
             profile.setOverallSentiment(sentiment.getOverallSentiment());
+            profile.setSpeechCountForMetrics(sentiment.getSpeechesJudged());
 
             // Fetch Stats
             JudgeStatsDTO stats = judgeService.getJudgeStats(sentiment.getJudgeId());

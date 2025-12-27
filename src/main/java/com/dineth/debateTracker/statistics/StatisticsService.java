@@ -84,7 +84,8 @@ public class StatisticsService {
         List<Ballot> ballots = ballotRepository.findBallotBySpeakerScoreGreaterThan(40.5f);
         List<Judge> judges = judgeRepository.findAll();
 
-        //      Storing the average scores of debaters excluding the scores given by a specific judge to inefficient repeated calculations
+        //      Storing the average scores of debaters excluding the scores given by a specific judge to avoid  
+        //      repeated calculations
         HashMap<Long, HashMap<Long, Double>> debaterAverages = new HashMap<>();
         for (Ballot ballot : ballots) {
             Long debaterId = ballot.getDebater().getId();
