@@ -167,17 +167,27 @@ public class JudgeService {
         
         //Count how many times the judge has judged each round type
         for (TournamentRoundDTO tr : breaks.getTournamentRoundScores()) {
+            Set<String> seenRounds = new HashSet<>();
             for (RoundScoreDTO rs : tr.getRoundScores()) {
                 String roundType = rs.getRoundName();
+                seenRounds.add(roundType);
+            }
+            for (String roundType : seenRounds) {
                 roundPreferences.put(roundType, roundPreferences.getOrDefault(roundType, 0) + 1);
             }
+            seenRounds.clear();
         }
         //Count how many times the judge has judged each round type
         for (TournamentRoundDTO tr : prelims.getTournamentRoundScores()) {
+            Set<String> seenRounds = new HashSet<>();
             for (RoundScoreDTO rs : tr.getRoundScores()) {
                 String roundType = rs.getRoundName();
+                seenRounds.add(roundType);
+            }
+            for (String roundType : seenRounds) {
                 roundPreferences.put(roundType, roundPreferences.getOrDefault(roundType, 0) + 1);
             }
+            seenRounds.clear();
         }
         
         List<Double> replyScoresGiven = new ArrayList<>();
