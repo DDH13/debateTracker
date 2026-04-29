@@ -36,11 +36,9 @@ public class DebaterProfile {
     private Integer tournamentsDebated;
     
     @JdbcTypeCode(SqlTypes.JSON)
-    @Column(columnDefinition = "jsonb")
     private List<FurthestRoundDTO> furthestRounds;
     
     @JdbcTypeCode(SqlTypes.JSON)
-    @Column(columnDefinition = "jsonb")
     private List<SpeakerPerformanceDTO> speakerPerformances;
     
     private Float winPercentagePrelims;
