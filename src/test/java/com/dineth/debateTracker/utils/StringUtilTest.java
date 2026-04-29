@@ -1,4 +1,4 @@
-package com.dineth.debateTracker;
+package com.dineth.debateTracker.utils;
 
 import com.dineth.debateTracker.utils.CustomExceptions;
 import com.dineth.debateTracker.utils.StringUtil;
@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
-public class StringUtilsTest {
+public class StringUtilTest {
     @Nested
-    public class StringUtilTest {
+    public class StringUtilMethodsTest {
 
         @Test
         @Name("Split name with regular two parts")
