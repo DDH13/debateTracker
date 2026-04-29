@@ -3,11 +3,14 @@ package com.dineth.debateTracker.institution;
 import com.dineth.debateTracker.dtos.InstitutionMergeInfoDTO;
 import com.dineth.debateTracker.team.Team;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.text.similarity.JaroWinklerSimilarity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -65,15 +68,32 @@ public class InstitutionService {
     }
 
     public List<String> getInstitutionsWithSimilarNames(String name) {
-        List<String> l1 = institutionRepository.findSimilarInstitutions(name);
-        List<Institution> l2 = institutionRepository.findByNameContaining(name);
-        for (Institution i : l2) {
-            String temp =  i.getId() + "," + i.getName();
-            if (!l1.contains(temp)) {
-                l1.add(temp);
-            }
-        }
-        return l1;
+        JaroWinklerSimilarity similarity = new JaroWinklerSimilarity();
+        double threshold = 0.8; // similarity threshold (0.0 to 1.0)
+        
+        // Get all institutions
+        List<Institution> allInstitutions = institutionRepository.findAll();
+        
+        // Filter and sort institutions by similarity score
+        List<String> result = allInstitutions.stream()
+                .filter(institution -> {
+                    double score = similarity.apply(
+                            name.toLowerCase(), 
+                            institution.getName().toLowerCase()
+                    );
+                    return score >= threshold || 
+                           institution.getName().toLowerCase().contains(name.toLowerCase());
+                })
+                .sorted((i1, i2) -> {
+                    double score1 = similarity.apply(name.toLowerCase(), i1.getName().toLowerCase());
+                    double score2 = similarity.apply(name.toLowerCase(), i2.getName().toLowerCase());
+                    return Double.compare(score2, score1); // descending order
+                })
+                .map(institution -> institution.getId() + "," + institution.getName())
+                .distinct()
+                .collect(Collectors.toList());
+        
+        return result;
     }
     
     public List<InstitutionMergeInfoDTO> getInstitutionsWithTeamsCounts() {

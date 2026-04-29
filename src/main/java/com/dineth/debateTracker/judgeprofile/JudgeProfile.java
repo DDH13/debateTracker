@@ -36,7 +36,6 @@ public class JudgeProfile {
     private Integer prelimsActivityRank;
 
     @JdbcTypeCode(SqlTypes.JSON)
-    @Column(columnDefinition = "jsonb")
     private Map<String,Integer> roundPreferences;
     
     private Double averageFirst;
