@@ -21,6 +21,7 @@ import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -166,6 +167,8 @@ class ProfileAndStatisticsE2ETest extends BaseE2ETest {
     @Test
     @Order(4)
     @DisplayName("Test 4: Initialize and verify debater profiles")
+    @Transactional
+    @Commit
     void testDebaterProfileRefresh() {
         log.info("Test 4: Refreshing debater profiles...");
 
@@ -182,7 +185,9 @@ class ProfileAndStatisticsE2ETest extends BaseE2ETest {
             assertEquals(debater.getId(), profile.getDebaterId(), "Profile should be linked to correct debater");
         }
 
-        log.info("✓ Debater profiles initialized");
+        // Update all profiles
+        debaterProfileService.updateAllDebaterProfiles();
+        log.info("✓ Updated all debater profiles");
     }
 
     @Test
