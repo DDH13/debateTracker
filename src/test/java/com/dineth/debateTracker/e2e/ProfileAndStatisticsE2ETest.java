@@ -21,6 +21,7 @@ import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -32,6 +33,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests profile refresh functionality and statistical computations across multiple tournaments.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 class ProfileAndStatisticsE2ETest extends BaseE2ETest {
 
     private static final Logger log = LoggerFactory.getLogger(ProfileAndStatisticsE2ETest.class);

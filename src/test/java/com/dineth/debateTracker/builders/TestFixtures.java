@@ -21,13 +21,13 @@ public class TestFixtures {
     public static class Tournament1 {
         public static final String NAME = "Tournament 1";
         public static final int EXPECTED_TEAMS = 33;
-        public static final int EXPECTED_DEBATERS = 126;
-        public static final int EXPECTED_JUDGES = 47;
+        public static final int EXPECTED_DEBATERS = 123;
+        public static final int EXPECTED_JUDGES = 46;
         public static final int EXPECTED_INSTITUTIONS = 24;
         public static final int EXPECTED_MOTIONS = 10;
         public static final int EXPECTED_ROUNDS = 9;
-        public static final int EXPECTED_PRELIM_ROUNDS = 6;
-        public static final int EXPECTED_ELIMINATION_ROUNDS = 3;
+        public static final int EXPECTED_PRELIM_ROUNDS = 5;
+        public static final int EXPECTED_ELIMINATION_ROUNDS = 4;
     }
 
     // ========================================
