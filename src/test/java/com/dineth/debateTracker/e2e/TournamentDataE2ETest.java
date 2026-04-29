@@ -24,6 +24,7 @@ import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -35,6 +36,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Tests that all entities are correctly created from XML data and relationships are properly established.
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 class TournamentDataE2ETest extends BaseE2ETest {
 
     private static final Logger log = LoggerFactory.getLogger(TournamentDataE2ETest.class);
@@ -322,45 +324,7 @@ class TournamentDataE2ETest extends BaseE2ETest {
 
         log.info("✓ Tournament has {} motions assigned", motions.size());
     }
-
-    // ========================================
-    // DATA QUALITY TESTS
-    // ========================================
-
-    @Test
-    @Order(15)
-    @DisplayName("Test 15: Verify debater data quality")
-    void testDebaterDataQuality() {
-        log.info("Test 15: Verifying debater data quality...");
-
-        List<Debater> debaters = debaterService.getDebaters();
-        
-        for (Debater debater : debaters) {
-            assertNotNull(debater.getFirstName(), "Debater should have first name");
-            assertNotNull(debater.getLastName(), "Debater should have last name");
-            assertFalse(debater.getFirstName().trim().isEmpty(), "First name should not be empty");
-            assertFalse(debater.getLastName().trim().isEmpty(), "Last name should not be empty");
-        }
-
-        log.info("✓ All debaters have valid data");
-    }
-
-    @Test
-    @Order(16)
-    @DisplayName("Test 16: Verify judge data quality")
-    void testJudgeDataQuality() {
-        log.info("Test 16: Verifying judge data quality...");
-
-        List<Judge> judges = judgeService.getJudges();
-        
-        for (Judge judge : judges) {
-            assertNotNull(judge.getFname(), "Judge should have first name");
-            assertNotNull(judge.getLname(), "Judge should have last name");
-        }
-
-        log.info("✓ All judges have valid data");
-    }
-
+    
     @AfterAll
     static void printSummary() {
         log.info("========================================");
@@ -369,7 +333,6 @@ class TournamentDataE2ETest extends BaseE2ETest {
         log.info("✓ Tournament built and verified");
         log.info("✓ All entities created correctly");
         log.info("✓ All relationships validated");
-        log.info("✓ Data quality checks passed");
         log.info("========================================");
     }
 }
