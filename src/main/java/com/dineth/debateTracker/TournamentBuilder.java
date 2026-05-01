@@ -54,6 +54,10 @@ import static com.dineth.debateTracker.utils.StringUtil.normalizeName;
 @RequestMapping("/api/v1/tournament")
 public class TournamentBuilder {
 
+    private static final String SPEAKS_XML_BASE_PATH = "src/main/resources/static/speaksXML";
+    private static final int DEFAULT_BUILD_YEAR = 2025;
+    private static final int DEFAULT_SUMMARY_YEAR = 2024;
+
     private final JudgeService judgeService;
     private final TeamService teamService;
     private final DebaterService debaterService;
@@ -89,18 +93,25 @@ public class TournamentBuilder {
 
     @GetMapping("/build")
     @Transactional
-    public TournamentDataDTO buildTournament(@RequestParam String fileName) {
-        return buildMyTournament("src/main/resources/static/speaksXML/2025/" + fileName);
+    public TournamentDataDTO buildTournament(@RequestParam String fileName,
+            @RequestParam(required = false) Integer year) {
+        int selectedYear = year != null ? year : DEFAULT_BUILD_YEAR;
+        return buildMyTournament(buildTournamentFilePath(fileName, selectedYear));
     }
 
     @GetMapping("/buildall")
     @Transactional
-    public List<TournamentDataDTO> buildAllTournaments() {
+    public List<TournamentDataDTO> buildAllTournaments(@RequestParam(required = false) Integer year) {
         List<String> fileNames = new ArrayList<>();
         List<TournamentDataDTO> tournamentDataList = new ArrayList<>();
+        int selectedYear = year != null ? year : DEFAULT_BUILD_YEAR;
 
         try {
-            Path folderPath = Paths.get("src/main/resources/static/speaksXML/2025/");
+            Path folderPath = buildTournamentDirectoryPath(selectedYear);
+            if (!Files.exists(folderPath) || !Files.isDirectory(folderPath)) {
+                log.warn("Tournament XML directory not found for year {} at {}", selectedYear, folderPath);
+                return tournamentDataList;
+            }
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(folderPath, "*.xml")) {
                 for (Path entry : stream) {
                     fileNames.add(entry.getFileName().toString());
@@ -113,8 +124,7 @@ public class TournamentBuilder {
 
         for (String fileName : fileNames) {
             try {
-                TournamentDataDTO tournamentData = buildMyTournament(
-                        "src/main/resources/static/speaksXML/2025/" + fileName);
+                TournamentDataDTO tournamentData = buildMyTournament(buildTournamentFilePath(fileName, selectedYear));
                 if (tournamentData != null) {
                     tournamentDataList.add(tournamentData);
                 }
@@ -506,8 +516,10 @@ public class TournamentBuilder {
      * Get tournament data summary - useful for checking what data was parsed
      */
     @GetMapping("/summary")
-    public String getTournamentSummary(@RequestParam String fileName) {
-        TournamentDataDTO tournamentData = buildMyTournament("src/main/resources/static/speaksXML/2024/" + fileName);
+    public String getTournamentSummary(@RequestParam String fileName,
+            @RequestParam(required = false) Integer year) {
+        int selectedYear = year != null ? year : DEFAULT_SUMMARY_YEAR;
+        TournamentDataDTO tournamentData = buildMyTournament(buildTournamentFilePath(fileName, selectedYear));
 
         if (tournamentData == null) {
             return "Failed to build tournament data";
@@ -526,5 +538,13 @@ public class TournamentBuilder {
         }
 
         return summary.toString();
+    }
+
+    private String buildTournamentFilePath(String fileName, int year) {
+        return SPEAKS_XML_BASE_PATH + "/" + year + "/" + fileName;
+    }
+
+    private Path buildTournamentDirectoryPath(int year) {
+        return Paths.get(SPEAKS_XML_BASE_PATH, String.valueOf(year));
     }
 }
