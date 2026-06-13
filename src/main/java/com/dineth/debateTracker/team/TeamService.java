@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -26,6 +27,10 @@ public class TeamService {
 
     public Team findTeamById(Long id) {
         return teamRepository.findById(id).orElse(null);
+    }
+
+    public List<Team> findAllTeamsByIds(Collection<Long> ids) {
+        return teamRepository.findAllById(ids);
     }
 
     public List<Team> getTeamsByDebater(Long debaterId) {

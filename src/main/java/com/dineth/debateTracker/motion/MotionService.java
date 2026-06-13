@@ -2,6 +2,7 @@ package com.dineth.debateTracker.motion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -20,6 +21,10 @@ public class MotionService {
 
     public Motion findMotionById(Long id) {
         return motionRepository.findById(id).orElse(null);
+    }
+
+    public List<Motion> findAllMotionsByIds(Collection<Long> ids) {
+        return motionRepository.findAllById(ids);
     }
     public Motion addMotion(Motion motion) {
         return motionRepository.save(motion);
