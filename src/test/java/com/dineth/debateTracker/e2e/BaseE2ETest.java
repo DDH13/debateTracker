@@ -31,7 +31,7 @@ public abstract class BaseE2ETest {
     private static final Logger log = LoggerFactory.getLogger(BaseE2ETest.class);
 
     @Autowired
-    protected TournamentBuilder tournamentBuilder;
+    protected TournamentImportService importService;
 
     @Autowired
     protected TournamentService tournamentService;
@@ -51,7 +51,7 @@ public abstract class BaseE2ETest {
      */
     protected TournamentInfo buildTournament(String xmlPath, String tournamentName) {
         log.info("Building {} from {}...", tournamentName, xmlPath);
-        TournamentDataDTO data = tournamentBuilder.buildMyTournament(xmlPath);
+        TournamentDataDTO data = importService.importTournament(xmlPath);
         Long tournamentId = findTournamentId(tournamentService, data);
         log.info("✓ {} built successfully with ID: {}", tournamentName, tournamentId);
         

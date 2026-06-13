@@ -30,7 +30,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetTournamentDTO() {
-        TournamentDTO dto = parser.getTournamentDTO(document);
+        TournamentDTO dto = parser.getTournamentDTO();
         assertEquals("Shanthi Peiris Memorial Debating Championship 2024", dto.getFullName(),
                 "Full name of the tournament should match");
         assertEquals("Metho 24", dto.getShortName(), "Short name of the tournament should match");
@@ -38,7 +38,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetBreakCategoryDTOs() {
-        List<BreakCategoryDTO> breakCategories = parser.getBreakCategoryDTOs(document);
+        List<BreakCategoryDTO> breakCategories = parser.getBreakCategoryDTOs();
         assertNotNull(breakCategories, "Break categories list should not be null");
         assertFalse(breakCategories.isEmpty(), "Break categories list should not be empty");
 
@@ -50,7 +50,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetTeamDTOs() {
-        List<TeamDTO> teams = parser.getTeamDTOs(document);
+        List<TeamDTO> teams = parser.getTeamDTOs();
         assertNotNull(teams, "Teams list should not be null");
         assertFalse(teams.isEmpty(), "Teams list should not be empty");
 
@@ -76,7 +76,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetDebaterDTOs() {
-        List<TeamDTO> teams = parser.getTeamDTOs(document);
+        List<TeamDTO> teams = parser.getTeamDTOs();
         if (!teams.isEmpty()) {
 
             int totalDebaters = teams.stream().mapToInt(team -> team.getDebaters().size()).sum();
@@ -107,7 +107,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetJudgeDTOs() {
-        List<JudgeDTO> judges = parser.getJudgeDTOs(document);
+        List<JudgeDTO> judges = parser.getJudgeDTOs();
         int nJudges = 47; // Expected number of judges in the tournament
         assertEquals(nJudges, judges.size(), "There should be " + nJudges + " judges in the tournament");
 
@@ -135,7 +135,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetInstitutionDTOs() {
-        List<InstitutionDTO> institutions = parser.getInstitutionDTOs(document);
+        List<InstitutionDTO> institutions = parser.getInstitutionDTOs();
         int nInstitutions = 24; // Expected number of institutions in the tournament
         assertEquals(nInstitutions, institutions.size(),
                 "There should be " + nInstitutions + " institutions in the tournament");
@@ -148,7 +148,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetMotionDTOs() {
-        List<MotionDTO> motions = parser.getMotionDTOs(document);
+        List<MotionDTO> motions = parser.getMotionDTOs();
 
         MotionDTO motion1 = motions.get(8);
         assertEquals("M9", motion1.getId());
@@ -171,7 +171,7 @@ class ParseTabbycatXMLTest {
 
     @Test
     void testGetRoundsDTO() {
-        List<RoundDTO> rounds = parser.getRoundsDTO(document);
+        List<RoundDTO> rounds = parser.getRoundsDTO();
 
         int nRounds = 9; // Expected number of rounds in the tournament
         assertEquals(nRounds, rounds.size(), "There should be " + nRounds + " rounds in the tournament");

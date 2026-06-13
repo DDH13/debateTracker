@@ -65,12 +65,12 @@ class TournamentDataE2ETest extends BaseE2ETest {
     private static TournamentInfo tournament1;
 
     @BeforeAll
-    static void buildTournament(@Autowired TournamentBuilder builder, @Autowired TournamentService tournamentService) {
+    static void buildTournament(@Autowired TournamentImportService importService, @Autowired TournamentService tournamentService) {
         log.info("========================================");
         log.info("Building tournament for data verification tests...");
         log.info("========================================");
 
-        TournamentDataDTO data = builder.buildMyTournament(TestFixtures.TOURNAMENT_1_XML);
+        TournamentDataDTO data = importService.importTournament(TestFixtures.TOURNAMENT_1_XML);
         Long tournamentId = findTournamentId(tournamentService, data);
 
         tournament1 = new TournamentInfo(data, tournamentId);
@@ -104,7 +104,7 @@ class TournamentDataE2ETest extends BaseE2ETest {
     void testTeamsCreated() {
         log.info("Test 2: Verifying teams...");
 
-        List<Team> teams = teamService.getTeam();
+        List<Team> teams = teamService.getTeams();
         assertEquals(TestFixtures.Tournament1.EXPECTED_TEAMS, teams.size(),
                 "Should have expected number of teams");
 
@@ -254,7 +254,7 @@ class TournamentDataE2ETest extends BaseE2ETest {
     void testTeamDebaterComposition() {
         log.info("Test 11: Verifying team-debater composition...");
 
-        List<Team> teams = teamService.getTeam();
+        List<Team> teams = teamService.getTeams();
         
         // Verify each team has debaters
         for (Team team : teams) {

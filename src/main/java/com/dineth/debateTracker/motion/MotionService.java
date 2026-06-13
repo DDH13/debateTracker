@@ -14,7 +14,7 @@ public class MotionService {
         this.motionRepository = motionRepository;
     }
 
-    public List<Motion> getMotion() {
+    public List<Motion> getMotions() {
         return motionRepository.findAll();
     }
 

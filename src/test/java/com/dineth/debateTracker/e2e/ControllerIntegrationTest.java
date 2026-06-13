@@ -33,7 +33,7 @@ class ControllerIntegrationTest extends BaseE2ETest {
     private static TournamentInfo tournament3;
 
     @BeforeAll
-    static void buildTournaments(@Autowired TournamentBuilder builder, 
+    static void buildTournaments(@Autowired TournamentImportService importService,
                                  @Autowired TournamentService tournamentService,
                                  @Autowired DebaterService debaterService,
                                  @Autowired JudgeService judgeService) {
@@ -41,15 +41,15 @@ class ControllerIntegrationTest extends BaseE2ETest {
         log.info("Building tournaments for controller integration tests...");
         log.info("========================================");
 
-        TournamentDataDTO data1 = builder.buildMyTournament(TestFixtures.TOURNAMENT_1_XML);
+        TournamentDataDTO data1 = importService.importTournament(TestFixtures.TOURNAMENT_1_XML);
         tournament1 = new TournamentInfo(data1, findTournamentId(tournamentService, data1));
         log.info("✓ Tournament 1 built with ID: {}", tournament1.getId());
 
-        TournamentDataDTO data2 = builder.buildMyTournament(TestFixtures.TOURNAMENT_2_XML);
+        TournamentDataDTO data2 = importService.importTournament(TestFixtures.TOURNAMENT_2_XML);
         tournament2 = new TournamentInfo(data2, findTournamentId(tournamentService, data2));
         log.info("✓ Tournament 2 built with ID: {}", tournament2.getId());
 
-        TournamentDataDTO data3 = builder.buildMyTournament(TestFixtures.TOURNAMENT_3_XML);
+        TournamentDataDTO data3 = importService.importTournament(TestFixtures.TOURNAMENT_3_XML);
         tournament3 = new TournamentInfo(data3, findTournamentId(tournamentService, data3));
         log.info("✓ Tournament 3 built with ID: {}", tournament3.getId());
 
