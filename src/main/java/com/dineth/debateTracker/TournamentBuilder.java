@@ -3,11 +3,14 @@ package com.dineth.debateTracker;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.TournamentDataDTO;
+import com.dineth.debateTracker.dtos.validation.ValidationReportDTO;
 import com.dineth.debateTracker.dtos.xmlparsing.RoundDTO;
 import com.dineth.debateTracker.utils.ParseCSV;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -32,12 +35,24 @@ public class TournamentBuilder {
     private static final int DEFAULT_SUMMARY_YEAR = 2024;
 
     private final TournamentImportService importService;
+    private final TournamentValidationService validationService;
     private final DebaterService debaterService;
 
     @Autowired
-    public TournamentBuilder(TournamentImportService importService, DebaterService debaterService) {
+    public TournamentBuilder(TournamentImportService importService, TournamentValidationService validationService,
+            DebaterService debaterService) {
         this.importService = importService;
+        this.validationService = validationService;
         this.debaterService = debaterService;
+    }
+
+    /**
+     * Dry-run validation of an uploaded tournament XML file. Returns a structured report of warnings
+     * and errors <b>without persisting anything</b>, so a UI can preview an import before committing.
+     */
+    @PostMapping(value = "/validate", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ValidationReportDTO validateTournament(@RequestParam("file") MultipartFile file) {
+        return validationService.validate(file);
     }
 
     @GetMapping("/build")
