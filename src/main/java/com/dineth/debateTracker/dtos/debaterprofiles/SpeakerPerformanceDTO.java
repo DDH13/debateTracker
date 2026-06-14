@@ -12,10 +12,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SpeakerPerformanceDTO {
-    public String tournamentName;
-    public Integer prelimsDebated;
-    public Integer rank;
-    public Float average;
-    public Float standardDeviation;
-    public Date date;
+    private String tournamentName;
+    private Integer prelimsDebated;
+    private Integer rank;
+    private Float average;
+    private Float standardDeviation;
+    private Date date;
 }

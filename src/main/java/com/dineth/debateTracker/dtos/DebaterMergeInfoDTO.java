@@ -10,11 +10,11 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 @Setter @Getter
 public class DebaterMergeInfoDTO {
-    Long id;
-    String firstName;
-    String lastName;
-    String fullName;
-    String phone;
-    Integer roundsDebated;
-    List<String> teams;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String fullName;
+    private String phone;
+    private Integer roundsDebated;
+    private List<String> teams;
 }

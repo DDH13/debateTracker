@@ -27,7 +27,7 @@ public class JudgeDTO {
     }
     @Override
     public String toString() {
-        return "DebateDTO{" +
+        return "JudgeDTO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", score='" + score + '\'' +

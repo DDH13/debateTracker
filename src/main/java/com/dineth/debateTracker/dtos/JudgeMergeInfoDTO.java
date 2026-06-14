@@ -10,10 +10,10 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 @Setter @Getter
 public class JudgeMergeInfoDTO {
-    Long id;
-    String firstName;
-    String lastName;
-    Integer breaks;
-    Integer prelims;
-    List<String> tournaments;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private Integer breaks;
+    private Integer prelims;
+    private List<String> tournaments;
 }

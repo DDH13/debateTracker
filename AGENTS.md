@@ -36,8 +36,9 @@ com.dineth.debateTracker/
 │   ├── statistics/         # Output DTOs for stat endpoints
 │   ├── debaterprofiles/    # Debater profile sub-DTOs
 │   └── SpeakerTab/         # Speaker leaderboard DTOs
-├── utils/                  # StringUtil, RoundUtil, ProfileUtil, Constants, CustomExceptions
-├── TournamentBuilder.java  # Orchestrates XML parse → entity persistence (~32 KB, handle with care)
+├── utils/                  # StringUtil, RoundUtil, ProfileUtil, Constants, CustomExceptions, ParseTabbycatXML
+├── TournamentImportService.java  # The XML → entity persistence pipeline (one @Transactional import)
+├── TournamentBuilder.java        # Thin @RestController; resolves file paths and delegates to the import service
 └── DebateTrackerApplication.java
 ```
 
@@ -65,8 +66,9 @@ All entities carry `createdAt`/`updatedAt` managed by `@PrePersist`/`@PreUpdate`
 
 | File | Role |
 |---|---|
-| `TournamentBuilder.java` | Reads parsed DTOs and writes all entities to the DB; the main import pipeline |
-| `xmlparser/ParseTabbycatXML.java` | Deserializes Tabbycat XML into `dtos/xmlparsing/` DTOs |
+| `TournamentImportService.java` | Reads parsed DTOs and writes all entities to the DB; the main import pipeline (runs as one transaction) |
+| `TournamentBuilder.java` | `@RestController` for `/api/v1/tournament/*`; delegates to `TournamentImportService` |
+| `utils/ParseTabbycatXML.java` | Deserializes Tabbycat XML into `dtos/xmlparsing/` DTOs |
 | `statistics/StatisticsService.java` | Percentile ranks, win/loss ratios, judge sentiment |
 | `debaterprofile/DebaterProfileService.java` | Aggregates multi-tournament debater stats into a profile |
 | `judgeprofile/JudgeProfileService.java` | Aggregates judge activity and sentiment into a profile |
@@ -77,6 +79,19 @@ All entities carry `createdAt`/`updatedAt` managed by `@PrePersist`/`@PreUpdate`
 | `src/main/resources/application.properties` | DB URL, JPA DDL mode (`update`), API key |
 | `src/test/resources/application-test.properties` | H2, DDL `create-drop` |
 | `docs/TESTING.md` | Full testing guide — read this before writing tests |
+
+---
+
+## Import Pipeline
+
+`TournamentImportService.importTournament(filePath)` is one `@Transactional` method decomposed into small steps:
+
+1. Parse the XML into DTOs (`ParseTabbycatXML` — call `parseXML()` first, then the parameterless `getXxxDTOs()` accessors).
+2. Persist entities in dependency order: `saveInstitutions` → `saveJudges` → `saveTeams`/`saveDebaters` → tournament → `saveBreakCategories` → `saveMotions`.
+3. `buildLookupCaches` batch-loads judges/teams/motions/debaters into `Map<Long, Entity>` caches (keyed by db id) so the rounds loop never queries per debate.
+4. `processRound` → `buildDebate` builds debates/ballots from the caches; `buildDebate` returns `null` to skip a debate (unresolved teams or ballot-count mismatch).
+
+The whole method rolls back on any exception. XML-id→DTO maps (`debaterDTOMap`, etc.) are import-internal working state — they are **not** returned in `TournamentDataDTO`.
 
 ---
 
@@ -135,7 +150,7 @@ Three XML tournament fixtures live in `src/test/resources/`: `testTourney.xml` (
 - **Service transactions:** Complex multi-entity operations belong in a `@Transactional` service method.
 - **No business logic in controllers:** Controllers call one service method and return the result.
 - **Fuzzy matching for dedup:** `InstitutionService` and `ReplacementService` use Commons Text similarity — follow the same pattern for any new deduplication logic.
-- **Cascade:** Set cascade types deliberately; `TournamentBuilder` is the authoritative example of how related entities are linked during import.
+- **Cascade:** Set cascade types deliberately; `TournamentImportService` is the authoritative example of how related entities are linked during import.
 - **ID generation:** Use `@SequenceGenerator` + `@GeneratedValue` matching the existing pattern in any new entity.
 
 ---
@@ -148,7 +163,7 @@ Three XML tournament fixtures live in `src/test/resources/`: `testTourney.xml` (
 2. Create `<Entity>Repository.java` extending `JpaRepository`.
 3. Create `<Entity>Service.java` with `@Service`; inject the repository.
 4. Create `<Entity>Controller.java` with `@RestController`, `@RequestMapping("/api/v1/<resource>")`, and `@CrossOrigin(origins = "*")`.
-5. If the entity is imported from XML, add a corresponding DTO to `dtos/xmlparsing/` and wire it into `ParseTabbycatXML` and `TournamentBuilder`.
+5. If the entity is imported from XML, add a corresponding DTO to `dtos/xmlparsing/` and wire it into `ParseTabbycatXML` and `TournamentImportService`.
 
 ### Adding a new statistic
 

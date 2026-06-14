@@ -12,8 +12,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FurthestRoundDTO {
-    public String tournamentName;
-    public String roundName;
-    public Boolean won;
-    public Date date;
+    private String tournamentName;
+    private String roundName;
+    private Boolean won;
+    private Date date;
 }

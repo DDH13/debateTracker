@@ -140,15 +140,15 @@ public class TournamentImportService {
 
     private void saveInstitutions(List<InstitutionDTO> institutionDTOs) {
         for (InstitutionDTO institutionDTO : institutionDTOs) {
-            Institution existing = institutionService.findInstitutionByName(institutionDTO.name.strip());
+            Institution existing = institutionService.findInstitutionByName(institutionDTO.getName().strip());
             if (existing == null) {
-                log.debug("Adding institution : " + institutionDTO.name);
+                log.debug("Adding institution : " + institutionDTO.getName());
                 Institution institution = institutionService.addInstitution(
-                        new Institution(institutionDTO.name.strip(), institutionDTO.reference));
-                institutionDTO.dbId = institution.getId();
+                        new Institution(institutionDTO.getName().strip(), institutionDTO.getReference()));
+                institutionDTO.setDbId(institution.getId());
             } else {
-                log.debug("Institution already exists : " + institutionDTO.name);
-                institutionDTO.dbId = existing.getId();
+                log.debug("Institution already exists : " + institutionDTO.getName());
+                institutionDTO.setDbId(existing.getId());
             }
         }
     }

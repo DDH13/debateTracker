@@ -23,7 +23,7 @@ public class DebaterDTO {
 
     @Override
     public String toString() {
-        return "RoundDTO{" +
+        return "DebaterDTO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", institutionId='" + institutionId + '\'' +
