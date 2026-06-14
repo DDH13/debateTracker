@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +17,18 @@ import java.util.List;
 @Slf4j
 public class ParseTabbycatXML {
     String xmlPath;
+    InputStream inputStream;
     public Document document;
 
     public ParseTabbycatXML(String xmlPath) {
         this.xmlPath = xmlPath;
+    }
+
+    /**
+     * Parse from an arbitrary stream (e.g. an uploaded file) instead of a file path on disk.
+     */
+    public ParseTabbycatXML(InputStream inputStream) {
+        this.inputStream = inputStream;
     }
 
     public void parseXML() {
@@ -27,7 +36,7 @@ public class ParseTabbycatXML {
             // Parse the XML file
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            document = builder.parse(this.xmlPath); // Specify the path to your XML file
+            document = inputStream != null ? builder.parse(inputStream) : builder.parse(this.xmlPath);
 
             // Normalize the XML Structure
             document.getDocumentElement().normalize();
