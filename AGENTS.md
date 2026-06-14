@@ -94,7 +94,7 @@ All entities carry `createdAt`/`updatedAt` managed by `@PrePersist`/`@PreUpdate`
 
 The whole method rolls back on any exception. XML-id→DTO maps (`debaterDTOMap`, etc.) are import-internal working state — they are **not** returned in `TournamentDataDTO`.
 
-**Dry-run validation:** `POST /api/v1/tournament/validate` (multipart `file`) → `TournamentValidationService` parses an uploaded XML and returns a `ValidationReportDTO` (`dtos/validation/`) of findings — missing/single-word names, ballot-count mismatches, empty teams, plus read-only DB cross-checks (speaker/tournament already exists). It is strictly read-only (never persists) and never throws for a bad file (a malformed upload is reported as a `PARSE_ERROR` finding). Use this to preview an import before committing one.
+**Dry-run validation:** `POST /api/v1/tournament/validate` (multipart `file`) → `TournamentValidationService` parses an uploaded XML and returns a `ValidationReportDTO` (`dtos/validation/`) of findings — missing/single-word names, ballot-count mismatches, empty teams, plus read-only DB cross-checks (speaker/tournament already exists). When a speaker name matches existing debaters, the finding carries each candidate's teams and institution (`DebaterMatch`) so a human can tell apart speakers who share a name (or whose names are misspelled / missing a last name) — single matches are `DEBATER_EXISTS` (INFO), multiple are `DEBATER_AMBIGUOUS` (WARNING). It is strictly read-only (never persists) and never throws for a bad file (a malformed upload is reported as a `PARSE_ERROR` finding). Use this to preview an import before committing one.
 
 ---
 

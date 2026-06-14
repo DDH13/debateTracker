@@ -60,6 +60,16 @@ public class DebaterService {
         return debaterRepository.findDebatersByInstitutionId(institutionId);
     }
 
+    /**
+     * Returns every debater matching the given name, case-insensitively. Unlike
+     * {@link #checkIfDebaterExists(Debater)} this never throws on ambiguity — it is meant for
+     * read-only previews (e.g. validation) that want to show all candidates so a human can
+     * disambiguate by their teams/institution.
+     */
+    public List<Debater> findDebatersByName(String firstName, String lastName) {
+        return debaterRepository.findByFirstNameAndLastNameAllIgnoreCase(firstName, lastName);
+    }
+
     public Debater checkIfDebaterExists(Debater debater) {
         List<Debater> debaters;
         if (debater.getBirthdate() != null) {
