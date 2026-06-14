@@ -74,5 +74,12 @@ class TournamentValidationServiceTest {
                 "Re-validating an imported tournament should warn that it already exists");
         assertTrue(report.getFindings().stream().anyMatch(f -> "DEBATER_EXISTS".equals(f.code())),
                 "Speakers already in the DB should be flagged as existing");
+
+        // The disambiguating context (existing debater's teams) must be attached so a human can
+        // tell apart speakers with the same/misspelled/last-name-less names.
+        assertTrue(report.getFindings().stream()
+                        .filter(f -> "DEBATER_EXISTS".equals(f.code()))
+                        .anyMatch(f -> !f.matches().isEmpty() && f.matches().stream().anyMatch(m -> !m.teams().isEmpty())),
+                "A DEBATER_EXISTS finding should carry the existing debater's team context");
     }
 }

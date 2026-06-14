@@ -2,12 +2,15 @@ package com.dineth.debateTracker;
 
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
+import com.dineth.debateTracker.dtos.validation.DebaterMatch;
 import com.dineth.debateTracker.dtos.validation.Severity;
 import com.dineth.debateTracker.dtos.validation.ValidationFinding;
 import com.dineth.debateTracker.dtos.validation.ValidationReportDTO;
 import com.dineth.debateTracker.dtos.xmlparsing.*;
+import com.dineth.debateTracker.institution.Institution;
 import com.dineth.debateTracker.institution.InstitutionService;
-import com.dineth.debateTracker.tournament.Tournament;
+import com.dineth.debateTracker.team.Team;
+import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.TournamentService;
 import com.dineth.debateTracker.utils.CustomExceptions;
 import com.dineth.debateTracker.utils.ParseTabbycatXML;
@@ -26,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * Dry-run validator for uploaded Tabbycat tournament XML. Parses the file and runs the same checks
@@ -42,13 +46,15 @@ public class TournamentValidationService {
     private final DebaterService debaterService;
     private final InstitutionService institutionService;
     private final TournamentService tournamentService;
+    private final TeamService teamService;
 
     @Autowired
     public TournamentValidationService(DebaterService debaterService, InstitutionService institutionService,
-            TournamentService tournamentService) {
+            TournamentService tournamentService, TeamService teamService) {
         this.debaterService = debaterService;
         this.institutionService = institutionService;
         this.tournamentService = tournamentService;
+        this.teamService = teamService;
     }
 
     @Transactional(readOnly = true)
@@ -185,17 +191,52 @@ public class TournamentValidationService {
         } catch (CustomExceptions.NameSplitException e) {
             return; // already reported as MISSING_NAME
         }
-        Debater probe = new Debater(StringUtil.capitalizeName(names.getLeft()), StringUtil.capitalizeName(names.getRight()));
-        try {
-            Debater existing = debaterService.checkIfDebaterExists(probe);
-            if (existing != null) {
-                findings.add(new ValidationFinding(Severity.INFO, "DEBATER_EXISTS",
-                        "A speaker named '" + name + "' already exists and will be reused, not created.", location));
-            }
-        } catch (CustomExceptions.MultipleDebatersFoundException e) {
-            findings.add(new ValidationFinding(Severity.WARNING, "DEBATER_AMBIGUOUS",
-                    "Multiple existing speakers match '" + name + "'; a birthdate is needed to disambiguate on import.", location));
+        String first = StringUtil.capitalizeName(names.getLeft());
+        String last = StringUtil.capitalizeName(names.getRight());
+        List<Debater> existing = debaterService.findDebatersByName(first, last);
+        if (existing.isEmpty()) {
+            return;
         }
+        // Attach each existing debater's teams + institution so a human can tell apart speakers who
+        // share a name (or whose names are misspelled / missing a last name).
+        List<DebaterMatch> matches = existing.stream().map(this::toMatch).collect(Collectors.toList());
+        if (existing.size() == 1) {
+            findings.add(new ValidationFinding(Severity.INFO, "DEBATER_EXISTS",
+                    "A speaker named '" + name + "' already exists (" + describe(matches.get(0))
+                            + ") and will be reused, not created.",
+                    location, matches));
+        } else {
+            findings.add(new ValidationFinding(Severity.WARNING, "DEBATER_AMBIGUOUS",
+                    "Multiple existing speakers match '" + name + "' — " + summarize(matches)
+                            + ". A birthdate is needed to disambiguate on import; compare the teams/institution to identify the right one.",
+                    location, matches));
+        }
+    }
+
+    /** Builds disambiguating context (teams + institution) for an existing debater. */
+    private DebaterMatch toMatch(Debater debater) {
+        Institution institution = debater.getInstitution();
+        String institutionName = institution != null ? institution.getName() : null;
+        List<String> teams = teamService.getTeamsByDebater(debater.getId()).stream()
+                .map(Team::getTeamName)
+                .filter(teamName -> teamName != null && !teamName.isEmpty())
+                .distinct()
+                .collect(Collectors.toList());
+        String storedName = ((debater.getFirstName() != null ? debater.getFirstName() : "") + " "
+                + (debater.getLastName() != null ? debater.getLastName() : "")).trim();
+        return new DebaterMatch(debater.getId(), storedName, institutionName, teams);
+    }
+
+    private String describe(DebaterMatch match) {
+        String institution = match.institution() != null ? match.institution() : "no institution";
+        String teams = match.teams().isEmpty() ? "no recorded teams" : "teams: " + String.join(", ", match.teams());
+        return institution + "; " + teams;
+    }
+
+    private String summarize(List<DebaterMatch> matches) {
+        return matches.stream()
+                .map(match -> "#" + match.debaterId() + " [" + describe(match) + "]")
+                .collect(Collectors.joining("; "));
     }
 
     private void crossCheckTournament(TournamentDTO tournamentDTO, List<ValidationFinding> findings) {
