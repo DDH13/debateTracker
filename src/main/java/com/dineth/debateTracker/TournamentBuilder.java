@@ -5,6 +5,8 @@ import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.TournamentDataDTO;
 import com.dineth.debateTracker.dtos.validation.ValidationReportDTO;
 import com.dineth.debateTracker.dtos.xmlparsing.RoundDTO;
+import com.dineth.debateTracker.imports.ApiTournamentSource;
+import com.dineth.debateTracker.imports.tabbycat.TabbycatApiClient;
 import com.dineth.debateTracker.utils.ParseCSV;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +62,18 @@ public class TournamentBuilder {
             @RequestParam(required = false) Integer year) {
         int selectedYear = year != null ? year : DEFAULT_BUILD_YEAR;
         return importService.importTournament(buildTournamentFilePath(fileName, selectedYear));
+    }
+
+    /**
+     * Import a tournament directly from a Tabbycat instance's REST API instead of an XML file. The
+     * instance base URL, an API auth token, and the tournament slug are supplied per request, so a
+     * single deployment can pull from any number of Tabbycat instances.
+     */
+    @PostMapping("/build-from-api")
+    public TournamentDataDTO buildFromApi(@RequestParam String baseUrl, @RequestParam String token,
+            @RequestParam String slug) {
+        TabbycatApiClient client = TabbycatApiClient.create(baseUrl, token);
+        return importService.importTournament(new ApiTournamentSource(client, slug));
     }
 
     @GetMapping("/buildall")

@@ -24,7 +24,9 @@ import com.dineth.debateTracker.team.Team;
 import com.dineth.debateTracker.team.TeamService;
 import com.dineth.debateTracker.tournament.Tournament;
 import com.dineth.debateTracker.tournament.TournamentService;
-import com.dineth.debateTracker.utils.ParseTabbycatXML;
+import com.dineth.debateTracker.imports.TournamentImportData;
+import com.dineth.debateTracker.imports.TournamentSource;
+import com.dineth.debateTracker.imports.XmlTournamentSource;
 import com.dineth.debateTracker.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -95,18 +97,29 @@ public class TournamentImportService {
     }
 
     @Transactional
+    /**
+     * Import a tournament from an XML export on disk. Convenience overload that wraps the path in an
+     * {@link XmlTournamentSource}; the real work lives in {@link #importTournament(TournamentSource)}.
+     */
     public TournamentDataDTO importTournament(String filePath) {
-        try {
-            ParseTabbycatXML parser = new ParseTabbycatXML(filePath);
-            parser.parseXML();
+        return importTournament(new XmlTournamentSource(filePath));
+    }
 
-            TournamentDTO tournamentDTO = parser.getTournamentDTO();
-            List<TeamDTO> teamDTOs = parser.getTeamDTOs();
-            List<JudgeDTO> judgeDTOs = parser.getJudgeDTOs();
-            List<InstitutionDTO> institutionDTOs = parser.getInstitutionDTOs();
-            List<MotionDTO> motionDTOs = parser.getMotionDTOs();
-            List<RoundDTO> roundDTOs = parser.getRoundsDTO();
-            List<BreakCategoryDTO> breakCategoryDTOs = parser.getBreakCategoryDTOs();
+    /**
+     * Import a tournament from any {@link TournamentSource} (XML export, Tabbycat API, ...). The source
+     * gathers all data up front; this method persists it in a single transaction.
+     */
+    public TournamentDataDTO importTournament(TournamentSource source) {
+        try {
+            TournamentImportData data = source.load();
+
+            TournamentDTO tournamentDTO = data.tournament();
+            List<TeamDTO> teamDTOs = data.teams();
+            List<JudgeDTO> judgeDTOs = data.judges();
+            List<InstitutionDTO> institutionDTOs = data.institutions();
+            List<MotionDTO> motionDTOs = data.motions();
+            List<RoundDTO> roundDTOs = data.rounds();
+            List<BreakCategoryDTO> breakCategoryDTOs = data.breakCategories();
 
             // XML-id -> DTO maps, populated as entities are persisted and used to resolve references
             Map<String, DebaterDTO> debaterDTOMap = new HashMap<>();
