@@ -81,5 +81,12 @@ class TournamentValidationServiceTest {
                         .filter(f -> "DEBATER_EXISTS".equals(f.code()))
                         .anyMatch(f -> !f.matches().isEmpty() && f.matches().stream().anyMatch(m -> !m.teams().isEmpty())),
                 "A DEBATER_EXISTS finding should carry the existing debater's team context");
+
+        // Institutions already imported should be flagged as reused (replaced by the existing one),
+        // carrying the matched institution's identity.
+        assertTrue(report.getFindings().stream()
+                        .filter(f -> "INSTITUTION_MATCH".equals(f.code()))
+                        .anyMatch(f -> f.institutionMatch() != null && f.institutionMatch().institutionId() != null),
+                "An INSTITUTION_MATCH finding should carry the existing institution's identity");
     }
 }

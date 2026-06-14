@@ -3,6 +3,7 @@ package com.dineth.debateTracker;
 import com.dineth.debateTracker.debater.Debater;
 import com.dineth.debateTracker.debater.DebaterService;
 import com.dineth.debateTracker.dtos.validation.DebaterMatch;
+import com.dineth.debateTracker.dtos.validation.InstitutionMatch;
 import com.dineth.debateTracker.dtos.validation.Severity;
 import com.dineth.debateTracker.dtos.validation.ValidationFinding;
 import com.dineth.debateTracker.dtos.validation.ValidationReportDTO;
@@ -93,6 +94,7 @@ public class TournamentValidationService {
         validateTeamsAndDebaters(teamDTOs, institutionDTOs, findings);
         validateJudges(judgeDTOs, findings);
         validateDebates(roundDTOs, findings);
+        crossCheckInstitutions(institutionDTOs, findings);
         crossCheckTournament(tournamentDTO, findings);
 
         return new ValidationReportDTO(findings, summary);
@@ -237,6 +239,34 @@ public class TournamentValidationService {
         return matches.stream()
                 .map(match -> "#" + match.debaterId() + " [" + describe(match) + "]")
                 .collect(Collectors.joining("; "));
+    }
+
+    /**
+     * Mirrors {@link TournamentImportService}'s institution handling: the importer reuses an existing
+     * institution when {@link InstitutionService#findInstitutionByName} matches one, otherwise creates
+     * it. This surfaces each reuse so a human can confirm the upload will be linked to the right
+     * existing institution (and catch an unintended merge when the stored spelling differs).
+     */
+    private void crossCheckInstitutions(List<InstitutionDTO> institutionDTOs, List<ValidationFinding> findings) {
+        for (InstitutionDTO institutionDTO : institutionDTOs) {
+            String name = institutionDTO.getName();
+            if (name == null || name.isBlank()) {
+                continue;
+            }
+            String stripped = name.strip();
+            Institution existing = institutionService.findInstitutionByName(stripped);
+            if (existing == null) {
+                continue; // a new institution will be created on import; nothing to flag
+            }
+            InstitutionMatch match = new InstitutionMatch(existing.getId(), existing.getName(), existing.getAbbreviation());
+            String reused = existing.getName() != null ? existing.getName() : stripped;
+            String note = reused.equalsIgnoreCase(stripped)
+                    ? "'" + stripped + "' already exists and will be reused, not created."
+                    : "'" + stripped + "' will be matched to existing '" + reused + "' (#" + existing.getId()
+                            + ") and reused, not created — confirm this is the same institution.";
+            findings.add(new ValidationFinding(Severity.INFO, "INSTITUTION_MATCH", "Institution " + note,
+                    "institution '" + stripped + "'", match));
+        }
     }
 
     private void crossCheckTournament(TournamentDTO tournamentDTO, List<ValidationFinding> findings) {
