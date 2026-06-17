@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Comprehensive DTO that contains all the tournament data after XML parsing.
@@ -30,14 +29,7 @@ public class TournamentDataDTO {
     
     // Tournament structure and results
     private List<RoundDTO> rounds;
-    
-    // Mappings for quick lookup during parsing
-    private Map<String, DebaterDTO> debaterMap;
-    private Map<String, TeamDTO> teamMap;
-    private Map<String, JudgeDTO> judgeMap;
-    private Map<String, InstitutionDTO> institutionMap;
-    private Map<String, MotionDTO> motionMap;
-    
+
     // Statistics and metadata
     private TournamentMetadata metadata;
     
@@ -63,27 +55,7 @@ public class TournamentDataDTO {
         this.metadata = new TournamentMetadata();
         calculateMetadata();
     }
-    
-    /**
-     * Constructor with maps for quick lookup
-     */
-    public TournamentDataDTO(TournamentDTO tournament,
-                           List<DebaterDTO> debaters,
-                           List<TeamDTO> teams,
-                           List<JudgeDTO> judges,
-                           List<InstitutionDTO> institutions,
-                           List<MotionDTO> motions,
-                           List<BreakCategoryDTO> breakCategories,
-                           List<RoundDTO> rounds,
-                           Map<String, DebaterDTO> debaterMap,
-                           Map<String, TeamDTO> teamMap,
-                           Map<String, JudgeDTO> judgeMap) {
-        this(tournament, debaters, teams, judges, institutions, motions, breakCategories, rounds);
-        this.debaterMap = debaterMap;
-        this.teamMap = teamMap;
-        this.judgeMap = judgeMap;
-    }
-    
+
     /**
      * Calculate tournament metadata and statistics
      */
@@ -221,13 +193,9 @@ public class TournamentDataDTO {
     }
     
     /**
-     * Get team by ID (using the team map for efficiency)
+     * Get team by ID
      */
     public TeamDTO getTeamById(String teamId) {
-        if (teamMap != null) {
-            return teamMap.get(teamId);
-        }
-        // Fallback to linear search if map is not available
         if (teams == null || teamId == null) {
             return null;
         }
@@ -236,15 +204,11 @@ public class TournamentDataDTO {
                 .findFirst()
                 .orElse(null);
     }
-    
+
     /**
-     * Get judge by ID (using the judge map for efficiency)
+     * Get judge by ID
      */
     public JudgeDTO getJudgeById(String judgeId) {
-        if (judgeMap != null) {
-            return judgeMap.get(judgeId);
-        }
-        // Fallback to linear search if map is not available
         if (judges == null || judgeId == null) {
             return null;
         }
@@ -253,15 +217,11 @@ public class TournamentDataDTO {
                 .findFirst()
                 .orElse(null);
     }
-    
+
     /**
-     * Get debater by ID (using the debater map for efficiency)
+     * Get debater by ID
      */
     public DebaterDTO getDebaterById(String debaterId) {
-        if (debaterMap != null) {
-            return debaterMap.get(debaterId);
-        }
-        // Fallback to linear search if map is not available
         if (debaters == null || debaterId == null) {
             return null;
         }

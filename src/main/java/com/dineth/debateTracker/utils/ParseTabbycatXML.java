@@ -37,7 +37,7 @@ public class ParseTabbycatXML {
         }
     }
 
-    public TournamentDTO getTournamentDTO(Document document) {
+    public TournamentDTO getTournamentDTO() {
         try {
             Node tournament = document.getElementsByTagName("tournament").item(0);
             String fullName = tournament.getAttributes().getNamedItem("name").getNodeValue();
@@ -49,7 +49,7 @@ public class ParseTabbycatXML {
         }
     }
 
-    public List<BreakCategoryDTO> getBreakCategoryDTOs(Document document) {
+    public List<BreakCategoryDTO> getBreakCategoryDTOs() {
         try {
             NodeList breakCategoryList = document.getElementsByTagName("break-category");
             List<BreakCategoryDTO> breakCategoryDTOs = new ArrayList<>();
@@ -70,7 +70,7 @@ public class ParseTabbycatXML {
 
     }
 
-    public List<TeamDTO> getTeamDTOs(Document document) {
+    public List<TeamDTO> getTeamDTOs() {
         try {
             NodeList teamList = document.getElementsByTagName("team");
             List<TeamDTO> teamDTOs = new ArrayList<>();
@@ -127,7 +127,7 @@ public class ParseTabbycatXML {
         }
     }
 
-    public List<JudgeDTO> getJudgeDTOs(Document document) {
+    public List<JudgeDTO> getJudgeDTOs() {
         try {
             NodeList adjudicatorList = document.getElementsByTagName("adjudicator");
             List<JudgeDTO> judgeDTOs = new ArrayList<>();
@@ -206,7 +206,7 @@ public class ParseTabbycatXML {
 
     }
 
-    public List<InstitutionDTO> getInstitutionDTOs(Document document) {
+    public List<InstitutionDTO> getInstitutionDTOs() {
         try {
             NodeList institutionList = document.getElementsByTagName("institution");
             List<InstitutionDTO> institutionDTOs = new ArrayList<>();
@@ -229,7 +229,7 @@ public class ParseTabbycatXML {
         }
     }
 
-    public List<MotionDTO> getMotionDTOs(Document document) {
+    public List<MotionDTO> getMotionDTOs() {
         try {
             List<MotionDTO> motionDTOs = new ArrayList<>();
             NodeList motionList = document.getElementsByTagName("motion");
@@ -265,7 +265,7 @@ public class ParseTabbycatXML {
         }
     }
 
-    public List<RoundDTO> getRoundsDTO(Document document) {
+    public List<RoundDTO> getRoundsDTO() {
         try {
             List<RoundDTO> roundDTOs = new ArrayList<>();
             NodeList roundList = document.getElementsByTagName("round");

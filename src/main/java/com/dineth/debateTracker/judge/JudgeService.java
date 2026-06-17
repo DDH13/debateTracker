@@ -51,6 +51,10 @@ public class JudgeService {
     public Judge checkJudgeExists(Judge judge) {
         return judgeRepository.findByFnameAndLname(judge.getFname(), judge.getLname());
     }
+
+    public List<Judge> findAllJudgesByIds(Collection<Long> ids) {
+        return judgeRepository.findAllById(ids);
+    }
     
 
     /**

@@ -8,10 +8,10 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class InstitutionDTO {
-    public String id;
-    public String name;
-    public String reference;
-    public Long dbId;
+    private String id;
+    private String name;
+    private String reference;
+    private Long dbId;
 
     public InstitutionDTO(String id, String name, String reference) {
         this.id = id;

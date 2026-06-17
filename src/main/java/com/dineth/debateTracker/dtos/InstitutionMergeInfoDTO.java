@@ -10,9 +10,9 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 @Setter @Getter
 public class InstitutionMergeInfoDTO {
-    Long id;
-    String name;
-    String abbreviation;
-    String teamCount;
-    List<String> teams;
+    private Long id;
+    private String name;
+    private String abbreviation;
+    private String teamCount;
+    private List<String> teams;
 }

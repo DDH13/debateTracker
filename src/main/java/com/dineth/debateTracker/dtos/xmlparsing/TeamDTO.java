@@ -28,7 +28,7 @@ public class TeamDTO {
 
     @Override
     public String toString() {
-        return "RoundDTO{" +
+        return "TeamDTO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +

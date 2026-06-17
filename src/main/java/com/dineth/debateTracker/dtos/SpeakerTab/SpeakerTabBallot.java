@@ -8,11 +8,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class SpeakerTabBallot {
-    Long ballotId;
-    Float speakerScore;
-    Integer speakerPosition;
-    Long judgeId;
-    Long roundId;
+    private Long ballotId;
+    private Float speakerScore;
+    private Integer speakerPosition;
+    private Long judgeId;
+    private Long roundId;
 
     public SpeakerTabBallot(Long ballotId, Float speakerScore, Integer speakerPosition, Long judgeId, Long roundId) {
         this.ballotId = ballotId;

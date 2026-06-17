@@ -7,12 +7,12 @@ import lombok.Setter;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class SpeakerScorePerformanceDTO {
-    public Long debaterId;
-    public String firstName;
-    public String lastName;
-    public Long tournamentId;
-    public String tournamentShortName;
-    public Double averageSpeakerScore;
-    public Integer SpeechesGiven;
-    public Integer rank;
+    private Long debaterId;
+    private String firstName;
+    private String lastName;
+    private Long tournamentId;
+    private String tournamentShortName;
+    private Double averageSpeakerScore;
+    private Integer speechesGiven;
+    private Integer rank;
 }
